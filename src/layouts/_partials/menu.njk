@@ -1,0 +1,39 @@
+<div class="running-head">
+    {% if not '/index.html' in permalink %}
+        
+    
+    <a class="back-home" href="/">
+        {% include "_partials/logo.njk" %}
+    </a>
+    {% endif %}
+    <button class="menu-call">MENU</button>
+    <nav class="menu hide" role="main">
+        <ul>
+            {# make loop #}
+
+            {% for item in collections.sortedByOrder %}
+                {% if item.data.menu.length %}
+                    <li>
+                        <a href="{{item.url}}">{{item.data.menu}}</a>
+                    </li>
+                {% endif %}
+
+            {% endfor %}
+
+            <li>
+                <a class="gitlab-link" href="https://gitlab.pagedmedia.org/tools/pagedjs">Gitlab</a>
+            </li>
+        </ul>
+    </nav>
+
+</div>
+{# <script>
+        document
+            .querySelector(".menu-call")
+            .addEventListener("click", function () {
+                document
+                    .querySelector('.topbar nav')
+                    .classList
+                    .toggle('hide');
+            })
+    </script> #}

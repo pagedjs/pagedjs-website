@@ -1,0 +1,21 @@
+{
+    "lang": "en",
+    "name": "Paged.js",
+    "description": "",
+    "image": "",
+    "imageAlt": "Image description",
+    "locale": "en_GB",
+    "url": "/",
+    "browser-theme-color": "#000",
+    "books": [
+    ],
+    "configuration": {
+        "theme": "theme-pagedjs",
+        "logo": "Aperture",
+        "baseURL": "/",
+        "footer": "",
+        "home": [
+            "booksingle"
+        ]
+    }
+}

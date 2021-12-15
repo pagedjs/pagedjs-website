@@ -1,7 +1,6 @@
 ---
 title: "Notes About Notes"
 date: 2020-05-13T15:42:08+02:00
-draft: true
 draft: false
 author: "Julie Blanc"
 intro:  "This article proposing new CSS specifications to design differents kind of notes  in  continuous and paged medias."
