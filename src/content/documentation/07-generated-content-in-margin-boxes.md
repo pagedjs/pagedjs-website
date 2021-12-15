@@ -3,9 +3,8 @@ title: "Generated Content in Margin Boxes"
 date: 2019-09-03T18:23:22+02:00
 draft: false
 class: documentation
-weight: 7
 intro: "Running headers, footnotes, stuff in margins and so on."
-part: 7
+part: 07
 ---
 
 ## Margin boxes of a page

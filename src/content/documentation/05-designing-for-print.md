@@ -1,9 +1,7 @@
 ---
-title: "Web design for print"
+title: Web design for print
 date: 2019-09-03T18:23:22+02:00
-draft: false
 part: 5
-weight: 5
 intro: "If you want to start designing your own book, now is the perfect time!"
 ---
 
@@ -48,7 +46,6 @@ It's also possible to specify the page size by using keywords that can be combin
 }
 ```
 
-<!-- {{% table width="80%" caption="Page size keywords and their size" %}}
 
 | Page size keyword     | Size          |
 | :--                   |           --: |
@@ -67,7 +64,6 @@ It's also possible to specify the page size by using keywords that can be combin
 | legal                 | 8.5 × 14 in   |
 | ledger                | 11 × 17 in    |
 
-{{% /table %}} -->
 
 ### CSS variables
 

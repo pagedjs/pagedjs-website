@@ -1,0 +1,5 @@
+{
+    "layout": "documentation-single.njk",
+    "permalink":"/documentation/{{part}}-{{title | slug}}/"
+    
+}

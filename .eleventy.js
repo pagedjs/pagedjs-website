@@ -17,7 +17,6 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addCollection("sortedByOrder", function (collectionApi) {
     return collectionApi.getAll().sort((a, b) => {
-
       if (a.data.order > b.data.order) return 1;
       else if (a.data.order < b.data.order) return -1;
       else return 0;
@@ -26,12 +25,20 @@ module.exports = function (eleventyConfig) {
 
 
   // eleventyConfig.addFilter("search", searchFilter);
-  
+
   // eleventyConfig.addFilter("searchSingle", searchFilterSingle);
   eleventyConfig.addCollection("allSearch", collection => {
     return [...collection.getFilteredByTag("chapter")];
   });
-  
+
+
+
+  // create documentation collection
+
+  eleventyConfig.addCollection("documentation", collectionApi => {
+    return collectionApi.getFilteredByGlob("src/content/documentation/**/*.md").sort((a, b) => a.data.part - b.data.part);
+  });
+
 
   eleventyConfig.addPassthroughCopy({ "static/css": "/css" });
   eleventyConfig.addPassthroughCopy({ "static/fonts": "/fonts" });
@@ -87,8 +94,8 @@ module.exports = function (eleventyConfig) {
     else {
       return value;
     }
-    
-  });  
+
+  });
 
 
 

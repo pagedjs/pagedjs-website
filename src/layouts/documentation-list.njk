@@ -1,0 +1,36 @@
+{% extends "base.njk" %}
+
+{% block side %}
+    {# <p style="color: purple; position: absolute; left: -60px; top: 0; transform : rotate(90deg) ">single</p> #}
+    {# {% include "_partials/readbuttons.njk" %} #}
+{% endblock %}
+
+{% block scripts %}{% endblock %}
+
+{% block content %}
+
+    <header>
+        <h1 id="title">
+            <span>{{part}}</span>{{title}}</h1>
+    </header>
+    <section class="list content">
+        <ul>
+            {% for item in collections.do
+                <li class="article">
+                    <h2>
+                        <a href="{{item.url}}">
+                            <span>{{item.data.title}}</span></a>
+                    </h2>
+
+                    {{ item.templateContent | toc(tags=['h2']) | prependLinks(item.url) | safe}}
+                </li>
+
+            {% endfor %}
+        </ul>
+    </section>
+    {# 
+        <aside class="paginator">
+            <a class="next alone" href="https://www.pagedjs.org/search/">Looking for something?</a>
+        </aside> #}
+
+{% endblock %}
