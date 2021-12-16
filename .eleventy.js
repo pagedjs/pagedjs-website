@@ -38,6 +38,11 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection("documentation", collectionApi => {
     return collectionApi.getFilteredByGlob("src/content/documentation/**/*.md").sort((a, b) => a.data.part - b.data.part);
   });
+   // create journal collection
+
+  eleventyConfig.addCollection("journal", collectionApi => {
+    return collectionApi.getFilteredByGlob("src/content/journal/**/*.md").sort((a, b) => a.data.date - b.data.date);
+  });
 
 
   eleventyConfig.addPassthroughCopy({ "static/css": "/css" });
@@ -97,9 +102,13 @@ module.exports = function (eleventyConfig) {
 
   });
 
+  eleventyConfig.addFilter("removeWhitespaces", (str) => str.replace(/\s/g,'')); 
+  // eleventyConfig.addFilter("monthYear", (date) => `${date.getMonth()}-${date.getYear()}`)
 
-
-
+  eleventyConfig.addFilter("monthYear", (date) => {
+    if(date !== "") return date.getMonth() +'-' + date.getYear()
+    else return ''
+  })
 
   eleventyConfig.addPlugin(pluginTOC, {
     tags: ["h2", "h3", "h4"], // which heading tags are selected headings must each have an ID attribute

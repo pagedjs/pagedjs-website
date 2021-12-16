@@ -10,12 +10,11 @@
 {% block content %}
 
     <header>
-        <h1 id="title">
-            <span>{{part}}</span>{{title}}</h1>
+        <h1 id="title">{{title}}</h1>
     </header>
     <section class="list content">
         <ul>
-            {% for item in collections.do
+            {% for item in collections.documentation %}
                 <li class="article">
                     <h2>
                         <a href="{{item.url}}">

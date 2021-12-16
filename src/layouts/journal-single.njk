@@ -1,0 +1,37 @@
+{% extends "base.njk" %}
+
+{% block side %}
+    <p style="color: purple; position: absolute; left: -60px; top: 0; transform : rotate(90deg) ">single</p>
+    {# {% include "_partials/readbuttons.njk" %} #}
+{% endblock %}
+
+{% block scripts %}{% endblock %}
+
+{% block content %}
+    <header>
+        <h1 id="title">
+            {% if toptitle %}
+                <span class="top-title">{{toptitle}}</span>
+            {% endif %}
+            {{title}}
+        </h1>
+        {% if author or date %}
+            <p class="meta">written 
+        {% if author %}
+            by <span class="author">{{author}}</span>
+                {% endif %}
+                {% if date %}
+            on <time class="date">{{date | postDate }}</time>
+                </p>
+            {% endif %}
+        {% endif %}
+    </header>
+    <article>
+      <p class="intro">{{intro}}</p>
+        {{content | safe}}
+    </article>
+{% endblock %}
+
+<aside class="paginator">
+    <a class="next alone" href="https://www.pagedjs.org/search/">Looking for something?</a>
+</aside>

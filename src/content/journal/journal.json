@@ -1,0 +1,4 @@
+{
+  "layout": "journal-single.njk",
+  "permalink":"/journal/{{title | removeWhitespaces}}/"
+}
