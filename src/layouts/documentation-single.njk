@@ -28,11 +28,26 @@ on <time class="date">{{date | postDate }}</time>
 
     </header>
     <article>
-    <div class="intro">{{intro}}</div>
+        <div class="intro">{{intro}}</div>
         {{content | safe}}
     </article>
+
+    {% set previousPost = collections.documentation | getPreviousCollectionItem(page) %}
+    {% set nextPost = collections.documentation | getNextCollectionItem(page) %}
+
+    <aside class="paginator 
+    {% if previousPost and nextPost %} both {% endif %}">
+
+        {% if previousPost %}
+            <a class="previous" href="{{ previousPost.url }}">{{ previousPost.data.title }}</a>
+        {% endif %}
+        {% if nextPost %}
+            <a class="next" href="{{ nextPost.url }}">{{ nextPost.data.title }}</a>
+        {% endif %}
+        {# <a class="next" href="https://www.pagedjs.org/search/">Looking for something?</a>
+    <a class="next" href="https://www.pagedjs.org/search/">Looking for something?</a> #}
+    </aside>
 {% endblock %}
 
-<aside class="paginator">
-    <a class="next alone" href="https://www.pagedjs.org/search/">Looking for something?</a>
-</aside>
+<a class="previous" href="https://www.pagedjs.org/documentation/05-designing-for-print/">Web design for print</a>
+<a class="next" href="https://www.pagedjs.org/documentation/07-generated-content-in-margin-boxes/">Generated Content in Margin Boxes</a>

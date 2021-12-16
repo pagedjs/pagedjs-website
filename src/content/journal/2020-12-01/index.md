@@ -2,7 +2,7 @@
 title: "A tiny update to Paged.js" 
 date: 2020-03-02
 draft: true 
-intro: > 
+intro: nothing
 ---
 # Paged.js the year in review
 
