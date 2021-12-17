@@ -12,21 +12,8 @@
     <header>
         <h1 id="title">{{title}}</h1>
     </header>
-    <section class="list content">
-        <ul>
-            {% for item in collections.documentation %}
-                <li class="article">
-                    <h2>
-                        <a href="{{item.url}}">
-                            <span>{{item.data.title}}</span></a>
-                    </h2>
-
-                    {{ item.templateContent | toc(tags=['h2']) | prependLinks(item.url) | safe}}
-                </li>
-
-            {% endfor %}
-        </ul>
-    </section>
+    {% from "createIndex.njk" import index with context %}
+    {{index(collections.documentation, addh2="yes")}}
     {# 
         <aside class="paginator">
             <a class="next alone" href="https://www.pagedjs.org/search/">Looking for something?</a>
