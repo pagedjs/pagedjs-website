@@ -11,26 +11,8 @@
   <header>
      <h1 id="title">{{title}}</h1>
   </header>
-  <div class="list content">
-    <ul>
-      {% for item in collections.journal %}
-        {% if item.data.draft == false %}          
-          <li class="article">
-            <h2><a href="{{item.url}}"><span>{{item.data.title}}</span></a></h2>
-            <div class="meta">
-              {% if item.data.author or item.data.date %}
-                <p>written 
-                  {% if item.data.author %} by <span class="author">{{item.data.author}}</span>{% endif %}
-                  {% if item.data.date %}on <time class="date">{{item.data.date | postDate }}</time>{% endif %}
-                </p>
-              {% endif %}
-              <span class="intro">{{item.data.intro}}</span>
-            </div>               
-          </li>
-        {% endif %}
-      {% endfor %}
-    </ul>
-  </div>
+    {% from "createIndex.njk" import index with context %}
+    {{index(collections.journal, addIntro=true, reverse=true)}}
     {# 
       <aside class="paginator">
           <a class="next alone" href="https://www.pagedjs.org/search/">Looking for something?</a>
