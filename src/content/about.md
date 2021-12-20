@@ -3,7 +3,6 @@ title: About Paged.js?
 menu: about
 layout: singlepage.njk
 toptitle: Hi, i’m the toptitle
-author: harshna why not
 date: 2028-11-12
 symbol: ﺶ
 ---

@@ -3,8 +3,8 @@ title: Web design for print
 date: 2019-09-03T18:23:22+02:00
 part: 5
 intro: "If you want to start designing your own book, now is the perfect time!"
+draft: false
 ---
-
 
 ## The `@media print` query
 

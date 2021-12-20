@@ -1,0 +1,15 @@
+{% macro defaultPaginator(myCollection) %}  
+      {% set previousPost = myCollection | getPreviousCollectionItem(page) %}
+      {% set nextPost = myCollection | getNextCollectionItem(page) %}
+      <aside class="paginator {% if previousPost and nextPost %} both {% endif %}">
+        {% if previousPost %}<a class="previous" href="{{ previousPost.url }}">{{ previousPost.data.title }}</a>{% endif %}
+        {% if nextPost %}<a class="next" href="{{ nextPost.url }}">{{ nextPost.data.title }}</a>{% endif %}
+      </aside>
+{% endmacro %}
+
+{% macro searchPaginator() %}
+  <aside class="paginator">
+    {# <a class="next" href="https://www.pagedjs.org/search/">Looking for something?</a> #}
+    <a class="next alone" href="/search.html">Looking for something?</a>
+  </aside>
+{% endmacro %}
