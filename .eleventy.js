@@ -69,8 +69,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "static/outputs": "/outputs" });
 
   // plugin TOC
-  // eleventyConfig.addPlugin(pluginTOC);
-
   eleventyConfig.setLibrary(
     "md",
     markdownIt({

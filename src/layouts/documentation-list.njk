@@ -13,7 +13,7 @@
         <h1 id="title">{{title}}</h1>
     </header>
     {% from "createIndex.njk" import index with context %}
-    {{index(collections.documentation, addh2="yes")}}
+    {{index(collections.documentation, addTOC=['h2', 'h3'])}}
     {# 
         <aside class="paginator">
             <a class="next alone" href="https://www.pagedjs.org/search/">Looking for something?</a>

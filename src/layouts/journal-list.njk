@@ -12,7 +12,7 @@
      <h1 id="title">{{title}}</h1>
   </header>
     {% from "createIndex.njk" import index with context %}
-    {{index(collections.journal | reverse, addintro="yes")}}
+    {{index(collections.journal, addIntro=true, reverse=true)}}
     {# 
       <aside class="paginator">
           <a class="next alone" href="https://www.pagedjs.org/search/">Looking for something?</a>

@@ -1,50 +1,10 @@
-{% extends "base.njk" %}
 
-{% block side %}
-    <p style="color: purple; position: absolute; left: -60px; top: 0; transform : rotate(90deg) ">single</p>
-    {# {% include "_partials/readbuttons.njk" %} #}
+{% extends "singlepage.njk" %}
+{% from "addPaginator.njk" import defaultPaginator with context %}
+{% block content %} 
+  {{ super() }}
+  {{defaultPaginator(collections.documentation)}}
 {% endblock %}
 
-{% block scripts %}{% endblock %}
-
-{% block content %}
-    <header>
-        <h1 id="title">
-            {% if toptitle %}
-                <span class="top-title">{{toptitle}}</span>
-            {% endif %}
-            {{title}}</h1>
-        {% if author or date %}
-
-            <p class="meta">written 
-        {% if author %}
-            by <span class="author">{{author}}</span>
-                {% endif %}
-                {% if date %}
-on <time class="date">{{date | postDate }}</time>
-                </p>
-            {% endif %}
-        {% endif %}
-
-    </header>
-    <article>
-        <div class="intro">{{intro}}</div>
-        {{content | safe}}
-    </article>
-
-    {% set previousPost = collections.documentation | getPreviousCollectionItem(page) %}
-    {% set nextPost = collections.documentation | getNextCollectionItem(page) %}
-
-    <aside class="paginator 
-    {% if previousPost and nextPost %} both {% endif %}">
-
-        {% if previousPost %}
-            <a class="previous" href="{{ previousPost.url }}">{{ previousPost.data.title }}</a>
-        {% endif %}
-        {% if nextPost %}
-            <a class="next" href="{{ nextPost.url }}">{{ nextPost.data.title }}</a>
-        {% endif %}
-        {# <a class="next" href="https://www.pagedjs.org/search/">Looking for something?</a>
-    <a class="next" href="https://www.pagedjs.org/search/">Looking for something?</a> #}
-    </aside>
-{% endblock %}
+{# <a class="previous" href="https://www.pagedjs.org/documentation/05-designing-for-print/">Web design for print</a>
+<a class="next" href="https://www.pagedjs.org/documentation/07-generated-content-in-margin-boxes/">Generated Content in Margin Boxes</a> #}
