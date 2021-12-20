@@ -31,6 +31,23 @@ module.exports = function (eleventyConfig) {
     return [...collection.getFilteredByTag("chapter")];
   });
 
+  const markdown = require("markdown-it")({
+    html: true,
+    breaks: true,
+    linkify: true,
+  });
+
+  eleventyConfig.addFilter("markdownify", function (rawString) {
+    return markdown.render(rawString);
+  });
+
+
+
+  // create examples
+
+  eleventyConfig.addCollection("examples", collectionApi => {
+    return collectionApi.getFilteredByGlob("src/content/examples/**/*.md").sort((a, b) => a.data.part - b.data.part);
+  });
 
 
   // create documentation collection
