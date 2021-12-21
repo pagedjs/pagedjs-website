@@ -50,15 +50,30 @@ module.exports = function (eleventyConfig) {
   });
 
 
-  // create documentation collection
-
   eleventyConfig.addCollection("documentation", collectionApi => {
-    return collectionApi.getFilteredByGlob("src/content/documentation/**/*.md").sort((a, b) => a.data.part - b.data.part);
+
+    return collectionApi
+    .getFilteredByGlob("src/content/documentation/**/*.md")
+
+    .sort((a, b) => a.data.date - b.data.date)
+    .filter(item => {
+      return item.data.draft != true;
+    })
+    ;
+
   });
-   // create journal collection
+  // create journal collection
 
   eleventyConfig.addCollection("journal", collectionApi => {
-    return collectionApi.getFilteredByGlob("src/content/journal/**/*.md").sort((a, b) => a.data.date - b.data.date);
+
+    return collectionApi
+      .getFilteredByGlob("src/content/journal/**/*.md")
+
+      .sort((a, b) => a.data.date - b.data.date)
+      .filter(item => {
+        return item.data.draft != true;
+      })
+      ;
   });
 
 
