@@ -3,5 +3,14 @@
 {% from "addPaginator.njk" import defaultPaginator with context %}
 {% block content %} 
   {{ super() }}
+  {% if tags %}    
+    <p class="intro">Related tags: 
+      <span class="tags">
+        {% for tag in tags %}
+          <a class=  "tag" href="">{{tag}}</a>
+        {% endfor %}
+      </span>
+    </p>
+  {% endif %}
   {{defaultPaginator(collections.journal)}}
 {% endblock %}
