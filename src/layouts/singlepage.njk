@@ -26,10 +26,10 @@
     {% if addIntro %}
       <p class="intro">{{intro}}
         {% if addTags %}
-          {% if tags %}    
+          {% if tags %}<br>  
             <span class="tags">
               {% for tag in tags %}
-                <a class=  "tag" href="">{{tag}}</a>
+                <a class=  "tag" href="/tags/{{ tag }}/">{{tag}}</a>
               {% endfor %}
             </span>
           {% endif %}        

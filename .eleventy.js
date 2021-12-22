@@ -75,7 +75,18 @@ module.exports = function (eleventyConfig) {
       })
       ;
   });
+  function filterTagList(tags) {
+    return (tags || []).filter(tag => ["all", "nav", "post", "posts"].indexOf(tag) === -1);
+  }
 
+  eleventyConfig.addFilter("filterTagList", filterTagList)
+  eleventyConfig.addCollection("tagList", (collection) => {
+    let tagSet = new Set();
+    collection.getAll().forEach(item => {
+      (item.data.tags || []).forEach(tag => tagSet.add(tag));
+    });
+    return filterTagList([...tagSet]);
+  });
 
   eleventyConfig.addPassthroughCopy({ "static/css": "/css" });
   eleventyConfig.addPassthroughCopy({ "static/fonts": "/fonts" });

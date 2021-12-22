@@ -1,0 +1,49 @@
+{% extends "base.njk" %}
+
+{% block side %}
+  <p style="color: purple; position: absolute; left: -60px; top: 0; transform : rotate(90deg) ">single</p>
+  {# {% include "_partials/readbuttons.njk" %} #}
+{% endblock %}
+
+{% block scripts %}{% endblock %}
+
+{% block content %}
+  <header>
+    <h1 id="title">
+        {% if toptitle %}
+            <span class="top-title">{{toptitle}}</span>
+        {% endif %}
+        {{tag}}
+    </h1>
+  </header> 
+    {% from "createIndex.njk" import index with context %}
+    {{index(collections[tag], addIntro=true, reverse=true)}}
+  {# <div class="list content">
+    {% set taglist = collections[ tag ] %}
+    <ul>
+      {% for post in taglist %}
+        <li class="article">
+          <h2 style="padding:0">
+            <a href="{{ post.url }}">
+              <span>{{ post.data.title }}<span>
+            </a>
+          </h2>       
+
+          <div class="meta"> 
+            {% if post.data.author or post.data.date %}written
+              {% if post.data.author %}by <span class="author">{{ post.data.author}}</span>{% endif %}
+              {% if post.data.date %}on <time class="date">{{ post.data.date | postDate }}</time>{% endif %}
+            {% endif %}
+            <span class="intro">{{post.data.intro}}</span>
+          </p> 
+        </li>
+      {% endfor %}
+    </ul>
+    <span>See <a href="{{ '/tags/' }}">all tags</a>.</span> 
+  </div>       #}
+{% endblock %}
+
+
+
+
+
