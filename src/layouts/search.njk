@@ -1,0 +1,28 @@
+{% extends "base.njk" %}
+
+{% block side %}{% endblock %}
+{% block scripts %}
+{# write script and get searchResultsList #}
+{% endblock %}
+
+{% block content %}
+    <header></header>
+    <article>
+      <div id="search">
+          <label for="search">Search</label>
+          <input name="search" type="text" placeholder="running heads, page-number, polyfill…" id="searchInput">
+          <ul id="searchResults">
+          {# {% for item in searchResultsList %}             #}
+            <li> 
+            ` <span class="type">Xtype</span>
+              <a href=""><span class="title">Title</span></a>
+              <p class="meta"><span class="intro">This is the Intro</span></p> 
+              {# <span class="type">{{item.type}}</span>
+              <a href="item.url"><span class="title">{{item.title}}</span></a>
+              <p class="meta"><span class="intro">{{item.intro}}</span></p> #}
+            </li>
+          {# {% endfor %} #}
+          </ul>
+      </div>
+    </article> 
+{% endblock %}

@@ -1,7 +1,6 @@
 ---
 title: search
 menu: search
-layout: singlepage.njk
+layout: search.njk
 ---
 
-welcome to search page
