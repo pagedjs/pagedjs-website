@@ -26,10 +26,23 @@
               <span>{{ tag }}<span>
             </a>
           </h2>
+          <ul>
+            {% for item in collections[ tag ] %}
+            <a href="{{item.url}}">
+              <p>
+                  {% if item.data.author %} <span class="author">{{item.data.author}},</span>{% endif %}
+                  {{item.data.title}}
+                  {% if item.data.date %}, <time class="date">{{item.data.date | postDate }}</time>{% endif %}
+              </p>
+            </a>
+            {% endfor %}
+          </ul>
         </li>
       {% endfor %}
     </ul>
-  </div>     
+
+
+   
 {% endblock %}
 
 

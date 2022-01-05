@@ -75,18 +75,21 @@ module.exports = function (eleventyConfig) {
       })
       ;
   });
-  function filterTagList(tags) {
-    return (tags || []).filter(tag => ["all", "nav", "post", "posts"].indexOf(tag) === -1);
-  }
+  // function filterTagList(tags, tagListYouWantToFilter) {
+  //   return (tags || []).filter(tag => tagListYouWantToFilter.indexOf(tag) === -1);
+  // }
 
-  eleventyConfig.addFilter("filterTagList", filterTagList)
+  // eleventyConfig.addFilter("filterTagList", filterTagList)
   eleventyConfig.addCollection("tagList", (collection) => {
     let tagSet = new Set();
     collection.getAll().forEach(item => {
-      (item.data.tags || []).forEach(tag => tagSet.add(tag));
+      (item.data.tags || []).forEach(tag => tagSet.add(tag.toLowerCase()));
     });
-    return filterTagList([...tagSet]);
+ 
+    return [...tagSet].sort();
   });
+  // filterTagList(tags , ["nav","posts"])
+
 
   eleventyConfig.addPassthroughCopy({ "static/css": "/css" });
   eleventyConfig.addPassthroughCopy({ "static/fonts": "/fonts" });
@@ -147,7 +150,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("removeWhitespaces", (str) => str.replace(/\s/g,'')); 
   // eleventyConfig.addFilter("monthYear", (date) => `${date.getMonth()}-${date.getYear()}`)
   eleventyConfig.addFilter("reverse", (col) => col.reverse())
-  
   eleventyConfig.addPlugin(pluginTOC, {
     tags: ["h2", "h3", "h4"], // which heading tags are selected headings must each have an ID attribute
     wrapper: "nav", // element to put around the root `ol`/`ul`
