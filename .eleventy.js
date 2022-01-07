@@ -83,11 +83,12 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection("tagList", (collection) => {
     let tagSet = new Set();
     collection.getAll().forEach(item => {
-      (item.data.tags || []).forEach(tag => tagSet.add(tag.toLowerCase()));
+      (item.data.tags || []).forEach(tag => tagSet.add(tag));
     });
  
-    return [...tagSet].sort();
+    return [...tagSet].sort((a,b) => a.toLowerCase().localeCompare(b.toLowerCase()));
   });
+  
   // filterTagList(tags , ["nav","posts"])
 
 
@@ -149,7 +150,9 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addFilter("removeWhitespaces", (str) => str.replace(/\s/g,'')); 
   // eleventyConfig.addFilter("monthYear", (date) => `${date.getMonth()}-${date.getYear()}`)
+  
   eleventyConfig.addFilter("reverse", (col) => col.reverse())
+  
   eleventyConfig.addPlugin(pluginTOC, {
     tags: ["h2", "h3", "h4"], // which heading tags are selected headings must each have an ID attribute
     wrapper: "nav", // element to put around the root `ol`/`ul`
@@ -157,7 +160,10 @@ module.exports = function (eleventyConfig) {
     ul: false, // if to use `ul` instead of `ol`
     flat: false,
   });
-
+  eleventyConfig.addFilter("urlIncludesExamples", (url)=>{
+   if(url.toString().includes("examples"))return true
+   else return false
+  })
 
 
 
@@ -200,4 +206,7 @@ function romanize(num) {
     roman = (key[+digits.pop() + (i * 10)] || "") + roman;
   return Array(+digits.join("") + 1).join("M") + roman;
 }
+
+
+
 

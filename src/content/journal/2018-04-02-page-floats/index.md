@@ -5,10 +5,11 @@ type: post
 date: 2020-02-01T21:24:56+00:00
 intro: 'In CSS specifications, the float property is very interesting. The property indicates that an element is to be removed from the normal flow and instead be placed into a different place - currently, on the right or left side of its container. Text and other inline elements will then surround the floated element.'
 url: /page-floats/
+draft: false
 tags:
-  - Automated Typesetting
+  - automated typesetting
   - CSS layout design
-  - Page-floats
+  - page-floats
 
 
 ---

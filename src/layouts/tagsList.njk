@@ -16,7 +16,7 @@
         {{title}}
     </h1>
   </header> 
-  <div class="list content">
+  <div class="list content tagsList">
     <ul>
       {% for tag in collections.tagList %}
         {% set tagUrl %}/tags/{{ tag }}/{% endset %}
@@ -28,13 +28,22 @@
           </h2>
           <ul>
             {% for item in collections[ tag ] %}
-            <a href="{{item.url}}">
-              <p>
-                  {% if item.data.author %} <span class="author">{{item.data.author}},</span>{% endif %}
-                  {{item.data.title}}
-                  {% if item.data.date %}, <time class="date">{{item.data.date | postDate }}</time>{% endif %}
-              </p>
-            </a>
+              {% if item.data.draft == true %}   
+              {% else %}           
+                {% if {{item.inputPath | urlIncludesExamples}}  %}
+                  {% set path = "/made-with-paged.js.html#" + "{{item.data.title | slug}}" %}
+                {% else %}
+                  {% set path = {{item.url}} %}
+                {% endif %}
+                {{ path }}
+                  <a href="{{item.url}}">
+                  <p>
+                      {% if item.data.author %} <span class="author">{{item.data.author}},</span>{% endif %}
+                      {{item.data.title}}
+                      {% if item.data.date %}, <time class="date">{{item.data.date | postDate }}</time>{% endif %}
+                  </p>
+                </a>
+              {% endif %}
             {% endfor %}
           </ul>
         </li>

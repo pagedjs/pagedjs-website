@@ -7,9 +7,9 @@ author: "Julien"
 intro:  "The nice folks of Atla Open Press have been working with Coko to develop their new publishing workflow around the amazing [Editoria](https://www.editoria.pub). So we helped them designing their new book template."
 tags: 
     - Atla
-    - Creating templates
-    - Typefaces 
-    - Book design
+    - creating templates
+    - typefaces 
+    - book design
 ---
 
 *Creating Templates* is a series of articles in which  one designer will explain the choices they made for a collection or a book, following the process from the typical design workflow to the output in modern typesetting using Paged.js. For the first article of the series, we’ll look at how Julien designed a template to be used in Editoria by Atla Open Press. 

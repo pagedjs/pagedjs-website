@@ -6,7 +6,7 @@ author: "Julie Blanc"
 intro:  "This article proposing new CSS specifications to design differents kind of notes  in  continuous and paged medias."
 tags: 
 - specifications
-- w3c
+- W3C
 - foot notes
 - margin notes
 ---
