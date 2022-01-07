@@ -10,10 +10,10 @@
 {% block content %}
   <header>
     <h1 id="title">
-        {% if toptitle %}
-            <span class="top-title">{{toptitle}}</span>
-        {% endif %}
-        {{title}}
+      {% if toptitle %}
+        <span class="top-title">{{toptitle}}</span>
+      {% endif %}
+      {{title}}
     </h1>
   </header> 
   <div class="list content tagsList">
@@ -30,17 +30,16 @@
             {% for item in collections[ tag ] %}
               {% if item.data.draft == true %}   
               {% else %}           
-                {% if {{item.inputPath | urlIncludesExamples}}  %}
-                  {% set path = "/made-with-paged.js.html#" + "{{item.data.title | slug}}" %}
+                {% if "examples" in item.inputPath   %}
+                  {% set path = "/made-with-paged.js.html#" + item.data.title | slug %}
                 {% else %}
-                  {% set path = {{item.url}} %}
+                  {% set path = item.url %}
                 {% endif %}
-                {{ path }}
-                  <a href="{{item.url}}">
+                <a href="{{path}}">
                   <p>
-                      {% if item.data.author %} <span class="author">{{item.data.author}},</span>{% endif %}
-                      {{item.data.title}}
-                      {% if item.data.date %}, <time class="date">{{item.data.date | postDate }}</time>{% endif %}
+                    {% if item.data.author %} <span class="author">{{item.data.author}},</span>{% endif %}
+                    {{item.data.title}}
+                    {% if item.data.date %}, <time class="date">{{item.data.date | postDate }}</time>{% endif %}
                   </p>
                 </a>
               {% endif %}
@@ -51,8 +50,8 @@
     </ul>
 
 
-   
-{% endblock %}
+
+  {% endblock %}
 
 
 

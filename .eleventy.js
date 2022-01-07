@@ -160,13 +160,13 @@ module.exports = function (eleventyConfig) {
     ul: false, // if to use `ul` instead of `ol`
     flat: false,
   });
-  eleventyConfig.addFilter("urlIncludesExamples", (url)=>{
-   if(url.toString().includes("examples"))return true
-   else return false
-  })
-
-
-
+  
+  // adding the 4 next lines to the tag page njk 
+  //
+  // eleventyConfig.addFilter("urlIncludesExamples", (url)=>{
+  //  if(url.toString().includes("examples"))return true
+  //  else return false
+  // })
 
 
   // folder structures
