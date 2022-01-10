@@ -2,7 +2,7 @@
 
 {% block side %}{% endblock %}
 {% block scripts %}
-{# write script and get searchResultsList #}
+  <script src="/js/search.js"></script>
 {% endblock %}
 
 {% block content %}
@@ -10,19 +10,16 @@
     <article>
       <div id="search">
           <label for="search">Search</label>
-          <input name="search" type="text" placeholder="running heads, page-number, polyfill…" id="searchInput">
-          <ul id="searchResults">
-          {# {% for item in searchResultsList %}             #}
-            <li> 
-            ` <span class="type">Xtype</span>
-              <a href=""><span class="title">Title</span></a>
-              <p class="meta"><span class="intro">This is the Intro</span></p> 
-              {# <span class="type">{{item.type}}</span>
-              <a href="item.url"><span class="title">{{item.title}}</span></a>
-              <p class="meta"><span class="intro">{{item.intro}}</span></p> #}
-            </li>
-          {# {% endfor %} #}
+          <input id="search-input" name="search" type="text" placeholder="running heads, page-number, polyfill…" id="searchInput">
+          <ul id="searchResults">           
           </ul>
+          <template id="template">
+             <li> 
+              <span class="type"></span>
+              <a href="" id = 'result-link'><span class="title"></span></a>
+              <p class="meta"><span class="intro"></span></p> 
+            </li>
+          </template>
       </div>
     </article> 
 {% endblock %}
