@@ -1,0 +1,58 @@
+{% extends "base.njk" %}
+
+{% block side %}
+  <p style="color: purple; position: absolute; left: -60px; top: 0; transform : rotate(90deg) ">single</p>
+  {# {% include "_partials/readbuttons.njk" %} #}
+{% endblock %}
+
+{% block scripts %}{% endblock %}
+
+{% block content %}
+  <header>
+    <h1 id="title">
+      {% if toptitle %}
+        <span class="top-title">{{toptitle}}</span>
+      {% endif %}
+      {{title}}
+    </h1>
+  </header> 
+  <div class="list content tagsList">
+    <ul>
+      {% for tag in collections.tagList %}
+        {% set tagUrl %}/tags/{{ tag }}/{% endset %}
+        <li class="article">
+          <h2 style="padding:0">
+            <a href="{{ tagUrl}}">
+              <span>{{ tag }}<span>
+            </a>
+          </h2>
+          <ul>
+            {% for item in collections[ tag ] %}
+              {% if item.data.draft == true %}   
+              {% else %}           
+                {% if "examples" in item.inputPath   %}
+                  {% set path = "/made-with-paged.js.html#" + item.data.title | slug %}
+                {% else %}
+                  {% set path = item.url %}
+                {% endif %}
+                <a href="{{path}}">
+                  <p>
+                    {% if item.data.author %} <span class="author">{{item.data.author}},</span>{% endif %}
+                    {{item.data.title}}
+                    {% if item.data.date %}, <time class="date">{{item.data.date | postDate }}</time>{% endif %}
+                  </p>
+                </a>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </li>
+      {% endfor %}
+    </ul>
+
+
+
+  {% endblock %}
+
+
+
+

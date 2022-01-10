@@ -5,7 +5,7 @@ draft: true
 intro: "After a year of undercover work in the realm of printing HTML, we’re proudly introducing the new Paged.js website."
 tags: 
 - pagedjs
-- update
+- updates
 - friends
 author: Julien Taquet
 ---

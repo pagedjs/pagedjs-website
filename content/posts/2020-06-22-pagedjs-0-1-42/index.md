@@ -5,7 +5,7 @@ draft: false
 author: "Pagedjs team"
 intro:  "Some news from paged.js and an update!"
 tags: 
-- Specifications
+- specifications
 - W3C
 - updates
 - page number

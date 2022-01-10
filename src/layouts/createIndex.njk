@@ -25,21 +25,19 @@ Dataset
     {% endif %}
     <ul>
       {% for item in myCollection %}
-        {% if item.data.draft == false %}          
-          <li class="article">
-            <h2><a href="{{item.url}}"><span>{{item.data.title}}</span></a></h2>
-            <div class="meta">
-              {% if item.data.author or item.data.date %}
-                <p>written 
-                  {% if item.data.author %} by <span class="author">{{item.data.author}}</span>{% endif %}
-                  {% if item.data.date %}on <time class="date">{{item.data.date | postDate }}</time>{% endif %}
-                </p>
-              {% endif %}
-              {% if addIntro %}<span class="intro">{{item.data.intro}}</span>{% endif %}
-            </div>  
-            {% if addTOC %}<div class = "toc">{{ item.templateContent | toc(tags=addTOC) | prependLinks(item.url) | safe}}</div>{% endif %}                         
-          </li>
-        {% endif %}
+        <li class="article">
+          <h2><a href="{{item.url}}"><span>{{item.data.title}}</span></a></h2>
+          <div class="meta">
+            {% if item.data.author or item.data.date %}
+              <p>written 
+                {% if item.data.author %} by <span class="author">{{item.data.author}}</span>{% endif %}
+                {% if item.data.date %}on <time class="date">{{item.data.date | postDate }}</time>{% endif %}
+              </p>
+            {% endif %}
+            {% if addIntro %}<span class="intro">{{item.data.intro}}</span>{% endif %}
+          </div>  
+          {% if addTOC %}<div class = "toc">{{ item.templateContent | toc(tags=addTOC) | prependLinks(item.url) | safe}}</div>{% endif %}                         
+        </li>
       {% endfor %}
     </ul>
   </div>

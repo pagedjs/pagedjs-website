@@ -1,3 +1,4 @@
 {
-    "permalink": "/{{title | slug}}.html"
+    "permalink": "/{{title | slug}}.html",
+    "addIntro":false
 }

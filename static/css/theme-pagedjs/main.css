@@ -1800,6 +1800,9 @@ a.tag {
   letter-spacing: 2px;
   overflow: hidden;
 }
+.tagsList .article h2::before {
+  content: "";
+}
 
 .list .article h2 a {
   counter-increment: doc;
@@ -1827,7 +1830,9 @@ a.tag {
   position: relative;
   top: .2em;
 }
-
+.tagsList .article h2 a::after {
+  content: "";
+}
 .list .article .toc-emoji {
   float: right;
   position: relative;

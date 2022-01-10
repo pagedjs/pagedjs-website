@@ -50,16 +50,46 @@ module.exports = function (eleventyConfig) {
   });
 
 
-  // create documentation collection
-
   eleventyConfig.addCollection("documentation", collectionApi => {
-    return collectionApi.getFilteredByGlob("src/content/documentation/**/*.md").sort((a, b) => a.data.part - b.data.part);
+
+    return collectionApi
+    .getFilteredByGlob("src/content/documentation/**/*.md")
+
+    .sort((a, b) => a.data.date - b.data.date)
+    .filter(item => {
+      return item.data.draft != true;
+    })
+    ;
+
   });
-   // create journal collection
+  // create journal collection
 
   eleventyConfig.addCollection("journal", collectionApi => {
-    return collectionApi.getFilteredByGlob("src/content/journal/**/*.md").sort((a, b) => a.data.date - b.data.date);
+
+    return collectionApi
+      .getFilteredByGlob("src/content/journal/**/*.md")
+
+      .sort((a, b) => a.data.date - b.data.date)
+      .filter(item => {
+        return item.data.draft != true;
+      })
+      ;
   });
+  // function filterTagList(tags, tagListYouWantToFilter) {
+  //   return (tags || []).filter(tag => tagListYouWantToFilter.indexOf(tag) === -1);
+  // }
+
+  // eleventyConfig.addFilter("filterTagList", filterTagList)
+  eleventyConfig.addCollection("tagList", (collection) => {
+    let tagSet = new Set();
+    collection.getAll().forEach(item => {
+      (item.data.tags || []).forEach(tag => tagSet.add(tag));
+    });
+ 
+    return [...tagSet].sort((a,b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+  });
+  
+  // filterTagList(tags , ["nav","posts"])
 
 
   eleventyConfig.addPassthroughCopy({ "static/css": "/css" });
@@ -120,6 +150,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addFilter("removeWhitespaces", (str) => str.replace(/\s/g,'')); 
   // eleventyConfig.addFilter("monthYear", (date) => `${date.getMonth()}-${date.getYear()}`)
+  
   eleventyConfig.addFilter("reverse", (col) => col.reverse())
   
   eleventyConfig.addPlugin(pluginTOC, {
@@ -129,10 +160,13 @@ module.exports = function (eleventyConfig) {
     ul: false, // if to use `ul` instead of `ol`
     flat: false,
   });
-
-
-
-
+  
+  // adding the 4 next lines to the tag page njk 
+  //
+  // eleventyConfig.addFilter("urlIncludesExamples", (url)=>{
+  //  if(url.toString().includes("examples"))return true
+  //  else return false
+  // })
 
 
   // folder structures
@@ -172,4 +206,7 @@ function romanize(num) {
     roman = (key[+digits.pop() + (i * 10)] || "") + roman;
   return Array(+digits.join("") + 1).join("M") + roman;
 }
+
+
+
 
