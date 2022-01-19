@@ -1,0 +1,28 @@
+---
+permalink: '/index2.json'
+hide: true
+---
+
+[
+     {%- for item in collections.documentation -%}   
+    {
+    "content": "{{item.templateContent}}",
+    "intro": "{{item.data.intro}}",
+    "permalink": "{{item.url}}",
+    "tags": "{{item.data.tags}}",
+    "title": "{{item.data.title}}"
+    }{% if not loop.last %},{% endif %}
+{% endfor %}
+
+{%- for item in collections.journal -%}   
+    {
+ "content": "{{item.templateContent}}",
+    "intro": "{{item.data.intro}}",
+    "permalink": "{{item.url}}",
+    "tags": "{{item.data.tags}}",
+    "title": "{{item.data.title}}"
+    }{% if not loop.last %},{% endif %}
+    
+{% endfor %}
+]
+

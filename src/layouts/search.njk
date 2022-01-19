@@ -2,24 +2,42 @@
 
 {% block side %}{% endblock %}
 {% block scripts %}
+  <script src="/js/text-annotator.min.js"></script>
   <script src="/js/search.js"></script>
 {% endblock %}
 
 {% block content %}
-    <header></header>
-    <article>
-      <div id="search">
-          <label for="search">Search</label>
-          <input id="search-input" name="search" type="text" placeholder="running heads, page-number, polyfill…" id="searchInput">
-          <ul id="searchResults">           
-          </ul>
-          <template id="template">
-             <li> 
-              <span class="type"></span>
-              <a href="" id = 'result-link'><span class="title"></span></a>
-              <p class="meta"><span class="intro"></span></p> 
-            </li>
-          </template>
-      </div>
-    </article> 
+
+  <article id="search">
+  <header>
+  <h1 id="title">{{ title }}</h1>
+  </header>
+
+  <label for="search">Search</label>
+  <input id="searchInput" name="search" type="text" placeholder="running heads, page-number, polyfill…" id="searchInput">
+  <ul id="results">
+  </ul>
+  </article> 
+
+
+
+  <main class="content">
+  {% for item in collections.documentation %}
+    <section class="data">
+    {{item.templateContent | markdownify | safe}}
+    </section>
+  {% endfor %}
+  {% for item in collections.examples %}
+    <section class="data">
+    {{item.templateContent | markdownify | safe}}
+    </section>
+  {% endfor %}
+  {% for item in collections.journal %}
+    <section class="data">
+    {{item.templateContent | markdownify | safe}}
+    </section>
+  {% endfor %}
+
+  </main>
 {% endblock %}
+
