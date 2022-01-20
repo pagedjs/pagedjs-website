@@ -2339,3 +2339,7 @@ a.tag {
   grid-column: main;
 }
 
+.inputblock {
+  display: block;
+  grid-column: left / end;
+}

@@ -1,5 +1,6 @@
+
 const searchInput = document.querySelector("#searchInput");
-// const searchIcon = document.querySelector("#searchIcon");
+const searchIcon = document.querySelector("#searchIcon");
 let content;
 
 if (document.querySelector("template")) {
@@ -11,7 +12,7 @@ content = document.querySelector("template").innerHTML
 const resultSpace = document.querySelector(".results");
 let queryList = new Set();
 searchInput.addEventListener("change", search);
-// searchIcon.addEventListener("click", search);
+searchIcon.addEventListener("click", search);
 
 let result = document.createElement("div");
 
@@ -93,10 +94,9 @@ function search() {
       );
 
       section.querySelectorAll("mark").forEach((mark) => {
-        let markParent = mark.closest("p, figure, table, blockquote, h2, h3, h1, li");
-        console.log(section); 
-        console.log(markParent); 
-        if (markParent && markParent.dataset.done != "true") { 
+        let markParent = mark.closest("p, figure, table, blockquote, h2, h3");
+        
+        if (markParent.dataset.done != "true") { 
             let markparentID = markParent.id.replace(/<mark class=\query-\d+\>/, '')
             markparentID = markparentID.replace('</mark>', "");
             console.log(markparentID);
@@ -109,8 +109,7 @@ function search() {
         }
         if (document.querySelector("#or").checked) {
           console.log(mark.closest("p, figure, table, blockquote, h2, h3"));
-        } else if(markParent) {
-          console.log(markParent)
+        } else {
           resultSpace.insertAdjacentElement("beforeend", markParent);
         }
       });
@@ -123,22 +122,3 @@ function minTwoDigits(n) {
     return (n < 10 ? '0' : '') + n;
   }
   
-// this is old
-// const searchInput = document.querySelector('#searchInput')
-// const ul_searchResults = document.querySelector('#results')
-// const template = document.querySelector('.content')
-// const annotator = new TextAnnotator({content: document.querySelector('.content').innerHTML})
-
-// searchInput.addEventListener('change', () => {
-//   showFound(searchInput.value);
-// })
-
-function showFound(items) {
-
-  let highlightIndexes = annotator.searchAll(items)
-  if (highlightIndexes.length) {
-    template.innerHTML = annotator.highlightAll(highlightIndexes, {highlightTagName: 'mark'});
-    
-  }
-}
-

@@ -4,16 +4,14 @@ date: 2020-02-02T15:40:08+01:00
 draft: false
 author: "Julie Blanc"
 class: cookbook
-intro: "Indexing is not an easy task. But what if we could automatize a bit the whole experience, on the export? Here is how you can do it with Paged.js" 
+intro: "Indexing is not an easy task. But what if we could automatize a bit the whole experience, on the export? Here is how you can do it with Paged.js"
 tags:
-- indexing
-- target-counter
-- guide
+  - indexing
+  - target-counter
+  - guide
 ---
 
-
 Download the script here: [https://gitlab.pagedmedia.org/tools/experiments/blob/master/book-index/js/createIndex.js](https://gitlab.pagedmedia.org/tools/experiments/blob/master/book-index/js/createIndex.js)
-
 
 ## Preparing your HTML
 
@@ -26,11 +24,13 @@ When you think your content is revelant and need to be in the index, simply add 
 ```
 
 Your span must contain at least two elements:
+
 - **a class**: this class is common to all index span elements of your document, you can name it as you wish
 - **a data attribute**: this data attribut must be named `data-book-index`, it indicates the word(s) that will appear in the index
 - you can also add an id if you want but it's not required
 
-About the data attribute: 
+About the data attribute:
+
 - all data attributes containing the same word will be combined in a single line in the index, so you can use the same data attribute several times in your document
 - it is possible to use spaces, capital letters and dashes in the data attribute, like this for example: `data-book-index="Wolfgang Amadeus Mozart"`
 - it is also possible to format the text with the `<em>` en `<i>` elements (only): `data-book-index="<em>String Quartet in C major</em>"`
@@ -41,15 +41,14 @@ Finally, you must add somewhere in your HTML an element in which the book index 
 <div id="book-index"></div>
 ```
 
-
 ## Use the script with paged.js
 
-
 1. Add the `async` property to the paged.js script:
-* if you use paged.js with npm: `<script async src="http://localhost:9090/dist/paged.polyfill.js"></script>`
-* if you use the online script of paged.js: `<script async src="http://unpkg.com/pagedjs/dist/paged.polyfill.js"></script>`
 
-2. Add the book index script: 
+- if you use paged.js with npm: `<script async src="http://localhost:9090/dist/paged.polyfill.js"></script>`
+- if you use the online script of paged.js: `<script async src="http://unpkg.com/pagedjs/dist/paged.polyfill.js"></script>`
+
+2. Add the book index script:
 
 ```html
 <script src="js/createIndex.js" type="text/javascript"></script>
@@ -57,24 +56,24 @@ Finally, you must add somewhere in your HTML an element in which the book index 
 
 3. Call the book index script:
 
-The book index need to be generated before that paged.js fragmented the content into pages. You need to the hook `before` to call the script.   
+The book index need to be generated before that paged.js fragmented the content into pages. You need to the hook `before` to call the script.  
 Add this code in the `head` of you html document:
 
 ```html
 <script>
-    window.PagedConfig = {
-      before: function () {
-        createIndex({
-            spanClassIndex: 'book-index',
-            indexElement: '#book-index',  
-            alphabet: true        
-          });
-      }
-    };
-  </script>
+  window.PagedConfig = {
+    before: function () {
+      createIndex({
+        spanClassIndex: "book-index",
+        indexElement: "#book-index",
+        alphabet: true,
+      });
+    },
+  };
+</script>
 ```
 
-4. Use the print CSS properties in your stylesheet file to target the pages where the index elements appears: 
+4. Use the print CSS properties in your stylesheet file to target the pages where the index elements appears:
 
 ```CSS
 .link-page a::after{ content: target-counter(attr(href), page); }
@@ -86,19 +85,17 @@ Add this code in the `head` of you html document:
 .index-value::after{ content: " – "; }
 ```
 
-
 ## Configuring the script
-* `spanClassIndex`: define the id element where the toc list will be create
-* `indexElement`: define the id element where the toc list will be create
-* `alphabet`: choose if you want the alphabetical elements (`true`) or not (`false`)
 
-
+- `spanClassIndex`: define the id element where the toc list will be create
+- `indexElement`: define the id element where the toc list will be create
+- `alphabet`: choose if you want the alphabetical elements (`true`) or not (`false`)
 
 ## Styling the book index
 
-The script generates a list whith items you can style. Here is an example of a book index generated: 
+The script generates a list with items you can style. Here is an example of a book index generated:
 
-{{< figure src="../img/example-index.png" alt="Exemple of a generated book index">}}
+<figure> <img src="images/example-index.png" alt="Exemple of a generated book index" /></figure>
 
 ```HTML
 <ul id="list-index-generated">
@@ -170,8 +167,7 @@ The script generates a list whith items you can style. Here is an example of a b
 
 An example of CSS to styling the book index:
 
-{{< figure src="../img/example-index-styled.png" alt="Exemple of a generated and styled book index">}}
-
+<figure> <img src="images/example-index-styled.png" alt="Exemple of a generated and styled book index" /></figure>
 
 ```CSS
 #list-index-generated{
@@ -193,11 +189,10 @@ An example of CSS to styling the book index:
 .index-value::after{ content: "none"; }
 
 
-.link-page a{ 
+.link-page a{
   text-decoration: none;
   color: currentColor;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
 }
 ```
-

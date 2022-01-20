@@ -1,28 +1,24 @@
 ---
-title: "Welcome to paged.js 0.1.38" 
+title: "Welcome to paged.js 0.1.38"
 date: 2020-02-25T12:25:19+01:00
-draft: false 
-author: "the paged.js team" 
+draft: false
+author: "the paged.js team"
 class:
 intro: We just released a new version of Paged.js! The 0.1.38 is now available to download from [unpkg](https://unpkg.com) or [npm](https://www.npmjs.com/package/pagedjs).
-
 # intro: What’s new in Paged.js
 ---
 
 <!-- We just released a new version of Paged.js! The 0.1.38 is now available to download from [https://unpkg.com](https://unpkg.com/browse/pagedjs@0.1.38/dist/) or you can install it using [npm](https://www.npmjs.com/package/pagedjs). -->
 
-
-
 ## New in this release:
 
-*Somehow, the release has been made before the code for the string-update feature was merged. Since the release , it will be part of the 0.1.39. If you want to use that code today, you can download it from [here](/documentation/releases)*
-
+_Somehow, the release has been made before the code for the string-update feature was merged. Since the release , it will be part of the 0.1.39. If you want to use that code today, you can download it from [here](/documentation/releases)_
 
 This is a minor release which includes one item:
 
 - updated our support for the string-set property. Following the W3C specs, you have now more options to define which title will appear on the page. Here is the schema that helped us implement it, courtesy of Julie Blanc.
 
-{{< figure src="img/graphic-issue-string.png" >}}
+<figure> <img src="images/graphic-issue-string.png"  /></figure>
 
 ## Additional items:
 
@@ -38,7 +34,7 @@ We have updated the list of the Paged media features that paged.js supports. It 
 
 ## Hugo Component
 
-For those who never heard of it, Hugo is an open source static site generator written in Go, blazing fast and pretty efficient. It’s packed with a ton of features and ideas so smart that building the paged.js website with it has been a pleasure. One of the features we need for the website is Paged.js integration to make books out of the HTML. Thus, we made an implementation of [Paged.js for Hugo](https://gitlab.pagedmedia.org/julientaq/pagedjs-hugo). Hugo has a really well thought out theme engine: to be able to use the print script you only need to add the information in your config theme, *et voilà*. It’s still early and experimental, but if you hit the top right button on this page, you can see what it does. Feel free to raise a GitLab issue if you find any.
+For those who never heard of it, Hugo is an open source static site generator written in Go, blazing fast and pretty efficient. It’s packed with a ton of features and ideas so smart that building the paged.js website with it has been a pleasure. One of the features we need for the website is Paged.js integration to make books out of the HTML. Thus, we made an implementation of [Paged.js for Hugo](https://gitlab.pagedmedia.org/julientaq/pagedjs-hugo). Hugo has a really well thought out theme engine: to be able to use the print script you only need to add the information in your config theme, _et voilà_. It’s still early and experimental, but if you hit the top right button on this page, you can see what it does. Feel free to raise a GitLab issue if you find any.
 
 ## Paged.js on Reddit
 
@@ -54,7 +50,7 @@ Paged.js is a js library, you can use it in any workflow :) For instance, the pa
 
 > “Isn’t this a thing already just using css?”
 
-It should be. W3C wrote (and keep writing) a lot of specifications for print, but browsers haven’t really implemented those. That’s why we’re making a polyfill: you can write the CSS following the  specifications even if they’re not implemented yet and call Paged.js to transform those into rules that our browsers can understand today. When the browsers will have implemented all the things we need, we’ll stop working on Paged.js (but don’t expect to see that to happen in a near future).
+It should be. W3C wrote (and keep writing) a lot of specifications for print, but browsers haven’t really implemented those. That’s why we’re making a polyfill: you can write the CSS following the specifications even if they’re not implemented yet and call Paged.js to transform those into rules that our browsers can understand today. When the browsers will have implemented all the things we need, we’ll stop working on Paged.js (but don’t expect to see that to happen in a near future).
 
 #### From /u/brainbag
 
@@ -72,7 +68,7 @@ This is pretty basic Paged media specs stuff, we got you covered in the doc. (yo
 
 > “Numbering lines on the output PDF”
 
-A solution build by the community: https://github.com/rstudio/pagedown/issues/115 I’ll make a post about that. We also have a simple solution to build a baseline grid: https://www.pagedjs.org/img/linecount.png
+A solution build by the community: https://github.com/rstudio/pagedown/issues/115 I’ll make a post about that. We also have a simple solution to build a baseline grid: https://www.pagedjs.org/images/linecount.png
 
 ​
 
@@ -88,7 +84,7 @@ Yes sir :) We’re using the browser and pages are made using css grid and flex,
 
 #### From /u/Serei
 
-> “Is it possible to make footnotes that appear at the bottom of the current page?” 
+> “Is it possible to make footnotes that appear at the bottom of the current page?”
 
 The W3C specs for the footnotes are still being finalised, but we are actively working on some solutions to follow these specs (even joining the w3c print working group to make those evolve). We have some solutions for margin notes https://gitlab.pagedmedia.org/tools/experiments/tree/master/margin-notes and we made a couple of books with footnotes, but it needed some manual works to make sure the layout was great.
 
@@ -96,8 +92,9 @@ We’re now upgrading the library core to handle multiple flows and float-top an
 
 ## One more for the road
 
-The excellent [Hugo “Kitty” Giraudel](https://hugogiraudel.com) made a tool to turn any CSS selector into proper English. If you don’t understand why your CSS properties are not being applied, or if you only want to get better at targeting elements with precision, this is the webpage to consult: https://hugogiraudel.github.io/selectors-explained/. It also includes the selector specificity score. 
+The excellent [Hugo “Kitty” Giraudel](https://hugogiraudel.com) made a tool to turn any CSS selector into proper English. If you don’t understand why your CSS properties are not being applied, or if you only want to get better at targeting elements with precision, this is the webpage to consult: https://hugogiraudel.github.io/selectors-explained/. It also includes the selector specificity score.
 
 And that’s all for this time folks, but we keep working.
 
 Stay tuned!
+

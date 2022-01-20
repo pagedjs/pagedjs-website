@@ -2,42 +2,67 @@
 
 {% block side %}{% endblock %}
 {% block scripts %}
-  <script src="/js/text-annotator.min.js"></script>
-  <script src="/js/search.js"></script>
+<script src="/js/text-annotator.min.js"></script>
+<script src="/js/search.js"></script>
 {% endblock %}
 
 {% block content %}
-
-  <article id="search">
+<article>
   <header>
-  <h1 id="title">{{ title }}</h1>
+    <h1 id="title">{{ title }}</h1>
   </header>
 
-  <label for="search">Search</label>
-  <input id="searchInput" name="search" type="text" placeholder="running heads, page-number, polyfill…" id="searchInput">
+
+  <aside class="inputblock">
+    <input id="searchInput" type="text"/>
+    <button id="searchIcon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                                                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+    </button>
+    <div class="andor">
+      <input type="radio" id="and" name="andor" value="and">
+      <label for="and">and</label>
+      <input type="radio" id="or" name="andor" value="or">
+      <div class="previousSearch">
+        <button class="clearPrevious">clear previous queries</button>
+      </div>
+  </aside>
+
   <ul id="results">
   </ul>
-  </article> 
+
+  <template class="searchspace">
+    <main class="content">
+      {% for item in collections.documentation %}
+      <section class="data" id="{{item.data.title | slug}}" >
+        <h1>{{item.title}}</h1>
+        {{item.templateContent | markdownify | safe}}
+      </section>
+      {% endfor %}
+      {% for item in collections.examples %}
+      <section class="data" id="{{item.data.title | slug}}">
+        <h1>{{item.title}}</h1>
+        {{item.templateContent | markdownify | safe}}
+      </section>
+      {% endfor %}
+      {% for item in collections.journal %}
+      <section class="data" id="{{item.data.title | slug}}">
+        <h1>{{item.title}}</h1>
+        {{item.templateContent | markdownify | safe}}
+      </section>
+      {% endfor %}
+  </template>
 
 
+  <section class="results">
+    <p>Please fill the input to search</p>
+  </section>
 
-  <main class="content">
-  {% for item in collections.documentation %}
-    <section class="data">
-    {{item.templateContent | markdownify | safe}}
-    </section>
-  {% endfor %}
-  {% for item in collections.examples %}
-    <section class="data">
-    {{item.templateContent | markdownify | safe}}
-    </section>
-  {% endfor %}
-  {% for item in collections.journal %}
-    <section class="data">
-    {{item.templateContent | markdownify | safe}}
-    </section>
-  {% endfor %}
+    </main>
 
-  </main>
+</article>
 {% endblock %}
 
