@@ -54,14 +54,19 @@ function search() {
       andorResult = radioButton.id;      
     }
   });
- //1. if andorResult is and 
+ // 1. if andorResult is and 
  //     - then do the search for all searches
  //     - can use foreach here
- //2. else (andorResult is or)
+ // 2. else (andorResult is or)
  //     - search until there is a non-empty result for a search
  //     - stop search as soon as the result for 1 search is found
  //     - can't use foreach here since foreach runs for all elements,
- //       it's a function not a loop, so we can't break out of it
+ //      it's a function not a loop, so we can't break out of it
+ // 3.  to fix: 
+ //       - check the element in context link
+ //       - search the path of the result so that we can add
+ //        documentation/examples/journal in search result or
+ //        create a tag in the template and access it 
 
   //   for each experssion search
   searches.forEach((query, index) => {

@@ -39,21 +39,18 @@
   <template class="searchspace">
     <main class="content">
       {% for item in collections.documentation %}
-      <small>DOCUMENTATION</small>
       <section class="data" id="{{item.data.title | slug}}" >
         <h1>{{item.title}}</h1>
         {{item.templateContent | markdownify | safe}}
       </section>
       {% endfor %}
       {% for item in collections.examples %}
-      <small>EXAMPLES</small>  
       <section class="data" id="{{item.data.title | slug}}">
         <h1>{{item.title}}</h1>
         {{item.templateContent | markdownify | safe}}
       </section>
       {% endfor %}
       {% for item in collections.journal %}
-      <small>JOURNAL</small>
       <section class="data" id="{{item.data.title | slug}}">
         <h1>{{item.title}}</h1>
         {{item.templateContent | markdownify | safe}}
