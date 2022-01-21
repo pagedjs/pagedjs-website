@@ -43,6 +43,26 @@ function search() {
   //   split search with ,
   let searches = searchInput.value.trim().split(/\s?,\s?/);
 
+  //select the radio button group andor
+  const andor = document.querySelectorAll('input[name = "andor"]')
+  let andorResult = "";
+  //for each radio button in andor 
+  andor.forEach(radioButton => {
+    //find the checked radioButton
+    if(radioButton.checked){
+      //assign the id of the checked radio button to andorResult
+      andorResult = radioButton.id;      
+    }
+  });
+ //1. if andorResult is and 
+ //     - then do the search for all searches
+ //     - can use foreach here
+ //2. else (andorResult is or)
+ //     - search until there is a non-empty result for a search
+ //     - stop search as soon as the result for 1 search is found
+ //     - can't use foreach here since foreach runs for all elements,
+ //       it's a function not a loop, so we can't break out of it
+
   //   for each experssion search
   searches.forEach((query, index) => {
     let regex = new RegExp(`(${query})`, "gis");

@@ -23,12 +23,14 @@
       </svg>
     </button>
     <div class="andor">
-      <input type="radio" id="and" name="andor" value="and">
+      <input type="radio" id="and" name="andor" value="and" checked>
       <label for="and">and</label>
       <input type="radio" id="or" name="andor" value="or">
-      <div class="previousSearch">
-        <button class="clearPrevious">clear previous queries</button>
-      </div>
+      <label for="or">or</label>
+    </div>
+    <div class="previousSearch">
+      <button class="clearPrevious">clear previous queries</button>
+    </div>
   </aside>
 
   <ul id="results">
@@ -37,18 +39,21 @@
   <template class="searchspace">
     <main class="content">
       {% for item in collections.documentation %}
+      <small>DOCUMENTATION</small>
       <section class="data" id="{{item.data.title | slug}}" >
         <h1>{{item.title}}</h1>
         {{item.templateContent | markdownify | safe}}
       </section>
       {% endfor %}
       {% for item in collections.examples %}
+      <small>EXAMPLES</small>  
       <section class="data" id="{{item.data.title | slug}}">
         <h1>{{item.title}}</h1>
         {{item.templateContent | markdownify | safe}}
       </section>
       {% endfor %}
       {% for item in collections.journal %}
+      <small>JOURNAL</small>
       <section class="data" id="{{item.data.title | slug}}">
         <h1>{{item.title}}</h1>
         {{item.templateContent | markdownify | safe}}
