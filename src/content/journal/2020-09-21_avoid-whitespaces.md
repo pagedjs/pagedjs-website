@@ -3,7 +3,7 @@ title: "Avoid whitespaces on pages"
 date: 2020-09-21T11:58:02+02:00
 draft: false
 type: post
-url: ../posts/avoid-whitespaces/
+permalink: /posts/avoid-whitespaces/
 class: cookbook
 author: Julie Blanc
 intro: A little script to float elements and avoid large whitespaces at the end of pages.

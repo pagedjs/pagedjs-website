@@ -3,7 +3,7 @@ title: "A paged.js hackathon at EnsadLab"
 date: 2021-03-18T12:00:02+02:00
 draft: false
 type: post
-url: ../posts/2021-03-hackathon/
+permalink: /posts/2021-03-hackathon/
 id: hackathon-ensadlab
 # class: cookbook
 author: Julie Blanc

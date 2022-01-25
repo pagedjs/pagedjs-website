@@ -13,7 +13,7 @@
 
             {% for item in collections.sortedByOrder %}
                 {% if item.data.menu.length %}
-                    <li>
+                    <li  class="{% if item.url == page.url %}active{% endif %}">
                         <a href="{{item.url}}">{{item.data.menu}}</a>
                     </li>
                 {% endif %}

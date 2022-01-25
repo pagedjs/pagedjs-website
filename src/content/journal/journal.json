@@ -1,6 +1,7 @@
 {
   "layout": "journal-single.njk",
-  "permalink":"/journal/{{title | removeWhitespaces}}/",
-  "addIntro":true,
+  "permalink": "/post/{{page.fileSlug}}/",
+  "addIntro": true,
   "addTags": true
 }
+

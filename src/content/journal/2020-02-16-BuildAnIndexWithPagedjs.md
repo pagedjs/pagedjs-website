@@ -9,6 +9,7 @@ tags:
   - indexing
   - target-counter
   - guide
+permalink: /posts/2020-02-16-buildanindexwithpagedjs/
 ---
 
 Download the script here: [https://gitlab.coko.foundation/pagedjs/experiments/blob/master/book-index/js/createIndex.js](https://gitlab.coko.foundation/pagedjs/experiments/blob/master/book-index/js/createIndex.js)
