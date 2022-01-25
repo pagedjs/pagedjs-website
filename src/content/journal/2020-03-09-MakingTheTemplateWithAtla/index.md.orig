@@ -4,21 +4,12 @@ title: "Finding letters for Atla"
 date: 2020-03-08T16:53:38+01:00
 draft: false
 author: "Julien"
-<<<<<<< HEAD
-intro:  "The nice folks of Atla Open Press have been working with Coko to develop their new publishing workflow around the amazing [Editoria](https://www.editoria.pub). So we helped them designing their new book template."
-tags: 
-    - Atla
-    - creating templates
-    - typefaces 
-    - book design
-=======
 intro: "The nice folks of Atla Open Press have been working with Coko to develop their new publishing workflow around the amazing [Editoria](https://www.editoria.pub). So we helped them designing their new book template."
 tags:
   - Atla
   - Creating templates
   - Typefaces
   - Book design
->>>>>>> searchElement
 ---
 
 _Creating Templates_ is a series of articles in which one designer will explain the choices they made for a collection or a book, following the process from the typical design workflow to the output in modern typesetting using Paged.js. For the first article of the series, we’ll look at how Julien designed a template to be used in Editoria by Atla Open Press.

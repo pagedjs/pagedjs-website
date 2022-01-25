@@ -3,21 +3,12 @@ title: "Notes About Notes"
 date: 2020-05-13T15:42:08+02:00
 draft: false
 author: "Julie Blanc"
-<<<<<<< HEAD
-intro:  "This article proposing new CSS specifications to design differents kind of notes  in  continuous and paged medias."
-tags: 
-- specifications
-- W3C
-- foot notes
-- margin notes
-=======
 intro: "This article proposing new CSS specifications to design differents kind of notes  in  continuous and paged medias."
 tags:
   - specifications
   - w3c
   - foot notes
   - margin notes
->>>>>>> searchElement
 ---
 
 CSS is a language that evolves by adopting new specifications. To be accepted as rules and properties published by the W3C, a proposal for new features is debated, adopted or rejected by the CSS Working Group which is made of a broad community of users, company representatives, invited experts and browser developers. Turning an idea for a new feature into an actual standard is a long process of discussion and debates in which complex cases are discussed, examples of implementations are shown, and decisions are made.

@@ -3,21 +3,12 @@ title: "Welcome Pagedjs 0.1.42"
 date: 2020-06-20T15:42:08+02:00
 draft: false
 author: "Pagedjs team"
-<<<<<<< HEAD
-intro:  "Some news from paged.js and an update!"
-tags: 
-- specifications
-- W3C
-- updates
-- page number
-=======
 intro: "Some news from paged.js and an update!"
 tags:
   - Specifications
   - W3C
   - updates
   - page number
->>>>>>> searchElement
 ---
 
 Hi there!

@@ -9,13 +9,7 @@ draft: false
 tags:
   - automated typesetting
   - CSS layout design
-<<<<<<< HEAD
   - page-floats
-
-
-=======
-  - Page-floats
->>>>>>> searchElement
 ---
 
 Layout is the operation of positioning and styling elements of content in a given space. It aims to position the content (text, images, notes&#8230;) in a hierarchical and harmonious way (balancing the zones, colors and spaces, contrasts), in order to facilitate display and the flow of reading.
