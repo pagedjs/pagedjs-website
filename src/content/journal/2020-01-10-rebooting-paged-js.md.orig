@@ -3,13 +3,6 @@ title: "And we’re back!"
 date: 2020-01-27T15:56:54+01:00
 draft: true
 intro: "After a year of undercover work in the realm of printing HTML, we’re proudly introducing the new Paged.js website."
-<<<<<<< HEAD
-=======
-tags:
-  - pagedjs
-  - update
-  - friends
->>>>>>> searchElement
 author: Julien Taquet
 ---
 
@@ -40,11 +33,13 @@ We also now have a better and usable documentation. For the last year, we’ve b
 We also want to show all the good that people using paged.js are doing: [Atla](https://www.atla.com) are now using Editoria as their only tool to manage workflow, content, editing, and publishing, and Paged.js is their main tool to generate the PDF they send to the printer. The people behind Atla has a high idea of what “open” means, thus they want to share their book templates as open source.
 
 <<<<<<< HEAD
+
 <!-- ###### title 6 -->
 
 =======
->>>>>>> searchElement
-Our friends a [Booksprints](https://www.booksprints.net/) comissioned two designers to produce four CSS templates to be used with Paged.js. Agathe Baez and Manuel Vazquez worked closely with us to be able to produce good looking templates, and they’re open. You can download those and publish your own books. The collection keeps growing, which is pretty amazing.
+
+> > > > > > > searchElement
+> > > > > > > Our friends a [Booksprints](https://www.booksprints.net/) comissioned two designers to produce four CSS templates to be used with Paged.js. Agathe Baez and Manuel Vazquez worked closely with us to be able to produce good looking templates, and they’re open. You can download those and publish your own books. The collection keeps growing, which is pretty amazing.
 
 <figure> <img src="/images/1139e889a554ab3a295840.jpg" /></figure>
 
@@ -62,4 +57,5 @@ From posters to interfaces, I’ve been designing user experiences for a decade,
 <<<<<<< HEAD
 
 =======
->>>>>>> searchElement
+
+> > > > > > > searchElement
