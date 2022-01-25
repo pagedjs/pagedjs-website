@@ -16,7 +16,7 @@ the web page is printed from the browser print dialog to create a PDF.
 - [CSS Paged Media Module Level 3](https://www.w3.org/TR/css3-page/) “describes the page model that partitions a flow into pages. (…) It adds functionality for pagination, page margins, page size and orientation, headers and footers, widows and orphans, and image orientation.”
 - [CSS Generated Content for Paged Media Module](https://www.w3.org/TR/css-gcpm-3/) defines many special requirements for the display of printed document content: running headers and footers, footnotes, generated text for cross-references or table of contents, PDF bookmarks, etc.
 - [CSS Fragmentation Module Level 3](https://www.w3.org/TR/css-break-3/) defines how and where CSS boxes can be fragmented, including across page breaks. (This module is not specific for print.)
-- [ CSS page floats](https://www.w3.org/TR/css-page-floats-3/) defines how an element is to be removed from the normal flow and instead be placed into a different place depends on page. ([see the article “Page Media approaches: page floats”](https://www.pagedmedia.org/page-floats/))
+- [ CSS page floats](https://www.w3.org/TR/css-page-floats-3/) defines how an element is to be removed from the normal flow and instead be placed into a different place depends on page. ([see the article “Page Media approaches: page floats”](/journal/PagedMediaapproaches:pagefloats/))
 
 We try to respect the specifications as much as possible, but sometimes, they can be unclear or leave a certain degree of indeterminacy. Thus, Paged.js implementation is made of our own interpretation and when the rules will be implemented by the browsers, they may differ from what we would have built.
 
@@ -56,4 +56,3 @@ You must also use a recent version of these browsers because we use some CSS gri
 The result will not always be the same from one browser to another because they don't use the same browser engine. For example, line-height is not managed in the same way on Firefox and Chrome. The result will also not be the same depending on the OS you are using. For example, hyphenation is managed in Chrome only on Apple OSX.
 
 We recommend staying on the same browser and OS for the design and generation of the PDF to avoid unpleasant surprises.
-

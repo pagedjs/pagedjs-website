@@ -29,7 +29,7 @@ We now handle `border` on the page as the [specifications define it](https://dra
 
 Paged.js include the version in its header thanks to Guillaume (@mogztter),
 
-### Fixes for reset on page counter [!128](https://gitlab.coko.foundation/pagedjs/pagedjs/merge_requests/128) and Fixes page counter [!124](https://gitlab.pagedmedia.org/pagedjs/pagedjs/merge_requests/124)
+### Fixes for reset on page counter [!128](https://gitlab.coko.foundation/pagedjs/pagedjs/merge_requests/128) and Fixes page counter [!124](https://gitlab.coko.foundation/pagedjs/pagedjs/merge_requests/124)
 
 You can now reset the numbering of your page and set the number it starts from using, for instance, `counter-reset: page 20`. But when Guillaume starting to look at how it was supposed to work, he ended up with a tricky situation: setting reset anywhere in the CSS doesn’t seem to be valid CSS, but at the same time, it’s how the majority of all the other tools are working. We implemented a quick fix to help authors used to this way of writing css down, but we have a more in-depth article coming. Side note, you can now set up a custom increment for the page counter.
 
@@ -37,7 +37,7 @@ You can now reset the numbering of your page and set the number it starts from u
 
 Guillaume also fixed a longtime bug, where a named page would create an empty page if it was the first page of the book.
 
-### Handling for nth-of-type and following (+) selectors [!122](https://gitlab.coko.foundation/pagedjs/pagedjs/merge_requests/122), [!125](https://gitlab.pagedmedia.org/pagedjs/pagedjs/merge_requests/125)
+### Handling for nth-of-type and following (+) selectors [!122](https://gitlab.coko.foundation/pagedjs/pagedjs/merge_requests/122), [!125](https://gitlab.coko.foundation/pagedjs/pagedjs/merge_requests/125)
 
 Nellie McKesson, from the amazing [Hederis](https://www.hederis.com/) helped all of us write better CSS by adding support for `+` and `nth-of-type` selector.
 
@@ -72,7 +72,7 @@ Add a `filter` hook that happens just before the `afterParsed()` one. It allows 
 
 Thanks a lot to Edoardo Tona (@EdoardoTona) who helped us figure out a bug in Chrome when, sometime, the pdf output is different from the screen preview (on the last part of the page) and the print PDF. By waiting 1 frame, the content is now identical.
 
-Many great code bug-fixes: [Nicholas Wylie fixed the ordered list numbering](https://gitlab.coko.foundation/pagedjs/pagedjs/merge_requests/111), [Gregorio Roper, @garoper, fixed the issue when using page counter and custom counters](https://gitlab.pagedmedia.org/pagedjs/pagedjs/merge_requests/88), and we [updated to Pupeteer 3](https://gitlab.pagedmedia.org/pagedjs/pagedjs/merge_requests/121).
+Many great code bug-fixes: [Nicholas Wylie fixed the ordered list numbering](https://gitlab.coko.foundation/pagedjs/pagedjs/merge_requests/111), [Gregorio Roper, @garoper, fixed the issue when using page counter and custom counters](https://gitlab.coko.foundation/pagedjs/pagedjs/merge_requests/88), and we [updated to Pupeteer 3](https://gitlab.coko.foundation/pagedjs/pagedjs/merge_requests/121).
 
 Thanks to everyone who contributed. You’re amazing.
 
@@ -85,4 +85,4 @@ Thanks to everyone who contributed. You’re amazing.
 
 And that’s it for today.
 
-If you find any bugs, or have any questions, or want to discuss anything, feel free to join us on our chat: [mattermost.coko.foundation](mattermost.pagedmedia.org)
+If you find any bugs, or have any questions, or want to discuss anything, feel free to join us on our chat: [mattermost.coko.foundation](mattermost.coko.foundation.org)
