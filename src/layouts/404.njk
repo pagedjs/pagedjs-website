@@ -1,0 +1,19 @@
+{% extends "base.njk" %}
+
+{% block side %}
+  {# {% include "_partials/readbuttons.njk" %} #}
+{% endblock %}
+{% block topbar %}
+  {# #}   
+{% endblock %}
+{% block scripts %}{% endblock %}
+
+{% block content %}
+  <header>
+    <h1 id="title"> {{title}} </h1>
+    <article>
+    {{content | safe}}
+    </article>
+  </article>
+{% endblock %}
+

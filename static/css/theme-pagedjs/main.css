@@ -1,4 +1,4 @@
-/*!normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css*/
+/*!normalize.css v8.0.1 | Mmain.cssIT License | github.com/necolas/normalize.css*/
 
 html {
   line-height: 1.15;
@@ -1599,7 +1599,12 @@ article {
   padding: 0.4em;
   background: #fff;
 }
-
+.not-found p {
+  font-size: 1.3em;
+}
+.not-found header #title::before {
+  content: none;
+}
 section {
   grid-column: left/end;
 }
