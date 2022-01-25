@@ -20,7 +20,7 @@ Editoria is a platform to collaboratively produce books, offering spaces for wri
 
 We've been talking Editoria quite a lot in these pages. Firstly because Paged.js was implemented in Editoria before any other tool, after years of trying out other tools to make books out of HTML.
 
-Editoria has been used for quite a while by Book Sprints and other friendly folks. It's a pretty amazing tool for creating books collaboratively by a team. But one of the limitations from the designer's perspective was that we were stuck with what CSS allowed us to do. It took quite a while to figure out the best option to have custom javascript hooks without compromising the security of the whole platform. 
+Editoria has been used for quite a while by Book Sprints and other friendly folks. It's a pretty amazing tool for creating books collaboratively by a team. But one of the limitations from the designer's perspective was that we were stuck with what CSS allowed us to do. It took quite a while to figure out the best option to have custom javascript hooks without compromising the security of the whole platform.
 
 Well, that solution exists now:)
 
@@ -71,7 +71,7 @@ Let's start strumming our ~~ukulele~~ keyboard and make some code. :)
 
 So let's jump in, script by script and see what happens and how things work.
 
-Here is the link to the [pdf](https://demo.flaxjs.net/output/uke.pdf) and to the [repo](https://gitlab.pagedmedia.org/pagedjs-templates/ukulele-demo) if you want to have a proper look at all those files :D).
+Here is the link to the [pdf](https://demo.flaxjs.net/output/uke.pdf) and to the [repo](https://gitlab.coko.foundation/pagedjs/pagedjs-templates/ukulele-demo) if you want to have a proper look at all those files :D).
 
 We’re setting up a place to display the open source templates we’re making, so stay tuned to know more about it.
 
@@ -143,15 +143,8 @@ To do so, I created a CSS custom property that can have different values
 to define where the element should float.
 
 ```css
---page-float: same-top,
-              same-bottom,
-              next-top,
-              next-bottom,
-              same-column-top,
-              same-column-bottom,
-              next-column-top,
-              next-column-bottom,
-              full-page
+--page-float: same-top, same-bottom, next-top, next-bottom, same-column-top,
+  same-column-bottom, next-column-top, next-column-bottom, full-page;
 ```
 
 Some of those values/classes are not used, but are there for the day we
@@ -246,7 +239,6 @@ We use the exact same idea for the image to top / bottom, but we're moving them 
 
 Until then, keep practising music and book design.
 
-
-The code is accessible [here](https://gitlab.pagedmedia.org/pagedjs-templates/ukulele-demo)
+The code is accessible [here](https://gitlab.coko.foundation/pagedjs/pagedjs-templates/ukulele-demo)
 
 Have fun!

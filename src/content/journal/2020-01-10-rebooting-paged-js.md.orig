@@ -3,6 +3,13 @@ title: "And we’re back!"
 date: 2020-01-27T15:56:54+01:00
 draft: true
 intro: "After a year of undercover work in the realm of printing HTML, we’re proudly introducing the new Paged.js website."
+<<<<<<< HEAD
+=======
+tags:
+  - pagedjs
+  - update
+  - friends
+>>>>>>> searchElement
 author: Julien Taquet
 ---
 
@@ -32,6 +39,11 @@ We also now have a better and usable documentation. For the last year, we’ve b
 
 We also want to show all the good that people using paged.js are doing: [Atla](https://www.atla.com) are now using Editoria as their only tool to manage workflow, content, editing, and publishing, and Paged.js is their main tool to generate the PDF they send to the printer. The people behind Atla has a high idea of what “open” means, thus they want to share their book templates as open source.
 
+<<<<<<< HEAD
+<!-- ###### title 6 -->
+
+=======
+>>>>>>> searchElement
 Our friends a [Booksprints](https://www.booksprints.net/) comissioned two designers to produce four CSS templates to be used with Paged.js. Agathe Baez and Manuel Vazquez worked closely with us to be able to produce good looking templates, and they’re open. You can download those and publish your own books. The collection keeps growing, which is pretty amazing.
 
 <figure> <img src="/images/1139e889a554ab3a295840.jpg" /></figure>
@@ -43,3 +55,11 @@ Last, but not least, there has been quite some movement on the community side: 
 So this is what this website will be about: keeping tracks on everything HTML to print related, and welcoming everyone would want to play ball with us.
 
 See you soon!
+
+{{< signature name="Julien Taquet" image="https://github.com/julientaq.png" >}}
+From posters to interfaces, I’ve been designing user experiences for a decade, with a soft spot for books. If computers and networks are strongly asking “what is a book today?” I’d like to push the thinking further. And since I always like to do things in a different way, let’s turn off InDesign for a while and see where –and if– we’ll be stopped in the making of books.
+{{< /signature >}}
+<<<<<<< HEAD
+
+=======
+>>>>>>> searchElement

@@ -4,7 +4,7 @@ date: 2021-06-01
 draft: false
 type: post
 url: ../posts/2021-06-newRelease/
-id: 
+id:
 # class: cookbook
 author: Paged.js team
 intro: Being able to generate hundreds of pages from the browser that will be printed on an offset printer using copper ink is great, but did you try footnotes?
@@ -13,13 +13,9 @@ tags:
   - release notes
 ---
 
-
 ## Hey yall! We have footnotes!
 
-
-
-
-One day, i said on twitter that we were starting our work on the footnotes. This was the most retweeted and shared post in all the history of Paged.js. This is the most awaited feature that we’re really proud to bring into the game. 
+One day, i said on twitter that we were starting our work on the footnotes. This was the most retweeted and shared post in all the history of Paged.js. This is the most awaited feature that we’re really proud to bring into the game.
 
 We’ve always been happy to help making hooks for footnotes, but they were mostly hacks, and would come with their share of unknown behavior, they wouldn’t be standard and would break everything on a regular basis. Not the best of the world.
 
@@ -30,13 +26,15 @@ But we can’t wait for the W3C to approve those specs as they would need to go 
 Footnotes now exists in paged.js and can be easily set up this way:
 
 ```html
-<p>This is a paragraph that contains some lorem ipsum <span class="footnote">Fake latin</span> content</p>
+<p>
+  This is a paragraph that contains some lorem ipsum
+  <span class="footnote">Fake latin</span> content
+</p>
 ```
 
-i obviously named my class `footnote` but you can call that whatever you want. And better, your footnote can be anything from text to table, including images or more exotic HTML (warning though, this has been tested with text first and foremost). 
+i obviously named my class `footnote` but you can call that whatever you want. And better, your footnote can be anything from text to table, including images or more exotic HTML (warning though, this has been tested with text first and foremost).
 
 Then you need to define which elements need to be set as footnote using those properties:
-
 
 ```css
 /* define what are the footnotes elements */
@@ -58,14 +56,13 @@ And that’s it. You can then style the footnote callout to go beyond the user a
 
 Pay attention to the fact that there is no callout, they will be created automatically and you’ll be able to change their look with css without having to worry with the note numbering.
 
-
-```css 
-::footnote-call { 
+```css
+::footnote-call {
   content: counter(footnote, loweralpha);
   color: red;
   font-weight: 700;
   font-size: 3em;
-  line-height: 0; 
+  line-height: 0;
 }
 
 ::footnote-marker {
@@ -73,13 +70,11 @@ Pay attention to the fact that there is no callout, they will be created automat
   color: red;
   font-weight: 700;
   font-size: 3em;
-  line-height: 0; 
-  }
+  line-height: 0;
+}
 ```
 
-
 You can check this [codepen](https://codepen.io/julientaq/pen/dyvQaKy) to see it in action.
-
 
 To be able to manage the footnotes, Fred rewrote quite an amount of code of Paged.js. He made sure that the API didn’t change, but it doesnt mean that your previous content will work by default. Please test, and tell us if something goes wrong, we’ll be happy to support you.
 
@@ -93,9 +88,7 @@ Welcome Paged.js 0.2.0! :)
 - A lot of improvement on tables from @guillaume) (Break in table with row span are now much more elegant, columns are rebuild on page breaks, etc.)
 - remove page border when no borders are specified (from @guillaume)
 - @Julie wanted to print page with a lot of colors, so she added box-shadows to the crop marks
-- @guillaume introduced the `RenderResult` object with more data about how pagedjs handle page breaks. 
-
-
+- @guillaume introduced the `RenderResult` object with more data about how pagedjs handle page breaks.
 
 ## In other places
 
@@ -105,9 +98,6 @@ One of the great thing of using the browser is to inherit all the knowledge they
 
 C&F editition are working on their new collection using Paged.js but hush, it’s a surprise.
 
-And Julien spent some time to build hooks for page float, automatic indexing, and other things we’ll be happy to show you soon. This [PDF](img/exampleOUT.pdf) was made with [Editoria](www.editoria.pub). Video tutorials are coming!
+And Julien spent some time to build hooks for page float, automatic indexing, and other things we’ll be happy to show you soon. This [PDF](/images/exampleOUT.pdf) was made with [Editoria](www.editoria.pub). Video tutorials are coming!
 
 Until next time!
-
-
-

@@ -10,19 +10,17 @@ part: 11
 To get set up with the development version, clone the repository and run the project using npm (you need to have git and npm installed):
 
 ```bash {linenos=table,linenostart=1}
-$ git clone https://gitlab.pagedmedia.org/tools/pagedjs.git
+$ git clone https://gitlab.coko.foundation/pagedjs/pagedjs.git
 $ cd pagedjs
 $ npm install
 $ npm start
 ```
-
 
 Link the script with your document:
 
 ```html
 <script src="http://localhost:9090/dist/paged.polyfill.js"></script>
 ```
-
 
 All you need to know about setup, development and testing with the local dev-server is available in the README.md of the repo.
 
@@ -39,15 +37,9 @@ You can find all the documentation on their respective websites. Broadly, what y
 
 Note: With some browsers and some operating systems, you may not need a local server for Paged.js to work. To find out, simply open your HTML page (linked to the polyfill). If the paginated content appears, you don't need a local server.
 
-
-
 ## Generating a PDF
 
 Paged.js transforms your content so that it can be viewed in a browser. PDF generation can be done in two ways:
 
 - using the print features of your browser,
-- using the [pagedjs-cli](https://gitlab.pagedmedia.org/tools/pagedjs-cli) tool based on Paged.js and [Puppeteer](https://github.com/GoogleChrome/puppeteer).
-
-
-
-
+- using the [pagedjs-cli](https://gitlab.coko.foundation/pagedjs/pagedjs-cli) tool based on Paged.js and [Puppeteer](https://github.com/GoogleChrome/puppeteer).

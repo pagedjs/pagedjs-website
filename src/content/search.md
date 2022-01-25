@@ -1,7 +1,6 @@
 ---
-title: search
-menu: search
-layout: singlepage.njk
+title: Looking for something?
+# menu: search
+layout: search.njk
+class: search
 ---
-
-welcome to search page

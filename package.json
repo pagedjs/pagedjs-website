@@ -35,5 +35,8 @@
     "puppeteer": "^8.0.0",
     "util": "^0.12.4",
     "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@11ty/eleventy-plugin-syntaxhighlight": "^3.2.2"
   }
 }
