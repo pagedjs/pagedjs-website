@@ -11,7 +11,7 @@ tags:
   - guide
 ---
 
-Download the script here: [https://gitlab.pagedmedia.org/tools/experiments/blob/master/book-index/js/createIndex.js](https://gitlab.pagedmedia.org/tools/experiments/blob/master/book-index/js/createIndex.js)
+Download the script here: [https://gitlab.coko.foundation/pagedjs/experiments/blob/master/book-index/js/createIndex.js](https://gitlab.coko.foundation/pagedjs/experiments/blob/master/book-index/js/createIndex.js)
 
 ## Preparing your HTML
 
@@ -19,8 +19,13 @@ In the simplest terms, a book index is simply a key to locating information cont
 
 When you think your content is revelant and need to be in the index, simply add a span around the content:
 
-```HTML
-<p>General definitions of <span class="book-index" data-book-index="music">music</span> include common elements such as pitch, rhythm, dynamics, and the sonic qualities of timbre and texture.</p>
+```html
+<p>
+  General definitions of
+  <span class="book-index" data-book-index="music">music</span> include common
+  elements such as pitch, rhythm, dynamics, and the sonic qualities of timbre
+  and texture.
+</p>
 ```
 
 Your span must contain at least two elements:
@@ -37,7 +42,7 @@ About the data attribute:
 
 Finally, you must add somewhere in your HTML an element in which the book index will be generated. It can be a section or a div but it must be indicated by an id (that you name as you wish):
 
-```HTML
+```html
 <div id="book-index"></div>
 ```
 
@@ -54,7 +59,7 @@ Finally, you must add somewhere in your HTML an element in which the book index 
 <script src="js/createIndex.js" type="text/javascript"></script>
 ```
 
-3. Call the book index script:
+3. Call the book index scripthtml
 
 The book index need to be generated before that paged.js fragmented the content into pages. You need to the hook `before` to call the script.  
 Add this code in the `head` of you html document:
@@ -75,14 +80,22 @@ Add this code in the `head` of you html document:
 
 4. Use the print CSS properties in your stylesheet file to target the pages where the index elements appears:
 
-```CSS
-.link-page a::after{ content: target-counter(attr(href), page); }
+```css
+.link-page a::after {
+  content: target-counter(attr(href), page);
+}
 
-.link-page::after{ content: ", "; }
+.link-page::after {
+  content: ", ";
+}
 
-.link-page:last-of-type::after{ content: none; }
+.link-page:last-of-type::after {
+  content: none;
+}
 
-.index-value::after{ content: " – "; }
+.index-value::after {
+  content: " – ";
+}
 ```
 
 ## Configuring the script
@@ -95,11 +108,10 @@ Add this code in the `head` of you html document:
 
 The script generates a list with items you can style. Here is an example of a book index generated:
 
-<figure> <img src="images/example-index.png" alt="Exemple of a generated book index" /></figure>
+<figure> <img src="/images/example-index.png" alt="Exemple of a generated book index" /></figure>
 
-```HTML
+```html
 <ul id="list-index-generated">
-
   <li class="list-alphabet-element" id="alphabet-element-A">A</li>
 
   <li class="list-index-element" data-list-index="Apple">
@@ -161,35 +173,37 @@ The script generates a list with items you can style. Here is an example of a bo
       <span class="link-page"><a href="#book-index-8"></a></span>
     </span>
   </li>
-
 </ul>
 ```
 
 An example of CSS to styling the book index:
 
-<figure> <img src="images/example-index-styled.png" alt="Exemple of a generated and styled book index" /></figure>
+<figure> <img src="/images/example-index-styled.png" alt="Exemple of a generated and styled book index" /></figure>
 
-```CSS
-#list-index-generated{
+```css
+#list-index-generated {
   list-style-type: none;
 }
 
-.list-alphabet-element{
+.list-alphabet-element {
   font-weight: bold;
   padding-top: 18px;
   padding-bottom: 9px;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.index-value{
+.index-value {
   display: inline-block;
   min-width: 120px;
 }
-.index-value:first-letter{ text-transform: uppercase; }
-.index-value::after{ content: "none"; }
+.index-value:first-letter {
+  text-transform: uppercase;
+}
+.index-value::after {
+  content: "none";
+}
 
-
-.link-page a{
+.link-page a {
   text-decoration: none;
   color: currentColor;
   font-family: Arial, Helvetica, sans-serif;

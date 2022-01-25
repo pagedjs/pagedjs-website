@@ -2,13 +2,32 @@
 title: About Paged.js?
 menu: about
 layout: singlepage.njk
-toptitle: Hi, i’m the toptitle
 date: 2028-11-12
 symbol: ﺶ
 ---
 
+Paged.js is a free and open source JavaScript library that paginates content in the browser to create PDF output from any HTML content. This means you can design works for print (eg. books) using HTML and CSS!
 
-## need to be back
+Paged.js follows the Paged Media standards published by the W3C (ie the Paged Media Module, and the Generated Content for Paged Media Module). In effect Paged.js acts as a [polyfill](<https://en.wikipedia.org/wiki/Polyfill_(programming)>) for the CSS modules to print content using features that are not yet natively supported by browsers.
 
-<p>Paged.js is a free and open source JavaScript library that paginates content in the browser to create PDF output from any HTML content. This means you can design works for print (eg. books) using HTML and CSS!</p><p>Paged.js follows the Paged Media standards published by the W3C (ie the Paged Media Module, and the Generated Content for Paged Media Module). In effect Paged.js acts as a <a href="https://en.wikipedia.org/wiki/Polyfill_(programming)">polyfill</a> for the CSS modules to print content using features that are not yet natively supported by browsers.</p><ul><li><a href="https://www.pagedjs.org/documentation/releases/">Releases &amp; downloads</a></li><li>Discussions and help: <a href="https://mattermost.pagedmedia.org">Mattermost</a>, <a href="https://discourse.cabbagetreelabs.org/">Discourse</a></li><li>Development: <a href="https://gitlab.pagedmedia.org/public">Gitlab</a></li></ul><h2 id="pagedjs">Paged.js</h2><p>After years of trying a lot of solutions to make books out of HTML, and frustrated by the issues we found with each one of them, we ended up by building one of our own, following some mandatory principles.</p><ol><li>We’ll follow the standards of the W3C. Standards are in the DNA of what we’re doing. If we want to add some feature, we’ll write down the specifications and discuss with all the members of the W3C to see how it would make sense for them and we are open to anyone who want to share their thoughts. This project will be over when we are happy with the browsers’ implementation of the W3C specification for print.</li><li>Paged.js is a community driven project, we’ll make sure that anyone feels just like at home, newcomers and old friends alike. We’ll always put the community needs first: we have a <a href="https://mattermost.pagedmedia.org">Mattermost</a> that we use to discuss everything and the development is hosted on our <a href="https://gitlab.pagedmedia.org/public">gitlab</a>. All the issues are read and answered as fast as possible.</li><li>Paged.js comes either as a paginated preview or as a command line interface (<small>CLI</small>) to produce the pdf.</li></ol><p>Welcome around :)</p><h2 id="colophon">Colophon</h2><p>Paged.js was founded by <a href="https://www.adamhyde.net">Adam Hyde</a> and is currently developed by <a href="http://julie-blanc.fr">Julie Blanc</a>, <a href="http://fchasen.com/">Fred Chasen</a> and Julien Taquet at the <a href="https://www.cabbagetreelabs.org">Cabbage Tree Labs</a>.</p><p>The Paged.js logo was designed by the lovely <a href="http://moglia.fr/">Anton Moglia</a> and our own awesome <a href="http://julie-blanc.fr">Julie Blanc</a> during a train journey returning from the 60-year-old type design event called <a href="http://delure.org">Les Rencontres de Lure</a>.
-The Paged.js website was designed and built by <a href="https://www.adamhyde.net">Adam Hyde</a> and Julien Taquet using the great static website generator <a href="https://gohugo.io/">Hugo</a>.</p><p>The website is mainly using the <a href="https://indestructibletype.com/Jost.html">Jost*</a> font from Indestructible type and <a href="https://www.theleagueofmoveabletype.com/fanwood">Fanwood Text</a> from the league of moveable type, both free and open source fonts. When it comes to code, we’re also using <a href="https://rubjo.github.io/victor-mono/">Victor Mono</a>, designed by Rune B, which is also free and open source.</p>
+- Discussions and help: [Mattermost](https://mattermost.coko.foundation), [Discourse](https://discourse.cabbagetreelabs.org/)
+- Development: [Gitlab](https://gitlab.coko.foundation/pagedjs)
+
+## Paged.js
+
+After years of trying a lot of solutions to make books out of HTML, and frustrated by the issues we found with each one of them, we ended up by building one of our own, following some mandatory principles.
+
+1. We’ll follow the standards of the W3C. Standards are in the DNA of what we’re doing. If we want to add some feature, we’ll write down the specifications and discuss with all the members of the W3C to see how it would make sense for them and we are open to anyone who want to share their thoughts. This project will be over when we are happy with the browsers’ implementation of the W3C specification for print.
+2. Paged.js is a community driven project, we’ll make sure that anyone feels just like at home, newcomers and old friends alike. We’ll always put the community needs first: we have a [Mattermost](https://mattermost.coko.foundation) that we use to discuss everything and the development is hosted on our [gitlab](https://gitlab.coko.foundation/pagedjs/pagedjs/public). All the issues are read and answered as fast as possible.
+3. Paged.js comes either as a paginated preview or as a command line interface (<small>CLI</small>) to produce the pdf.
+
+Welcome around :)
+
+## Colophon
+
+Paged.js was founded by [Adam Hyde](https://www.adamhyde.net) and is currently developed by [Julie Blanc](http://julie-blanc.fr), [Fred Chasen](http://fchasen.com/) and Julien Taquet at [Coko](https://www.coko.foundation).
+
+The Paged.js logo was designed by the lovely [Anton Moglia](http://moglia.fr/) and our own awesome [Julie Blanc](http://julie-blanc.fr) during a train journey returning from the 60-year-old type design event called [Les Rencontres de Lure](http://delure.org).
+The Paged.js website was designed and built by [Adam Hyde](https://www.adamhyde.net) and Julien Taquet using the great static website generator [11ty](https://11ty.dev/).
+
+The website is mainly using the [Jost\*](https://indestructibletype.com/Jost.html) font from Indestructible type and [Fanwood Text](https://www.theleagueofmoveabletype.com/fanwood) from the league of moveable type, both free and open source fonts. When it comes to code, we’re also using [Victor Mono](https://rubjo.github.io/victor-mono/), designed by Rune B, which is also free and open source.

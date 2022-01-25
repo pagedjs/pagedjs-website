@@ -507,21 +507,22 @@ article .highlight {
 article .highlight + .highlight {
   margin-top: -2em;
 }
-
 article pre {
   padding: 0 0.5em;
   font-weight: 400;
-  font-size: 1em;
+  font-size: 0.8em;
   line-height: 1.35;
   padding: 0.2em 0.5em;
   border: 1px solid lightgrey;
   white-space: pre-wrap;
+  font-size: 0em;
   margin: 2em auto;
 }
-
-article pre + pre {
+code[class*="language-"],
+pre[class*="language-"] {
+  font-size: 0.9em !important;
+  font-family: var(--font-mono) !important;
 }
-
 article code {
   font-size: 0.8em;
   font-family: var(--font-mono);
@@ -533,7 +534,7 @@ article code {
   padding-right: 1ch;
   border-bottom: 4px solid #eee;
   border-top: 4px solid #eee;
-  font-style: italic;
+  font-style: normal;
   font-weight: 600;
 }
 

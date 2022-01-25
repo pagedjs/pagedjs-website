@@ -26,11 +26,11 @@ You can select this margins boxes in the `@page` rules with rules such as `@top-
 The code below put your title in the `@top-right` margin box of all right pages:
 
 ```css
-@page: right{
+@page: right {
   @top-right {
     content: "My title";
   }
-};
+} ;
 ```
 
 List of the margin boxes:
@@ -106,7 +106,7 @@ To tally the total number of pages in your document, you can write this:
 
 **Reset the page counter**
 
-Right now, reseting the page count to 1 is the only possible options. Check [Issue #31](https://gitlab.pagedmedia.org/tools/pagedjs/issues/91) to keep track of that option.
+Right now, reseting the page count to 1 is the only possible options. Check [Issue #31](https://gitlab.coko.foundation/pagedjs/pagedjs/issues/91) to keep track of that option.
 
 ## Named String: classical running headers/footers
 
@@ -136,7 +136,7 @@ The string property act like a variable. It read your DOM and each time a new ti
 
 ### Select content of string-set
 
-This part don't work correctly in Paged.js for now. Issues [#45](https://gitlab.pagedmedia.org/tools/pagedjs/issues/45), [#42](https://gitlab.pagedmedia.org/tools/pagedjs/issues/42)
+This part don't work correctly in Paged.js for now. Issues [#45](https://gitlab.coko.foundation/pagedjs/pagedjs/issues/45), [#42](https://gitlab.coko.foundation/pagedjs/pagedjs/issues/42)
 
 The documentation need to be finish.
 
@@ -299,11 +299,11 @@ The first three argument are usefull for dicitonnary or glossary. The figure bel
 Forced page breaks can create blank page, e.g., pages automatically added to make sure a new chapter begins on the desired left or right page. The `:blank` pseudo class selector selects pages that have no content from the flow. To delete the generated content in blank page, simply use `content: none` in selected margin boxes of the blank pages.
 
 ```css
-@page: blank{
+@page: blank {
   @top-left {
     content: none;
   }
-};
+} ;
 ```
 
 ## Styling margin boxes and generated content
@@ -362,13 +362,13 @@ If you have used `position: running`, the styles applying to the generated conte
   text-transform: uppercase;
 }
 
-@page: left{
+@page: left {
   @top-left {
     content: element(chapTitle);
     vertical-align: top;
     padding-top: 24px;
   }
-};
+} ;
 ```
 
 **With string-set**
@@ -378,13 +378,13 @@ If you have used `string-set`, all styles are declared in the margin box and the
 For example, if you use background-color and padding into the at-rules for page-margin box, the style are applied on the margin box.
 
 ```css
-@page: left{
+@page: left {
   @top-left {
     background-color: #ffd2b5;
     color: #fe4017;
     padding: 2mm 5mm;
   }
-};
+} ;
 ```
 
 Result:

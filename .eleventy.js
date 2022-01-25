@@ -6,7 +6,7 @@ const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const { DateTime } = require("luxon");
 const cheerio = require('cheerio');
-
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
 module.exports = function (eleventyConfig) {
   // collection
@@ -62,7 +62,35 @@ module.exports = function (eleventyConfig) {
     ;
 
   });
+  
+
+
+
+
+
+// add syntax color for code!
+  //
+  //
+
+
+  eleventyConfig.addPlugin(syntaxHighlight);
+
+
+
+
+
+
+
+
   // create journal collection
+
+
+
+
+
+
+
+
 
   eleventyConfig.addCollection("journal", collectionApi => {
 

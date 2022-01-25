@@ -34,7 +34,7 @@ We have updated the list of the Paged media features that paged.js supports. It 
 
 ## Hugo Component
 
-For those who never heard of it, Hugo is an open source static site generator written in Go, blazing fast and pretty efficient. It’s packed with a ton of features and ideas so smart that building the paged.js website with it has been a pleasure. One of the features we need for the website is Paged.js integration to make books out of the HTML. Thus, we made an implementation of [Paged.js for Hugo](https://gitlab.pagedmedia.org/julientaq/pagedjs-hugo). Hugo has a really well thought out theme engine: to be able to use the print script you only need to add the information in your config theme, _et voilà_. It’s still early and experimental, but if you hit the top right button on this page, you can see what it does. Feel free to raise a GitLab issue if you find any.
+For those who never heard of it, Hugo is an open source static site generator written in Go, blazing fast and pretty efficient. It’s packed with a ton of features and ideas so smart that building the paged.js website with it has been a pleasure. One of the features we need for the website is Paged.js integration to make books out of the HTML. Thus, we made an implementation of [Paged.js for Hugo](https://gitlab.coko.foundation/julientaq/pagedjs-hugo). Hugo has a really well thought out theme engine: to be able to use the print script you only need to add the information in your config theme, _et voilà_. It’s still early and experimental, but if you hit the top right button on this page, you can see what it does. Feel free to raise a GitLab issue if you find any.
 
 ## Paged.js on Reddit
 
@@ -86,7 +86,7 @@ Yes sir :) We’re using the browser and pages are made using css grid and flex,
 
 > “Is it possible to make footnotes that appear at the bottom of the current page?”
 
-The W3C specs for the footnotes are still being finalised, but we are actively working on some solutions to follow these specs (even joining the w3c print working group to make those evolve). We have some solutions for margin notes https://gitlab.pagedmedia.org/tools/experiments/tree/master/margin-notes and we made a couple of books with footnotes, but it needed some manual works to make sure the layout was great.
+The W3C specs for the footnotes are still being finalised, but we are actively working on some solutions to follow these specs (even joining the w3c print working group to make those evolve). We have some solutions for margin notes https://gitlab.coko.foundation/pagedjs/experiments/tree/master/margin-notes and we made a couple of books with footnotes, but it needed some manual works to make sure the layout was great.
 
 We’re now upgrading the library core to handle multiple flows and float-top and bottom, which would allow us to have footnotes, and ones that would run on multiple pages if needed. We’ll make an article about that soon.
 
@@ -97,4 +97,3 @@ The excellent [Hugo “Kitty” Giraudel](https://hugogiraudel.com) made a tool 
 And that’s all for this time folks, but we keep working.
 
 Stay tuned!
-

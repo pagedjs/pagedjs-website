@@ -2,14 +2,14 @@
 title: "Our position paper for the W3C CSS print workshop"
 date: 2020-02-14T11:19:56+01:00
 draft: false
-class: 
+class:
 intro: "With the upcoming W3C workshop on CSS print in Prague, we put together this position paper. If you never heard of Paged.js, it’s a pretty good start."
 author: "the Paged.js folks"
 ---
 
-# Paged.js  
+# Paged.js
 
-*Position paper for the W3C Workshop on CSS Print (February 13th, 2020)*
+_Position paper for the W3C Workshop on CSS Print (February 13th, 2020)_
 
 Paged.js is a free and open source JavaScript library that paginates content in the browser to create PDF output from any HTML content. It was developed to meet the requirements encountered by Adam Hyde, Fred Chasen and Julien Taquet when building the book production platform Editoria: an open source solution was wanted and there were no existing solutions which did what Editoria needed. Right around that time, Julie Blanc joined the team and the four of us built it together.
 
@@ -79,7 +79,7 @@ Julie Blanc also worked on the [**Villa Chiragan**](https://villachiragan.saintr
 
 ### Workshop, teaching and lectures
 
-Since the beginning of the Paged.js project, the team has been part of a number of different events to introduce paged.js, from publishing events (such as the [digital publishing summit](https://www.youtube.com/watch?v=3SvfARdZRA4) in Paris) to open source meetings and conferences (*Write the docs* at Mozilla's office in Paris, *journées du logiciel libre* in Lyon, *Fosdem*, etc.) to present the project, or to discuss with other members of the community.
+Since the beginning of the Paged.js project, the team has been part of a number of different events to introduce paged.js, from publishing events (such as the [digital publishing summit](https://www.youtube.com/watch?v=3SvfARdZRA4) in Paris) to open source meetings and conferences (_Write the docs_ at Mozilla's office in Paris, _journées du logiciel libre_ in Lyon, _Fosdem_, etc.) to present the project, or to discuss with other members of the community.
 
 We also spent quite some time organizing workshops and meetings to show Paged.js to editors and designers. Many workshops also take place in art and design schools so that future professionals are trained in these ways of doing. We hope to do more in the coming months and years.
 
@@ -87,7 +87,7 @@ By providing more examples of what can be accomplished using print CSS, we hope 
 
 During the second half of last year, we rewrote the documentation, and made a new website (we’re working on it and hope for a release pretty soon). You can have a quick preview [here](http://onepager--hungry-boyd-59d45a.netlify.com/) to have an idea of how it will be. We’ll also provides templates, insight into Paged Media specs, and use it as a platform to write for anyone who'd like to write a piece about what we're doing. We’ll also reprint some of the articles from[ www.pagedmedia.org](http://www.pagedmedia.org/) as a way to highlight that information.
 
-Following the same idea, the [repository](https://gitlab.pagedmedia.org/tools/pagedjs) for Paged.js also contains some [examples](https://gitlab.pagedmedia.org/tools/experiments) which provide insight into how to build a table of contents, how to follow a baseline snapping layout, or use hooks, and even a first implementation of the footnotes.
+Following the same idea, the [repository](https://gitlab.coko.foundation/tools/pagedjs) for Paged.js also contains some [examples](https://gitlab.coko.foundation/pagedjs/experiments) which provide insight into how to build a table of contents, how to follow a baseline snapping layout, or use hooks, and even a first implementation of the footnotes.
 
 ### The future of Paged.js
 
@@ -98,3 +98,4 @@ Julien is now working on the community side of things, organizing events and fix
 When this is done, we’ll layout a roadmap (more like a subway map) so anyone can contribute where they think they can best do so. Members of the community are also starting to offer services to those who may need custom development or specific stylesheest, as more and more users are getting confortable with designing books in browsers.
 
 We welcome you to join us!
+

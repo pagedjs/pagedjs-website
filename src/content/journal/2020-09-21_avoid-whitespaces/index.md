@@ -19,7 +19,7 @@ I'm sure you already know what I'm talking about. You know, this figure or this 
 The float properties can fix this problem, just by adding `float: top` and ` float-reference: page` on the problematic element. The following figure illustrates what this should look like:
 <img src="/images/whitespace-script.png">
 
-However, we can't use it today. I personally encounter this problem in some book design I make. So, based on a script made by [Julien](https://gitlab.pagedmedia.org/julientaq) I share with you a little script to make floating-like elements in paged.js to avoid large chunks of whitespace at the end of pages. For this, we add a custom module to Paged.js using [handlers and hooks](https://www.pagedjs.org/documentation/11-hooks/).
+However, we can't use it today. I personally encounter this problem in some book design I make. So, based on a script made by [Julien](https://gitlab.coko.foundation/julientaq) I share with you a little script to make floating-like elements in paged.js to avoid large chunks of whitespace at the end of pages. For this, we add a custom module to Paged.js using [handlers and hooks](https://www.pagedjs.org/documentation/11-hooks/).
 
 As you can see, the script is not very long. You just have to add it in your HTML document (after the paged.js script), add the class `elem-float-top` to the elements where you want it to apply, and watch the magic happen.
 

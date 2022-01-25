@@ -3,12 +3,12 @@ title: "Welcome Pagedjs 0.1.42"
 date: 2020-06-20T15:42:08+02:00
 draft: false
 author: "Pagedjs team"
-intro:  "Some news from paged.js and an update!"
-tags: 
-- Specifications
-- W3C
-- updates
-- page number
+intro: "Some news from paged.js and an update!"
+tags:
+  - Specifications
+  - W3C
+  - updates
+  - page number
 ---
 
 Hi there!
@@ -19,44 +19,43 @@ First, we were very happy to see Julie (along with [Nicolas Taffin](www.twitter.
 
 Be sure to look in the [archives](https://openpublishingfest.org/archives.html) at all the great content folks submitted to the fest.
 
-## Bug fixes and updates to paged.js 
+## Bug fixes and updates to paged.js
 
-###  Basic support for correct borders on the page  [!107](https://gitlab.pagedmedia.org/tools/pagedjs/merge_requests/107)
+### Basic support for correct borders on the page [!107](https://gitlab.coko.foundation/pagedjs/pagedjs/merge_requests/107)
 
 We now handle `border` on the page as the [specifications define it](https://drafts.csswg.org/css-page/#page-model). The `border` will not be set as a border for your page anymore, but will be between the page margins and padding. If you want to have a drawn border on your page, you’ll be able to use `box-shadow: inset`.
 
-
-### Added a license banner [!127](https://gitlab.pagedmedia.org/tools/pagedjs/merge_requests)
+### Added a license banner [!127](https://gitlab.coko.foundation/pagedjs/pagedjs/merge_requests)
 
 Paged.js include the version in its header thanks to Guillaume (@mogztter),
 
-### Fixes for reset on page counter [!128](https://gitlab.pagedmedia.org/tools/pagedjs/merge_requests/128) and Fixes page counter [!124](https://gitlab.pagedmedia.org/tools/pagedjs/merge_requests/124)
+### Fixes for reset on page counter [!128](https://gitlab.coko.foundation/pagedjs/pagedjs/merge_requests/128) and Fixes page counter [!124](https://gitlab.pagedmedia.org/pagedjs/pagedjs/merge_requests/124)
 
-You can now reset the numbering of your page and set the number it starts from using, for instance, `counter-reset: page 20`. But when Guillaume starting to look at how it was supposed to work, he ended up with a tricky situation: setting reset anywhere in the CSS doesn’t seem to be valid CSS, but at the same time, it’s how the majority of all the other tools are working. We implemented a quick fix to help authors used to this way of writing css down, but we have a more in-depth article coming. Side note, you can now set up a custom increment for the page counter.
+You can now reset the numbering of your page and set the number it starts from using, for instance, `counter-reset: page 20`. But when Guillaume starting to look at how it was supposed to work, he ended up with a tricky situation: setting reset anywhere in the CSS doesn’t seem to be valid CSS, but at the same time, it’s how the majority of all the other tools are working. We implemented a quick fix to help authors used to this way of writing css down, but we have a more in-depth article coming. Side note, you can now set up a custom increment for the page counter.
 
-### Updated page breaks on new named page [!126](https://gitlab.pagedmedia.org/tools/pagedjs/merge_requests/126)
+### Updated page breaks on new named page [!126](https://gitlab.coko.foundation/pagedjs/pagedjs/merge_requests/126)
 
-Guillaume also fixed a longtime bug, where a named page would create an empty page if it was the first page of the book. 
+Guillaume also fixed a longtime bug, where a named page would create an empty page if it was the first page of the book.
 
-### Handling for nth-of-type and following (+) selectors [!122](https://gitlab.pagedmedia.org/tools/pagedjs/merge_requests/122), [!125](https://gitlab.pagedmedia.org/tools/pagedjs/merge_requests/125)
+### Handling for nth-of-type and following (+) selectors [!122](https://gitlab.coko.foundation/pagedjs/pagedjs/merge_requests/122), [!125](https://gitlab.pagedmedia.org/pagedjs/pagedjs/merge_requests/125)
 
-Nellie McKesson, from the amazing [Hederis](https://www.hederis.com/) helped  all of us write better CSS by adding support for `+` and `nth-of-type` selector.
+Nellie McKesson, from the amazing [Hederis](https://www.hederis.com/) helped all of us write better CSS by adding support for `+` and `nth-of-type` selector.
 
-### Prevent infinite loops when elements aren't placeable [!118](https://gitlab.pagedmedia.org/tools/pagedjs/merge_requests/118)
+### Prevent infinite loops when elements aren't placeable [!118](https://gitlab.coko.foundation/pagedjs/pagedjs/merge_requests/118)
 
-Pagedjs used to have infinite loops when trying when an element was bigger than the page. If that happens now, it will stop the rendering on the element that doesn’t appear on the page. No more linking from CPU and RAM. 
+Pagedjs used to have infinite loops when trying when an element was bigger than the page. If that happens now, it will stop the rendering on the element that doesn’t appear on the page. No more linking from CPU and RAM.
 
-> **Breaking change** 
-> 
+> **Breaking change**
+>
 > If one of your scripts used `breakToken` to move things around, make sure to test it: Paged.js now stops rendering when the `breakToken` is the same on two consecutive pages.
 
-### Non-significant text handling: [!115](https://gitlab.pagedmedia.org/tools/pagedjs/merge_requests/115)
+### Non-significant text handling: [!115](https://gitlab.coko.foundation/pagedjs/pagedjs/merge_requests/115)
 
-This merge request ignores non-significant Node such as a Text node that is all whitespace, or a Comment node. It also preserves Text node that does not have any sibling such as empty (`<p>    </p>`) or Text node with a sibling (`Hello   <span>world</span>`). 
+This merge request ignores non-significant Node such as a Text node that is all whitespace, or a Comment node. It also preserves Text node that does not have any sibling such as empty (`<p> </p>`) or Text node with a sibling (`Hello <span>world</span>`).
 Here, the Text node after `"Hello"` and before the `<span>` element must be preserved. In this case, the `textContent` is updated to a single space:
 `Hello <span>world</span>`. This fixes a couple of issues with `break-after: avoid`. For more information about how HTML handle white spaces, you can head over to [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Whitespace).
 
-### Add filter hooks and modules: [!116](https://gitlab.pagedmedia.org/tools/pagedjs/merge_requests/116)
+### Add filter hooks and modules: [!116](https://gitlab.coko.foundation/pagedjs/pagedjs/merge_requests/116)
 
 Add a `filter` hook that happens just before the `afterParsed()` one. It allows filtering the content rendered by paged.js. For now, those modules are enabled by default:
 
@@ -65,29 +64,25 @@ Add a `filter` hook that happens just before the `afterParsed()` one. It allows 
 - `ScriptsFilter`: remove all script elements.
 - `UndisplayedFilter`: Mark elements set to `display:none` as undisplayed.
 
-
-### Allow setting margins without units: [#112](https://gitlab.pagedmedia.org/tools/pagedjs/issues/112) 
+### Allow setting margins without units: [#112](https://gitlab.coko.foundation/pagedjs/pagedjs/issues/112)
 
 `@page {size: 0 0}` is now rendered correctly.
 
-### Wait a frame before handling resize: [!110](https://gitlab.pagedmedia.org/tools/pagedjs/merge_requests/110)
+### Wait a frame before handling resize: [!110](https://gitlab.coko.foundation/pagedjs/pagedjs/merge_requests/110)
 
 Thanks a lot to Edoardo Tona (@EdoardoTona) who helped us figure out a bug in Chrome when, sometime, the pdf output is different from the screen preview (on the last part of the page) and the print PDF. By waiting 1 frame, the content is now identical.
 
-Many great code bug-fixes: [Nicholas Wylie fixed the ordered list numbering](https://gitlab.pagedmedia.org/tools/pagedjs/merge_requests/111), [Gregorio Roper, @garoper, fixed the issue when using page counter and custom counters](https://gitlab.pagedmedia.org/tools/pagedjs/merge_requests/88), and we [updated to Pupeteer 3](https://gitlab.pagedmedia.org/tools/pagedjs/merge_requests/121).
-
+Many great code bug-fixes: [Nicholas Wylie fixed the ordered list numbering](https://gitlab.coko.foundation/pagedjs/pagedjs/merge_requests/111), [Gregorio Roper, @garoper, fixed the issue when using page counter and custom counters](https://gitlab.pagedmedia.org/pagedjs/pagedjs/merge_requests/88), and we [updated to Pupeteer 3](https://gitlab.pagedmedia.org/pagedjs/pagedjs/merge_requests/121).
 
 Thanks to everyone who contributed. You’re amazing.
 
 ## Some interresting projects using Paged.js
 
-- [Maëlle Salmon](https://twitter.com/ma_salmon/) made a proof of concept to make Paged.js work on the server on a Hugo website: [https://github.com/maelle/testbook](https://github.com/maelle/testbook). 
+- [Maëlle Salmon](https://twitter.com/ma_salmon/) made a proof of concept to make Paged.js work on the server on a Hugo website: [https://github.com/maelle/testbook](https://github.com/maelle/testbook).
 - The folks at [Voting Works](https://voting.works/) are building open-source voting systems for US elections. One of their projects, Vote by mail, uses Paged.js to generate voting ballots: “VotingWorks Vote-by-Mail makes scaling vote-by-mail operations quick and affordable”.
 
 <!-- ## The question of the page counter -->
 
 And that’s it for today.
 
-If you find any bugs, or have any questions, or want to discuss anything, feel free to join us on our chat: [mattermost.pagedmedia.org](mattermost.pagedmedia.org)
-
-
+If you find any bugs, or have any questions, or want to discuss anything, feel free to join us on our chat: [mattermost.coko.foundation](mattermost.pagedmedia.org)

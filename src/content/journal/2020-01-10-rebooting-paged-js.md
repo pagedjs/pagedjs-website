@@ -36,15 +36,13 @@ We also now have a better and usable documentation. For the last year, we’ve b
 
 We also want to show all the good that people using paged.js are doing: [Atla](https://www.atla.com) are now using Editoria as their only tool to manage workflow, content, editing, and publishing, and Paged.js is their main tool to generate the PDF they send to the printer. The people behind Atla has a high idea of what “open” means, thus they want to share their book templates as open source.
 
-<!-- ###### title 6 -->
-
 Our friends a [Booksprints](https://www.booksprints.net/) comissioned two designers to produce four CSS templates to be used with Paged.js. Agathe Baez and Manuel Vazquez worked closely with us to be able to produce good looking templates, and they’re open. You can download those and publish your own books. The collection keeps growing, which is pretty amazing.
 
 <figure> <img src="/images/1139e889a554ab3a295840.jpg" /></figure>
 
 Our french friends at [C&F editions](https://cfeditions.com/) use paged.js to publish all the book of their “Intervention” collection. This is a great exemple of how you can make book without any proprietary software! Using only open tools, they manage to build a whole book production workflow that end up in libraries and bookshops, as physical books and a digital artifacts.
 
-Last, but not least, there has been quite some movement on the community side: our [mattermost](https://mattermost.pagedmedia.org) is now counting 150 people from all around the world. The [gitlab](gitlab.pagedmedia.org) is also becoming a place where users comes with needs, but also with solutions: the latest update to paged.js reduced the amount of time needed to produce a book by at least 20 times and this was a nice catch from Gregorio Roper. And it’s not finished: we also met great contributors around: Thomas Parisot, who gave quite some time to the project by helping us on the codebase, Guillaume Grossetie, who’s made a pretty impressive Asciidoc Paged.js plugin, Romain Lesur, Erik Schilling, Nellie McKesson. And those who came on the mattermost to share solutions to problem others discovered on the road.
+Last, but not least, there has been quite some movement on the community side: our [mattermost](https://mattermost.coko.foundation) is now counting 150 people from all around the world. The [gitlab](gitlab.coko.foundation) is also becoming a place where users comes with needs, but also with solutions: the latest update to paged.js reduced the amount of time needed to produce a book by at least 20 times and this was a nice catch from Gregorio Roper. And it’s not finished: we also met great contributors around: Thomas Parisot, who gave quite some time to the project by helping us on the codebase, Guillaume Grossetie, who’s made a pretty impressive Asciidoc Paged.js plugin, Romain Lesur, Erik Schilling, Nellie McKesson. And those who came on the mattermost to share solutions to problem others discovered on the road.
 
 So this is what this website will be about: keeping tracks on everything HTML to print related, and welcoming everyone would want to play ball with us.
 
@@ -53,4 +51,3 @@ See you soon!
 {{< signature name="Julien Taquet" image="https://github.com/julientaq.png" >}}
 From posters to interfaces, I’ve been designing user experiences for a decade, with a soft spot for books. If computers and networks are strongly asking “what is a book today?” I’d like to push the thinking further. And since I always like to do things in a different way, let’s turn off InDesign for a while and see where –and if– we’ll be stopped in the making of books.
 {{< /signature >}}
-

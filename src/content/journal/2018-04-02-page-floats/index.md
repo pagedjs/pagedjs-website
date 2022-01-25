@@ -115,7 +115,7 @@ An element with the `snap-block()` value is considered to be a float even if the
 
 The `snap-block` and the `snap-inline` values correspond respectively to `snap-block(2em, near)` and `snap-inline(2em, near)`. It can be very useful to apply this float property to move an element to the top of the next page unless it fits on the current page without causing a break and leaving a gap, or without causing a widow or orphans.
 
-# Extensions proposals for pagedmedia.org
+# Extensions proposals for pagedmedia specs
 
 Although the W3C draft extends the possibilities for float values, they are still limited and some layouts are still not possible. In this part, I want to propose new extension values, sometimes based on what has already been proposed by some proprietary tools.
 

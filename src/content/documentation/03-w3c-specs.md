@@ -3,9 +3,8 @@ title: "W3C specifications for printing"
 date: 2019-10-03T10:23:22+03:00
 draft: false
 part: 3
-intro: "W3C is thinking about everything."  
+intro: "W3C is thinking about everything."
 ---
-
 
 ## W3C CSS modules
 
@@ -19,9 +18,9 @@ the web page is printed from the browser print dialog to create a PDF.
 - [CSS Fragmentation Module Level 3](https://www.w3.org/TR/css-break-3/) defines how and where CSS boxes can be fragmented, including across page breaks. (This module is not specific for print.)
 - [ CSS page floats](https://www.w3.org/TR/css-page-floats-3/) defines how an element is to be removed from the normal flow and instead be placed into a different place depends on page. ([see the article “Page Media approaches: page floats”](https://www.pagedmedia.org/page-floats/))
 
-We try to respect the specifications as much as possible, but sometimes, they can be unclear or leave a certain degree of indeterminacy. Thus, Paged.js implementation is made of our own interpretation and when the rules will be implemented by the browsers, they may differ from what we would have built. 
+We try to respect the specifications as much as possible, but sometimes, they can be unclear or leave a certain degree of indeterminacy. Thus, Paged.js implementation is made of our own interpretation and when the rules will be implemented by the browsers, they may differ from what we would have built.
 
-At some point, we’ll need things that are not yet thought of by the W3C. Therefore, we may develop our own rules, based on what the community of users needs. We’ll try to take the most appropriate  technically to meet the expectations of typographers and designers. In that case, we’ll write down the specifications and share those with the other W3C members.
+At some point, we’ll need things that are not yet thought of by the W3C. Therefore, we may develop our own rules, based on what the community of users needs. We’ll try to take the most appropriate technically to meet the expectations of typographers and designers. In that case, we’ll write down the specifications and share those with the other W3C members.
 
 ## Support of W3C specifications in browsers
 
@@ -32,8 +31,6 @@ Browser developers can start implementing these recommendations at any point, kn
 Thankfully, browser developers have already taken some interest in implementing parts of the Paged Media Working Draft standards and [@page rules have partial support](https://caniuse.com/#search=%40page) in Chrome, Firefox and IE. But it’s still difficult to use these browsers effectively for the output of paginated content.
 
 So when it comes to producing paginated content from the browser, this is where we are today: the rules for printing web pages from a browser are written, and even standardised, but we can’t as yet use them effectively.
-
-
 
 ### Which browser to use?
 
@@ -59,3 +56,4 @@ You must also use a recent version of these browsers because we use some CSS gri
 The result will not always be the same from one browser to another because they don't use the same browser engine. For example, line-height is not managed in the same way on Firefox and Chrome. The result will also not be the same depending on the OS you are using. For example, hyphenation is managed in Chrome only on Apple OSX.
 
 We recommend staying on the same browser and OS for the design and generation of the PDF to avoid unpleasant surprises.
+
