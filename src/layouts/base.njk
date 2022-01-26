@@ -4,24 +4,24 @@
 
 <html lang="{% if lang %}{{lang}}{% else %} {{site.lang}}{% endif %}" class="no-js">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
 
-        <title>{{title}} — {{site.title}}</title>
+<title>Paged.js — {{ title }}</title>
 
-        <script type="module">
-            document
-                .documentElement
-                .classList
-                .remove('no-js');
-            document
-                .documentElement
-                .classList
-                .add('js');
-        </script>
-        <meta name="description" content="{{site.description}}">
-        <meta property="og:title" content="{{title}} — {{site.title}}">
+<script type="module">
+document
+.documentElement
+.classList
+.remove('no-js');
+document
+.documentElement
+.classList
+.add('js');
+</script>
+<meta name="description" content="{{site.description}}">
+<meta property="og:title" content="{{title}} — {{site.title}}">
         <meta property="og:description" content="{% if description %}{{description}}{% else %}{{site.description}}{% endif %}">
         <meta property="og:image" content="{{site.image}}">
         <meta property="og:image:alt" content="{{site.imageAlt}}">
@@ -51,13 +51,13 @@
         <link href="https://unpkg.com/prismjs@1.20.0/themes/prism.css" rel="stylesheet">
         <script>
 
-            // if there is a dark mode in the storage, use that
-            if (localStorage.getItem('{{site.siteId}}Nightmode') == "true") {
-                document
-                    .documentElement
-                    .classList
-                    .add('nightmode')
-            }
+        // if there is a dark mode in the storage, use that
+        if (localStorage.getItem('{{site.siteId}}Nightmode') == "true") {
+        document
+        .documentElement
+        .classList
+        .add('nightmode')
+        }
         </script>
 
         {% block scriptHead %}
@@ -65,9 +65,9 @@
             {% include "_partials/scripthead.njk" %}
 
         {% endblock %}
-    </head>
+        </head>
 
-    <body  class="{{class}} {% block bodyclass %}{% endblock %}" style="{% if symbol %}--symbol-content: '{{symbol}}';{% endif %}">
+        <body  class="{{class}} {% block bodyclass %}{% endblock %}" style="{% if symbol %}--symbol-content: '{{symbol}}';{% endif %}">
 
         {% include "_partials/cropmarks.njk" %}
 
@@ -83,7 +83,7 @@
 
         {% block content %}
             <main>
-                {{content | safe}}
+            {{content | safe}}
             </main>
         {% endblock %}
 
@@ -102,7 +102,7 @@
 
         if (document.querySelector('.toc .title')) {
         document.querySelector('.toc .title').addEventListener("click", function() {
-            document.querySelector('.toc').classList.toggle("show");
+        document.querySelector('.toc').classList.toggle("show");
         })
         }
 
@@ -110,5 +110,61 @@
 
 
         </script>
-    </body>
-</html>
+        <script type="text/javascript">
+        //matomo code
+        var _paq = window._paq || [];
+        / tracker methods like "setCustomDimension" should be called before "trackPageView" /
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function () {
+        var u = "//stats.coko.foundation/";
+        _paq.push([
+        'setTrackerUrl', u + 'matomo.php'
+        ]);
+        _paq.push(['setSiteId', '17']);
+        var d = document,
+        g = d.createElement('script'),
+        s = d.getElementsByTagName('script')[0];
+        g.type = 'text/javascript';
+        g.async = true;
+        g.defer = true;
+        g.src = u + 'matomo.js';
+        s
+        .parentNode
+        .insertBefore(g, s);
+        })();
+        </script>
+
+        <noscript>
+        <p><img src="//stats.coko.foundation/matomo.php?idsite=17&rec=1" style="border:0;" alt=""/></p>
+        </noscript>
+        <!-- End Matomo Code -->
+
+        <!-- 
+        Donation nation
+        -->
+
+        <script>
+        (function () {
+        if (document.querySelector('.commitchange-donate[data-fixed]')) 
+        return;
+        var cc_donate = document.createElement('div');
+        cc_donate.innerHTML = "<a data-fixed class='commitchange-donate'></a>";
+        document
+        .body
+        .appendChild(cc_donate);
+        var npo = 5726;
+        var script = document.createElement('script');
+        var first = document.getElementsByTagName('script')[0];
+        script.setAttribute('data-npo-id', npo);
+        script.id = 'commitchange-script';
+        script.src = 'https://us.commitchange.com/js/donate-button.v2.js';
+        first
+        .parentNode
+        .insertBefore(script, first);
+        })();
+
+
+        </script>
+        </body>
+        </html>
