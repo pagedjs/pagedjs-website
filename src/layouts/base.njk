@@ -98,6 +98,17 @@
         {% endblock %}
 
         {% block printpreview %}{% endblock %}
+        <script>
 
+        if (document.querySelector('.toc .title')) {
+        document.querySelector('.toc .title').addEventListener("click", function() {
+            document.querySelector('.toc').classList.toggle("show");
+        })
+        }
+
+        document.querySelector(".menu-call").addEventListener("click", function() {document.querySelector(".menu").classList.toggle("hide")});
+
+
+        </script>
     </body>
 </html>
