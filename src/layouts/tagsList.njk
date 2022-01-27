@@ -1,3 +1,18 @@
+{# nunjucks layout to create an list of tags with link  
+link created for each tag: /tags/tag%20name
+
+Dataset:
+→ collections.tagList* (collection)
+→ page toptitle (string)
+→ page title (string)
+
+How this works:
+when a tag is clicked it redirects to a page with a list of items in that page 
+use createIndex.njk with collections[tag] to create list of items for each tag 
+
+#}
+
+
 {% extends "base.njk" %}
 
 {% block side %}

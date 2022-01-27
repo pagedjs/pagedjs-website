@@ -1,20 +1,23 @@
 {# nunjucks macro to create a list of item with link
 
+* means required 
 
 Variables
 → myCollection = collection you’re gonna run through *
 → addToc: add a table of content: array with header level (`['h1','h2']`)
-→ addIntro: add a intro
-→ reverse: reverse list
+→ addIntro: add a intro (true | false), false by default
+→ reverse: reverse list (true | false), false by default
 
 Dataset
-→ item.data.title *
+→ item.data.title 
 → item.data.draft (false: item not released)
 → item.data.date
 → item.data.author
 → item.url (created by eleventy)
-
 → TOC needs item.templateContent
+
+filters used:
+→ safe
 
  #}
 

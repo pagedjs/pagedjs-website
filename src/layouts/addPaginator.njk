@@ -1,3 +1,23 @@
+{# nunjucks macro to create an aside with the previous and next element.
+
+Example usage: find the previous and next blogs in a collection of blogs
+
+* means required
+
+Variables
+→ myCollection = collection you’re gonna run through *
+
+Dataset
+→ item.data.title *
+→ item.url (created by eleventy)
+→ page (current page)
+
+Filters
+→ getPreviousCollectionItem (provided by eleventy)
+→ getNextCollectionItem  (provided by eleventy)
+
+ #}
+
 {% macro defaultPaginator(myCollection) %}  
       {% set previousPost = myCollection | getPreviousCollectionItem(page) %}
       {% set nextPost = myCollection | getNextCollectionItem(page) %}

@@ -1,3 +1,27 @@
+{# nunjucks layout to create an single page 
+
+Dataset:
+→ page toptitle (string)
+→ page title (string)
+→ author (string)
+→ date (date)
+→ intro (string)
+→ tags (list) 
+→ addIntro (true | false)
+→ addTags (true | false)
+
+filters used:
+→ safe
+→ postDate
+
+Note:
+if addTags is set to true, it creates a link that redirects to a page with a list of all items for that tag with url: /tag/tag%20name (refer tagsList.njk for more)
+
+Example usage: create a blog page
+Can be used along with addPaginator macro to create a blog page with previous and next blogs
+
+#}
+
 {% extends "base.njk" %}
 
 {% block side %}

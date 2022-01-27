@@ -1,0 +1,84 @@
+{# nunjucks layout to create a serch page
+
+Variables:
+→ collectionList: add the list of collections you want to search through here
+
+Dataset:
+→ page title (string)
+
+the items in the collections should have the following:
+→ item page title (string)
+→ needs item.templateContent (provided by eleventy)
+
+filters used:
+→ safe
+→ markdownify
+→ slug
+
+scripts used:
+→ search.js
+→ text-annotator.min.js
+
+#}
+
+{% extends "base.njk" %}
+{% set collectionList = [collections.documentation, collections.examples, collections.journal] %}
+
+{% block side %}{% endblock %}
+{% block scripts %}
+<script src="/js/text-annotator.min.js"></script>
+<script src="/js/search.js"></script>
+{% endblock %}
+
+
+{% block content %}
+<article>
+  <header>
+    <h1 id="title">{{ title }}</h1>
+  </header>
+
+
+  <aside class="inputblock">
+    <input id="searchInput" type="text"/>
+    <button id="searchIcon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                                                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+    </button>
+    <div class="andor">
+      <input type="radio" id="and" name="andor" value="and" checked>
+      <label for="and">and</label>
+      <input type="radio" id="or" name="andor" value="or">
+      <label for="or">or</label>
+    </div>
+    <div class="previousSearch">
+      <button class="clearPrevious">clear previous queries</button>
+    </div>
+  </aside>
+
+  <ul id="results">
+  </ul>
+
+  <template class="searchspace">
+    <main class="content">
+    {% for collection in collectionList %}
+      {% for item in collection %}
+      <section class="data" id="{{item.data.title | slug}}">
+        <h1>{{item.title}}</h1>
+        {{item.templateContent | markdownify | safe}}
+      </section>
+      {% endfor %}
+    {% endfor %}
+  </template>
+
+
+  <section class="results">
+    <p>Please fill the input to search</p>
+  </section>
+
+    </main>
+
+</article>
+{% endblock %}
