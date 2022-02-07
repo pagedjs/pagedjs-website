@@ -1,6 +1,6 @@
 {# This adds pagination to singlePage.njk #}
 {% extends "singlepage.njk" %}
-{% from "addPaginator.njk" import defaultPaginator with context %}
+{# from "addPaginator.njk" import defaultPaginator with context #}
 {% block content %} 
   {{ super() }}
   {% paginator collections.journal, page %}   
