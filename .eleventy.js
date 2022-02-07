@@ -87,6 +87,8 @@ module.exports = function (eleventyConfig) {
     });
     return filterTagList([...tagSet]);
   });
+  
+  eleventyConfig.addPlugin(require('./plugins'));
 
   eleventyConfig.addPassthroughCopy({ "static/css": "/css" });
   eleventyConfig.addPassthroughCopy({ "static/fonts": "/fonts" });
