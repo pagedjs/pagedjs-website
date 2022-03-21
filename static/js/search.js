@@ -51,25 +51,13 @@ function search() {
     //find the checked radioButton
     if(radioButton.checked){
       //assign the id of the checked radio button to andorResult
-      andorResult = radioButton.id;      
+      andorResult = radioButton.value;      
     }
   });
- // 1. if andorResult is and 
- //     - then do the search for all searches
- //     - can use foreach here
- // 2. else (andorResult is or)
- //     - search until there is a non-empty result for a search
- //     - stop search as soon as the result for 1 search is found
- //     - can't use foreach here since foreach runs for all elements,
- //      it's a function not a loop, so we can't break out of it
- // 3.  to fix: 
- //       - check the element in context link
- //       - search the path of the result so that we can add
- //        documentation/examples/journal in search result or
- //        create a tag in the template and access it 
 
+  // changed foreach to every => reason: stop iterating when you get valid result for or, finish all iterations for and
   //   for each experssion search
-  searches.forEach((query, index) => {
+  searches.every((query, index) => {
     let regex = new RegExp(`(${query})`, "gis");
     // update list of previous searches
     if (queryList.has(query)) {
@@ -104,6 +92,13 @@ function search() {
         `<mark class=query-${index}>$1</mark>`
       );
     }
+    //check for valid result
+    let validResult = result.getElementsByTagName('mark')
+
+    //if result is valid and 'or' is checked return false (since every stops iteration at first false return)
+    if(validResult.length > 0 && andorResult == "or") return false;
+    // every keeps iterating on true returns
+    else return true;
   });
 
   result.querySelectorAll("section").forEach((section, index) => {
@@ -132,9 +127,11 @@ function search() {
           );
           markParent.dataset.done = "true";
         }
-        if (document.querySelector("#or").checked) {
-          console.log(mark.closest("p, figure, table, blockquote, h2, h3"));
-        } else if(markParent) {
+        //commented to show result for both 'and' and 'or'
+        // if (document.querySelector("#or").checked) {
+        //   console.log(mark.closest("p, figure, table, blockquote, h2, h3"));
+        // } else 
+        if(markParent) {
           console.log(markParent)
           resultSpace.insertAdjacentElement("beforeend", markParent);
         }
@@ -166,4 +163,3 @@ function showFound(items) {
     
   }
 }
-

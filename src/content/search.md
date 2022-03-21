@@ -1,6 +1,6 @@
 ---
 title: Looking for something?
-# menu: search
+menu: search
 layout: search.njk
 class: search
 ---
