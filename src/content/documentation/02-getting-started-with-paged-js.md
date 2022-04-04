@@ -43,7 +43,7 @@ As soon as your browser has loaded everything your HTML needs to be shown on scr
 
 #### Preview your work (interface)
 
-Paged.js will manipulate the DOM so the browser can understand the css rules you wrote. On screen, pages will be shown from top to bottom on the left side of the page. To have a better understanding of what’s happening on the page, we made a small CSS file call interface that defines the layout to show your book on screen. Since we’re using `@media screen`, page borders and shadow won’t appear on paper when printed. To download the file of the interface go to the [repo on gitlab](https://gitlab.coko.foundation/tools/interface-polyfill), download the `interface.css` file and link it to your document in the `<head>`. Please check the file, as it already offers options to show facing pages, recto/verso, baseline, etc.
+Paged.js will manipulate the DOM so the browser can understand the css rules you wrote. On screen, pages will be shown from top to bottom on the left side of the page. To have a better understanding of what’s happening on the page, we made a small CSS file call interface that defines the layout to show your book on screen. Since we’re using `@media screen`, page borders and shadow won’t appear on paper when printed. To download the file of the interface go to the [repo on gitlab](https://gitlab.coko.foundation/pagedjs/interface-polyfill), download the `interface.css` file and link it to your document in the `<head>`. Please check the file, as it already offers options to show facing pages, recto/verso, baseline, etc.
 
 ```html
 <link href="path/to/file/interface.css" rel="stylesheet" type="text/css" />
