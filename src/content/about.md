@@ -3,7 +3,6 @@ title: About Paged.js?
 menu: about
 permalink: /about/
 layout: singlepage.njk
-date: 2028-11-12
 symbol: ﺶ
 ---
 
