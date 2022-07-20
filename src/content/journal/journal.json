@@ -1,6 +1,6 @@
 {
   "layout": "journal-single.njk",
-  "permalink": "/posts/{{title | slugify}}/",
+  "permalink": "/posts/{{title | slug}}/",
   "addIntro": true,
   "addTags": true
 }
