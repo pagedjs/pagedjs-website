@@ -92,28 +92,49 @@ p {
 
 But as we’re moving toward html AND print, we needed to change that a bit. In the previous [post from Julie](https://pagedjs.org/posts/2020-04-15-starterkits-for-pagedjs/), she showed how we could create some designer interface around paged.js preview feature: show baseline, show margin boxes, etc. To make that worked, she went into adding content as a hook: when paged.js was done, it would show the toolbar, making it hard to work with (and absolutely not standard). This update comes to change that.
 
-So now, if you want to have a proper layout for toolbar, you can use the `pagedjs-ignore` property in your html. This way, pagedjs will pass the stylesheet as it is, and will not use it to render the content. One important note: you want to make sure that you’re writing in a `media screen` to avoid the styles mixed up on export.
+So now, if you want to use the polyfill and have have elements just for the screen preview, you can use one of the following ways:
 
-If we’d take back our interface.css, we’d writing it this way:
+Put all the interface rules in a seperate stylesheet that has a `media="screen"` attribute, which won't be parsed by the polyfill and only applied to screen media:
 
 ```html
-<style pagedjs-ignore>add some inline styles</style>
-<style media="screen">
-<link rel="stylesheet" type="text/css" href="screen.css" pagedjs-ignore>
 <link rel="stylesheet" type="text/css" href="screen.css" media="screen">
 ```
 
-or in a parsed CSS file adding pagedjs-ignore will skip a media block, passing it as it is to the browser. This is pretty useful to define how the page will look in the browser:
+Or add a `media="screen"` attribute to any style tag to apply those rules to screen media and be ignored by Pagedjs:
+
+```html
+<style media="screen">
+  p {
+    color: red;
+  }
+</style>
+```
+
+Additionaly, you can tell pagedjs to ignore *any* CSS you don't want parsed with the `pagedjs-ignore` attribute:
+
+```html
+<style pagedjs-ignore>add some inline styles</style>
+<link rel="stylesheet" type="text/css" href="screen.css" pagedjs-ignore>
+```
+
+This way, pagedjs will pass the stylesheet as it is, and will not update the styles. One important note: you want to make sure that you’re writing in a `media screen` to avoid the styles mixed up on export if you are ignoring screen styles.
+
+Finally, in a parsed CSS file, adding `pagedjs-ignore` will skip a media block, passing it as it is to the browser. This is pretty useful to define how the page will look in the browser:
 
 ```css
 @media screen, pagedjs-ignore {
   .pagedjs_pages {margin-top: 20em}
 }
+
+@media pagedjs-ignore {
+  // block to pass
+}
 ```
+
 One fair warning, this is a bit outisde of the standard, it’s a usable workaround that we’ll support by default, but `pagedjs-ignore` has no meaning of being a standard in the future. But it’s a way for you to build the tool you need around a real `media queries` support.
 
 
-You can test it already if you’re using Paged.js 0.4.1beta, using the interface.css polyfill: https://gitlab.coko.foundation/pagedjs/interface-polyfill
+You can test it already if you’re using Paged.js `0.4.0-beta.1`, using the interface.css polyfill: https://gitlab.coko.foundation/pagedjs/interface-polyfill
 
 We’ll be back soon with some other update, as paged.js CLI also got pimped up!
 
