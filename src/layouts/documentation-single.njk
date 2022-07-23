@@ -3,6 +3,7 @@
 {% from "addPaginator.njk" import defaultPaginator with context %}
 {% block content %} 
   {{ super() }}
+  
   {{defaultPaginator(collections.documentation)}}
 {% endblock %}
 
