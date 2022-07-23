@@ -136,7 +136,20 @@ One fair warning, this is a bit outisde of the standard, it’s a usable workaro
 
 You can test it already if you’re using Paged.js `0.4.0-beta.1`, using the interface.css polyfill: https://gitlab.coko.foundation/pagedjs/interface-polyfill
 
-We’ll be back soon with some other update, as paged.js CLI also got pimped up!
+We’ll let that a beta for a month before making a proper release. 
+
+The simplest way to use it is to get the file from unpkg cdn: https://unpkg.com/browse/pagedjs@0.4.0-beta.1/dist/ and see how things work for you.
+
+If you find any issues, or anything, feel free to open an issue on our gitlab, or contact us on the [mattermost](https://mattermost.coko.foundation) (again, the best way to get in touch with us.)
+
+
+We’ll be back soon with some other updates, as paged.js CLI also got pimped up! if you want to test the CLI with the aformentioned changes to Paged.js, you’ll find the files here: https://unpkg.com/browse/pagedjs-cli@0.2.2-beta.2/
+
+
+
+One last thing, 27-28 October 2022 in San Francisco will be held the first *Page Break Conf*. Organized by some great folks of our community. We’ll be back to talk a bit more about it soonish, but don’t forget to save the date!
+
+
 
 Have a nice printing!
  
