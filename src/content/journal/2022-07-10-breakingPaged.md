@@ -16,7 +16,7 @@ Paged.js has been through a lot of changes over the last year or so. And those w
 
 It’s been a while, hasn’t it?
 
-That’s how it feels for us. Not that we weren’t around working, quite the opposite to be honest, but it wasn’t very visible outside of the [Coko chat](https://mattermost.coko.foundation) (You should join if you’re interested in the future of paged.js as we try more and more to discuss things in the open out there). We also try to offer some news on [Twitter](https://twitter.com/paged_js), so make sure to follow if you want some last-minute news, or if you want to ask some questions a little bit.
+That’s how it feels for us. Not that we weren’t around working, quite the opposite to be honest, but it wasn’t very visible outside of the [Coko chat](https://mattermost.coko.foundation) (You should join if you’re interested in the future of Paged.js as we try more and more to discuss things in the open out there). We also try to offer some news on [Twitter](https://twitter.com/paged_js), so make sure to follow if you want some last-minute news, or if you want to ask some questions a little bit.
 
 Still, it feels nice to fill those pages after a year of being silent so let’s try to catch up to what happened as we’ve been a tiny bit busy.
 
@@ -71,30 +71,30 @@ In the example above, it takes the latest value defined in the CSS cascade:  the
 
 That’s the result of rendering the print preview on screen, creating the perfect paradox where eveything is used. Paged.js tricked the browser to show you the styles from the CSS for print, in a screen context, because we preview those pages, on a screen.
 
-Now, with this new feature, paged.js will  hide what’s for the screen and show what will be printed. Starting with version 0.4.1, Paged.js will stop parsing any css that is inside a @media screen media query. In other words:
+Now, with this new feature, Paged.js will  hide what’s for the screen and show what will be printed. Starting with version 0.4.1, Paged.js will stop parsing any css that is inside a @media screen media query. In other words:
 
 ```css  
-/* This will be completely remove from the page when you run paged.js */  
+/* This will be completely remove from the page when you run Paged.js */  
 @media screen {  
   p {  
     color: red;  
   }  
 }  
   
-/* this will be used by paged.js */  
+/* this will be used by Paged.js */  
 @media print {  
   p {  
     color: purple;  
   }  
 }  
   
-/* this will be used by paged.js as it an equivalent of @media all */  
+/* this will be used by Paged.js as it an equivalent of @media all */  
 p {  
   color: purple;  
 }
 ```
 
-But as we’re moving toward html AND print, we needed to change paged.js a bit. In the previous [post from Julie](https://pagedjs.org/posts/2020-04-15-starterkits-for-pagedjs/), she showed how we could create a designer interface around the paged.js preview feature: show baseline, show margin boxes, etc. To make that work, she added content as a hook: when paged.js was done, it would show the toolbar, making it hard to work with (and absolutely not standard). This update will change that.
+But as we’re moving toward html AND print, we needed to change Paged.js a bit. In the previous [post from Julie](https://pagedjs.org/posts/2020-04-15-starterkits-for-pagedjs/), she showed how we could create a designer interface around the paged.js preview feature: show baseline, show margin boxes, etc. To make that work, she added content as a hook: when paged.js was done, it would show the toolbar, making it hard to work with (and absolutely not standard). This update will change that.
 
 So now, if you want to use the polyfill and have have elements just for the screen preview, you can use one of the following ways:
 
@@ -122,7 +122,7 @@ Additionally, you can tell Paged.js to ignore _any_ CSS you don’t want parsed 
 
 This way, pagedjs will pass the stylesheet as it is, and will not update the styles. One important note: if you are ignoring screen styles, you want to make sure that you’re writing in a media screen to avoid the styles being mixed up on export.
 
-Finally, in a parsed CSS file, adding pagedjs-ignore will skip a media block, passing it as it is to the browser. This is pretty useful to define how the page will look in the browser:
+Finally, in a parsed CSS file, adding `pagedjs-ignore` will skip a media block, passing it as it is to the browser. This is pretty useful to define how the page will look in the browser:
 
 ```css
 @media screen, pagedjs-ignore {  
@@ -144,7 +144,7 @@ The simplest way to use it is to get the file from unpkg cdn: [https://unpkg.com
 
 If you find any issues, or anything, feel free to open an issue on our GitLab, or contact us on the [Mattermost](https://mattermost.coko.foundation) (again, the best way to get in touch with us.)
 
-We’ll be back soon with some other updates, as paged.js CLI also got pimped up! if you want to test the CLI with the aforementioned changes to Paged.js, you’ll find the files here: [https://unpkg.com/browse/pagedjs-cli@0.2.2-beta.2/](https://unpkg.com/browse/pagedjs-cli@0.2.2-beta.2/)
+We’ll be back soon with some other updates, as Paged.js CLI also got pimped up! if you want to test the CLI with the aforementioned changes to Paged.js, you’ll find the files here: [https://unpkg.com/browse/pagedjs-cli@0.2.2-beta.2/](https://unpkg.com/browse/pagedjs-cli@0.2.2-beta.2/)
 
 One last thing, 27-28 October 2022 in San Francisco will see the first _Page Break Conf_ which has been organized by some great folks of our community. We’ll be back to talk a bit more about it soonish, so don’t forget to save the date!
 
