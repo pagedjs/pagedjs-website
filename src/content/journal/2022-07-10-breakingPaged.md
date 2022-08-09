@@ -42,7 +42,7 @@ In a browser, when we set @media queries, we can define styles for a specific en
 
 If you don’t set any query, then your CSS will be used in all situations.
 
-So a simple example: we have some <h1> and we want them to have a font-size of 2em in all situations, but we want them red on screen, black on paper. This is how it will be set.
+So a simple example: we have some `<h1>` and we want them to have a font-size of 2em in all situations, but we want them red on screen, black on paper. This is how it will be set.
 
 ```css
 /* shared for all the context */  
