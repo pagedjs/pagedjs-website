@@ -1,0 +1,37 @@
+{% extends "base.njk" %}
+
+
+{% block content %}
+  <article>
+
+  <header>
+  <h1 id="title">{{title}}</h1>
+  <p class="author"> A template designed by {{author}}</p> 
+  </header>
+
+
+  
+  <!-- <p class="collection">{{collection}}</p>  -->
+
+  <section class="description">
+  <img class="template-cover" src="{{"/assets/templates/" | url}}{{title | slugify}}/{{cover}}" alt="">
+
+  {{content | safe}} 
+
+  {% if pdfpreview %}
+    <p>See the preview <a href="{{"/assets/templates/" | url}}{{title | slugify}}/{{pdfpreview}}" >here</a></p>
+  {% endif %}
+  
+  {% if sources %}
+    <p> See the sources: <a href="{{sources}}">{{sources}}</a></p>
+  {% endif %}
+
+
+  <p>Download the template <a href="{{"/assets/templates/" | url}}{{title | slugify}}/{{title | slugify}}.zip" >here</a>.</p>
+
+  </section>
+
+
+
+  </article>
+{% endblock content %}

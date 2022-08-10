@@ -20,6 +20,7 @@
   "dependencies": {
     "@11ty/eleventy": "^0.12.1",
     "@11ty/eleventy-cache-assets": "^2.1.0",
+    "@sindresorhus/slugify": "^2.1.0",
     "axios": "^0.21.1",
     "chalk": "^4.1.1",
     "cheerio": "^1.0.0-rc.6",

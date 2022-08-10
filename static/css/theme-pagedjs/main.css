@@ -1,5 +1,4 @@
-/*!normalize.css v8.0.1 | Mmain.cssIT License | github.com/necolas/normalize.css*/
-
+/*!normalizegg.css v8.0.1 | Mmain.cssIT License | github.com/necolas/normalize.css*/
 html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
@@ -17,7 +16,9 @@ h1 {
   font-size: 2em;
   margin: 0.67em 0;
 }
-
+h2, h3 {
+  font-weight:400;
+}
 hr {
   box-sizing: content-box;
   height: 0;
@@ -332,7 +333,7 @@ article .meta {
   max-width: 100%;
   margin-top: 2em;
   margin-bottom: 2em;
-  font-family: var(--font-sans-serif);
+  font-family: var(--font-sans);
 }
 
 article .date {
@@ -2454,3 +2455,16 @@ mark {
   top: 30vh;
   left: 30vw;
 }
+.template-cover + p {
+  max-width: 80ch;
+}
+.template-cover {
+  float:right;
+  margin-left:2em;
+}
+
+
+.plugin .meta {
+  font-family: var(--font-serif);
+}
+

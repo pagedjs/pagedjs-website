@@ -1,5 +1,3 @@
-// const cheerio = require("cheerio");
-
 const Cache = require("@11ty/eleventy-cache-assets");
 const pluginTOC = require("eleventy-plugin-nesting-toc");
 const markdownIt = require("markdown-it");
@@ -7,6 +5,7 @@ const markdownItAnchor = require("markdown-it-anchor");
 const { DateTime } = require("luxon");
 const cheerio = require('cheerio');
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const slugify = require("slugify");
 
 module.exports = function (eleventyConfig) {
   // collection
@@ -41,6 +40,9 @@ module.exports = function (eleventyConfig) {
     return markdown.render(rawString);
   });
 
+  eleventyConfig.addFilter("slugify", function (rawString) {
+    return slugify(rawString.toLowerCase());
+  });
 
 
   // create examples
@@ -49,7 +51,13 @@ module.exports = function (eleventyConfig) {
     return collectionApi.getFilteredByGlob("src/content/examples/**/*.md").sort((a, b) => a.data.part - b.data.part);
   });
 
+  eleventyConfig.addCollection("templates", collectionApi => {
+    return collectionApi.getFilteredByGlob("src/content/templates/**/*.md").sort((a, b) => a.data.title - b.data.title);
+  });
 
+  eleventyConfig.addCollection("plugins", collectionApi => {
+    return collectionApi.getFilteredByGlob("src/content/plugins/**/*.md").sort((a, b) => a.data.title - b.data.title);
+  });
   eleventyConfig.addCollection("documentation", collectionApi => {
 
     return collectionApi
@@ -125,6 +133,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "static/js": "/js" });
   eleventyConfig.addPassthroughCopy({ "static/images": "/images" });
   eleventyConfig.addPassthroughCopy({ "static/outputs": "/outputs" });
+  eleventyConfig.addPassthroughCopy({ "static/plugins": "/assets/plugins" });
+  eleventyConfig.addPassthroughCopy({ "static/templates": "/assets/templates" });
 
   // plugin TOC
   eleventyConfig.setLibrary(
