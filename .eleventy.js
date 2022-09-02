@@ -133,8 +133,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "static/js": "/js" });
   eleventyConfig.addPassthroughCopy({ "static/images": "/images" });
   eleventyConfig.addPassthroughCopy({ "static/outputs": "/outputs" });
-  eleventyConfig.addPassthroughCopy({ "static/plugins": "/assets/plugins" });
-  eleventyConfig.addPassthroughCopy({ "static/templates": "/assets/templates" });
+  eleventyConfig.addPassthroughCopy({ "static/plugins": "/plugins" });
+  eleventyConfig.addPassthroughCopy({ "static/templates": "/templates" });
 
   // plugin TOC
   eleventyConfig.setLibrary(
