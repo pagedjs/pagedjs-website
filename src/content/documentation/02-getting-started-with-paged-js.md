@@ -25,7 +25,7 @@ To be able to run Paged.js on your document, you will need the following:
 
 #### Getting the script
 
-To download the polyfill, go to the [releases & downloads](https://www.pagedjs.org/documentation/releases/) page. You can choose the latest or older versions of `paged.polyfill.js`.
+To download the polyfill, go to https://unpkg.com/pagedjs/dist/. From there, you can choose the latest or older versions of `paged.polyfill.js`.
 
 Copy the script in a file and call it from the head of your HTML file:
 
