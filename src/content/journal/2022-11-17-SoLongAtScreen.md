@@ -18,18 +18,18 @@ npm, making it the base version for any of you who use npm without version
 control, or simply call from the unpkg cdn (or any other cdn).
 
 That means that if you opened your previous file without knowing what would
-happen, you must have had a bit of a scary moment. Don’t worry too much, you
-the breaking changes were not about how paged.js work, but more on how Paged.js
-preview things on screen.
+happen, you must have had a bit of a scary moment. Don’t worry too much, 
+the breaking changes were not about how paged.js works, but more on how Paged.js
+previews things on screen.
 
 ## I want to go back to have a preview on screen!
 
-Yep! Absolutely, it’s (one of) the great feature of Paged.js, and we have a
+Yep! Absolutely, it’s (one of) the great features of Paged.js, and we have a
 couple of solutions for you.
 
 We explained it last time ([you can read the post
 here](https://pagedjs.org/posts/paged-break-the-long-overdue-update/), but we
-moved forward to follow the standards about the media queries. So, from now one,
+moved forward to follow the standards for the media queries. So, from now on,
 pagedjs  will ignore any rule that should not apply to a media screen. `@media
 screen` being the most useful example.
 
@@ -48,15 +48,15 @@ Again, the previous post will tell you all about it. The good thing is that the
 styles for the screen and the paper will stop hurting each other.
 
 
-## Enough with breaking change, we want features!
+## Enough with breaking changes, we want features!
 
-And features you’ll get! Here are the releases note from the merge requests,
+And features you’ll get! Here are the release notes from the merge requests,
 explained.
 
 ### You can now have multiple nested named pages: 
 
 Until now, you could only have one level of named page. This will fix that by
-allowing nested named page. For example, if this is your html 
+allowing nested named pages. For example, if this is your html 
 
 ```html
 <div class="content">
@@ -82,7 +82,7 @@ and this is your css
 then the Preamble will be on its own page! 
 
 
-### We have an index for all the test we have in pagedjs (we call’em specs)
+### We have an index for all the tests we have in pagedjs (we call’em specs)
 
 An image is better than a long talk right? So this is what we support. 
 
@@ -97,12 +97,12 @@ https://mattermost.coko.foundation
 
 ### Tables improvement.
 
-Paged.js used to cut table at the first bloc of text overlapped the page height,
+Paged.js used to cut table at the first block of text overlapped the page height,
 and this caused a column shifting beteen pages.  While this was very fun to look
 at, it was a real pain for people who worked with tables. So this is now a bit
 better. 
 
-Fred also fixed an issues where multiline content would break tables after a
+Fred also fixed an issue where multiline content would break tables after a
 page break.  
 
 Tables are still problematic when they get long and overly complex but
@@ -112,13 +112,14 @@ we’ll get there eventually.
 
 Say hello to `finalizePage`. This hook runs just before the page is considered
 rendered, after page layout is completed. When paged.js is done with the
-`afterPageLayout` if run `finalizePage`. This allow us to manage any changes that occurred in layout or when generated content was added. 
+`afterPageLayout` if run `finalizePage`. This allow us to manage any changes 
+that occurred in layout or when generated content was added. 
 
 ### Looping is gone (but being a loop, it may be back)
 
 A looping in Paged.js world is when a code tries to do something, can’t do it and
 tries again. and again. and again. The best example we have of that is when you
-try to add an image on the page and there is not enough room for it. Paged,js
+try to add an image on the page and there is not enough room for it. Paged.js
 will create a new page, try to  put the image  on the page, and again, and
 again, and starting to go into that infinite loop that never end. 
 
@@ -126,7 +127,7 @@ From now on, Paged.js 0.4 will gracefully stop when that happens.
 
 ### One but not least
 
-You can now reuse attribute from your element as information for your running
+You can now reuse attributes from your element as information for your running
 headers: 
 
 ```html
@@ -173,3 +174,4 @@ We’ll be back soon with some nice example of Paged.js!
 
 
 Take care
+

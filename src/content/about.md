@@ -28,6 +28,12 @@ Welcome around :)
 Paged.js was founded by [Adam Hyde](https://www.adamhyde.net) and is currently developed by [Julie Blanc](http://julie-blanc.fr), [Fred Chasen](http://fchasen.com/) and Julien Taquet at [Coko](https://www.coko.foundation).
 
 The Paged.js logo was designed by the lovely [Anton Moglia](http://moglia.fr/) and our own awesome [Julie Blanc](http://julie-blanc.fr) during a train journey returning from the 60-year-old type design event called [Les Rencontres de Lure](http://delure.org).
+
 The Paged.js website was designed and built by [Adam Hyde](https://www.adamhyde.net) and Julien Taquet using the great static website generator [11ty](https://11ty.dev/).
+
+Our articles go through the brilliant eyes of [Raewyn
+Whyte](https://allmyownwords.wordpress.com/), our amazing editor, based in New
+Zealand. If you find a typo somewhere, it means that it went live on the website
+without going through her magic hands.
 
 The website is mainly using the [Jost\*](https://indestructibletype.com/Jost.html) font from Indestructible type and [Fanwood Text](https://www.theleagueofmoveabletype.com/fanwood) from the league of moveable type, both free and open source fonts. When it comes to code, we’re also using [Victor Mono](https://rubjo.github.io/victor-mono/), designed by Rune B, which is also free and open source.
