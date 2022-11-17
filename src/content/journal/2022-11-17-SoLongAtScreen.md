@@ -36,7 +36,7 @@ screen` being the most useful example.
 The most standard change, for all of you, is the preview on screen: if you want
 to use the `interface.css` we’re making, you can simply update and use the
 https://gitlab.coko.foundation/pagedjs/interface-polyfill/blob/master/interface.css
-for version 0.4.
+for version 0.4.
 
 Note that if you have some css for the screen that you want to force pass to the
 browser (for example to allow an UI around paged.js) then you can use the
@@ -50,16 +50,15 @@ styles for the screen and the paper will stop hurting each other.
 
 ## Enough with breaking change, we want features!
 
-And features you’ll get!
+And features you’ll get! Here are the releases note from the merge requests,
+explained.
 
-From the release notes:
-
-### You can now have multiple nested named pages: 
+### You can now have multiple nested named pages: 
 
 Until now, you could only have one level of named page. This will fix that by
 allowing nested named page. For example, if this is your html 
 
-```
+```html
 <div class="content">
 	<div class="preamble">
 		<p>This is a preamble.</p>
@@ -69,7 +68,7 @@ allowing nested named page. For example, if this is your html
 
 and this is your css 
 
-```
+```css
 .content {
   page: contentpage;
 }
