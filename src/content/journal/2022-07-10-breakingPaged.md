@@ -11,9 +11,6 @@ tags:
   - release notes
 ---
 
-Paged.js has been through a lot of changes over the last year or so. And those were quite interesting to navigate. Let’s see where we’re at.  
-[breaking changes](http://localhost:8080/tags/breaking%20changes/) [guide](http://localhost:8080/tags/guide/) [release notes](http://localhost:8080/tags/release%20notes/)
-
 It’s been a while, hasn’t it?
 
 That’s how it feels for us. Not that we weren’t around working, quite the opposite to be honest, but it wasn’t very visible outside of the [Coko chat](https://mattermost.coko.foundation) (You should join if you’re interested in the future of Paged.js as we try more and more to discuss things in the open out there). We also try to offer some news on [Twitter](https://twitter.com/paged_js), so make sure to follow if you want some last-minute news, or if you want to ask some questions a little bit.
