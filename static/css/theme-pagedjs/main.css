@@ -516,7 +516,6 @@ article pre {
   padding: 0.2em 0.5em;
   border: 1px solid lightgrey;
   white-space: pre-wrap;
-  font-size: 0em;
   margin: 2em auto;
 }
 code[class*="language-"],
