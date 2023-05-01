@@ -11,7 +11,7 @@ If you're using pandoc to produce documents, you may find it helpful to convert 
 
 You'll need to specify the elements to look for by assigning the query to `endNoteCalloutsQuery`. Here's an example of how to do that:
 
-```
+```js
 const endNoteCalloutsQuery = ".footnote-ref";
 ```
 
@@ -19,7 +19,7 @@ This script will then locate all the footnote links and recreate the correspondi
 
 Once the footnotes have been converted, you can use the following CSS to style them:
 
-```
+```css
 .pagedjs-end-to-footnote {
   float: footnote;
 }
@@ -44,8 +44,6 @@ Once the footnotes have been converted, you can use the following CSS to style t
   line-height: 0;
 }
 ```
-
-Using the Script:
 
 To use the script, simply add it to your header after pagedjs has been called:
 
