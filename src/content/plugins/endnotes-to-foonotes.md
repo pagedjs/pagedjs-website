@@ -4,7 +4,7 @@ pagedjsversion: "min: 0.2.0"
 intro: Move your end notes to footnotes!
 plugin:
   name: endnotes to footnotes
-  filename: "pagedjs-endnotesToFootnotes"
+  filename: "pagedjs-endnotesToFootnotes.js"
 ---
 
 If you're using pandoc to produce documents, you may find it helpful to convert endnotes into footnotes. Fortunately, this script can help you do just that!
