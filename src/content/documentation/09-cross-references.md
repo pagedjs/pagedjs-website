@@ -68,7 +68,7 @@ In you HTML, create the title of a chapter with an unique identifier:
 Later in your document, create an link to this chapter:
 
 ```html
-<p>Some text that refer to the <a class="link" href="chapter-1">chapter</a>.</p>
+<p>Some text that refer to the <a class="link" href="#chapter-1">chapter</a>.</p>
 <p></p>
 ```
 
