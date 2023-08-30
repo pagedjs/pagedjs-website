@@ -13,6 +13,7 @@ pages:
     - npm install
     - npm run build
   artifacts:
+    expire_in: 30min
     paths:
       - public
   only:
