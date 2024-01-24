@@ -1,0 +1,1 @@
+{ "permalink": "documentation/tutos/{{order}}-{{title | slugify}}/" }
