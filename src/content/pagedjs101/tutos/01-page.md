@@ -79,4 +79,9 @@ A common usage for nonfiction books is to layout each section with visual differ
 
 ### one @page to rule them all
 
-Sure as 1 + 1 equals 10, the C in CSS stands for Cascade, each rule has its own weight (depending on the combined specificities of the parts of the selector) and when two rules are of the same weight the latest one precedes (which is can or ironic as it comes after in the CSS file).
+Sure as 1 + 1 equals 10, the C in CSS stands for Cascade, each `@page { … }` rule has its own weight (depending on the combined specificities of the parts of the selector) and when two rules are of the same weight the latest one precedes (which is kind of ironic as it comes afterward in the CSS file). The W3C details the rule’s weight calculation method on [the CSS Paged Media Module Level 3 page](https://www.w3.org/TR/css-page-3/#cascading-and-page-context). However, we could resume it as follow in specificity growing order:
+
+1. the minimal `@page` selector has no specificity (0,0,0),
+2. the `:left` or `:right` have the lowest one (0,0,1),
+3. the `:blank` or `firt` stand in the middle (0,1,0),
+4. and named page selector is the most specific (1,1,0).
