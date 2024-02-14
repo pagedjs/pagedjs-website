@@ -12,7 +12,8 @@ Whereas you are dealing with a manuscript, a typescript, an hell-script from Wor
 - its dimensions,
 - its orientation,
 - its margins,
-- and, for the most _print process aware_ people, what size should the bleed area and what about the registration marks placement?
+- and, for the most _print process aware_ people, what size should the bleed area be
+- and what about the registration or crop marks?
 
 <figure>
   <img src="/images/tutos-at_page-01.svg" alt="schematic view of a printed page with indications relative to its anatomy">
@@ -84,9 +85,41 @@ A common usage for nonfiction books is to layout each section with visual differ
 
 ### One @page to rule them all
 
-Sure as 1 + 1 equals 10, the C in CSS stands for Cascade, each `@page { … }` rule has its own weight (depending on the combined specificities of the parts of the selector) and when two rules are of the same weight the latest one precedes (which is kind of ironic as it comes afterward in the CSS file). The W3C details the rule’s weight calculation method on [the CSS Paged Media Module Level 3 page](https://www.w3.org/TR/css-page-3/#cascading-and-page-context). However, we could resume it as follow in specificity growing order:
+Sure as 1 + 1 equals 10, the C in CSS stands for Cascade, each `@page { … }` rule has its own weight (depending on the combined specificities of the parts of the selector) and when two rules are of the same weight the latest one precedes (which is kind of ironic as it comes afterward in the CSS file). The W3C details the rule’s weight calculation method on [the CSS Paged Media Module Level 3 page](https://www.w3.org/TR/css-page-3/#cascading-and-page-context). However, we could resume it as follow (in specificity growing order):
 
 1. the minimal `@page` selector has no specificity (0,0,0),
 2. the `:left` or `:right` have the lowest one (0,0,1),
-3. the `:blank` or `firt` stand in the middle (0,1,0),
-4. and the `@page someName { … }` named page selector is the most specific (1,1,0).
+3. the `:blank` or `:first` stand in the middle (0,1,0),
+4. and the `@page someName { … }` named page selector is the most specific (1,0,0).
+
+The following example may ease the cascade comprehension if you have little knowledge in CSS rules.
+
+### Let’s get us started
+
+Please consider the following @page rule.
+
+```css
+@page {
+  size: 111mm 181mm; /* first width, then height */
+  margin-top: 15mm;
+  margin-bottom: 30mm;
+  bleed: 4mm; /* speeking words of wisdom, let it… */
+  marks: cross crop;
+}
+```
+
+It defines the base layout upon which the book will be made: a page size of 111 by 118 millimeters with two values given for the top and bottom margins. A four millimeters bleed area is also specified along with the need to print both the registration (cross) and crop marks. You may wonder why there is no mention of the left and right margins. No oversight here, those additional rules complete the declaration.
+
+```css
+@page:left {
+  margin-right: 9.25mm;
+  margin-left: 18.5mm;
+}
+
+@page:right {
+  margin-right: 18.5mm;
+  margin-left: 9.25mm;
+}
+```
+
+And now we are quite done, at least for a starter. We have defined a page size, some technical options and a margin system symmetrical along the binding. We may just make use of the remaining pseudo-selector to
