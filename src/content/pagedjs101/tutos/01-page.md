@@ -128,11 +128,12 @@ And now we are quite done, at least for a starter. We have defined a page size, 
 @page :first {
   margin-top: 38.8mm;
   margin-bottom: 49.4mm;
-  margin-inline: 0; /* while tagged as experimental this property is well supported */
+  margin-right: 0mm;
+  margin-left: 0mm;
 }
 
 @page :blank {
-  margin: 0 0 0 0; /* yep, shorthands are bad practice but sometime suffice ^^ */
+  margin: 0mm; /* yep, shorthands are bad practice but sometime suffice ^^ */
 }
 ```
 
@@ -143,9 +144,11 @@ Altogether the aforementioned rules, linked to a web page, lead to… something 
 <figcaption><p>Quite an emptiness isn’t it?</p></figcaption>
 </figure>
 
-By [summoning a passing by Great Old One](https://ephemer.kapsi.fi/FhtagnGenerator.php?count=666&format=html&fhtagn=yes) we can populate a little content in order to help us have a look on the document layout.
+By [summoning a passing by Great Old One](https://ephemer.kapsi.fi/FhtagnGenerator.php?count=666&format=html&fhtagn=yes) we can populate a little content to help us have a look on the document layout.
 
 <figure>
   <img src="/images/tutos-at_page-03.png" alt="The same browser window now displays many pages filled with placeholder text based on the Chhulhu mythos from H.P. Lovecraft">
 <figcaption><p>Now we can visualize our upcoming bestseller!</p></figcaption>
 </figure>
+
+Our rules’effects are more visible, our text flows through several pages which we nearly can imagine be flipped by a reader; nearly but not quite. While efficient to minimize white space, and therefore cur the overall paper cost, our current design needs some adjustments.
