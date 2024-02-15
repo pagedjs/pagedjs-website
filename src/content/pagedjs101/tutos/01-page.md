@@ -111,15 +111,41 @@ Please consider the following @page rule.
 It defines the base layout upon which the book will be made: a page size of 111 by 118 millimeters with two values given for the top and bottom margins. A four millimeters bleed area is also specified along with the need to print both the registration (cross) and crop marks. You may wonder why there is no mention of the left and right margins. No oversight here, those additional rules complete the declaration.
 
 ```css
-@page:left {
+@page :left {
   margin-right: 9.25mm;
   margin-left: 18.5mm;
 }
 
-@page:right {
+@page :right {
   margin-right: 18.5mm;
   margin-left: 9.25mm;
 }
 ```
 
-And now we are quite done, at least for a starter. We have defined a page size, some technical options and a margin system symmetrical along the binding. We may just make use of the remaining pseudo-selector to
+And now we are quite done, at least for a starter. We have defined a page size, some technical options and a margin system symmetrical along the binding. We may just make use of the remaining pseudo-selector to address the remaining traditional aspects of books design.
+
+```css
+@page :first {
+  margin-top: 38.8mm;
+  margin-bottom: 49.4mm;
+  margin-inline: 0; /* while tagged as experimental this property is well supported */
+}
+
+@page :blank {
+  margin: 0 0 0 0; /* yep, shorthands are bad practice but sometime suffice ^^ */
+}
+```
+
+Altogether the aforementioned rules, linked to a web page, lead to… something rather disappointing. Hard to tell whether our styling is correctly interpreted or even if they are interpreted.
+
+<figure>
+  <img src="/images/tutos-at_page-02.png" alt="screenshot from a web browser window showing a blank page with only the bleed limits and the crop and registration marks">
+<figcaption><p>Quite an emptiness isn’t it?</p></figcaption>
+</figure>
+
+By [summoning a passing by Great Old One](https://ephemer.kapsi.fi/FhtagnGenerator.php?count=666&format=html&fhtagn=yes) we can populate a little content in order to help us have a look on the document layout.
+
+<figure>
+  <img src="/images/tutos-at_page-03.png" alt="The same browser window now displays many pages filled with placeholder text based on the Chhulhu mythos from H.P. Lovecraft">
+<figcaption><p>Now we can visualize our upcoming bestseller!</p></figcaption>
+</figure>
