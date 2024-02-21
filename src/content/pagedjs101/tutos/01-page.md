@@ -151,4 +151,32 @@ By [summoning a passing by Great Old One](https://ephemer.kapsi.fi/FhtagnGenerat
 <figcaption><p>Now we can visualize our upcoming bestseller!</p></figcaption>
 </figure>
 
-Our rules’effects are more visible, our text flows through several pages which we nearly can imagine be flipped by a reader; nearly but not quite. While efficient to minimize white space, and therefore cur the overall paper cost, our current design needs some adjustments.
+Our rules’effects are more visible, our text flows through several pages which we nearly can imagine be flipped by a reader; nearly but not quite. While efficient to minimize white space, and therefore cut the overall paper cost, our current design needs some adjustments.
+
+```css
+h1 {
+  break-after: page;
+  text-align: center;
+}
+
+section h2:first-child {
+  color: white;
+  break-before: right;
+  background: Rebeccapurple;
+  margin-top: 0;
+  padding-top: 3lh;
+  padding-right: 1ch;
+  padding-bottom: 0.21lh;
+  margin-bottom: 0.79lh;
+  text-align: end;
+  font-style: italic;
+}
+```
+
+By only adding a dash of _style_ to our text, we isolated the title on the first page and forced our chapters to begin on a right page while their titles are white on a purple background.
+
+<figure>
+  <img src="/images/tutos-at_page-04.png" alt="On the same document we can see that the titles stands alone on the first page and that the first chapter begins on page 3 with a chapter title laying on a purple background" >
+</figure>
+
+Nicer isn’t it? It still requires a lot of enhancements
