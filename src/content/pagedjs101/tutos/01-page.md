@@ -70,9 +70,6 @@ A common usage for nonfiction books is to layout each section with visual differ
 @page verticalyHeld4StringsInstruments {
   /* attributes */
 }
-@page verticalyHeld4StringsInstruments:blank {
-  /* attributes */
-}
 
 @page horizontalyHeld4StringsInstruments:left {
   /* attributes */
@@ -179,4 +176,4 @@ By only adding a dash of _style_ to our text, we isolated the title on the first
   <img src="/images/tutos-at_page-04.png" alt="On the same document we can see that the titles stands alone on the first page and that the first chapter begins on page 3 with a chapter title laying on a purple background" >
 </figure>
 
-Nicer isn’t it? It still requires a lot of enhancements
+Nicer isn’t it? It still requires a lot of enhancements. However, before going deeper in the design process, we’ll take some time to discuss the elephant in the room, I mean, look at those margins! It would be a shame to let them untouched.
