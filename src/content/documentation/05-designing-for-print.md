@@ -76,9 +76,15 @@ However, Paged.js create a set of custom properties from your declaration and us
 - `var(--pagedjs-pagebox-width)` for the width of your page
 - `var(--pagedjs-pagebox-height)` for the height of your page
 
-{{< note >}}
+
+
+```md
+TODO: This needs to be updated as it’s not true anymore!
 Warning: the browser can only understand one page size for your document. If you need to create a document with different page sizes, you will need to create two separate HTML files and generate two PDFs.
-{{< /note >}}
+```
+
+
+
 
 ## Margin size property
 

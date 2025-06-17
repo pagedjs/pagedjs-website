@@ -1,18 +1,12 @@
-const Cache = require("@11ty/eleventy-cache-assets");
+const Cache = require("@11ty/eleventy-fetch");
 const pluginTOC = require("eleventy-plugin-nesting-toc");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
-const { DateTime } = require("luxon");
-const cheerio = require('cheerio');
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const slugify = require("slugify");
 
 module.exports = function (eleventyConfig) {
   // collection
-
-
-
-
 
   eleventyConfig.addCollection("sortedByOrder", function (collectionApi) {
     return collectionApi.getAll().sort((a, b) => {
@@ -22,11 +16,10 @@ module.exports = function (eleventyConfig) {
     });
   });
 
-
   // eleventyConfig.addFilter("search", searchFilter);
 
   // eleventyConfig.addFilter("searchSingle", searchFilterSingle);
-  eleventyConfig.addCollection("allSearch", collection => {
+  eleventyConfig.addCollection("allSearch", (collection) => {
     return [...collection.getFilteredByTag("chapter")];
   });
 
@@ -44,72 +37,51 @@ module.exports = function (eleventyConfig) {
     return slugify(rawString.toLowerCase());
   });
 
-
   // create examples
 
-  eleventyConfig.addCollection("examples", collectionApi => {
-    return collectionApi.getFilteredByGlob("src/content/examples/**/*.md").sort((a, b) => a.data.part - b.data.part);
-  });
-
-  eleventyConfig.addCollection("templates", collectionApi => {
-    return collectionApi.getFilteredByGlob("src/content/templates/**/*.md").sort((a, b) => a.data.title - b.data.title);
-  });
-
-  eleventyConfig.addCollection("plugins", collectionApi => {
-    return collectionApi.getFilteredByGlob("src/content/plugins/**/*.md").sort((a, b) => a.data.title - b.data.title);
-  });
-  eleventyConfig.addCollection("documentation", collectionApi => {
-
+  eleventyConfig.addCollection("examples", (collectionApi) => {
     return collectionApi
-    .getFilteredByGlob("src/content/documentation/**/*.md")
-
-    .sort((a, b) => a.data.date - b.data.date)
-    .filter(item => {
-      return item.data.draft != true;
-    })
-    ;
-
+      .getFilteredByGlob("src/content/examples/**/*.md")
+      .sort((a, b) => a.data.part - b.data.part);
   });
-  
 
+  eleventyConfig.addCollection("templates", (collectionApi) => {
+    return collectionApi
+      .getFilteredByGlob("src/content/templates/**/*.md")
+      .sort((a, b) => a.data.title - b.data.title);
+  });
 
+  eleventyConfig.addCollection("plugins", (collectionApi) => {
+    return collectionApi
+      .getFilteredByGlob("src/content/plugins/**/*.md")
+      .sort((a, b) => a.data.title - b.data.title);
+  });
+  eleventyConfig.addCollection("documentation", (collectionApi) => {
+    return collectionApi
+      .getFilteredByGlob("src/content/documentation/**/*.md")
 
+      .sort((a, b) => a.data.date - b.data.date)
+      .filter((item) => {
+        return item.data.draft != true;
+      });
+  });
 
-
-// add syntax color for code!
+  // add syntax color for code!
   //
   //
-
 
   eleventyConfig.addPlugin(syntaxHighlight);
 
-
-
-
-
-
-
-
   // create journal collection
 
-
-
-
-
-
-
-
-
-  eleventyConfig.addCollection("journal", collectionApi => {
-
+  eleventyConfig.addCollection("journal", (collectionApi) => {
     return collectionApi
       .getFilteredByGlob("src/content/journal/**/*.md")
 
       .sort((a, b) => a.data.date - b.data.date)
-      .filter(item => {
+      .filter((item) => {
         return item.data.draft != true;
-      })
-      ;
+      });
   });
   // function filterTagList(tags, tagListYouWantToFilter) {
   //   return (tags || []).filter(tag => tagListYouWantToFilter.indexOf(tag) === -1);
@@ -118,15 +90,16 @@ module.exports = function (eleventyConfig) {
   // eleventyConfig.addFilter("filterTagList", filterTagList)
   eleventyConfig.addCollection("tagList", (collection) => {
     let tagSet = new Set();
-    collection.getAll().forEach(item => {
-      (item.data.tags || []).forEach(tag => tagSet.add(tag));
+    collection.getAll().forEach((item) => {
+      (item.data.tags || []).forEach((tag) => tagSet.add(tag));
     });
- 
-    return [...tagSet].sort((a,b) => a.toLowerCase().localeCompare(b.toLowerCase()));
-  });
-  
-  // filterTagList(tags , ["nav","posts"])
 
+    return [...tagSet].sort((a, b) =>
+      a.toLowerCase().localeCompare(b.toLowerCase()),
+    );
+  });
+
+  // filterTagList(tags , ["nav","posts"])
 
   eleventyConfig.addPassthroughCopy({ "static/css": "/css" });
   eleventyConfig.addPassthroughCopy({ "static/fonts": "/fonts" });
@@ -143,54 +116,44 @@ module.exports = function (eleventyConfig) {
       html: true,
       linkify: true,
       typographer: true,
-    }).use(markdownItAnchor, {})
+    }).use(markdownItAnchor, {}),
   );
 
   // useful to use the toc somewhere else
   eleventyConfig.addFilter("prependLinks", function (value, prepend) {
-    return value.replace(/<a href="/g, `<a href="${prepend}`)
+    return value.replace(/<a href="/g, `<a href="${prepend}`);
   });
-  eleventyConfig.addFilter("replaceWithRegex", function (replaceThat, replaceWith) {
-    let regex = new RegExp(replaceThat);
-    return value.replace(regex, replaceWith)
-  });
+  eleventyConfig.addFilter(
+    "replaceWithRegex",
+    function (replaceThat, replaceWith) {
+      let regex = new RegExp(replaceThat);
+      return value.replace(regex, replaceWith);
+    },
+  );
 
   // add latin number plugin
   eleventyConfig.addFilter("romanize", function (value) {
     return romanize(value);
   });
 
-
-
-  // \get the date with luxon (for all date)
+  // remove luxon
   eleventyConfig.addFilter("postDate", (dateObj) => {
-    let date = new Date(dateObj)
-    return DateTime.fromJSDate(date).toLocaleString(DateTime.DATE_MED);
+    let date = new Date(dateObj);
+    return date.toLocaleDateString();
   });
-
 
   // limit the amount of items
   eleventyConfig.addFilter("limit", function (arr, limit) {
     return arr.slice(0, limit);
   });
 
-  eleventyConfig.addFilter("filterContent", function (value, el) {
-    // console.log(value);
-    const $ = cheerio.load(value);
-    if ($.html(el)) {
-      return value = $.html(el);
-    }
-    else {
-      return value;
-    }
-
-  });
-
-  eleventyConfig.addFilter("removeWhitespaces", (str) => str.replace(/\s/g,'')); 
+  eleventyConfig.addFilter("removeWhitespaces", (str) =>
+    str.replace(/\s/g, ""),
+  );
   // eleventyConfig.addFilter("monthYear", (date) => `${date.getMonth()}-${date.getYear()}`)
-  
-  eleventyConfig.addFilter("reverse", (col) => col.reverse())
-  
+
+  eleventyConfig.addFilter("reverse", (col) => col.reverse());
+
   eleventyConfig.addPlugin(pluginTOC, {
     tags: ["h2", "h3", "h4"], // which heading tags are selected headings must each have an ID attribute
     wrapper: "nav", // element to put around the root `ol`/`ul`
@@ -198,14 +161,13 @@ module.exports = function (eleventyConfig) {
     ul: false, // if to use `ul` instead of `ol`
     flat: false,
   });
-  
-  // adding the 4 next lines to the tag page njk 
+
+  // adding the 4 next lines to the tag page njk
   //
   // eleventyConfig.addFilter("urlIncludesExamples", (url)=>{
   //  if(url.toString().includes("examples"))return true
   //  else return false
   // })
-
 
   // folder structures
   // -----------------------------------------------------------------------------
@@ -222,29 +184,50 @@ module.exports = function (eleventyConfig) {
   };
 };
 
-
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
-
 
 function romanize(num) {
   // taken from Steven Levithan
   // https://blog.stevenlevithan.com/archives/javascript-roman-numeral-converter
 
-  if (isNaN(num))
-    return NaN;
+  if (isNaN(num)) return NaN;
   var digits = String(+num).split(""),
-    key = ["", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM",
-      "", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC",
-      "", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"],
+    key = [
+      "",
+      "C",
+      "CC",
+      "CCC",
+      "CD",
+      "D",
+      "DC",
+      "DCC",
+      "DCCC",
+      "CM",
+      "",
+      "X",
+      "XX",
+      "XXX",
+      "XL",
+      "L",
+      "LX",
+      "LXX",
+      "LXXX",
+      "XC",
+      "",
+      "I",
+      "II",
+      "III",
+      "IV",
+      "V",
+      "VI",
+      "VII",
+      "VIII",
+      "IX",
+    ],
     roman = "",
     i = 3;
-  while (i--)
-    roman = (key[+digits.pop() + (i * 10)] || "") + roman;
+  while (i--) roman = (key[+digits.pop() + i * 10] || "") + roman;
   return Array(+digits.join("") + 1).join("M") + roman;
 }
-
-
-
-
