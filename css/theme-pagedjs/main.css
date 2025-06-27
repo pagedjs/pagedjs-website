@@ -16,8 +16,9 @@ h1 {
   font-size: 2em;
   margin: 0.67em 0;
 }
-h2, h3 {
-  font-weight:400;
+h2,
+h3 {
+  font-weight: 400;
 }
 hr {
   box-sizing: content-box;
@@ -203,7 +204,8 @@ a {
   --color-lightest-grey: rgb(245, 245, 245);
   --color-lightest-grey: hsl(var(--tint), 0%, 88%);
   --symbol-content: "❧";
-  --shadow-paper: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12),
+  --shadow-paper:
+    0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12),
     0 4px 4px rgba(0, 0, 0, 0.12), 0 8px 8px rgba(0, 0, 0, 0.12),
     0 16px 16px rgba(0, 0, 0, 0.12);
   --shadow-main: var(--shadow-paper);
@@ -226,90 +228,100 @@ a {
 
 @font-face {
   font-family: jost;
-  src: url(/fonts/Jost-400-Book.woff2) format("woff2"),
-    url(/fonts/Jost-400-Book.woff) format("woff"),
-    url(/fonts/Jost-400-Book.otf) format("opentype");
+  src:
+    url(./Jost-400-Book.woff2) format("woff2"),
+    url(./Jost-400-Book.woff) format("woff"),
+    url(./Jost-400-Book.otf) format("opentype");
   font-style: normal;
   font-weight: 400;
 }
 
 @font-face {
   font-family: jost;
-  src: url(/fonts/Jost-400-BookItalic.woff2) format("woff2"),
-    url(/fonts/Jost-400-BookItalic.woff) format("woff"),
-    url(/fonts/Jost-400-BookItalic.otf) format("opentype");
+  src:
+    url(./Jost-400-BookItalic.woff2) format("woff2"),
+    url(./Jost-400-BookItalic.woff) format("woff"),
+    url(./Jost-400-BookItalic.otf) format("opentype");
   font-style: italic;
   font-weight: 400;
 }
 
 @font-face {
   font-family: jost;
-  src: url(/fonts/Jost-600-Semi.woff2) format("woff2"),
-    url(/fonts/Jost-600-Semi.woff) format("woff"),
-    url(/fonts/Jost-600-Semi.otf) format("opentype");
+  src:
+    url(./Jost-600-Semi.woff2) format("woff2"),
+    url(./Jost-600-Semi.woff) format("woff"),
+    url(./Jost-600-Semi.otf) format("opentype");
   font-style: normal;
   font-weight: 600;
 }
 
 @font-face {
   font-family: jost;
-  src: url(/fonts/Jost-600-SemiItalic.woff2) format("woff2"),
-    url(/fonts/Jost-600-SemiItalic.woff) format("woff"),
-    url(/fonts/Jost-600-SemiItalic.otf) format("opentype");
+  src:
+    url(./Jost-600-SemiItalic.woff2) format("woff2"),
+    url(./Jost-600-SemiItalic.woff) format("woff"),
+    url(./Jost-600-SemiItalic.otf) format("opentype");
   font-style: italic;
   font-weight: 600;
 }
 
 @font-face {
   font-family: victor mono;
-  src: url(/fonts/VictorMono-Light.woff2) format("woff2"),
-    url(/fonts/VictorMono-Light.woff) format("woff"),
-    url(/fonts/VictorMono-Light.otf) format("opentype");
+  src:
+    url(./VictorMono-Light.woff2) format("woff2"),
+    url(./VictorMono-Light.woff) format("woff"),
+    url(./VictorMono-Light.otf) format("opentype");
   font-style: normal;
   font-weight: 400;
 }
 
 @font-face {
   font-family: victor mono;
-  src: url(/fonts/VictorMono-LightItalic.woff2) format("woff2"),
-    url(/fonts/VictorMono-LightItalic.woff) format("woff"),
-    url(/fonts/VictorMono-LightItalic.otf) format("opentype");
+  src:
+    url(./VictorMono-LightItalic.woff2) format("woff2"),
+    url(./VictorMono-LightItalic.woff) format("woff"),
+    url(./VictorMono-LightItalic.otf) format("opentype");
   font-style: italic;
   font-weight: 400;
 }
 
 @font-face {
   font-family: victor mono;
-  src: url(/fonts/VictorMono-Regular.woff2) format("woff2"),
-    url(/fonts/VictorMono-Regular.woff) format("woff"),
-    url(/fonts/VictorMono-Regular.otf) format("opentype");
+  src:
+    url(./VictorMono-Regular.woff2) format("woff2"),
+    url(./VictorMono-Regular.woff) format("woff"),
+    url(./VictorMono-Regular.otf) format("opentype");
   font-style: normal;
   font-weight: 600;
 }
 
 @font-face {
   font-family: victor mono;
-  src: url(/fonts/VictorMono-Italic.woff2) format("woff2"),
-    url(/fonts/VictorMono-Italic.woff) format("woff"),
-    url(/fonts/VictorMono-Italic.otf) format("opentype");
+  src:
+    url(./VictorMono-Italic.woff2) format("woff2"),
+    url(./VictorMono-Italic.woff) format("woff"),
+    url(./VictorMono-Italic.otf) format("opentype");
   font-style: italic;
   font-weight: 600;
 }
 
 @font-face {
   font-family: linden hill;
-  src: url(/fonts/LindenHill-Regular.woff2) format("woff2"),
-    url(/fonts/LindenHill-Regular.woff) format("woff"),
-    url(/fonts/LindenHill-Regular.otf) format("opentype");
+  src:
+    url(./LindenHill-Regular.woff2) format("woff2"),
+    url(./LindenHill-Regular.woff) format("woff"),
+    url(./LindenHill-Regular.otf) format("opentype");
   font-style: normal;
   font-weight: 400;
 }
 
 @font-face {
   font-family: linden hill;
-  src: url(/fonts/LindenHill-Italic.woff2) format("woff2"),
-    url(/fonts/LindenHill-Italic.woff) format("woff"),
-    url(/fonts/LindenHill-Italic.otf) format("opentype");
+  src:
+    url(./LindenHill-Italic.woff2) format("woff2"),
+    url(./LindenHill-Italic.woff) format("woff"),
+    url(./LindenHill-Italic.otf) format("opentype");
   font-style: italic;
   font-weight: 400;
 }
@@ -846,7 +858,9 @@ header h2 {
   z-index: 9999999;
   align-items: flex-end;
   font-size: 0.9em;
-  box-shadow: -4px 4px 0 var(--color-paper), 0 4px 0 var(--color-paper),
+  box-shadow:
+    -4px 4px 0 var(--color-paper),
+    0 4px 0 var(--color-paper),
     4px 4px 0 var(--color-paper);
 }
 
@@ -978,11 +992,15 @@ figure {
   right: -200%;
   bottom: -200%;
   background-blend-mode: multiply;
-  background: radial-gradient(6px 6px, cyan, white),
+  background:
+    radial-gradient(6px 6px, cyan, white),
     radial-gradient(6px 6px, magenta, white),
     radial-gradient(6px 6px, yellow, white);
   background-size: 6px 6px;
-  background-position: 0 -3px, -2px 0, 2px 0;
+  background-position:
+    0 -3px,
+    -2px 0,
+    2px 0;
   mix-blend-mode: screen;
   pointer-events: none;
   transform: rotate(11.25deg);
@@ -2441,7 +2459,9 @@ mark {
   border: 7px solid var(--color-body);
   padding: 1em 3ch 1em 3ch;
   max-height: 80vh;
-  box-shadow: 0 0 0 3px var(--color-background), 0 0 0 4px var(--color-body);
+  box-shadow:
+    0 0 0 3px var(--color-background),
+    0 0 0 4px var(--color-body);
   border-radius: 8px;
   position: fixed;
   z-index: 3000000;
@@ -2458,12 +2478,10 @@ mark {
   max-width: 80ch;
 }
 .template-cover {
-  float:right;
-  margin-left:2em;
+  float: right;
+  margin-left: 2em;
 }
-
 
 .plugin .meta {
   font-family: var(--font-serif);
 }
-
