@@ -1,5 +1,3 @@
-const { HtmlBasePlugin } = await import("@11ty/eleventy");
-
 const Cache = require("@11ty/eleventy-fetch");
 const pluginTOC = require("eleventy-plugin-nesting-toc");
 const markdownIt = require("markdown-it");
@@ -8,8 +6,6 @@ const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const slugify = require("slugify");
 
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addPlugin(HtmlBasePlugin);
-
   // collection
 
   eleventyConfig.addCollection("sortedByOrder", function (collectionApi) {
