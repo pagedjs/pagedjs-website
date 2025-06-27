@@ -28,5 +28,8 @@
   },
   "devDependencies": {
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.2.2"
+  },
+  "volta": {
+    "node": "20.19.3"
   }
 }
