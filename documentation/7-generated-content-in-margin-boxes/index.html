@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+
+
+
+<html lang=" en" class="no-js">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+
+<title>Paged.js — Generated Content in Margin Boxes</title>
+
+<script type="module">
+document
+.documentElement
+.classList
+.remove('no-js');
+document
+.documentElement
+.classList
+.add('js');
+</script>
+<meta name="description" content="">
+<meta property="og:title" content="Generated Content in Margin Boxes — ">
+        <meta property="og:description" content="">
+        <meta property="og:image" content="">
+        <meta property="og:image:alt" content="Image description">
+        <meta property="og:locale" content="en_GB">
+        <meta property="og:type" content="website">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta property="og:url" content="site.url">
+        <link rel="canonical" href="https://www.mywebsite.com/page">
+
+        <link rel="icon" href="/favicon.ico">
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+        <link rel="manifest" href="/my.webmanifest">
+        <meta name="theme-color" content="NaN">
+
+        
+        <meta name="twitter:dnt" content="on">
+        
+            
+
+        
+
+        
+            <link rel="stylesheet" href="/css/theme-pagedjs/main.css">
+        
+
+        <link href="https://unpkg.com/prismjs@1.20.0/themes/prism.css" rel="stylesheet">
+        <script>
+
+        // if there is a dark mode in the storage, use that
+        if (localStorage.getItem('Nightmode') == "true") {
+        document
+        .documentElement
+        .classList
+        .add('nightmode')
+        }
+        </script>
+
+        
+
+            <script>
+
+  if (window.location.href.includes("?night")) {
+    document.documentElement.classList.add("nightmode");
+  }
+
+function start() {
+
+    document.querySelectorAll("a").forEach((a) => {
+      if (a.href.includes(`?day`)) {
+        // add the infor mation in the url of each link
+        a.href = `${a.href.replace("?day", "?night")}`;
+      } else if (a.href.includes("#")) {
+        a.href = a.href.replace("#", "index.html?night#");
+      } else {
+        a.href = `${a.href}?night`;
+      }
+    });
+};
+
+start()
+</script>
+
+        
+        </head>
+
+        <body  class="documentation " style="">
+
+        <div class="crop-marks">
+    <div class="crop-mark vertical"></div>
+    <div class="crop-mark horizontal"></div>
+    <div class="paper"></div>
+</div>
+
+        
+
+        
+            <div class="running-head">
+
+        
+    
+    <a class="back-home" href="/">
+        
+    <svg id="paged-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 213 52" fill="none" id="paged-logo"><path fill="var(--color-body)" d="M69.1 34.7c0 1.3-.5 2.7-1.6 2.7s-1.6-1.1-1.6-4.6v-7.1c0-7.3-1.5-13.5-12.1-13.5-6.5.0-13.4 2.2-13.4 8.4.0 4.7 6.9 6.1 9.9 2.6-1-1.3-1.7-3-1.7-4.5.0-2.9 2.2-3.5 4.4-3.5 2.4.0 3.9 1.4 3.9 8.6v1.3l-4.1 1.1c-7.9 2.2-12.9 4.9-12.9 9.1.0 3.9 2.2 6 7.1 6 4.6.0 8.7-2.4 11-7.7h.5c.9 5 2.4 7.7 6.8 7.7 3.1.0 6.6-1.5 6.1-6.7h-2.3v.1zm-17.8 1.8c-1.7.0-2.6-.9-2.6-2.1.0-3.2 2.3-4.7 8.2-6.5.1 4-2.5 8.6-5.6 8.6zM24.8 12.3c-3.6.0-9.6 1.2-10.6 9.1h-.9v-9.1L.9 15.2v2.4h6v31l-5.4.4v2.4h20.2V49l-6.2-.5V37.3c1.3 1.9 4 4.2 8.7 4.2 5.1.0 12.3-4.4 12.3-14.2.0-9.2-5.1-15-11.7-15zm-2.4 25.2c-2.8.0-5.3-1.5-6.5-5.7v-8.9c.1-1.3 1.5-5.4 5-5.4 4.4.0 7 5.1 7 10.5-.1 4.7-2 9.5-5.5 9.5zm155-21.6h5.8v32c0 3.4-4.3.4-5.1-3.1H177c-1.3 3.5-.2 6.9 3.1 6.9 3.2.0 7.4-1.7 7.4-8.9l.1-30.6-10.2 1.4v2.3zm-6 17.9c-2.4.0-3.7 1.3-3.7 3.7.0 2.4 1.3 3.7 3.7 3.7 2.4.0 3.7-1.3 3.7-3.7.0-2.4-1.4-3.7-3.7-3.7zM95.8 37.4c-4.9-1.1-12.3-1.1-15.9-1.6l1.2-2.4c1.4.4 3.1.6 5 .6 8.6.0 13.3-4.9 13.3-11.3.0-4.4-3-8-7.8-9.6l.2-.6c1.9.4 3.9.7 5.4.7 2.3.0 4-.8 4-3.4.0-1.8-1.3-4.1-3.3-6.2-3.3 3.6-6.2 7.3-10.7 8.7-.2-.1-.4-.1-.6-.1-8.6.0-13 4.8-13 11.3.0 4 1.8 7.4 5.7 9.2l-5.5 4.6c.4.8 1.7 2.9 6.5 4.4v.7c-4.4.6-7 1.9-7 3.7.0 3.8 7 5.7 12.3 5.7 9.1.0 16.6-2.3 16.9-7.9.0-3.6-1.6-5.4-6.7-6.5zm-10-22.2c3.3.0 4.8 2.4 4.8 7.4.0 5.7-1.1 8.5-4 8.5-3.4.0-4.8-2.9-4.8-8.4.1-5.3 1.2-7.5 4-7.5zm5.1 32.5c-6.2.0-10.5-1.5-10.5-3.2.0-.6.6-1.3 1.8-2.2l.9.2c9.4 1.8 14.8 1.3 14.8 3 .1 1.4-2.5 2.2-7 2.2zM199 21.5c-2.3-1.4-3.3-2.6-3.3-4 0-1.6 1.1-3.3 4-3.3 4.3.0 8.1 3.6 10.6 8.9h1.1v-8.4c-3-1.6-6.4-2.4-9.5-2.4-5.3.0-9.8 2.4-9.8 7.3.0 3.9 3.1 6.7 6.2 8.4 5.8 3.2 11 4.4 11 7.8.0 2.3-2.2 3.6-4.7 3.6-5.2.0-8.9-2.7-10.9-10.2h-1.1v9.4c2.7 1.8 6.5 2.8 10.1 2.8 5.4.0 10.2-2.2 10.2-7.7.1-6.5-7.5-8.3-13.9-12.2zM185.7 1.8c-2 0-2.9 1.1-2.9 2.9.0 1.9 1 2.9 2.9 2.9 1.8.0 2.9-1 2.9-2.9s-1.1-2.9-2.9-2.9zM126.1 29.1c.1.4.1.7.1 1.1.0 3.9-2.8 6.1-6.8 6.1-3.9.0-6.7-2.8-7.7-8.5l17.2-4.3c-.2-7.7-4.7-11.3-12.9-11.3-6.2.0-13 4.5-13 14.4.0 7.5 4.9 14.6 13.9 14.6 8 0 12.3-5.3 12.3-11.2.0-.5-.1-1-.1-1.5l-3 .6zm-14.7-5.8c0-5.2 2.2-8 5.3-8 2.9.0 3.8 3.2 3.8 5.6.0 1.5-1.9 1.8-5.1 2.9l-4 1.3v-1.8zM147 4.7l6.2.5v10.6c-1.5-2.1-4-3.6-8.4-3.6-5.1.0-12.3 4.4-12.3 14.2.0 9.1 5.1 14.9 11.7 14.9 3.6.0 9.6-1.2 10.6-9.1h1l1.9 8.3h4V.8l-14.8 1.5v2.4h.1zm6.2 26c-.1 1.2-1.1 5.4-5.9 5.4-4 0-6-4.9-6-10.5.0-4.7 1.9-9.5 5.4-9.5 2.8.0 5.3 1.5 6.5 5.7v8.9z"></path></svg>    
+
+    </a>
+    
+    <button class="menu-call">MENU</button>
+    <nav class="menu hide" role="main">
+        <ul>
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+                    <li  class="">
+                        <a href="/about/">about</a>
+                    </li>
+                
+
+            
+                
+                    <li  class="">
+                        <a href="/frequently-asked-questions-about-paged.js.html">FAQ</a>
+                    </li>
+                
+
+            
+                
+                    <li  class="">
+                        <a href="/documentation/">documentation</a>
+                    </li>
+                
+
+            
+                
+                    <li  class="">
+                        <a href="/made-with-paged.js.html">examples</a>
+                    </li>
+                
+
+            
+                
+
+            
+                
+                    <li  class="">
+                        <a href="/posts/">journal</a>
+                    </li>
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+
+            <li>
+                <a class="gitlab-link" href="https://gitlab.coko.foundation/pagedjs/pagedjs/">Gitlab</a>
+            </li>
+        </ul>
+    </nav>
+
+</div>
+
+
+        
+
+        
+  
+
+
+         
+  
+  <header>
+    <h1 id="title">
+        
+        Generated Content in Margin Boxes
+    </h1>
+    
+      <p class="meta">written 
+        
+        on <time class="date">9/3/2019</time>
+      </p>        
+    
+  </header>  
+  <article>
+    
+      <p class="intro">Running headers, footnotes, stuff in margins and so on.
+        
+    
+    <h2 id="margin-boxes-of-a-page" tabindex="-1">Margin boxes of a page</h2>
+<p>A page box consists of two types of area: page area and page margin boxes.</p>
+<p>The <strong>page area</strong> is the content area of a page box. It is the space into which all your HTML content will flow. When this content runs out of room, another page will be automatically created. It’s what the chunker part of Paged.js do.</p>
+<p>The margins of a page are divided into sixteen boxes where you can put generated content like page number and running heads. These boxes are called <strong>margin boxes</strong>.</p>
+<p>Each have its own margin, border, padding, and content areas. By default, their sizes are determined by the margin of the page box.</p>
+<p>The figure bellow represent the sixteen margin boxes of a page defined by the W3C:</p>
+<figure> <img src="/images/margin-boxes.png"  /></figure>
+<p>You can select this margins boxes in the <code>@page</code> rules with rules such as <code>@top-left</code>, <code>@bottom-right-corner</code>, <code>@left-middle</code>, etc. You add content in a page-margin box with the <code>content</code> property.</p>
+<p>The code below put your title in the <code>@top-right</code> margin box of all right pages:</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@page</span><span class="token punctuation">:</span> right</span> <span class="token punctuation">{</span><br>  <span class="token atrule"><span class="token rule">@top-right</span></span> <span class="token punctuation">{</span><br>    <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">"My title"</span><span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span> <span class="token punctuation">;</span></code></pre>
+<p>List of the margin boxes:</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@top-left-corner</span></span> <span class="token punctuation">{</span><br><span class="token punctuation">}</span><br><span class="token atrule"><span class="token rule">@top-left</span></span> <span class="token punctuation">{</span><br><span class="token punctuation">}</span><br><span class="token atrule"><span class="token rule">@top-center</span></span> <span class="token punctuation">{</span><br><span class="token punctuation">}</span><br><span class="token atrule"><span class="token rule">@top-right</span></span> <span class="token punctuation">{</span><br><span class="token punctuation">}</span><br><span class="token atrule"><span class="token rule">@top-right-corner</span></span> <span class="token punctuation">{</span><br><span class="token punctuation">}</span><br><span class="token atrule"><span class="token rule">@left-top</span></span> <span class="token punctuation">{</span><br><span class="token punctuation">}</span><br><span class="token atrule"><span class="token rule">@left-middle</span></span> <span class="token punctuation">{</span><br><span class="token punctuation">}</span><br><span class="token atrule"><span class="token rule">@left-bottom</span></span> <span class="token punctuation">{</span><br><span class="token punctuation">}</span><br><span class="token atrule"><span class="token rule">@right-top</span></span> <span class="token punctuation">{</span><br><span class="token punctuation">}</span><br><span class="token atrule"><span class="token rule">@right-middle</span></span> <span class="token punctuation">{</span><br><span class="token punctuation">}</span><br><span class="token atrule"><span class="token rule">@right-bottom</span></span> <span class="token punctuation">{</span><br><span class="token punctuation">}</span><br><span class="token atrule"><span class="token rule">@bottom-left-corner</span></span> <span class="token punctuation">{</span><br><span class="token punctuation">}</span><br><span class="token atrule"><span class="token rule">@bottom-left</span></span> <span class="token punctuation">{</span><br><span class="token punctuation">}</span><br><span class="token atrule"><span class="token rule">@bottom-center</span></span> <span class="token punctuation">{</span><br><span class="token punctuation">}</span><br><span class="token atrule"><span class="token rule">@bottom-right</span></span> <span class="token punctuation">{</span><br><span class="token punctuation">}</span><br><span class="token atrule"><span class="token rule">@bottom-right-corner</span></span> <span class="token punctuation">{</span><br><span class="token punctuation">}</span></code></pre>
+<h2 id="page-counter" tabindex="-1">Page Counter</h2>
+<p>To define page numbers, Paged.js uses a CSS counter that gets incremented for each new page.</p>
+<p>To insert a page number on a page or retrieve the total number of pages in a document, the W3C proposes a specific counter named <code>page</code>. The counters declaration must be used within a <code>content</code> property in the margin-boxes declaration. The following example declares the page number in the bottom-left box:</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@page</span></span> <span class="token punctuation">{</span><br>  <span class="token atrule"><span class="token rule">@bottom-left</span></span> <span class="token punctuation">{</span><br>    <span class="token property">content</span><span class="token punctuation">:</span> <span class="token function">counter</span><span class="token punctuation">(</span>page<span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<p>You can also add a bit of text before the page number:</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@page</span></span> <span class="token punctuation">{</span><br>  <span class="token atrule"><span class="token rule">@bottom-left</span></span> <span class="token punctuation">{</span><br>    <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">"page "</span> <span class="token function">counter</span><span class="token punctuation">(</span>page<span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<p>To tally the total number of pages in your document, you can write this:</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@page</span></span> <span class="token punctuation">{</span><br>  <span class="token atrule"><span class="token rule">@bottom-left</span></span> <span class="token punctuation">{</span><br>    <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">"Page "</span> <span class="token function">counter</span><span class="token punctuation">(</span>page<span class="token punctuation">)</span> <span class="token string">" of "</span> <span class="token function">counter</span><span class="token punctuation">(</span>pages<span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<p><strong>Reset the page counter</strong></p>
+<p>Right now, reseting the page count to 1 is the only possible options. Check <a href="https://gitlab.coko.foundation/pagedjs/pagedjs/issues/91">Issue #31</a> to keep track of that option.</p>
+<h2 id="named-string%3A-classical-running-headers%2Ffooters" tabindex="-1">Named String: classical running headers/footers</h2>
+<p>The fastest way to create running headers/footers is to use what is already in your content. <strong>Named strings</strong> are used to create running headers and footers: they copy text for reuse in margin boxes.</p>
+<p>First, the text content of the selected element is cloned into a named string using <code>string-set</code> with a custom identifier (in the code below we call it “title”, but you can name it whatever makes sense as a variable). In the following example, each time a new <code>&lt;h2&gt;</code> appears in the HTML, the content of the named string gets updated with the text of that <code>&lt;h2&gt;</code>. (It also can be selected with a class if you prefer).</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">h2</span> <span class="token punctuation">{</span><br>  <span class="token property">string-set</span><span class="token punctuation">:</span> title <span class="token function">content</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>Next, the <code>string()</code> function copies the value of a named string to the margin boxes, via the <code>content</code> property.</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@page</span></span> <span class="token punctuation">{</span><br>  <span class="token atrule"><span class="token rule">@bottom-center</span></span> <span class="token punctuation">{</span><br>    <span class="token property">content</span><span class="token punctuation">:</span> <span class="token function">string</span><span class="token punctuation">(</span>title<span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<p>The string property act like a variable. It read your DOM and each time a new title level 2 is encountered, it change the variable from the page where that title appears. This variable is passed into the margin boxes of the page and into all the following margin boxesuntil there is a new title.</p>
+<figure> <img src="/images/string-set.png"  /></figure>
+<h3 id="select-content-of-string-set" tabindex="-1">Select content of string-set</h3>
+<p>This part don’t work correctly in Paged.js for now. Issues <a href="https://gitlab.coko.foundation/pagedjs/pagedjs/issues/45">#45</a>, <a href="https://gitlab.coko.foundation/pagedjs/pagedjs/issues/42">#42</a></p>
+<p>The documentation need to be finish.</p>
+<p>You can specify which part of the element you want to select to construct the value of the named string. This argument is obligatory.</p>
+<ul>
+<li><code>string-set: &lt;identifier&gt; content(text)</code>: <br> string value of the element (default value)</li>
+<li><code>string-set: &lt;identifier&gt; content(first-letter)</code>: <br> first letter of the element (as defined for the <code>::first-letter</code> pseudo-element )</li>
+<li><code>string-set: &lt;identifier&gt; content(before)</code>: <br> string value of the <code>::before</code> pseudo-element</li>
+<li><code>string-set: &lt;identifier&gt; content(after)</code>:<br> string value of the <code>::after</code> pseudo-element</li>
+<li><code>string-set: &lt;identifier&gt; attr(&lt;identifier-attr&gt;)</code>: <br> returns the string value of the attribute define by an attribute identidier (<code>data-attribute</code>, <code>href</code>, <code>title</code>…)</li>
+</ul>
+<p>It’s possible to define multiple value in the same <code>string-set</code>.</p>
+<p>Sample:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">h2::before</span> <span class="token punctuation">{</span><br>  <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">"Chapter "</span> <span class="token function">counter</span><span class="token punctuation">(</span>countChapter<span class="token punctuation">,</span> upper-roman<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">h2</span> <span class="token punctuation">{</span><br>  <span class="token property">string-set</span><span class="token punctuation">:</span> titleBefore <span class="token function">content</span><span class="token punctuation">(</span>before<span class="token punctuation">)</span><span class="token punctuation">,</span> title <span class="token function">content</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token atrule"><span class="token rule">@page</span></span> <span class="token punctuation">{</span><br>  <span class="token atrule"><span class="token rule">@bottom-center</span></span> <span class="token punctuation">{</span><br>    <span class="token property">content</span><span class="token punctuation">:</span> <span class="token function">string</span><span class="token punctuation">(</span>titleBefore<span class="token punctuation">)</span> <span class="token string">". "</span> <span class="token function">string</span><span class="token punctuation">(</span>title<span class="token punctuation">,</span> first<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<h3 id="styling-named-string" tabindex="-1">Styling named string</h3>
+<p>The content is copied, so to stylize it you have to apply the styles directly in the margin box.</p>
+<p>For example, if you want to capitalize your title and give it a size of 11px:</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@page</span></span> <span class="token punctuation">{</span><br>  <span class="token atrule"><span class="token rule">@bottom-center</span></span> <span class="token punctuation">{</span><br>    <span class="token property">content</span><span class="token punctuation">:</span> <span class="token function">string</span><span class="token punctuation">(</span>title<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token property">text-transform</span><span class="token punctuation">:</span> uppercasse<span class="token punctuation">;</span><br>    <span class="token property">font-size</span><span class="token punctuation">:</span> 11px<span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<p>This is the DOM created when a named string is “called” into a margin box:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>pagedjs_margin pagedjs_margin-bottom-center hasContent<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>pagedjs_margin-content<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>::after<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
+<p>The content of the margin box is insert into the <code>content</code>property of the <code>::after</code> pseudo-element of the <code>div </code> element with “pagedjs_margin-content” class.</p>
+<p>You can also use this class and <code>::after</code> pseudo element for styling.</p>
+<h2 id="running-elements%3A-headers%2Ffooter-with-specific-(complex)-content" tabindex="-1">Running elements: headers/footer with specific (complex) content</h2>
+<p>There are cases where the use of string-set is not suitable for specific or complex running headers and footer. For example, if you need:</p>
+<ul>
+<li>to keep the HTML tags contained in the header/footer ( <code>&lt;em&gt;</code>, <code>&lt;span&gt;</code>, <code>&lt;br&gt;</code>…),</li>
+<li>to insert images or pictograms in the header/footer (with <code>&lt;img&gt;</code> or <code>&lt;svg&gt;</code>),</li>
+<li>to shorten a title that is too long and do that in semantically way (do not use the <code>text-overflow: ellipsis;</code> property but replace the title with a piece that means),</li>
+<li>to repeat complex elements (adress, contact…) on all pages for document like invoices or reports.</li>
+</ul>
+<p>For this you can use <strong>running elements</strong> with <code>position</code> property and <code>element()</code> function. The <code>position</code> property removes the element from the normal flow (instead of copying it like <code>string-set</code> property) and moves it to the margin boxes using the <code>element()</code> function.</p>
+<p>This technique allows you to keep all the HTML structuring of the element. But you must add dedicated elements in your HTML.</p>
+<p>In the following example, we want to keep the italics contains in the title.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>chapitre-4<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>The protagonist of <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>em</span><span class="token punctuation">></span></span>Macbeth<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>em</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>em</span><span class="token punctuation">></span></span>Macbeth<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>em</span><span class="token punctuation">></span></span> is a tragedy by William Shakespeare; it is thought to have been first performed in 1606. It dramatises the damaging physical and psychological effects of political ambition on those who seek power for its own sake...<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">></span></span></code></pre>
+<p>First, add dedicated element for running title in your HTML (just after the title) and copy your title inside. Here, it is a paragraph with the class <code>.title</code>.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>chapitre-4<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>The protagonist of <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>em</span><span class="token punctuation">></span></span>Macbeth<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>em</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>title<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>The protagonist of <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>em</span><span class="token punctuation">></span></span>Macbeth<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>em</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>em</span><span class="token punctuation">></span></span>Macbeth<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>em</span><span class="token punctuation">></span></span> is a tragedy by William Shakespeare; it is thought to have been first performed in 1606. It dramatises the damaging physical and psychological effects of political ambition on those who seek power for its own sake...<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">></span></span></code></pre>
+<p>After, set the element’s <code>position</code> to running. Here, “titleRunning” is a custom identifier, you can name it whatever makes sense to you.</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">.title</span> <span class="token punctuation">{</span><br>  <span class="token property">position</span><span class="token punctuation">:</span> <span class="token function">running</span><span class="token punctuation">(</span>titleRunning<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>Then, place the element into a margin box with the <code>element()</code> function via the <code>content</code> property:</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@page</span></span> <span class="token punctuation">{</span><br>  <span class="token atrule"><span class="token rule">@top-center</span></span> <span class="token punctuation">{</span><br>    <span class="token property">content</span><span class="token punctuation">:</span> <span class="token function">element</span><span class="token punctuation">(</span>titleRunning<span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<p>The <code>.title</code> element is now removed from you flow and repeted into top-center margins of pages. It’s act like the named string, if a new <code>.title</code> element is encountered in the the DOM, the element is changed in the new page and the next ones.</p>
+<p>Note: The <code>element()</code> function cannot be combined with other possible values for the <code>content</code> property.</p>
+<h3 id="styling-running-elements" tabindex="-1">Styling running elements</h3>
+<p>Since the element is copied, all styles are copied with it. That is, if you have stylized your <code>.title</code> element, the styles will be kept in the margins.</p>
+<p>With the following code, your running header will appear in capital letters and with a size of 11px:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">.title</span> <span class="token punctuation">{</span><br>  <span class="token property">position</span><span class="token punctuation">:</span> <span class="token function">running</span><span class="token punctuation">(</span>titleRunning<span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token property">text-transform</span><span class="token punctuation">:</span> uppercasse<span class="token punctuation">;</span><br>  <span class="token property">font-size</span><span class="token punctuation">:</span> 11px<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token atrule"><span class="token rule">@page</span></span> <span class="token punctuation">{</span><br>  <span class="token atrule"><span class="token rule">@top-center</span></span> <span class="token punctuation">{</span><br>    <span class="token property">content</span><span class="token punctuation">:</span> <span class="token function">element</span><span class="token punctuation">(</span>titleRunning<span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<p>This is the DOM created when you move a running element into a margin:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>pagedjs_margin pagedjs_margin-top-center hasContent<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>pagedjs_margin-content<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>title<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>The protagonist of <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>em</span><span class="token punctuation">></span></span>Macbeth<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>em</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
+<p>You can see that the paragraph is kept in the margin as well as all its content. You can apply styles on the paragraphe or on the margins because of cascading.</p>
+<h2 id="select-element-of-the-page-for-running-title%2Fheaders" tabindex="-1">Select element of the page for running title/headers</h2>
+<p>The value of a named string or the value of a running element may change several times on a page (for exemple if you have multiple title of the same level in the same page). You can add a second optional argument on the <code>string()</code> function or on the <code>element()</code> function to indicates which element of the page should be used if there is multiple. This argument specify the value of the named string. Can be combined with other possible values for the content property.</p>
+<ul>
+<li><code>string(&lt;identifier&gt;, first)</code>: <br> Use the value of the first assignment on the page (default)</li>
+<li><code>string(&lt;identifier&gt;, start)</code>: <br> Use the value assigned at the start of the page. If the element is the first element on the page, it’s this one. If not, it’s the element of the previous page.</li>
+<li><code>string(&lt;identifier&gt;, last)</code>: <br> Use the value of the last element on the page.</li>
+<li><code>string(&lt;identifier&gt;, first-except)</code>: <br> If the value is assigned on the page, the running element don’t appears on this page but appears on next pages.</li>
+</ul>
+<p>The first three argument are usefull for dicitonnary or glossary. The figure below shows which value appears according to the argument:</p>
+<figure> <img src="/images/string-argument.png"  /></figure>
+<h2 id="delete-generated-content-in-blank-page" tabindex="-1">Delete generated content in blank page</h2>
+<p>Forced page breaks can create blank page, e.g., pages automatically added to make sure a new chapter begins on the desired left or right page. The <code>:blank</code> pseudo class selector selects pages that have no content from the flow. To delete the generated content in blank page, simply use <code>content: none</code> in selected margin boxes of the blank pages.</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@page</span><span class="token punctuation">:</span> blank</span> <span class="token punctuation">{</span><br>  <span class="token atrule"><span class="token rule">@top-left</span></span> <span class="token punctuation">{</span><br>    <span class="token property">content</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span> <span class="token punctuation">;</span></code></pre>
+<h2 id="styling-margin-boxes-and-generated-content" tabindex="-1">Styling margin boxes and generated content</h2>
+<p>You can stylize the margin-boxes by applying styles directly into the at-rules for page-margin boxes.</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@page</span></span> <span class="token punctuation">{</span><br>  <span class="token atrule"><span class="token rule">@top-left</span></span> <span class="token punctuation">{</span><br>    <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">"My title"</span><span class="token punctuation">;</span><br>    <span class="token property">padding-left</span><span class="token punctuation">:</span> 15mm<span class="token punctuation">;</span><br>    <span class="token property">color</span><span class="token punctuation">:</span> #ff5733<span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<h3 id="default-alignement-of-generated-content" tabindex="-1">Default alignement of generated content</h3>
+<p>Each margin box have default alignements for the content (show in the following table). You can easy change it by using <code>text-align</code> and <code>vertical-align</code> properties into at-rules for page-margin boxes.</p>
+<h4 id="table-of-default-alignment" tabindex="-1">table of default alignment</h4>
+<table>
+<thead>
+<tr>
+<th>Margin box</th>
+<th><code>text-align</code></th>
+<th><code>vertical-align</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@top-left-corner</td>
+<td>right</td>
+<td>middle</td>
+</tr>
+<tr>
+<td>@top-left</td>
+<td>left</td>
+<td>middle</td>
+</tr>
+<tr>
+<td>@top-center</td>
+<td>center</td>
+<td>middle</td>
+</tr>
+<tr>
+<td>@top-right</td>
+<td>right</td>
+<td>middle</td>
+</tr>
+<tr>
+<td>@top-right-corner</td>
+<td>left</td>
+<td>middle</td>
+</tr>
+<tr>
+<td>@left-top</td>
+<td>center</td>
+<td>top</td>
+</tr>
+<tr>
+<td>@left-middle</td>
+<td>center</td>
+<td>middle</td>
+</tr>
+<tr>
+<td>@left-bottom</td>
+<td>center</td>
+<td>bottom</td>
+</tr>
+<tr>
+<td>@right-top</td>
+<td>center</td>
+<td>top</td>
+</tr>
+<tr>
+<td>@right-middle</td>
+<td>center</td>
+<td>middle</td>
+</tr>
+<tr>
+<td>@right-bottom</td>
+<td>center</td>
+<td>bottom</td>
+</tr>
+<tr>
+<td>@bottom-left-corner</td>
+<td>right</td>
+<td>middle</td>
+</tr>
+<tr>
+<td>@bottom-left</td>
+<td>left</td>
+<td>middle</td>
+</tr>
+<tr>
+<td>@bottom-center</td>
+<td>center</td>
+<td>middle</td>
+</tr>
+<tr>
+<td>@bottom-right</td>
+<td>right</td>
+<td>middle</td>
+</tr>
+<tr>
+<td>@bottom-right-corner</td>
+<td>left</td>
+<td>middle</td>
+</tr>
+</tbody>
+</table>
+<h3 id="applying-style-on-generated-content" tabindex="-1">Applying style on generated content</h3>
+<p>You can specify that some CSS rules only apply to your margin box while others apply to your generated content. It depends on how you created your generated content.</p>
+<p><strong>With position: running()</strong></p>
+<p>If you have used <code>position: running</code>, the styles applying to the generated content must be declared in the running element and the styles applying to the margin box in the at-rules for page-margin boxes.</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">.running</span> <span class="token punctuation">{</span><br>  <span class="token property">position</span><span class="token punctuation">:</span> <span class="token function">running</span><span class="token punctuation">(</span>chapTitle<span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token property">font-size</span><span class="token punctuation">:</span> 12px<span class="token punctuation">;</span><br>  <span class="token property">text-transform</span><span class="token punctuation">:</span> uppercase<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token atrule"><span class="token rule">@page</span><span class="token punctuation">:</span> left</span> <span class="token punctuation">{</span><br>  <span class="token atrule"><span class="token rule">@top-left</span></span> <span class="token punctuation">{</span><br>    <span class="token property">content</span><span class="token punctuation">:</span> <span class="token function">element</span><span class="token punctuation">(</span>chapTitle<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token property">vertical-align</span><span class="token punctuation">:</span> top<span class="token punctuation">;</span><br>    <span class="token property">padding-top</span><span class="token punctuation">:</span> 24px<span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span> <span class="token punctuation">;</span></code></pre>
+<p><strong>With string-set</strong></p>
+<p>If you have used <code>string-set</code>, all styles are declared in the margin box and therefore applied to the margin box. If you want certain rules to apply only to the text and not to the entire margin box, you will have to use the classes created by Paged.js to reach the text.</p>
+<p>For example, if you use background-color and padding into the at-rules for page-margin box, the style are applied on the margin box.</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@page</span><span class="token punctuation">:</span> left</span> <span class="token punctuation">{</span><br>  <span class="token atrule"><span class="token rule">@top-left</span></span> <span class="token punctuation">{</span><br>    <span class="token property">background-color</span><span class="token punctuation">:</span> #ffd2b5<span class="token punctuation">;</span><br>    <span class="token property">color</span><span class="token punctuation">:</span> #fe4017<span class="token punctuation">;</span><br>    <span class="token property">padding</span><span class="token punctuation">:</span> 2mm 5mm<span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span> <span class="token punctuation">;</span></code></pre>
+<p>Result:</p>
+<figure> <img src="/images/marginbox-style-01.png"  /></figure>
+<p>If you want to applied this background-color and padding only on the generated content, you need to applied the style on a special div create by Paged.js: <code>pagedjs_margin-content</code>.</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">.pagedjs_left_page .pagedjs_margin-top-left .pagedjs_margin-content</span> <span class="token punctuation">{</span><br>  <span class="token property">width</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span><br>  <span class="token property">background-color</span><span class="token punctuation">:</span> #ffd2b5<span class="token punctuation">;</span><br>  <span class="token property">color</span><span class="token punctuation">:</span> #fe4017<span class="token punctuation">;</span><br>  <span class="token property">padding</span><span class="token punctuation">:</span> 2mm 5mm<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>Result:</p>
+<figure> <img src="/images/marginbox-style-02.png"  /></figure>
+<h3 id="define-width-and-height-of-margin-boxes" tabindex="-1">Define width and height of margin boxes</h3>
+<p>The height and width of the margin boxes are automatically computed by Paged.js (see “Rendering of margin boxes” below) but you can easily define the size you want using relative (<code>%</code>) or absolute values (<code>mm</code>, <code>in</code>, <code>px</code>).</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@page</span></span> <span class="token punctuation">{</span><br>  <span class="token atrule"><span class="token rule">@left-top</span></span> <span class="token punctuation">{</span><br>    <span class="token property">width</span><span class="token punctuation">:</span> 28mm<span class="token punctuation">;</span><br>    <span class="token property">height</span><span class="token punctuation">:</span> 10mm<span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<h3 id="rotate-margin-boxes" tabindex="-1">Rotate margin boxes</h3>
+<p>By using the <code>tranfsorm()</code> property you can easily rotate the margin-boxes of your document</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@page</span></span> <span class="token punctuation">{</span><br>  <span class="token atrule"><span class="token rule">@left-top</span></span> <span class="token punctuation">{</span><br>    <span class="token property">width</span><span class="token punctuation">:</span> 28mm<span class="token punctuation">;</span><br>    <span class="token property">height</span><span class="token punctuation">:</span> 10mm<span class="token punctuation">;</span><br>    <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotate</span><span class="token punctuation">(</span>-90deg<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token property">transform-origin</span><span class="token punctuation">:</span> top left<span class="token punctuation">;</span><br>    <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span><br>    <span class="token property">top</span><span class="token punctuation">:</span> 28mm<span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<p>Result:</p>
+<figure> <img src="/images/marginbox-style-03.png"  /></figure>
+<h2 id="rendering-of-margin-boxes-with-paged.js" tabindex="-1">Rendering of margin boxes with Paged.js</h2>
+<p>Paged.js use CSS grid and flexbox to create the margin boxes of the page. The figures below represent how margin boxes are placed with the div classes used.</p>
+<h3 id="margin-boxes-on-the-page" tabindex="-1">Margin boxes on the page</h3>
+<figure> <img src="/images/margin-boxes_grid_01.png"  /></figure>
+<p>The page consists of four corner margins and four groups of margins placed on a grid with three columns and three rows. The grid use margin variables created by Paged.js based on your margin and page size declarations to set the size of items.</p>
+<p><strong>Template of the grid</strong></p>
+<pre class="language-css"><code class="language-css"><span class="token selector">.pagedjs_pagebox</span> <span class="token punctuation">{</span><br>  <span class="token property">grid-template-columns</span><span class="token punctuation">:</span><br>    [left] <span class="token function">var</span><span class="token punctuation">(</span>--pagedjs-margin-left<span class="token punctuation">)</span><br>    [center] <span class="token function">calc</span><span class="token punctuation">(</span><br>      <span class="token function">var</span><span class="token punctuation">(</span>--pagedjs-pagebox-width<span class="token punctuation">)</span> - <span class="token function">var</span><span class="token punctuation">(</span>--pagedjs-margin-left<span class="token punctuation">)</span> - <span class="token function">var</span><span class="token punctuation">(</span>--pagedjs-margin-right<span class="token punctuation">)</span><br>    <span class="token punctuation">)</span><br>    [right] <span class="token function">var</span><span class="token punctuation">(</span>--pagedjs-margin-right<span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token property">grid-template-rows</span><span class="token punctuation">:</span><br>    [header] <span class="token function">var</span><span class="token punctuation">(</span>--pagedjs-margin-top<span class="token punctuation">)</span><br>    [page] <span class="token function">calc</span><span class="token punctuation">(</span><br>      <span class="token function">var</span><span class="token punctuation">(</span>--pagedjs-pagebox-height<span class="token punctuation">)</span> - <span class="token function">var</span><span class="token punctuation">(</span>--pagedjs-margin-top<span class="token punctuation">)</span> - <span class="token function">var</span><span class="token punctuation">(</span>--pagedjs-margin-bottom<span class="token punctuation">)</span><br>    <span class="token punctuation">)</span><br>    [footer] <span class="token function">var</span><span class="token punctuation">(</span>--pagedjs-margin-bottom<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p><strong>Classes of the corner margins (and position on the page grid)</strong></p>
+<ul>
+<li>
+<p><code>div.pagedjs_margin-top-left-corner-holder</code> (grid-column: <code>left</code> / grid-row: <code>header</code>)</p>
+</li>
+<li>
+<p><code>div.pagedjs_margin-top-right-corner-holder</code> (grid-column: <code>right</code> / grid-row: <code>header</code>)</p>
+</li>
+<li>
+<p><code>div.pagedjs_margin-bottom-left-corner-holder</code> (grid-column: <code>left</code> / grid-row: <code>footer</code>)</p>
+</li>
+<li>
+<p><code>div.pagedjs_margin-bottom-right-corner-holder</code> (grid-column: <code>right</code> / grid-row: <code>header</code>)</p>
+</li>
+</ul>
+<p><strong>Classes of the groups of margins (and position on the page grid)</strong></p>
+<ul>
+<li>top page margins: <code>div.pagedjs_margin-top</code> (grid-column: <code>center</code> / grid-row: <code>header</code>)</li>
+<li>bottom page margins: <code>div.pagedjs_margin-bottom</code> (grid-column: <code>center</code> / grid-row: <code>bottom</code>)</li>
+<li>left page margins: <code>div.pagedjs_margin-left</code> (grid-column: <code>left</code> / grid-row: <code>page</code>)</li>
+<li>right page margins: <code>div.pagedjs_margin-right</code> (grid-column: <code>right</code> / grid-row: <code>page</code>)</li>
+</ul>
+<h3 id="group-of-margin-boxes" tabindex="-1">Group of margin boxes</h3>
+<p>Each margin group contains three margin boxes contained in a single direction grid (horizontal for top page and bottom page margins; vertical for left page and right page margins).</p>
+<figure> <img src="/images/margin-boxes_grid_02.png"  /></figure>
+<p><strong>Top page margins</strong></p>
+<ul>
+<li><code>div.pagedjs_margin-top-left</code> (A)</li>
+<li><code>div.pagedjs_margin-top-center</code> (B)</li>
+<li><code>div.pagedjs_margin-top-right</code> ©</li>
+</ul>
+<p><strong>Bottom page margins</strong></p>
+<ul>
+<li><code>div.pagedjs_margin-bottom-left</code> (A)</li>
+<li><code>div.pagedjs_margin-bottom-center</code> (B)</li>
+<li><code>div.pagedjs_margin-bottom-right</code> ©</li>
+</ul>
+<p><strong>Left page margins</strong></p>
+<ul>
+<li><code>div.pagedjs_margin-left-top</code> (A)</li>
+<li><code>div.pagedjs_margin-left-middle</code> (B)</li>
+<li><code>div.pagedjs_margin-left-bottom</code> ©</li>
+</ul>
+<p><strong>Right page margins</strong></p>
+<ul>
+<li><code>div.pagedjs_margin-right-top</code> (A)</li>
+<li><code>div.pagedjs_margin-right-middle</code> (B)</li>
+<li><code>div.pagedjs_margin-right-bottom</code> ©</li>
+</ul>
+<h3 id="generated-content-into-the-margin-boxes" tabindex="-1">Generated content into the margin boxes</h3>
+<p>Each margin box is display with<code>flex</code> and contains a <code>div </code> element with <code>pagedjs_margin-content</code> class in which the generated content will be put. For more details see the two parts above: “Styling named string” and “Styling running elements”.</p>
+<h3 id="computation-rules-for-group-of-margin-boxes" tabindex="-1">Computation Rules for group of margin boxes</h3>
+<p>If no definited margin boxes size is set in your stylesheet, the boxes of each margin group are automatically calculated according to the following rules.</p>
+<ul>
+<li>For top and bottom page margins, the height is 100% of the margin box group.</li>
+<li>For left and right page margins, the width is 100% of the margin box group.</li>
+</ul>
+<p>Concerning the width of top and bottom page margins and the height of left and right page margins, the computation rules follows the same patterns. This patterns depends on how many margins are generated (populated) in the group – e.g. if <code>content</code> have been set in the at-rules for page-margin boxes.</p>
+<p>Here, to explain this computation rules patterns, we use letters corresponding to the three boxes of each group. “Size” correspond to “width” for top and bottom page margins and the “height” for left and right page margins.</p>
+<h4 id="if-only-one-margin-box-are-generated" tabindex="-1">If only one margin box are generated</h4>
+<p>If only one of the margin boxes is generate, the margin box will take the full width/height of the margin group.</p>
+<figure> <img src="/images/margin-boxes_size_sample-01.png"  /></figure>
+<h4 id="if-two-margin-box-are-generated" tabindex="-1">If two margin box are generated</h4>
+<p><strong>If A and C are generated</strong></p>
+<p>With no size set: the size of B is <code>0</code>, A and C are extended over the size of the margin group. Their size is relative to the length of the generated content.</p>
+<figure> <img src="/images/margin-boxes_size_sample-02.png"  /></figure>
+<p>With one size set (A or C): he size of B is <code>0</code>. A and C are spread over the size of the margin group. The margin box whose size is not set fills the remaining space in the margin group.</p>
+<figure> <img src="/images/margin-boxes_size_sample-03.png"  /></figure>
+<p>With the two size set (A and C): A is aligned on the left of the margin group, C is aligned with the right of the margin group. B takes the remaining space but has no content.</p>
+<figure> <img src="/images/margin-boxes_size_sample-04.png"  /></figure>
+<p><strong>If A and B or B and C are generated</strong></p>
+<p>With no size set: the size of the margin-boxes will be relative to the length of the generated content. The one in the center will always be in the middle (“center rule”), i.e. the size of A will always be equal to the size of C.</p>
+<figure> <img src="/images/margin-boxes_size_sample-05.png"  /></figure>
+<p>With one size set (A, B or C): the other two margins bowes (with no size set) will extent the remaining space. The “center rule” remains valid, so the automatic sizes of the two margin-boxes will be distributed according to this rule.</p>
+<figure> <img src="/images/margin-boxes_size_sample-06.png"  /></figure>
+<p>With two size set: the two margin boxes with size set will have the declared size. The third margin box (which has no content) will take the size of the remaining space in the group.</p>
+<figure> <img src="/images/margin-boxes_size_sample-07.png"  /></figure>
+<h4 id="if-all-margin-box-are-generated" tabindex="-1">If all margin box are generated</h4>
+<p>If no size set: the size of the margin-boxes will be relative to the length of the generated content. The one in the center will always be in the middle (“center rule”), i.e. the size of A will always be equal to the size of C.</p>
+<figure> <img src="/images/margin-boxes_size_sample-08.png"  /></figure>
+<p>If one size set (A, B or C): the other two margins bowes (with no size set) will extent the remaining space. The “center rule” remains valid, so the automatic sizes of the two margin-boxes will be distributed according to this rule.</p>
+<figure> <img src="/images/margin-boxes_size_sample-09.png"  /></figure>
+<p>If two size set: the two margin boxes with size set will have the declared size. The third margin box (which has no content) will take the size of the remaining space in the group.</p>
+<figure> <img src="/images/margin-boxes_size_sample-10.png"  /></figure>
+<p>If all sizes set: all margins box have the declared size. They will be aligned on the left for top/bottom page margins and on top for left/right margins.</p>
+<figure> <img src="/images/margin-boxes_size_sample-11.png"  /></figure>
+
+  </article>
+    
+
+  
+    
+      
+      
+      <aside class="paginator  both ">
+        <a class="previous" href="/documentation/6-generated-content/">Generated Content</a>
+        <a class="next" href="/documentation/cheatsheet/">Supported feature of the W3C specifications</a>
+      </aside>
+
+
+
+        
+            <footer><p class="foot-content">Paged.js is maintained by the nice folks at
+<a href="https://coko.foundation" class="footer-logo">Coko</a>.</p></footer>
+
+        
+
+        
+        
+        
+
+        
+        <script>
+
+        if (document.querySelector('.toc .title')) {
+        document.querySelector('.toc .title').addEventListener("click", function() {
+        document.querySelector('.toc').classList.toggle("show");
+        })
+        }
+
+        document.querySelector(".menu-call").addEventListener("click", function() {document.querySelector(".menu").classList.toggle("hide")});
+
+
+        </script>
+        
+        <!-- 
+        Donation nation
+        -->
+
+        <script>
+        (function () {
+        if (document.querySelector('.commitchange-donate[data-fixed]')) 
+        return;
+        var cc_donate = document.createElement('div');
+        cc_donate.innerHTML = "<a data-fixed class='commitchange-donate'></a>";
+        document
+        .body
+        .appendChild(cc_donate);
+        var npo = 5726;
+        var script = document.createElement('script');
+        var first = document.getElementsByTagName('script')[0];
+        script.setAttribute('data-npo-id', npo);
+        script.id = 'commitchange-script';
+        script.src = 'https://us.commitchange.com/js/donate-button.v2.js';
+        first
+        .parentNode
+        .insertBefore(script, first);
+        })();
+
+
+        </script>
+        </body>
+        </html>
