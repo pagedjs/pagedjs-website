@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+
+
+
+<html lang=" en" class="no-js">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+
+<title>Paged.js —  Build a Table of Contents from your HTML</title>
+
+<script type="module">
+document
+.documentElement
+.classList
+.remove('no-js');
+document
+.documentElement
+.classList
+.add('js');
+</script>
+<meta name="description" content="">
+<meta property="og:title" content=" Build a Table of Contents from your HTML — ">
+        <meta property="og:description" content="">
+        <meta property="og:image" content="">
+        <meta property="og:image:alt" content="Image description">
+        <meta property="og:locale" content="en_GB">
+        <meta property="og:type" content="website">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta property="og:url" content="site.url">
+        <link rel="canonical" href="https://www.mywebsite.com/page">
+
+        <link rel="icon" href="/pagedjs-website/favicon.ico">
+        <link rel="icon" href="/pagedjs-website/favicon.svg" type="image/svg+xml">
+        <link rel="apple-touch-icon" href="/pagedjs-website/apple-touch-icon.png">
+        <link rel="manifest" href="/pagedjs-website/my.webmanifest">
+        <meta name="theme-color" content="NaN">
+
+        
+        <meta name="twitter:dnt" content="on">
+        
+            
+
+        
+
+        
+            <link rel="stylesheet" href="/pagedjs-website/css/theme-pagedjs/main.css">
+        
+
+        <link href="https://unpkg.com/prismjs@1.20.0/themes/prism.css" rel="stylesheet">
+        <script>
+
+        // if there is a dark mode in the storage, use that
+        if (localStorage.getItem('Nightmode') == "true") {
+        document
+        .documentElement
+        .classList
+        .add('nightmode')
+        }
+        </script>
+
+        
+
+            <script>
+
+  if (window.location.href.includes("?night")) {
+    document.documentElement.classList.add("nightmode");
+  }
+
+function start() {
+
+    document.querySelectorAll("a").forEach((a) => {
+      if (a.href.includes(`?day`)) {
+        // add the infor mation in the url of each link
+        a.href = `${a.href.replace("?day", "?night")}`;
+      } else if (a.href.includes("#")) {
+        a.href = a.href.replace("#", "index.html?night#");
+      } else {
+        a.href = `${a.href}?night`;
+      }
+    });
+};
+
+start()
+</script>
+
+        
+        </head>
+
+        <body class="cookbook " style="">
+
+        <div class="crop-marks">
+    <div class="crop-mark vertical"></div>
+    <div class="crop-mark horizontal"></div>
+    <div class="paper"></div>
+</div>
+
+        
+
+        
+            <div class="running-head">
+
+        
+    
+    <a class="back-home" href="/pagedjs-website/">
+        
+    <svg id="paged-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 213 52" fill="none"><path fill="var(--color-body)" d="M69.1 34.7c0 1.3-.5 2.7-1.6 2.7s-1.6-1.1-1.6-4.6v-7.1c0-7.3-1.5-13.5-12.1-13.5-6.5.0-13.4 2.2-13.4 8.4.0 4.7 6.9 6.1 9.9 2.6-1-1.3-1.7-3-1.7-4.5.0-2.9 2.2-3.5 4.4-3.5 2.4.0 3.9 1.4 3.9 8.6v1.3l-4.1 1.1c-7.9 2.2-12.9 4.9-12.9 9.1.0 3.9 2.2 6 7.1 6 4.6.0 8.7-2.4 11-7.7h.5c.9 5 2.4 7.7 6.8 7.7 3.1.0 6.6-1.5 6.1-6.7h-2.3v.1zm-17.8 1.8c-1.7.0-2.6-.9-2.6-2.1.0-3.2 2.3-4.7 8.2-6.5.1 4-2.5 8.6-5.6 8.6zM24.8 12.3c-3.6.0-9.6 1.2-10.6 9.1h-.9v-9.1L.9 15.2v2.4h6v31l-5.4.4v2.4h20.2V49l-6.2-.5V37.3c1.3 1.9 4 4.2 8.7 4.2 5.1.0 12.3-4.4 12.3-14.2.0-9.2-5.1-15-11.7-15zm-2.4 25.2c-2.8.0-5.3-1.5-6.5-5.7v-8.9c.1-1.3 1.5-5.4 5-5.4 4.4.0 7 5.1 7 10.5-.1 4.7-2 9.5-5.5 9.5zm155-21.6h5.8v32c0 3.4-4.3.4-5.1-3.1H177c-1.3 3.5-.2 6.9 3.1 6.9 3.2.0 7.4-1.7 7.4-8.9l.1-30.6-10.2 1.4v2.3zm-6 17.9c-2.4.0-3.7 1.3-3.7 3.7.0 2.4 1.3 3.7 3.7 3.7 2.4.0 3.7-1.3 3.7-3.7.0-2.4-1.4-3.7-3.7-3.7zM95.8 37.4c-4.9-1.1-12.3-1.1-15.9-1.6l1.2-2.4c1.4.4 3.1.6 5 .6 8.6.0 13.3-4.9 13.3-11.3.0-4.4-3-8-7.8-9.6l.2-.6c1.9.4 3.9.7 5.4.7 2.3.0 4-.8 4-3.4.0-1.8-1.3-4.1-3.3-6.2-3.3 3.6-6.2 7.3-10.7 8.7-.2-.1-.4-.1-.6-.1-8.6.0-13 4.8-13 11.3.0 4 1.8 7.4 5.7 9.2l-5.5 4.6c.4.8 1.7 2.9 6.5 4.4v.7c-4.4.6-7 1.9-7 3.7.0 3.8 7 5.7 12.3 5.7 9.1.0 16.6-2.3 16.9-7.9.0-3.6-1.6-5.4-6.7-6.5zm-10-22.2c3.3.0 4.8 2.4 4.8 7.4.0 5.7-1.1 8.5-4 8.5-3.4.0-4.8-2.9-4.8-8.4.1-5.3 1.2-7.5 4-7.5zm5.1 32.5c-6.2.0-10.5-1.5-10.5-3.2.0-.6.6-1.3 1.8-2.2l.9.2c9.4 1.8 14.8 1.3 14.8 3 .1 1.4-2.5 2.2-7 2.2zM199 21.5c-2.3-1.4-3.3-2.6-3.3-4 0-1.6 1.1-3.3 4-3.3 4.3.0 8.1 3.6 10.6 8.9h1.1v-8.4c-3-1.6-6.4-2.4-9.5-2.4-5.3.0-9.8 2.4-9.8 7.3.0 3.9 3.1 6.7 6.2 8.4 5.8 3.2 11 4.4 11 7.8.0 2.3-2.2 3.6-4.7 3.6-5.2.0-8.9-2.7-10.9-10.2h-1.1v9.4c2.7 1.8 6.5 2.8 10.1 2.8 5.4.0 10.2-2.2 10.2-7.7.1-6.5-7.5-8.3-13.9-12.2zM185.7 1.8c-2 0-2.9 1.1-2.9 2.9.0 1.9 1 2.9 2.9 2.9 1.8.0 2.9-1 2.9-2.9s-1.1-2.9-2.9-2.9zM126.1 29.1c.1.4.1.7.1 1.1.0 3.9-2.8 6.1-6.8 6.1-3.9.0-6.7-2.8-7.7-8.5l17.2-4.3c-.2-7.7-4.7-11.3-12.9-11.3-6.2.0-13 4.5-13 14.4.0 7.5 4.9 14.6 13.9 14.6 8 0 12.3-5.3 12.3-11.2.0-.5-.1-1-.1-1.5l-3 .6zm-14.7-5.8c0-5.2 2.2-8 5.3-8 2.9.0 3.8 3.2 3.8 5.6.0 1.5-1.9 1.8-5.1 2.9l-4 1.3v-1.8zM147 4.7l6.2.5v10.6c-1.5-2.1-4-3.6-8.4-3.6-5.1.0-12.3 4.4-12.3 14.2.0 9.1 5.1 14.9 11.7 14.9 3.6.0 9.6-1.2 10.6-9.1h1l1.9 8.3h4V.8l-14.8 1.5v2.4h.1zm6.2 26c-.1 1.2-1.1 5.4-5.9 5.4-4 0-6-4.9-6-10.5.0-4.7 1.9-9.5 5.4-9.5 2.8.0 5.3 1.5 6.5 5.7v8.9z"></path></svg>    
+
+    </a>
+    
+    <button class="menu-call">MENU</button>
+    <nav class="menu hide" role="main">
+        <ul>
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+                    <li class="">
+                        <a href="/pagedjs-website/about/">about</a>
+                    </li>
+                
+
+            
+                
+                    <li class="">
+                        <a href="/pagedjs-website/frequently-asked-questions-about-paged.js.html">FAQ</a>
+                    </li>
+                
+
+            
+                
+                    <li class="">
+                        <a href="/pagedjs-website/documentation/">documentation</a>
+                    </li>
+                
+
+            
+                
+                    <li class="">
+                        <a href="/pagedjs-website/made-with-paged.js.html">examples</a>
+                    </li>
+                
+
+            
+                
+
+            
+                
+                    <li class="">
+                        <a href="/pagedjs-website/posts/">journal</a>
+                    </li>
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+                
+
+            
+
+            <li>
+                <a class="gitlab-link" href="https://gitlab.coko.foundation/pagedjs/pagedjs/">Gitlab</a>
+            </li>
+        </ul>
+    </nav>
+
+</div>
+
+
+        
+
+        
+  
+
+
+         
+  
+  <header>
+    <h1 id="title">
+        
+         Build a Table of Contents from your HTML
+    </h1>
+    
+      <p class="meta">written 
+        by <span class="author">Julie Blanc</span>
+        on <time class="date">1/1/2020</time>
+      </p>        
+    
+  </header>  
+  <article>
+    
+      <p class="intro">You got some HTML content you want to make a book with, but it would takes too much time to set the ids and hyperlinks? We got you covered!
+        
+          <br>  
+            <span class="tags">
+              
+                <a class="tag" href="/pagedjs-website/tags/table of content/">table of content</a>
+              
+                <a class="tag" href="/pagedjs-website/tags/target-counter/">target-counter</a>
+              
+                <a class="tag" href="/pagedjs-website/tags/guide/">guide</a>
+              
+            </span>
+                  
+        
+    
+    </p><p>In this part of the doc, we’ll show you how to build a table of contents using a custom script and the css function <code>target-counter()</code> for the <code>content</code> property.</p>
+<h2 id="build-the-table-of-contents-from-your-html" tabindex="-1">Build the table of contents from your html</h2>
+<p>In HTML, a table of contents is a <code>&lt;nav&gt;</code> elements that contain a list of the reveleant titles of your document with a link to the unique identifier of each. This part can be done with your own tool/generator but here is an exemple of a script to generate a table of contents in vanilla javascript:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">createToc</span><span class="token punctuation">(</span><span class="token parameter">config</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token keyword">const</span> content <span class="token operator">=</span> config<span class="token punctuation">.</span>content<span class="token punctuation">;</span><br>  <span class="token keyword">const</span> tocElement <span class="token operator">=</span> config<span class="token punctuation">.</span>tocElement<span class="token punctuation">;</span><br>  <span class="token keyword">const</span> titleElements <span class="token operator">=</span> config<span class="token punctuation">.</span>titleElements<span class="token punctuation">;</span><br><br>  <span class="token keyword">let</span> tocElementDiv <span class="token operator">=</span> content<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span>tocElement<span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token keyword">let</span> tocUl <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">"ul"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  tocUl<span class="token punctuation">.</span>id <span class="token operator">=</span> <span class="token string">"list-toc-generated"</span><span class="token punctuation">;</span><br>  tocElementDiv<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>tocUl<span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>  <span class="token comment">// add class to all title elements</span><br>  <span class="token keyword">let</span> tocElementNbr <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span><br>  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> titleElements<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token keyword">let</span> titleHierarchy <span class="token operator">=</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span><br>    <span class="token keyword">let</span> titleElement <span class="token operator">=</span> content<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span>titleElements<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>    titleElement<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">element</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>      <span class="token comment">// add classes to the element</span><br>      element<span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"title-element"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>      element<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">"data-title-level"</span><span class="token punctuation">,</span> titleHierarchy<span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>      <span class="token comment">// add id if doesn't exist</span><br>      tocElementNbr<span class="token operator">++</span><span class="token punctuation">;</span><br>      idElement <span class="token operator">=</span> element<span class="token punctuation">.</span>id<span class="token punctuation">;</span><br>      <span class="token keyword">if</span> <span class="token punctuation">(</span>idElement <span class="token operator">==</span> <span class="token string">""</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        element<span class="token punctuation">.</span>id <span class="token operator">=</span> <span class="token string">"title-element-"</span> <span class="token operator">+</span> tocElementNbr<span class="token punctuation">;</span><br>      <span class="token punctuation">}</span><br>      <span class="token keyword">let</span> newIdElement <span class="token operator">=</span> element<span class="token punctuation">.</span>id<span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br><br>  <span class="token comment">// create toc list</span><br>  <span class="token keyword">let</span> tocElements <span class="token operator">=</span> content<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">".title-element"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> tocElements<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token keyword">let</span> tocElement <span class="token operator">=</span> tocElements<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span><br><br>    <span class="token keyword">let</span> tocNewLi <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">"li"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>    <span class="token comment">// Add class for the hierarcy of toc</span><br>    tocNewLi<span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"toc-element"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    tocNewLi<span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><br>      <span class="token string">"toc-element-level-"</span> <span class="token operator">+</span> tocElement<span class="token punctuation">.</span>dataset<span class="token punctuation">.</span>titleLevel<br>    <span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>    <span class="token comment">// Keep class of title elements</span><br>    <span class="token keyword">let</span> classTocElement <span class="token operator">=</span> tocElement<span class="token punctuation">.</span>classList<span class="token punctuation">;</span><br>    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> n <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> n <span class="token operator">&lt;</span> classTocElement<span class="token punctuation">.</span>length<span class="token punctuation">;</span> n<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>      <span class="token keyword">if</span> <span class="token punctuation">(</span>classTocElement<span class="token punctuation">[</span>n<span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token string">"title-element"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        tocNewLi<span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>classTocElement<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>      <span class="token punctuation">}</span><br>    <span class="token punctuation">}</span><br><br>    <span class="token comment">// Create the element</span><br>    tocNewLi<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span><br>      <span class="token string">'&lt;a href="#'</span> <span class="token operator">+</span> tocElement<span class="token punctuation">.</span>id <span class="token operator">+</span> <span class="token string">'">'</span> <span class="token operator">+</span> tocElement<span class="token punctuation">.</span>innerHTML <span class="token operator">+</span> <span class="token string">"&lt;/a>"</span><span class="token punctuation">;</span><br>    tocUl<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>tocNewLi<span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<p>Copy this script to a <code>.js</code> and link this file to your document.</p>
+<p>The table of contents need to be generated before paged.js fragment the content into pages. Therefore, you need to register the handler <code>beforeParsed()</code> and call the table of contents script inside.</p>
+<p>Add this code in the <code>head</code> of you html document after the call for paged.js script:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"><br>  <span class="token keyword">class</span> <span class="token class-name">handlers</span> <span class="token keyword">extends</span> <span class="token class-name">Paged<span class="token punctuation">.</span>Handler</span> <span class="token punctuation">{</span><br>    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">chunker<span class="token punctuation">,</span> polisher<span class="token punctuation">,</span> caller</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>      <span class="token keyword">super</span><span class="token punctuation">(</span>chunker<span class="token punctuation">,</span> polisher<span class="token punctuation">,</span> caller<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br><br>    <span class="token function">beforeParsed</span><span class="token punctuation">(</span><span class="token parameter">content</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>      <span class="token function">createToc</span><span class="token punctuation">(</span><span class="token punctuation">{</span><br>        <span class="token literal-property property">content</span><span class="token operator">:</span> content<span class="token punctuation">,</span><br>        <span class="token literal-property property">tocElement</span><span class="token operator">:</span> <span class="token string">"#my-toc-content"</span><span class="token punctuation">,</span><br>        <span class="token literal-property property">titleElements</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">".mw-content-ltr h2"</span><span class="token punctuation">,</span> <span class="token string">"h3"</span><span class="token punctuation">]</span><span class="token punctuation">,</span><br>      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br>  <span class="token punctuation">}</span><br>  Paged<span class="token punctuation">.</span><span class="token function">registerHandlers</span><span class="token punctuation">(</span>handlers<span class="token punctuation">)</span><span class="token punctuation">;</span><br></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
+<h3 id="configuring-the-script" tabindex="-1">Configuring the script</h3>
+<p><code>tocElement</code>: define the id element where the toc list will be created</p>
+<p><code>titleElements</code>: array of the title element you want in the your table of contents. You can add as many as you want and the elements can be selected like any css, for example: <code>.title-1</code> or <code>.my-content h1</code></p>
+<h2 id="generate-page-numbers" tabindex="-1">Generate page numbers</h2>
+<p>Thanks to the previous script, your content is now structured using <code>id</code> for the heading, and the table of contents we created use hyperlinks to those <code>#id</code>:</p>
+<pre class="language-html"><code class="language-html"><span class="token comment">&lt;!-- the headings in the text--></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>pre-digital_era<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>title-element<span class="token punctuation">"</span></span> <span class="token attr-name">data-title-level</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>h1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  Pre-digital era<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>Content...<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>digital_era<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>title-element<span class="token punctuation">"</span></span> <span class="token attr-name">data-title-level</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>h1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  Digital era<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>Content...<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span></code></pre>
+<pre class="language-html"><code class="language-html"><span class="token comment">&lt;!-- the table of contents--></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>toc<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#pre-digital_era<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Pre-digital era<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#digital_era<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Digital era<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span></code></pre>
+<p>In the CSS, the <code>target-counter</code> property is used within <code>::before</code> and <code>::after</code> pseudo-elements, using the <code>content</code> property. It can be translated as: find the counter named <code>page</code> that appears where you find the element we’re targetting with the attribute <code>href</code>:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">#toc li a::after</span> <span class="token punctuation">{</span><br>  <span class="token property">content</span><span class="token punctuation">:</span> <span class="token function">target-counter</span><span class="token punctuation">(</span><span class="token function">attr</span><span class="token punctuation">(</span>href<span class="token punctuation">)</span><span class="token punctuation">,</span> page<span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token property">float</span><span class="token punctuation">:</span> right<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<h2 id="add-styles-to-the-table-of-contents" tabindex="-1">Add styles to the table of contents</h2>
+<p>If you need to add counters or leaders to your table of contents generated above, here is an exemple of CSS you can use:</p>
+<pre class="language-css"><code class="language-css"><span class="token comment">/* set the style for the list numbering to none */</span><br><span class="token selector">#list-toc-generated</span> <span class="token punctuation">{</span><br>  <span class="token property">list-style</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">#list-toc-generated .toc-element</span> <span class="token punctuation">{</span><br>  <span class="token property">break-inside</span><span class="token punctuation">:</span> avoid<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">#list-toc-generated .toc-element a::after</span> <span class="token punctuation">{</span><br>  <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">" p. "</span> <span class="token function">target-counter</span><span class="token punctuation">(</span><span class="token function">attr</span><span class="token punctuation">(</span>href<span class="token punctuation">)</span><span class="token punctuation">,</span> page<span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token property">float</span><span class="token punctuation">:</span> right<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">#list-toc-generated .toc-element-level-1</span> <span class="token punctuation">{</span><br>  <span class="token property">margin-top</span><span class="token punctuation">:</span> 25px<span class="token punctuation">;</span><br>  <span class="token property">font-weight</span><span class="token punctuation">:</span> bold<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">#list-toc-generated .toc-element-level-2</span> <span class="token punctuation">{</span><br>  <span class="token property">margin-left</span><span class="token punctuation">:</span> 25px<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token comment">/* counters */</span><br><br><span class="token selector">#list-toc-generated</span> <span class="token punctuation">{</span><br>  <span class="token property">counter-reset</span><span class="token punctuation">:</span> counterTocLevel1<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">#list-toc-generated .toc-element-level-1</span> <span class="token punctuation">{</span><br>  <span class="token property">counter-increment</span><span class="token punctuation">:</span> counterTocLevel1<span class="token punctuation">;</span><br>  <span class="token property">counter-reset</span><span class="token punctuation">:</span> counterTocLevel2<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">#list-toc-generated .toc-element-level-1::before</span> <span class="token punctuation">{</span><br>  <span class="token property">content</span><span class="token punctuation">:</span> <span class="token function">counter</span><span class="token punctuation">(</span>counterTocLevel1<span class="token punctuation">)</span> <span class="token string">". "</span><span class="token punctuation">;</span><br>  <span class="token property">padding-right</span><span class="token punctuation">:</span> 5px<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">#list-toc-generated .toc-element-level-2</span> <span class="token punctuation">{</span><br>  <span class="token property">counter-increment</span><span class="token punctuation">:</span> counterTocLevel2<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">#list-toc-generated .toc-element-level-2::before</span> <span class="token punctuation">{</span><br>  <span class="token property">content</span><span class="token punctuation">:</span> <span class="token function">counter</span><span class="token punctuation">(</span>counterTocLevel1<span class="token punctuation">)</span> <span class="token string">". "</span> <span class="token function">counter</span><span class="token punctuation">(</span>counterTocLevel2<span class="token punctuation">)</span> <span class="token string">". "</span><span class="token punctuation">;</span><br>  <span class="token property">padding-right</span><span class="token punctuation">:</span> 5px<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token comment">/* hack for leaders */</span><br><br><span class="token selector">#list-toc-generated</span> <span class="token punctuation">{</span><br>  <span class="token property">overflow-x</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token comment">/* fake leading */</span><br><span class="token selector">#list-toc-generated .toc-element::after</span> <span class="token punctuation">{</span><br>  <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">".............................................."</span><br>    <span class="token string">".............................................."</span><br>    <span class="token string">".............................................."</span> <span class="token string">"........"</span><span class="token punctuation">;</span><br>  <span class="token property">float</span><span class="token punctuation">:</span> left<span class="token punctuation">;</span><br>  <span class="token property">width</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span><br>  <span class="token property">padding-left</span><span class="token punctuation">:</span> 5px<span class="token punctuation">;</span><br>  <span class="token property">letter-spacing</span><span class="token punctuation">:</span> 2px<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">#list-toc-generated .toc-element</span> <span class="token punctuation">{</span><br>  <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">#list-toc-generated .toc-element a::after</span> <span class="token punctuation">{</span><br>  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span><br>  <span class="token property">right</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span><br>  <span class="token property">background-color</span><span class="token punctuation">:</span> white<span class="token punctuation">;</span><br>  <span class="token property">padding-left</span><span class="token punctuation">:</span> 6px<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">#list-toc-generated .toc-element a</span> <span class="token punctuation">{</span><br>  <span class="token property">right</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>And <em>voilà</em>!
+All the files (scripts, CSS, HTML exemples) to create a table of contents are available on gitlab: <a href="https://gitlab.coko.foundation/pagedjs/experiments/tree/master/table-of-content">https://gitlab.coko.foundation/pagedjs/experiments/tree/master/table-of-content</a>.</p>
+
+  </article>
+    
+
+    
+      
+      
+      <aside class="paginator ">
+        
+        <a class="next" href="/pagedjs-website/page-floats/">Paged Media approaches : page floats</a>
+      </aside>
+
+
+
+        
+            <footer><p class="foot-content">Paged.js is maintained by the nice folks at
+<a href="https://coko.foundation" class="footer-logo">Coko</a>.</p></footer>
+
+        
+
+        
+        
+        
+
+        
+        <script>
+
+        if (document.querySelector('.toc .title')) {
+        document.querySelector('.toc .title').addEventListener("click", function() {
+        document.querySelector('.toc').classList.toggle("show");
+        })
+        }
+
+        document.querySelector(".menu-call").addEventListener("click", function() {document.querySelector(".menu").classList.toggle("hide")});
+
+
+        </script>
+        
+        <!-- 
+        Donation nation
+        -->
+
+        <script>
+        (function () {
+        if (document.querySelector('.commitchange-donate[data-fixed]')) 
+        return;
+        var cc_donate = document.createElement('div');
+        cc_donate.innerHTML = "<a data-fixed class='commitchange-donate'></a>";
+        document
+        .body
+        .appendChild(cc_donate);
+        var npo = 5726;
+        var script = document.createElement('script');
+        var first = document.getElementsByTagName('script')[0];
+        script.setAttribute('data-npo-id', npo);
+        script.id = 'commitchange-script';
+        script.src = 'https://us.commitchange.com/js/donate-button.v2.js';
+        first
+        .parentNode
+        .insertBefore(script, first);
+        })();
+
+
+        </script>
+        </body>
+        </html>

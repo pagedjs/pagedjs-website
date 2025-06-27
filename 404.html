@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+
+
+<html lang=" en" class="no-js">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+
+<title>Paged.js — 404 Page not found</title>
+
+<script type="module">
+document
+.documentElement
+.classList
+.remove('no-js');
+document
+.documentElement
+.classList
+.add('js');
+</script>
+<meta name="description" content="">
+<meta property="og:title" content="404 Page not found — ">
+        <meta property="og:description" content="">
+        <meta property="og:image" content="">
+        <meta property="og:image:alt" content="Image description">
+        <meta property="og:locale" content="en_GB">
+        <meta property="og:type" content="website">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta property="og:url" content="site.url">
+        <link rel="canonical" href="https://www.mywebsite.com/page">
+
+        <link rel="icon" href="/pagedjs-website/favicon.ico">
+        <link rel="icon" href="/pagedjs-website/favicon.svg" type="image/svg+xml">
+        <link rel="apple-touch-icon" href="/pagedjs-website/apple-touch-icon.png">
+        <link rel="manifest" href="/pagedjs-website/my.webmanifest">
+        <meta name="theme-color" content="NaN">
+
+        
+        <meta name="twitter:dnt" content="on">
+        
+            
+
+        
+
+        
+            <link rel="stylesheet" href="/pagedjs-website/css/theme-pagedjs/main.css">
+        
+
+        <link href="https://unpkg.com/prismjs@1.20.0/themes/prism.css" rel="stylesheet">
+        <script>
+
+        // if there is a dark mode in the storage, use that
+        if (localStorage.getItem('Nightmode') == "true") {
+        document
+        .documentElement
+        .classList
+        .add('nightmode')
+        }
+        </script>
+
+        
+
+            <script>
+
+  if (window.location.href.includes("?night")) {
+    document.documentElement.classList.add("nightmode");
+  }
+
+function start() {
+
+    document.querySelectorAll("a").forEach((a) => {
+      if (a.href.includes(`?day`)) {
+        // add the infor mation in the url of each link
+        a.href = `${a.href.replace("?day", "?night")}`;
+      } else if (a.href.includes("#")) {
+        a.href = a.href.replace("#", "index.html?night#");
+      } else {
+        a.href = `${a.href}?night`;
+      }
+    });
+};
+
+start()
+</script>
+
+        
+        </head>
+
+        <body class="not-found " style="">
+
+        <div class="crop-marks">
+    <div class="crop-mark vertical"></div>
+    <div class="crop-mark horizontal"></div>
+    <div class="paper"></div>
+</div>
+
+        
+
+        
+     
+
+
+        
+  
+
+
+        
+  <header>
+    <h1 id="title"> 404 Page not found </h1>
+    <article>
+    <figure class="background halftone"><img src="https://images.unsplash.com/photo-1535054820380-92c41678b087?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1951&amp;q=80"></figure>
+<p>This page is not there anymore</p>
+<p><a href="/pagedjs-website/">Let’s go back to the title page</a></p>
+
+    </article>
+  
+
+
+        
+            <footer><p class="foot-content">Paged.js is maintained by the nice folks at
+<a href="https://coko.foundation" class="footer-logo">Coko</a>.</p></footer>
+
+        
+
+        
+        
+        
+
+        
+        <script>
+
+        if (document.querySelector('.toc .title')) {
+        document.querySelector('.toc .title').addEventListener("click", function() {
+        document.querySelector('.toc').classList.toggle("show");
+        })
+        }
+
+        document.querySelector(".menu-call").addEventListener("click", function() {document.querySelector(".menu").classList.toggle("hide")});
+
+
+        </script>
+        
+        <!-- 
+        Donation nation
+        -->
+
+        <script>
+        (function () {
+        if (document.querySelector('.commitchange-donate[data-fixed]')) 
+        return;
+        var cc_donate = document.createElement('div');
+        cc_donate.innerHTML = "<a data-fixed class='commitchange-donate'></a>";
+        document
+        .body
+        .appendChild(cc_donate);
+        var npo = 5726;
+        var script = document.createElement('script');
+        var first = document.getElementsByTagName('script')[0];
+        script.setAttribute('data-npo-id', npo);
+        script.id = 'commitchange-script';
+        script.src = 'https://us.commitchange.com/js/donate-button.v2.js';
+        first
+        .parentNode
+        .insertBefore(script, first);
+        })();
+
+
+        </script>
+        </header></body>
+        </html>
