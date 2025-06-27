@@ -324,7 +324,8 @@ You can stylize the margin-boxes by applying styles directly into the at-rules f
 
 Each margin box have default alignements for the content (show in the following table). You can easy change it by using `text-align` and `vertical-align` properties into at-rules for page-margin boxes.
 
-{{% table caption="Table of default alignement" %}}
+
+#### table of default alignment 
 
 | Margin box           | `text-align` | `vertical-align` |
 | -------------------- | ------------ | ---------------- |
@@ -345,7 +346,6 @@ Each margin box have default alignements for the content (show in the following 
 | @bottom-right        | right        | middle           |
 | @bottom-right-corner | left         | middle           |
 
-{{% /table %}}
 
 ### Applying style on generated content
 

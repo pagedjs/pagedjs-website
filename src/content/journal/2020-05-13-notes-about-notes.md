@@ -69,10 +69,10 @@ A `note` element represents a note, eg. secondary content that is related to oth
 
 The following example is a conforming HTML fragment:
 
-{{< highlight html >}}
+```html 
 
 <p>Gutenberg  in 1439 was the first European to use movable type. Among his many contributions to printing are: the invention of a process for mass-producing movable type; the use of oil-based ink for printing books; <note>Soap, Sex, and Cigarettes: A Cultural History of American Advertising By Juliann Sivulka, page 5</note> adjustable molds; mechanical movable type; and the use of a wooden printing press similar to the agricultural  screw presses of the period.</p>
-{{< /highlight >}}
+```
 
 This potential new HTML element is easy to use and allows a note to be always attached to the content it adds details to. This proposal is aligned to the way HTML works (a node mechanism) without adding an HTML element that would depend on another one (to create note references for example).
 
@@ -88,7 +88,7 @@ Let’s start by looking at what already exists in the W3C specifications. A par
 
 The specification also describes how to create footnotes in a page with the following code:
 
-{{< highlight css >}}
+```css
 @page {
 @footnote {
 float: bottom;
@@ -100,7 +100,7 @@ span.footnote {
 /_ Display span as footnote _/
 float: footnote;
 }
-{{< /highlight >}}
+```
 
 This code also creates special [footnote counter](https://www.w3.org/TR/css-gcpm-3/#footnote-counters) and special pseudo-elements for [footnote calls](https://www.w3.org/TR/css-gcpm-3/#footnote-call) (`::footnote-call`) and [footnote markers](https://www.w3.org/TR/css-gcpm-3/#footnote-marker) (`::footnote-marker`). The position, size and the styles of the footnote area are defined by the `@footnote` declaration. The specification does not give much indications, [only a couple of paragraphs and a lot of issues and unanswered questions](https://www.w3.org/TR/css-gcpm-3/#footnote-area). The advantage is that we can do many proposals without conflicting with the current specifications.
 
@@ -112,7 +112,7 @@ This proposal is for a new way to create and place notes, based on new values (`
 
 In paged media, a new `@note-area` at-rule must also be added to be able to move notes from the page to a specific place. Here is an example of how it would work:
 
-{{< highlight css >}}
+```css
 .note {
 position: note(notes);
 }
@@ -122,11 +122,11 @@ position: note(notes);
 content: element(notes, all-once);
 }
 }
-{{< /highlight >}}
+```
 
 This proposal can also work for continuous media by placing the notes in a new pseudo element `::notearea` that is created at the end of the declared element (just before the pseudo element `::after`). All the notes contained in the element would be placed in this new pseudo element.
 
-{{< highlight css >}}
+```css
 .note {
 position: note(notes);
 }
@@ -134,7 +134,7 @@ position: note(notes);
 section::note-area {
 content: element(notes, all-once);
 }
-{{< /highlight >}}
+```
 
 #### The `note()` and `element()` functions
 
@@ -153,7 +153,7 @@ The `@note-area` at-rule creates special [page areas](http://dev.w3.org/csswg/cs
 
 Sometimes the note area doesn't even need to be declared. Using the `element()` function, the margin-boxes can now receive the content of the `note` elements. Let’s look at an example: the following rules result in the placement of the note elements inside the left-top margin box. Margin and text alignment of the note elements are set to the note element itself and padding of the margin box are set in `@left-top` at-rule.
 
-{{< highlight css >}}
+```css
 @page {
 @left-top {
 content: element(sidenote, all-once);
@@ -166,7 +166,7 @@ position: note(sidenote);
 margin-bottom: 10px;
 text-align: left;
 }
-{{< /highlight >}}
+```
 
 <figure> <img src="/images/notes_margin-box.png" /></figure>
 
@@ -176,18 +176,18 @@ text-align: left;
 
 First, it can be used to create classical footnotes. The following code sets the default values of properties for `@note-area` and places notes at the bottom of the page:
 
-{{< highlight css >}}
+```css
 @note-area {
 float: bottom;
 float-reference: page;
 width: 100%;
 max-height: 80%;
 }
-{{< /highlight >}}
+```
 
 Using float on the page and negative margins can be helpful in creating the note area half on margin, half on text content.
 
-{{< highlight css >}}
+```css
 @page {
 @note-area {
 content: element(sidenotes, all-once);
@@ -201,13 +201,13 @@ margin-right: -30mm;
 notes {
 position: note(sidenotes);
 }
-{{< /highlight >}}
+```
 
 <figure> <img src="/images/notes_sidenotes.png" /></figure>
 
 Since a note area is a box, it's possible to layout the area itself (with columns for example).
 
-{{< highlight css >}}
+```css
 @page {
 @note {
 content: element(notes, all-once)
@@ -221,7 +221,7 @@ columns: 2;
 notes {
 position: note(notes);
 }
-{{< /highlight >}}
+```
 
 <figure> <img src="/images/notes_note-area-columns.png" /></figure>
 
@@ -229,7 +229,7 @@ position: note(notes);
 
 There are already a lot of use cases in critical editions where you can find multiple kind of notes (bibliographical references, explanations, etc.) The `@note-area` at-rules declaration make multiples notes easier by mixing multiple note areas in the same page context. The `@note-area` may be followed by a custom identifier if wanted.
 
-{{< highlight css >}}
+```css
 @page {
 @note refsA {
 content: element(refsA, all-once);
@@ -254,13 +254,13 @@ position: note(refsA);
 note.refs-catB {
 position: note(refsB);
 }
-{{< /highlight >}}
+```
 
 <figure> <img src="/images/notes_multiple-1.png" /></figure>
 
 In the other following example, a new value `line` is added to the `float-reference` property. This allows creation of marginal notes, i.e., notes paced to one side of the text with its first line on the same height of the flow that contains the note-call.
 
-{{< highlight css >}}
+```css
 @page {
 @left-top {
 content: element(refs, all-once);  
@@ -282,7 +282,7 @@ padding-left: 50mm:
 note.footnotes {
 position: note(footnotes);
 }
-{{< /highlight >}}
+```
 
 <figure> <img src="/images/notes_multiple-2.png" /></figure>
 
@@ -294,7 +294,7 @@ Because a column is a anonymous box, there is currently no way in CSS to target 
 
 This reference can be used to indicate creation of note areas in the columns of the page where the note appears. As many boxes as necessary are created on each column. All the note areas have the same properties and can be targeted by one `@note-area` rule only.
 
-{{< highlight css >}}
+```css
 @page {
 @note-area {
 content: element(notes, all-once);
@@ -310,7 +310,7 @@ columns: 3;
 #content note.notes {
 position: note(notes);
 }
-{{< /highlight >}}
+```
 
 <figure> <img src="/images/notes_columns.png" /></figure>
 

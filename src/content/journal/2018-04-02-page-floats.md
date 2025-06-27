@@ -35,13 +35,13 @@ To do this, we need two properties:
 
 A simple example will make this clearer. In this example, initially, a figure is positioned around the middle of the page. We want to move the image to the top of the page. For this, we define the page as our float reference and we use the values `top` as following :
 
-{{< highlight css >}}
+```css 
 figure {
 width: 100%;
 float-reference: page;
 float: top
 }
-{{< /highlight >}}
+```
 
 <figure> <img src="/images/article-figure-01.png" /></figure>
 
