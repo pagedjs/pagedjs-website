@@ -1,3 +1,4 @@
+const { EleventyHtmlBasePlugin } = require("@11ty/eleventy");
 const Cache = require("@11ty/eleventy-fetch");
 const pluginTOC = require("eleventy-plugin-nesting-toc");
 const markdownIt = require("markdown-it");
@@ -6,7 +7,7 @@ const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const slugify = require("slugify");
 
 module.exports = function (eleventyConfig) {
-  // collection
+  eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
 
   eleventyConfig.addCollection("sortedByOrder", function (collectionApi) {
     return collectionApi.getAll().sort((a, b) => {
@@ -177,7 +178,7 @@ module.exports = function (eleventyConfig) {
   return {
     dir: {
       input: "src",
-      output: "docs",
+      output: "public",
       includes: "layouts",
       data: "data",
     },
