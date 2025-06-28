@@ -103,7 +103,7 @@ module.exports = function (eleventyConfig) {
   // filterTagList(tags , ["nav","posts"])
 
   eleventyConfig.addPassthroughCopy({ "static/css": "/css" });
-  eleventyConfig.addPassthroughCopy({ "static/fonts": "/css" });
+  eleventyConfig.addPassthroughCopy({ "static/fonts": "/fonts" });
   eleventyConfig.addPassthroughCopy({ "static/js": "/js" });
   eleventyConfig.addPassthroughCopy({ "static/images": "/images" });
   eleventyConfig.addPassthroughCopy({ "static/outputs": "/outputs" });
