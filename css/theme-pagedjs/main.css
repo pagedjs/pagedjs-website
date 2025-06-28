@@ -229,9 +229,9 @@ a {
 @font-face {
   font-family: jost;
   src:
-    url(./Jost-400-Book.woff2) format("woff2"),
-    url(./Jost-400-Book.woff) format("woff"),
-    url(./Jost-400-Book.otf) format("opentype");
+    url(/fonts/Jost-400-Book.woff2) format("woff2"),
+    url(/fonts/Jost-400-Book.woff) format("woff"),
+    url(/fonts/Jost-400-Book.otf) format("opentype");
   font-style: normal;
   font-weight: 400;
 }
@@ -239,9 +239,9 @@ a {
 @font-face {
   font-family: jost;
   src:
-    url(./Jost-400-BookItalic.woff2) format("woff2"),
-    url(./Jost-400-BookItalic.woff) format("woff"),
-    url(./Jost-400-BookItalic.otf) format("opentype");
+    url(/fonts/Jost-400-BookItalic.woff2) format("woff2"),
+    url(/fonts/Jost-400-BookItalic.woff) format("woff"),
+    url(/fonts/Jost-400-BookItalic.otf) format("opentype");
   font-style: italic;
   font-weight: 400;
 }
@@ -249,9 +249,9 @@ a {
 @font-face {
   font-family: jost;
   src:
-    url(./Jost-600-Semi.woff2) format("woff2"),
-    url(./Jost-600-Semi.woff) format("woff"),
-    url(./Jost-600-Semi.otf) format("opentype");
+    url(/fonts/Jost-600-Semi.woff2) format("woff2"),
+    url(/fonts/Jost-600-Semi.woff) format("woff"),
+    url(/fonts/Jost-600-Semi.otf) format("opentype");
   font-style: normal;
   font-weight: 600;
 }
@@ -259,9 +259,9 @@ a {
 @font-face {
   font-family: jost;
   src:
-    url(./Jost-600-SemiItalic.woff2) format("woff2"),
-    url(./Jost-600-SemiItalic.woff) format("woff"),
-    url(./Jost-600-SemiItalic.otf) format("opentype");
+    url(/fonts/Jost-600-SemiItalic.woff2) format("woff2"),
+    url(/fonts/Jost-600-SemiItalic.woff) format("woff"),
+    url(/fonts/Jost-600-SemiItalic.otf) format("opentype");
   font-style: italic;
   font-weight: 600;
 }
@@ -269,9 +269,9 @@ a {
 @font-face {
   font-family: victor mono;
   src:
-    url(./VictorMono-Light.woff2) format("woff2"),
-    url(./VictorMono-Light.woff) format("woff"),
-    url(./VictorMono-Light.otf) format("opentype");
+    url(/fonts/VictorMono-Light.woff2) format("woff2"),
+    url(/fonts/VictorMono-Light.woff) format("woff"),
+    url(/fonts/VictorMono-Light.otf) format("opentype");
   font-style: normal;
   font-weight: 400;
 }
@@ -279,9 +279,9 @@ a {
 @font-face {
   font-family: victor mono;
   src:
-    url(./VictorMono-LightItalic.woff2) format("woff2"),
-    url(./VictorMono-LightItalic.woff) format("woff"),
-    url(./VictorMono-LightItalic.otf) format("opentype");
+    url(/fonts/VictorMono-LightItalic.woff2) format("woff2"),
+    url(/fonts/VictorMono-LightItalic.woff) format("woff"),
+    url(/fonts/VictorMono-LightItalic.otf) format("opentype");
   font-style: italic;
   font-weight: 400;
 }
@@ -289,9 +289,9 @@ a {
 @font-face {
   font-family: victor mono;
   src:
-    url(./VictorMono-Regular.woff2) format("woff2"),
-    url(./VictorMono-Regular.woff) format("woff"),
-    url(./VictorMono-Regular.otf) format("opentype");
+    url(/fonts/VictorMono-Regular.woff2) format("woff2"),
+    url(/fonts/VictorMono-Regular.woff) format("woff"),
+    url(/fonts/VictorMono-Regular.otf) format("opentype");
   font-style: normal;
   font-weight: 600;
 }
@@ -299,9 +299,9 @@ a {
 @font-face {
   font-family: victor mono;
   src:
-    url(./VictorMono-Italic.woff2) format("woff2"),
-    url(./VictorMono-Italic.woff) format("woff"),
-    url(./VictorMono-Italic.otf) format("opentype");
+    url(/fonts/VictorMono-Italic.woff2) format("woff2"),
+    url(/fonts/VictorMono-Italic.woff) format("woff"),
+    url(/fonts/VictorMono-Italic.otf) format("opentype");
   font-style: italic;
   font-weight: 600;
 }
@@ -309,9 +309,9 @@ a {
 @font-face {
   font-family: linden hill;
   src:
-    url(./LindenHill-Regular.woff2) format("woff2"),
-    url(./LindenHill-Regular.woff) format("woff"),
-    url(./LindenHill-Regular.otf) format("opentype");
+    url(/fonts/LindenHill-Regular.woff2) format("woff2"),
+    url(/fonts/LindenHill-Regular.woff) format("woff"),
+    url(/fonts/LindenHill-Regular.otf) format("opentype");
   font-style: normal;
   font-weight: 400;
 }
@@ -319,9 +319,9 @@ a {
 @font-face {
   font-family: linden hill;
   src:
-    url(./LindenHill-Italic.woff2) format("woff2"),
-    url(./LindenHill-Italic.woff) format("woff"),
-    url(./LindenHill-Italic.otf) format("opentype");
+    url(/fonts/LindenHill-Italic.woff2) format("woff2"),
+    url(/fonts/LindenHill-Italic.woff) format("woff"),
+    url(/fonts/LindenHill-Italic.otf) format("opentype");
   font-style: italic;
   font-weight: 400;
 }
