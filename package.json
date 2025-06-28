@@ -4,7 +4,7 @@
   "description": "an eleventy template for book on screen",
   "main": ".eleventy.js",
   "scripts": {
-    "build": "eleventy --pathprefix=pagedjs-website",
+    "build": "eleventy",
     "watch": "eleventy --watch",
     "serve": "eleventy --serve",
     "start": "eleventy --serve",
