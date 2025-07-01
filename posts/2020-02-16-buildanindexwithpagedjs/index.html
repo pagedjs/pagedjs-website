@@ -363,14 +363,14 @@ start()
     
     <p>Download the script here: <a href="https://gitlab.coko.foundation/pagedjs/experiments/blob/master/book-index/js/createIndex.js">https://gitlab.coko.foundation/pagedjs/experiments/blob/master/book-index/js/createIndex.js</a></p>
 <h2 id="preparing-your-html" tabindex="-1">Preparing your HTML</h2>
-<p>In the simplest terms, a book index is simply a key to locating information contained in a book. The main idea of the book index is to help the reader find information quickly and easily. It is not a way to locate in the book all the paragraph where the word “music” appears but to locate the places in the book where the word music is “revealing” in relation to the content. In this way, create an index is a semantic work that cannot be done automatically.</p>
+<p>In the simplest terms, a book index is simply a key to locating information contained in a book. The main idea of the book index is to help the reader find information quickly and easily. It is not a way to locate in the book all the paragraph where the word &quot;music&quot; appears but to locate the places in the book where the word music is &quot;revealing&quot; in relation to the content. In this way, create an index is a semantic work that cannot be done automatically.</p>
 <p>When you think your content is revelant and need to be in the index, simply add a span around the content:</p>
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span><br>  General definitions of<br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>book-index<span class="token punctuation">"</span></span> <span class="token attr-name">data-book-index</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>music<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>music<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span> include common<br>  elements such as pitch, rhythm, dynamics, and the sonic qualities of timbre<br>  and texture.<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span></code></pre>
 <p>Your span must contain at least two elements:</p>
 <ul>
 <li><strong>a class</strong>: this class is common to all index span elements of your document, you can name it as you wish</li>
 <li><strong>a data attribute</strong>: this data attribut must be named <code>data-book-index</code>, it indicates the word(s) that will appear in the index</li>
-<li>you can also add an id if you want but it’s not required</li>
+<li>you can also add an id if you want but it's not required</li>
 </ul>
 <p>About the data attribute:</p>
 <ul>

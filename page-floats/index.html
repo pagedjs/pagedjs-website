@@ -404,18 +404,18 @@ start()
 <p>In the following example, the figure is already at the nearest edge, so it does not move. However, floats allow subsequent content to be displayed before the float and the white space can therefore be filled.</p>
 <figure> <img src="/images/article-figure-04.png" /></figure>
 <p>Note that in Prince, the proprietary optional modifier <code>unless-fit</code> is to be used in combination with other float instructions, and is conditional: the element is only floated if it would otherwise cause a page.</p>
-<p>element {
-width: 100%;
-float: top unless-fit
+<p>element {<br>
+width: 100%;<br>
+float: top unless-fit<br>
 }</p>
 <h2 id="the-snap-block-value" tabindex="-1">The snap-block value</h2>
 <p>The <code>snap-block(&lt;length&gt; [, start | end | near ]?)</code> value and the <code>snap-inline(&lt;lengtht&gt; [, start | end | near ]?)</code> values specify than an element floats to the start or the end of the block if it naturally appears within a certain distance from either one.</p>
 <p>The length value specifies the reach of the snap function, e.g. the maximum distance from the start/end that an element must be within in order to be floated.</p>
 <p><em>“The length value specifies the distance from both the start and the end, two length values specify the distance from the start and end, respectively. The optional keyword value specifies where the element is floated: start, end, or the nearest of the two. The initial value is near. If near is in effect and the element is within the specified distance both from the start and the end, end wins.”</em> (W3C specifications)</p>
 <p>In this example the first element is affected, but not the second :</p>
-<p>element {
-float-reference: page;
-float: snap-block(2em near)
+<p>element {<br>
+float-reference: page;<br>
+float: snap-block(2em near)<br>
 }</p>
 <figure> <img src="/images/article-figure-05.png" /></figure>
 <p>An element with the <code>snap-block()</code> value is considered to be a float even if the element does not appear within the specified distance. In this case, the element floats at the start / end line, but not at the start, nor at end of the block.</p>

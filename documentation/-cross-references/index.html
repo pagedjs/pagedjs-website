@@ -365,7 +365,7 @@ start()
 <p>With the example below, the text generated in your document will be “see the figure 3, page 27”.</p>
 <p>You can also specified a counter style:</p>
 <pre class="language-css"><code class="language-css"><span class="token selector">.link::after</span> <span class="token punctuation">{</span><br>  <span class="token property">content</span><span class="token punctuation">:</span> <span class="token function">target-counter</span><span class="token punctuation">(</span><span class="token function">attr</span><span class="token punctuation">(</span>href url<span class="token punctuation">)</span><span class="token punctuation">,</span> page<span class="token punctuation">,</span> lower-roman<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
-<p>For the moment, the <code>targer-counter()</code> function works only with the counter page. That means you can’t use counters with other given name.</p>
+<p>For the moment, the <code>targer-counter()</code> function works only with the counter page. That means you can't use counters with other given name.</p>
 <h2 id="target-text()" tabindex="-1">Target-text()</h2>
 <p>The <a href="https://www.w3.org/TR/css-gcpm-3/#target-text">target-text()</a> function works like targer-counter() but retrieves the text value of the element referred to by the URL. You can use it to have title of chapter for example.</p>
 <p>In you HTML, create the title of a chapter with an unique identifier:</p>
@@ -375,7 +375,7 @@ start()
 <p>In the CSS, use target-text to generate the cross reference:</p>
 <pre class="language-css"><code class="language-css"><span class="token selector">.link::after</span> <span class="token punctuation">{</span><br>  <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">"(see "</span> <span class="token function">target-text</span><span class="token punctuation">(</span><span class="token function">attr</span><span class="token punctuation">(</span>href url<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token string">")"</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
 <p>The text generated in your document will be “Some text that refer to the chapter (see Chapter 1. The beginning).”</p>
-<p>The W3C define an optional second argument specifies what content is retrieved, using the same values as the string-set property (<code>content</code>, <code>before </code>, <code>after</code>, <code>first-letter</code>) but it’s not implemented yet in <code>paged.js</code>.</p>
+<p>The W3C define an optional second argument specifies what content is retrieved, using the same values as the string-set property (<code>content</code>, <code>before </code>, <code>after</code>, <code>first-letter</code>) but it's not implemented yet in <code>paged.js</code>.</p>
 <h2 id="debug" tabindex="-1">Debug</h2>
 <p>These functions only take a fragment URL which points to a location in the current document. If there’s no fragment, if the ID referenced isn’t there, or if the URL points to an outside document, the function returns nothing in the case of target-text() and <code>0</code> in the case of target-counter().<br>
 However, if your document is long, maybe your target element is not yet loaded and the function also returns nothing or <code>0</code>. Wait until the loading is completed for the page number to be generated.</p>

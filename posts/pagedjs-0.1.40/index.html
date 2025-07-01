@@ -357,7 +357,7 @@ start()
 <ul>
 <li>@julientaq added support for the <code>position: fixed</code> property: if one of your element is set as <code>fixed</code>, it will be repeated on all pages without having to struggle with <code>margin-boxes</code>, <code>position: running</code> or <code>string-set</code>. Be aware that the origin will always be the page, thus you’ll need to set up negative margins to your element to bring it in the bleeds.</li>
 <li>Antonio Norman (@antman3351) <a href="https://gitlab.coko.foundation/pagedjs/pagedjs/issues/180">found a bug and its fix</a>, when you had multiple <code>string</code> elements on the same page.</li>
-<li>Support for period in <code>id</code> attribute: <code>.</code> is for <code>class</code> and <code>#</code> is for <code>id</code>. But the specs allow you to use a <code>.</code> in an <code>id</code>!
+<li>Support for period in <code>id</code> attribute: <code>.</code> is for <code>class</code> and <code>#</code> is for <code>id</code>. But the specs allow you to use a <code>.</code> in an <code>id</code>!<br>
 Paged.js can now handle <code>&lt;p id=&quot;#this.paragraph&quot;&gt;</code> without crashing.</li>
 <li>@Stouffi fixed a couple of bugs in the chunker, and documented those quite well <a href="https://gitlab.coko.foundation/pagedjs/pagedjs/merge_requests/101">here</a> and [there]<a href="https://gitlab.coko.foundation/pagedjs/pagedjs/merge_requests/98">https://gitlab.coko.foundation/pagedjs/pagedjs/merge_requests/98</a>).</li>
 <li>Fred Chasen (@fchasen) update the Jest infrastructure so tests are now running fine.</li>

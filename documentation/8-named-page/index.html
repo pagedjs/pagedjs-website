@@ -349,16 +349,16 @@ start()
       <p class="intro">How to setup the page master based on the content of your html: the named page
         
     
-    <p>There could be pages in your book that may need their own, more specific layout: different background, different margins, and even different styles from the main rule.
+    <p>There could be pages in your book that may need their own, more specific layout: different background, different margins, and even different styles from the main rule.<br>
 You can use what is called “named pages” to define this. Based on your HTML, you can bind a specific layout to any content.</p>
 <p><img src="/images/named-pages.png" alt="How named pages works"></p>
 <p>Imagine you want a specific layout for the pages of your frontmatter.</p>
 <p>The <code>page</code> property is used to specify a particular type of page. With this property, you define that all sections with the class <code>frontmatter</code> will have a page template named here <code>frontmatterLayout</code>. Note that, page type names are case-sensitive identifiers.</p>
 <p>You create also a specific @page rule with the same page type name where you create new properties of the page.</p>
-<p>That’s how you will do with the code.:</p>
+<p>That's how you will do with the code.:</p>
 <pre class="language-css"><code class="language-css"><span class="token selector">.frontmatter</span> <span class="token punctuation">{</span><br>	<span class="token property">page</span><span class="token punctuation">:</span> frontmatterLayout<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token atrule"><span class="token rule">@page</span> frontmatterLayout</span> <span class="token punctuation">{</span><br>	<span class="token comment">/* specifics rules for the frontmatter*/</span><br><span class="token punctuation">}</span></code></pre>
 <p>With this rule, each element with the <code>frontmatter</code> class will have a page break by default. A <strong>page group</strong> is created at each instance of elements with the <code>frontmatter</code> class.</p>
-<p>It’s possible to bind different section to the same @page rule.</p>
+<p>It's possible to bind different section to the same @page rule.</p>
 <pre class="language-css"><code class="language-css"><span class="token selector">#half-title,<br>#copyright,<br>#table-of-content,<br>#introduction</span> <span class="token punctuation">{</span><br>	<span class="token property">page</span><span class="token punctuation">:</span> frontmatterLayout<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
 <h2 id="mix-page-selectors-and-named-pages" tabindex="-1">Mix page selectors and named pages</h2>
 <p>You can mix page selectors and named pages.</p>
@@ -366,7 +366,7 @@ You can use what is called “named pages” to define this. Based on your HTML,
 <p>In the code bellow, each first page of elements with a class <code>chapter</code> are selected:</p>
 <pre class="language-css"><code class="language-css"><span class="token selector">.chapter</span> <span class="token punctuation">{</span><br>	<span class="token property">page</span><span class="token punctuation">:</span> chapter<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token atrule"><span class="token rule">@page</span> <span class="token property">chapter</span><span class="token punctuation">:</span>first</span> <span class="token punctuation">{</span><br>    <span class="token comment">/* specifics rules for first page of each chapter */</span><br><span class="token punctuation">}</span></code></pre>
 <p>You can also select the <code>:left</code> and the <code>:right</code> pages of named pages and page groups.</p>
-<p>The <code>:nth()</code> and <code>:blank</code> selector doesn’t work with named pages for now. But you can use this trick to select the blank pages of named pages:</p>
+<p>The <code>:nth()</code> and <code>:blank</code> selector doesn't work with named pages for now. But you can use this trick to select the blank pages of named pages:</p>
 <pre class="language-css"><code class="language-css"><span class="token selector">.pagedjs_chapter_page + .pagedjs_blank_page</span> <span class="token punctuation">{</span><br>	<span class="token comment">/* specific rules for blank pages of named page called "chapter" */</span><br><span class="token punctuation">}</span></code></pre>
 <h2 id="priority-of-%40page-rules" tabindex="-1">Priority of @page rules</h2>
 <p>In paged.js, the page rules do not apply quite in cascade. The rules are defined by the order of priority below (ranked from lowest to highest priority):</p>

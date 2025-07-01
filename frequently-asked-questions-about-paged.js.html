@@ -343,19 +343,19 @@ start()
     <h2 id="what-are-the-differences-between-paged.js-and-paged.polyfill.js%3F" tabindex="-1">What are the differences between <code>paged.js</code> and <code>paged.polyfill.js</code>?</h2>
 <p>Paged.js comes as two different scripts</p>
 <ol>
-<li><code>paged.js</code>: this version of the script let the user define the
-content, the styles and the output element of paged.js, as explained in Paged.js
+<li><code>paged.js</code>: this version of the script let the user define the<br>
+content, the styles and the output element of paged.js, as explained in Paged.js<br>
 readme. It follows those rules:</li>
 </ol>
 <pre class="language-javascript"><code class="language-javascript"><span class="token keyword">let</span> paged <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Previewer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token keyword">let</span> flow <span class="token operator">=</span> paged<span class="token punctuation">.</span><span class="token function">preview</span><span class="token punctuation">(</span>DOMContent<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">"path/to/css/file.css"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> document<span class="token punctuation">.</span>body<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">flow</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>	console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Rendered"</span><span class="token punctuation">,</span> flow<span class="token punctuation">.</span>total<span class="token punctuation">,</span> <span class="token string">"pages."</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
 <ol start="2">
-<li><code>paged.polyfill.js</code>: this version of the script is the default setup for
-paged.js: it will start as soon as the page is loaded, it will use the full
-content of the webpage, and all the styles linked to the content, and the
-output will be rendered as the replacement of the full <code>body</code> element of the
+<li><code>paged.polyfill.js</code>: this version of the script is the default setup for<br>
+paged.js: it will start as soon as the page is loaded, it will use the full<br>
+content of the webpage, and all the styles linked to the content, and the<br>
+output will be rendered as the replacement of the full <code>body</code> element of the<br>
 webpage.</li>
 </ol>
-<p>Paged.js will work the same way with both scripts, the first one allows for more
+<p>Paged.js will work the same way with both scripts, the first one allows for more<br>
 customized uses.</p>
 
   </article>

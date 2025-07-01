@@ -378,15 +378,15 @@ start()
 <p>Guillaume also fixed a longtime bug, where a named page would create an empty page if it was the first page of the book.</p>
 <h3 id="handling-for-nth-of-type-and-following-(%2B)-selectors-!122%2C-!125" tabindex="-1">Handling for nth-of-type and following (+) selectors <a href="https://gitlab.coko.foundation/pagedjs/pagedjs/merge_requests/122">!122</a>, <a href="https://gitlab.coko.foundation/pagedjs/pagedjs/merge_requests/125">!125</a></h3>
 <p>Nellie McKesson, from the amazing <a href="https://www.hederis.com/">Hederis</a> helped all of us write better CSS by adding support for <code>+</code> and <code>nth-of-type</code> selector.</p>
-<h3 id="prevent-infinite-loops-when-elements-aren%E2%80%99t-placeable-!118" tabindex="-1">Prevent infinite loops when elements aren’t placeable <a href="https://gitlab.coko.foundation/pagedjs/pagedjs/merge_requests/118">!118</a></h3>
+<h3 id="prevent-infinite-loops-when-elements-aren't-placeable-!118" tabindex="-1">Prevent infinite loops when elements aren't placeable <a href="https://gitlab.coko.foundation/pagedjs/pagedjs/merge_requests/118">!118</a></h3>
 <p>Pagedjs used to have infinite loops when trying when an element was bigger than the page. If that happens now, it will stop the rendering on the element that doesn’t appear on the page. No more linking from CPU and RAM.</p>
 <blockquote>
 <p><strong>Breaking change</strong></p>
 <p>If one of your scripts used <code>breakToken</code> to move things around, make sure to test it: Paged.js now stops rendering when the <code>breakToken</code> is the same on two consecutive pages.</p>
 </blockquote>
 <h3 id="non-significant-text-handling%3A-!115" tabindex="-1">Non-significant text handling: <a href="https://gitlab.coko.foundation/pagedjs/pagedjs/merge_requests/115">!115</a></h3>
-<p>This merge request ignores non-significant Node such as a Text node that is all whitespace, or a Comment node. It also preserves Text node that does not have any sibling such as empty (<code>&lt;p&gt; &lt;/p&gt;</code>) or Text node with a sibling (<code>Hello &lt;span&gt;world&lt;/span&gt;</code>).
-Here, the Text node after <code>&quot;Hello&quot;</code> and before the <code>&lt;span&gt;</code> element must be preserved. In this case, the <code>textContent</code> is updated to a single space:
+<p>This merge request ignores non-significant Node such as a Text node that is all whitespace, or a Comment node. It also preserves Text node that does not have any sibling such as empty (<code>&lt;p&gt; &lt;/p&gt;</code>) or Text node with a sibling (<code>Hello &lt;span&gt;world&lt;/span&gt;</code>).<br>
+Here, the Text node after <code>&quot;Hello&quot;</code> and before the <code>&lt;span&gt;</code> element must be preserved. In this case, the <code>textContent</code> is updated to a single space:<br>
 <code>Hello &lt;span&gt;world&lt;/span&gt;</code>. This fixes a couple of issues with <code>break-after: avoid</code>. For more information about how HTML handle white spaces, you can head over to <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Whitespace">MDN</a>.</p>
 <h3 id="add-filter-hooks-and-modules%3A-!116" tabindex="-1">Add filter hooks and modules: <a href="https://gitlab.coko.foundation/pagedjs/pagedjs/merge_requests/116">!116</a></h3>
 <p>Add a <code>filter</code> hook that happens just before the <code>afterParsed()</code> one. It allows filtering the content rendered by paged.js. For now, those modules are enabled by default:</p>

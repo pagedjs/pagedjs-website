@@ -361,17 +361,17 @@ start()
     
     <h2 id="editoria%2C-the-book-production-center" tabindex="-1">Editoria, the Book Production Center</h2>
 <p>Editoria is a platform to collaboratively produce books, offering spaces for writers, editors, designers, etc. at the same time the content is being added.</p>
-<p>We’ve been talking Editoria quite a lot in these pages. Firstly because Paged.js was implemented in Editoria before any other tool, after years of trying out other tools to make books out of HTML.</p>
-<p>Editoria has been used for quite a while by Book Sprints and other friendly folks. It’s a pretty amazing tool for creating books collaboratively by a team. But one of the limitations from the designer’s perspective was that we were stuck with what CSS allowed us to do. It took quite a while to figure out the best option to have custom javascript hooks without compromising the security of the whole platform.</p>
+<p>We've been talking Editoria quite a lot in these pages. Firstly because Paged.js was implemented in Editoria before any other tool, after years of trying out other tools to make books out of HTML.</p>
+<p>Editoria has been used for quite a while by Book Sprints and other friendly folks. It's a pretty amazing tool for creating books collaboratively by a team. But one of the limitations from the designer's perspective was that we were stuck with what CSS allowed us to do. It took quite a while to figure out the best option to have custom javascript hooks without compromising the security of the whole platform.</p>
 <p>Well, that solution exists now:)</p>
 <p>To show what you can do with Editoria nowadays, I have produced a small demo book, with some paged.js hooks that I explain in this post.</p>
-<p>Before jumping into hooks, let’s briefly explain how paged.js does what it does.</p>
+<p>Before jumping into hooks, let's briefly explain how paged.js does what it does.</p>
 <h3 id="paged.js%3A-hooks-and-order" tabindex="-1">Paged.js: hooks and order</h3>
 <p>Fred Chasen made paged.js around a clever idea: instead of defining the order of events that paged.js needed, he defined the moments where you would need to do something on the content, and set those as hooks to which you can bind your scripts.</p>
 <p>All the modules use those entry points to do different things at different moments.</p>
 <ol>
 <li>
-<p>when it’s about to parse the HTML, CSS and JS.</p>
+<p>when it's about to parse the HTML, CSS and JS.</p>
 </li>
 <li>
 <p>when all the content has been parsed.</p>
@@ -392,12 +392,12 @@ start()
 <p>when you finish the layout of the page (go back to 3)</p>
 </li>
 <li>
-<p>when you zend the signal that all pages are generated if there is no
+<p>when you zend the signal that all pages are generated if there is no<br>
 content left.</p>
 </li>
 </ol>
 <p>You can see all the existing hooks <a href="https://www.pagedjs.org/documentation/11-hooks/#some-informations-about-the-hooks">on this page</a> if you want to go deeper.</p>
-<p>For example, let’s look at how a <code>break-before: left</code> is defined.</p>
+<p>For example, let's look at how a <code>break-before: left</code> is defined.</p>
 <ol>
 <li>Before the HTML, CSS and JS of the document is parsed.</li>
 </ol>
@@ -406,88 +406,88 @@ content left.</p>
 <li>when you lay out one element on the page</li>
 </ol>
 <p><em>if that element has a <code>data-break-before: left</code> attribute, stop adding elements to that page and jump to 6. Then, if it’s a right page create an <code>blank</code> page and resume adding content on the following page, else (if it’s a left page), resume adding the content.</em></p>
-<p>As you can see, the algorithm is crystal clear, and when the browser handles features, we’ll be able to remove those that become useless over time.</p>
-<p>Let’s start strumming our <s>ukulele</s> keyboard and make some code. :)</p>
+<p>As you can see, the algorithm is crystal clear, and when the browser handles features, we'll be able to remove those that become useless over time.</p>
+<p>Let's start strumming our <s>ukulele</s> keyboard and make some code. :)</p>
 <h2 id="where-the-humuhumunukunukuapuaa-goes-swimming-by" tabindex="-1">Where the humuhumunukunukuapuaa goes swimming by</h2>
-<p>So let’s jump in, script by script and see what happens and how things work.</p>
+<p>So let's jump in, script by script and see what happens and how things work.</p>
 <p>Here is the link to the <a href="https://demo.flaxjs.net/output/uke.pdf">pdf</a> and to the <a href="https://gitlab.coko.foundation/pagedjs/pagedjs-templates/ukulele-demo">repo</a> if you want to have a proper look at all those files :D).</p>
 <p>We’re setting up a place to display the open source templates we’re making, so stay tuned to know more about it.</p>
 <h3 id="changes-in-the-dom" tabindex="-1">Changes in the DOM</h3>
-<p>Wax, the word processor that fuels Editoria, treats the content as a
-flat flow of elements. You can define the type of block from a list of
-styles (including custom styles for both inline and block level
-elements). The output of that is a nicely set HTML with <code>paragraph</code> with
-different classes, <code>header</code>, <code>em</code>, and all the other sweets the HTML has to
+<p>Wax, the word processor that fuels Editoria, treats the content as a<br>
+flat flow of elements. You can define the type of block from a list of<br>
+styles (including custom styles for both inline and block level<br>
+elements). The output of that is a nicely set HTML with <code>paragraph</code> with<br>
+different classes, <code>header</code>, <code>em</code>, and all the other sweets the HTML has to<br>
 offer.</p>
 <p>If all is so great, why would we change the DOM?</p>
 <p>For multiple reasons:</p>
 <ol>
 <li>
-<p>You may want to bring elements together (for example, when you have
-two figures that belong together and for which you want to have a
-specific layout), or when you want to nest stuff together, something
+<p>You may want to bring elements together (for example, when you have<br>
+two figures that belong together and for which you want to have a<br>
+specific layout), or when you want to nest stuff together, something<br>
 that your editor may not offer.</p>
 </li>
 <li>
-<p>To redo something the browsers used to offer (nope, not the CSS
-regions, not this time :D) such as the unknown display:
-<a href="https://css-tricks.com/run-in/">run-in</a> which allowed us to
-push an element to the next as an inline block. This trick has been
-used a lot in the world of print, and it was available for the
-screen a long time ago. But it didn’t survive the test of time.</p>
+<p>To redo something the browsers used to offer (nope, not the CSS<br>
+regions, not this time :D) such as the unknown display:<br>
+<a href="https://css-tricks.com/run-in/">run-in</a> which allowed us to<br>
+push an element to the next as an inline block. This trick has been<br>
+used a lot in the world of print, and it was available for the<br>
+screen a long time ago. But it didn't survive the test of time.</p>
 </li>
 <li>
-<p>You may want to create, let’s say, an index. To do so, you need to
-create links between the words and their counterparts in the index.
-In this book, I used a custom inline class to list everything the
-musician talked about in the first chapter to build the list in the
+<p>You may want to create, let's say, an index. To do so, you need to<br>
+create links between the words and their counterparts in the index.<br>
+In this book, I used a custom inline class to list everything the<br>
+musician talked about in the first chapter to build the list in the<br>
 end.</p>
 </li>
 </ol>
-<p>My first script, the <code>contentUkulele.js</code> is happening on the <code>beforeParsed</code>
-hook (before any content data has been processed by paged.js). It’s
-removing empty elements, add id to elements that don’t have ids yet,
-recreate the <code>display: run-in</code> property. Nothing really fancy here, but it
+<p>My first script, the <code>contentUkulele.js</code> is happening on the <code>beforeParsed</code><br>
+hook (before any content data has been processed by paged.js). It's<br>
+removing empty elements, add id to elements that don't have ids yet,<br>
+recreate the <code>display: run-in</code> property. Nothing really fancy here, but it<br>
 let me create the DOM I want s /I can start designing the book itself.</p>
 <h3 id="page-float%3F-are-you-going-to-talk-about-page-float%3F" tabindex="-1">Page-float? Are you going to talk about page-float?</h3>
 <p>Yes.</p>
 <p>And no.</p>
-<p>Not in the way you’re expecting it.</p>
-<p>If you want to know what a page-float is, and what it can add to our
-layout, you should have a look at the
-<a href="http://demos.pagedmedia.org/page-floats/">[demo]{.ul}</a> Julie Blanc
-made. Be aware that this is not inside Paged.js (yet) but a good demo on
-how things should work when we’ll be able to follow the specs from the
+<p>Not in the way you're expecting it.</p>
+<p>If you want to know what a page-float is, and what it can add to our<br>
+layout, you should have a look at the<br>
+<a href="http://demos.pagedmedia.org/page-floats/">[demo]{.ul}</a> Julie Blanc<br>
+made. Be aware that this is not inside Paged.js (yet) but a good demo on<br>
+how things should work when we'll be able to follow the specs from the<br>
 W3C.</p>
-<p>Truth is, page-floats are a pretty complex thing (check Julie’s article
-<a href="https://www.pagedjs.org/page-floats/">[about page floats]{.ul}</a>). There
-are a lot of different ways to implement page-floats, and they all come
-with pros and cons. Until we find the universal way of making page-float
-a thing, we can still find workarounds and ways of making it work. So
-let’s see how I did it for the ukulele book.</p>
+<p>Truth is, page-floats are a pretty complex thing (check Julie's article<br>
+<a href="https://www.pagedjs.org/page-floats/">[about page floats]{.ul}</a>). There<br>
+are a lot of different ways to implement page-floats, and they all come<br>
+with pros and cons. Until we find the universal way of making page-float<br>
+a thing, we can still find workarounds and ways of making it work. So<br>
+let's see how I did it for the ukulele book.</p>
 <h3 id="the-custom-property-with-its-custom-values" tabindex="-1">The custom property with its custom values</h3>
-<p>This image-handling.js script has only one role: find the element that
-has that property, and depending on its value, add a specific class to
-that element so we can target it when it’s being rendered on the page.
-To do so, I created a CSS custom property that can have different values
+<p>This image-handling.js script has only one role: find the element that<br>
+has that property, and depending on its value, add a specific class to<br>
+that element so we can target it when it's being rendered on the page.<br>
+To do so, I created a CSS custom property that can have different values<br>
 to define where the element should float.</p>
 <pre class="language-css"><code class="language-css"><span class="token property">--page-float</span><span class="token punctuation">:</span> same-top<span class="token punctuation">,</span> same-bottom<span class="token punctuation">,</span> next-top<span class="token punctuation">,</span> next-bottom<span class="token punctuation">,</span> same-column-top<span class="token punctuation">,</span><br>  same-column-bottom<span class="token punctuation">,</span> next-column-top<span class="token punctuation">,</span> next-column-bottom<span class="token punctuation">,</span> full-page<span class="token punctuation">;</span></code></pre>
-<p>Some of those values/classes are not used, but are there for the day we
+<p>Some of those values/classes are not used, but are there for the day we<br>
 need them.</p>
 <h3 id="layout-time!" tabindex="-1">Layout time!</h3>
-<p>Then we have a float-top.js, floatNextBis.js or fullPage.js that handles
+<p>Then we have a float-top.js, floatNextBis.js or fullPage.js that handles<br>
 the moving of elements on the page when they are rendered.</p>
-<p>Let’s check the easiest of those scripts: fullPage.js:</p>
+<p>Let's check the easiest of those scripts: fullPage.js:</p>
 <p>First, we define the name of the class for the image full page.</p>
 <pre class="language-js"><code class="language-js"><span class="token keyword">const</span> classElemFullPage <span class="token operator">=</span> <span class="token string">"imgFullPage"</span><span class="token punctuation">;</span></code></pre>
 <p>Then, we create our hooks like this:</p>
 <pre class="language-js"><code class="language-js"><span class="token keyword">class</span> <span class="token class-name">fullPage</span> <span class="token keyword">extends</span> <span class="token class-name">Paged<span class="token punctuation">.</span>Handler</span> <span class="token punctuation">{</span><br>  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">chunker<span class="token punctuation">,</span> polisher<span class="token punctuation">,</span> caller</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token keyword">super</span><span class="token punctuation">(</span>chunker<span class="token punctuation">,</span> polisher<span class="token punctuation">,</span> caller<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token keyword">this</span><span class="token punctuation">.</span>floatFullPage<span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
-<p>Hooks are sharing the same constructor. That means that if you want to
-set a variable and use it in different hooks, you need to set it in the
-constructor. In this script, I’m creating a <code>this. floatFullPage</code> that we’re going to use to find the elements that have the <code>--page-float: full-page;</code> custom property.</p>
+<p>Hooks are sharing the same constructor. That means that if you want to<br>
+set a variable and use it in different hooks, you need to set it in the<br>
+constructor. In this script, I'm creating a <code>this. floatFullPage</code> that we're going to use to find the elements that have the <code>--page-float: full-page;</code> custom property.</p>
 <pre class="language-js"><code class="language-js"><span class="token function">onDeclaration</span><span class="token punctuation">(</span><span class="token parameter">declaration<span class="token punctuation">,</span> dItem<span class="token punctuation">,</span> dList<span class="token punctuation">,</span> rule</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token keyword">if</span> <span class="token punctuation">(</span>declaration<span class="token punctuation">.</span>property <span class="token operator">==</span> <span class="token string">"--page-float"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token keyword">if</span> <span class="token punctuation">(</span>declaration<span class="token punctuation">.</span>value<span class="token punctuation">.</span>value<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">"full-page"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>      <span class="token keyword">let</span> sel <span class="token operator">=</span> csstree<span class="token punctuation">.</span><span class="token function">generate</span><span class="token punctuation">(</span>rule<span class="token punctuation">.</span>ruleNode<span class="token punctuation">.</span>prelude<span class="token punctuation">)</span><span class="token punctuation">;</span><br>      sel <span class="token operator">=</span> sel<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">'[data-id="'</span><span class="token punctuation">,</span> <span class="token string">"#"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>      sel <span class="token operator">=</span> sel<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">'"]'</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>      <span class="token keyword">this</span><span class="token punctuation">.</span>floatFullPage <span class="token operator">=</span> sel<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">","</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br>  <span class="token punctuation">}</span></code></pre>
 <p><code>onDeclaration</code> is a hook that happens every time a declaration is found.</p>
-<p>When that happens, we check if the declaration property is <code>--page-float</code> and if the value is <code>full-page</code>. If that’s the case, we get the value from of the selector (<code>sel</code>) using csstree. And we push that value to the <code>this.floatFullPage</code> array.</p>
+<p>When that happens, we check if the declaration property is <code>--page-float</code> and if the value is <code>full-page</code>. If that's the case, we get the value from of the selector (<code>sel</code>) using csstree. And we push that value to the <code>this.floatFullPage</code> array.</p>
 <p>Then, when the content is parsed, we use the selectors from <code>this.floatFullPage</code> to add the <code>fullpage</code> class</p>
 <pre class="language-js"><code class="language-js"><span class="token function">afterParsed</span><span class="token punctuation">(</span><span class="token parameter">content</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>floatFullPage<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token keyword">this</span><span class="token punctuation">.</span>floatFullPage<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">elNBlist</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>      content<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span>elNBlist<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">el</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>        el<span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"imgFullPage"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token punctuation">}</span></code></pre>
 <p>Then, the magic happens: every time a page is done, we run the following script:</p>
@@ -496,7 +496,7 @@ constructor. In this script, I’m creating a <code>this. floatFullPage</code> t
 <p>The page breaks that arrive before and after are set in the css for the same element.</p>
 <p>And the last thing, we register the hook.</p>
 <pre class="language-js"><code class="language-js">Paged<span class="token punctuation">.</span><span class="token function">registerHandlers</span><span class="token punctuation">(</span>fullPage<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p>We use the exact same idea for the image to top / bottom, but we’re moving them as soon as they’re on the page, and we use the amazing <code>shape-outside</code> property. We’ll cover that deeper in the next installment of this series.</p>
+<p>We use the exact same idea for the image to top / bottom, but we're moving them as soon as they're on the page, and we use the amazing <code>shape-outside</code> property. We'll cover that deeper in the next installment of this series.</p>
 <p>Until then, keep practising music and book design.</p>
 <p>The code is accessible <a href="https://gitlab.coko.foundation/pagedjs/pagedjs-templates/ukulele-demo">here</a></p>
 <p>Have fun!</p>

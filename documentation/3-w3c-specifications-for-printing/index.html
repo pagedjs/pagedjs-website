@@ -351,7 +351,7 @@ start()
     
     <h2 id="w3c-css-modules" tabindex="-1">W3C CSS modules</h2>
 <p>For printing pages you need very different rules from those used to display content in the browser. For example, you’ll want to declare fixed sized pages rather than lay out a continuous flow of text. Books also need many specific elements for the printed layout: margins, running headers, page numbers, a table of contents, and so on.</p>
-<p>Fortunately the work on CSS at the W3C has resulted in special modules of the CSS standard for managing the layout of a HTML document during printing. These modules can be used in a print stylesheet with the media query <code>@media print{}</code> and will only be applied when
+<p>Fortunately the work on CSS at the W3C has resulted in special modules of the CSS standard for managing the layout of a HTML document during printing. These modules can be used in a print stylesheet with the media query <code>@media print{}</code> and will only be applied when<br>
 the web page is printed from the browser print dialog to create a PDF.</p>
 <ul>
 <li><a href="https://www.w3.org/TR/css3-page/">CSS Paged Media Module Level 3</a> “describes the page model that partitions a flow into pages. (…) It adds functionality for pagination, page margins, page size and orientation, headers and footers, widows and orphans, and image orientation.”</li>
@@ -369,7 +369,7 @@ the web page is printed from the browser print dialog to create a PDF.</p>
 <h3 id="which-browser-to-use%3F" tabindex="-1">Which browser to use?</h3>
 <p>We really want Paged.js to work perfectly with all the browsers around, but as we’re writing those words, some are more suitable than others. It depends on the features you want to have for your documents (CSS flexbox, hyphens…). But you also maybe need a browser that take into account the size property to generate PDFs. Here are some explanations to help you choose.</p>
 <h4 id="support-of-%40page-%7B-size-%7D" tabindex="-1">Support of @page { size }</h4>
-<p>Paged.js acts like a sort of polyfill but there is one thing we can’t manage that we need to print correctly: the support by the browser of the <code>@page { size }</code> property. This property will allow you to create a PDF at the right size when it is generated. These property is only supported in some browsers:</p>
+<p>Paged.js acts like a sort of polyfill but there is one thing we can't manage that we need to print correctly: the support by the browser of the <code>@page { size }</code> property. This property will allow you to create a PDF at the right size when it is generated. These property is only supported in some browsers:</p>
 <ul>
 <li>Chromium</li>
 <li>Google Chrome</li>
@@ -380,7 +380,7 @@ the web page is printed from the browser print dialog to create a PDF.</p>
 <h4 id="support-of-css-grid" tabindex="-1">Support of CSS grid</h4>
 <p>You must also use a recent version of these browsers because we use some CSS grid module properties for the construction of the pages. CSS grid is supported in most browsers since mid-2017. You can see here if your browser supports CSS grid: <a href="https://caniuse.com/#feat=css-grid">https://caniuse.com/#feat=css-grid</a></p>
 <h4 id="different-rendering-between-browsers" tabindex="-1">Different rendering between browsers</h4>
-<p>The result will not always be the same from one browser to another because they don’t use the same browser engine. For example, line-height is not managed in the same way on Firefox and Chrome. The result will also not be the same depending on the OS you are using. For example, hyphenation is managed in Chrome only on Apple OSX.</p>
+<p>The result will not always be the same from one browser to another because they don't use the same browser engine. For example, line-height is not managed in the same way on Firefox and Chrome. The result will also not be the same depending on the OS you are using. For example, hyphenation is managed in Chrome only on Apple OSX.</p>
 <p>We recommend staying on the same browser and OS for the design and generation of the PDF to avoid unpleasant surprises.</p>
 
   </article>
