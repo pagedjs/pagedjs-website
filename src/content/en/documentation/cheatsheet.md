@@ -2,7 +2,6 @@
 title: "Supported feature of the W3C specifications"
 date: 2019-09-03T18:23:22+02:00
 draft: false
-permalink: /documentation/cheatsheet/
 part: 14
 ---
 

@@ -1,21 +1,14 @@
 {% extends "base.njk" %}
-
 {% block side %}
     {# <p style="color: purple; position: absolute; left: -60px; top: 0; transform : rotate(90deg) ">single</p> #}
     {# {% include "_partials/readbuttons.njk" %} #}
 {% endblock %}
-
 {% block scripts %}{% endblock %}
-
 {% block content %}
-  <header>
-     <h1 id="title">{{title}}</h1>
-  </header>
+    <header>
+        <h1 id="title">{{ title }}</h1>
+    </header>
     {% from "createIndex.njk" import index with context %}
-    {{index(collections.journal, addIntro=true, reverse=true)}}
-    {# 
-      <aside class="paginator">
-          <a class="next alone" href="https://www.pagedjs.org/search/">Looking for something?</a>
-      </aside> 
-    #}
+    {{ index(collections.journal, addIntro=true, reverse=true) }}
 {% endblock %}
+

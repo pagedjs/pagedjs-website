@@ -1,7 +1,7 @@
 ---
 title: About Paged.js?
 menu: about
-permalink: /about/
+permalink: "{{lang}}/about/"
 symbol: ﺶ
 ---
 

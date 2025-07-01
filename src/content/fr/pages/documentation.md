@@ -1,8 +1,8 @@
 ---
 layout: /documentation/documentation-list.njk
 menu: documentation
-title: How to use Paged.js
+title: Comment utiliser Paged.js?
 class: documentation
-permalink: /documentation/index.html
+permalink: "{{lang}}/documentation/index.html"
 ---
 

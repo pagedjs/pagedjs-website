@@ -6,19 +6,12 @@
         <meta name="viewport" content="width=device-width">
         <title>Paged.js — {{ title }}</title>
         <script type="module">
-document
-.documentElement
-.classList
-.remove('no-js');
-document
-.documentElement
-.classList
-.add('js');
+        document.documentElement.classList.remove('no-js'); 
+        document.documentElement.classList.add('js'); 
         </script>
         <meta name="description" content="{{ site.description }}">
         <meta property="og:title" content="{{ title }} — {{ site.title }}">
-        <meta property="og:description"
-              content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
+        <meta property="og:description" content="">
         <meta property="og:image" content="{{ site.image }}">
         <meta property="og:image:alt" content="{{ site.imageAlt }}">
         <meta property="og:locale" content="{{ site.locale }}">
@@ -34,7 +27,7 @@ document
         {# twitter: do not track #}
         <meta name="twitter:dnt" content="on">
         {% block styleLayout %}{# TODO: add a way to change the layout from the yaml/code #}{% endblock %}
-        {% block styles %}<link rel="stylesheet" href="/css/{{ site.configuration.theme }}/main.css">{% endblock %}
+        {% block styles %}<link rel="stylesheet" href="/css/theme-pagedjs/main.css">{% endblock %}
         <link href="https://unpkg.com/prismjs@1.20.0/themes/prism.css"
               rel="stylesheet">
         <script>
@@ -66,6 +59,7 @@ document
         {% block content %}
             <main>
                 {{ content | safe }}
+                {% include "./_partials/i18n.njk" %}
             </main>
         {% endblock %}
         {% block footer %}

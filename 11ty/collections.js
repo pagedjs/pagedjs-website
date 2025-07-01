@@ -36,7 +36,7 @@ export default async function (eleventyConfig) {
   //documentation
   eleventyConfig.addCollection("documentation", (collectionApi) => {
     return collectionApi
-      .getFilteredByGlob("src/content/documentation/**/*.md")
+      .getFilteredByGlob("src/content/en/documentation/**/*.md")
 
       .sort((a, b) => a.data.date - b.data.date)
       .filter((item) => {
