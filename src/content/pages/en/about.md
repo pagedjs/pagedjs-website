@@ -2,7 +2,6 @@
 title: About Paged.js?
 menu: about
 permalink: /about/
-layout: singlepage.njk
 symbol: ﺶ
 ---
 

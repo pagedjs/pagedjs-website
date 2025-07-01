@@ -1,6 +1,6 @@
 ---
 title: A collection of templates
-layout: "template-collection.njk"
+layout: "templates/template-collection.njk"
 permalink: /templates/index.html
 # menu: templates
 class: templates

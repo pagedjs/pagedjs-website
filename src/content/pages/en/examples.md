@@ -1,7 +1,7 @@
 ---
 title: Made with paged.js
 menu: examples
-layout: examples.njk
+layout: examples/examples.njk
 ---
 
 Paged.js is in use in a lot of different projects, from publishing workflows to handcrafted books.

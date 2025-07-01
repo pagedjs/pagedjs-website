@@ -1,7 +1,6 @@
 ---
 title: Frequently Asked Questions about Paged.js
 menu: FAQ
-layout: singlepage.njk
 ---
 
 ## What are the differences between `paged.js` and `paged.polyfill.js`?

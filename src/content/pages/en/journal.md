@@ -1,7 +1,7 @@
 ---
 title: Journal
 menu: journal
-layout: journal-list.njk
+layout: journal/journal-list.njk
 class: posts
 permalink: /posts/
 ---

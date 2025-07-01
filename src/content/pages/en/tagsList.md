@@ -1,6 +1,6 @@
 ---
 permalink: /tags/
-layout: tagsList.njk
+layout: tags/tagsList.njk
 class: tags
 title: "Index"
 ---

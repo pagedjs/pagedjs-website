@@ -1,4 +1,4 @@
 {
   "permalink": "/templates/{{title | slugify}}/index.html",
-  "layout": "template-single.njk"
+  "layout": "templates/template-single.njk"
 }

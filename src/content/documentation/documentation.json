@@ -1,5 +1,5 @@
 {
-  "layout": "documentation-single.njk",
+  "layout": "documentation/documentation-single.njk",
   "permalink": "/{{lang}}/documentation/{{part}}-{{title | slug}}/",
   "addIntro": true,
   "addTags": false

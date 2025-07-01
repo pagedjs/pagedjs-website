@@ -1,6 +1,6 @@
 ---
 permalink: /index.html
-layout: homepage.njk
+layout: pages/homepage.njk
 class: homepage
 ---
 
