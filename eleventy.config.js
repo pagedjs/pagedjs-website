@@ -1,13 +1,13 @@
-const { EleventyHtmlBasePlugin } = require("@11ty/eleventy");
-const Cache = require("@11ty/eleventy-fetch");
-const pluginTOC = require("eleventy-plugin-nesting-toc");
-const markdownIt = require("markdown-it");
-const markdownItAnchor = require("markdown-it-anchor");
-const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
-const slugify = require("slugify");
+import { I18nPlugin, RenderPlugin, HtmlBasePlugin } from "@11ty/eleventy";
 
-module.exports = function (eleventyConfig) {
-  eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
+import markdownIt from "markdown-it";
+import pluginTOC from "eleventy-plugin-nesting-toc";
+import markdownItAnchor from "markdown-it-anchor";
+import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
+import slugify from "slug";
+
+export default async function (eleventyConfig) {
+  eleventyConfig.addPlugin(HtmlBasePlugin);
 
   eleventyConfig.addCollection("sortedByOrder", function (collectionApi) {
     return collectionApi.getAll().sort((a, b) => {
@@ -24,7 +24,7 @@ module.exports = function (eleventyConfig) {
     return [...collection.getFilteredByTag("chapter")];
   });
 
-  const markdown = require("markdown-it")({
+  const markdown = markdownIt({
     html: true,
     breaks: true,
     linkify: true,
@@ -183,7 +183,7 @@ module.exports = function (eleventyConfig) {
       data: "data",
     },
   };
-};
+}
 
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
