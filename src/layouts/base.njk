@@ -1,16 +1,11 @@
 <!DOCTYPE html>
-
 {# from https://www.matuzo.at/blog/html-boilerplate/ #}
-
-<html lang="{% if lang %}{{lang}}{% else %} {{site.lang}}{% endif %}" class="no-js">
-
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width">
-
-<title>Paged.js — {{ title }}</title>
-
-<script type="module">
+<html lang="{{ locale }} dir="{{ dir }} class="no-js">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Paged.js — {{ title }}</title>
+        <script type="module">
 document
 .documentElement
 .classList
@@ -19,38 +14,30 @@ document
 .documentElement
 .classList
 .add('js');
-</script>
-<meta name="description" content="{{site.description}}">
-<meta property="og:title" content="{{title}} — {{site.title}}">
-        <meta property="og:description" content="{% if description %}{{description}}{% else %}{{site.description}}{% endif %}">
-        <meta property="og:image" content="{{site.image}}">
-        <meta property="og:image:alt" content="{{site.imageAlt}}">
-        <meta property="og:locale" content="{{site.locale}}">
+        </script>
+        <meta name="description" content="{{ site.description }}">
+        <meta property="og:title" content="{{ title }} — {{ site.title }}">
+        <meta property="og:description"
+              content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
+        <meta property="og:image" content="{{ site.image }}">
+        <meta property="og:image:alt" content="{{ site.imageAlt }}">
+        <meta property="og:locale" content="{{ site.locale }}">
         <meta property="og:type" content="website">
         <meta name="twitter:card" content="summary_large_image">
         <meta property="og:url" content="site.url">
         <link rel="canonical" href="https://www.mywebsite.com/page">
-
         <link rel="icon" href="/favicon.ico">
         <link rel="icon" href="/favicon.svg" type="image/svg+xml">
         <link rel="apple-touch-icon" href="/apple-touch-icon.png">
         <link rel="manifest" href="/my.webmanifest">
-        <meta name="theme-color" content="{{browser-theme-color}}">
-
+        <meta name="theme-color" content="{{ browser-theme-color }}">
         {# twitter: do not track #}
         <meta name="twitter:dnt" content="on">
-        {% block styleLayout %}
-            {# TODO: add a way to change the layout from the yaml/code #}
-
-        {% endblock %}
-
-        {% block styles %}
-            <link rel="stylesheet" href="/css/{{site.configuration.theme}}/main.css">
-        {% endblock %}
-
-        <link href="https://unpkg.com/prismjs@1.20.0/themes/prism.css" rel="stylesheet">
+        {% block styleLayout %}{# TODO: add a way to change the layout from the yaml/code #}{% endblock %}
+        {% block styles %}<link rel="stylesheet" href="/css/{{ site.configuration.theme }}/main.css">{% endblock %}
+        <link href="https://unpkg.com/prismjs@1.20.0/themes/prism.css"
+              rel="stylesheet">
         <script>
-
         // if there is a dark mode in the storage, use that
         if (localStorage.getItem('{{site.siteId}}Nightmode') == "true") {
         document
@@ -59,49 +46,34 @@ document
         .add('nightmode')
         }
         </script>
-
         {% block scriptHead %}
-
             {% include "_partials/scripthead.njk" %}
-
         {% endblock %}
-        </head>
-
-        <body  class="{{class}} {% block bodyclass %}{% endblock %}" style="{% if symbol %}--symbol-content: '{{symbol}}';{% endif %}">
-
+    </head>
+    <body class="{{ class }} {% block bodyclass %}{% endblock %}"
+          style="{% if symbol %}--symbol-content: '{{ symbol }}';
+                 {% endif %}">
         {% include "_partials/cropmarks.njk" %}
-
         {% block background %}{% endblock %}
-
         {% block topbar %}
             {% include "_partials/menu.njk" %}
         {% endblock %}
-
         {% block side %}
-        {#
+            {#
         {% include "_partials/readbuttons.njk" %}
-        #} 
+#}
         {% endblock %}
-
         {% block content %}
             <main>
-            {{content | safe}}
+                {{ content | safe }}
             </main>
         {% endblock %}
-
         {% block footer %}
             {% include "_partials/footer.njk" %}
         {% endblock %}
-
-        {# check instant #}
-        {# <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script> #}
-        {% block scripts %}
-            {# <script type="module" src="/js/read.js"></script> #}
-        {% endblock %}
-
+        {% block scripts %}{# <script type="module" src="/js/read.js"></script> #}{% endblock %}
         {% block printpreview %}{% endblock %}
         <script>
-
         if (document.querySelector('.toc .title')) {
         document.querySelector('.toc .title').addEventListener("click", function() {
         document.querySelector('.toc').classList.toggle("show");
@@ -110,34 +82,6 @@ document
 
         document.querySelector(".menu-call").addEventListener("click", function() {document.querySelector(".menu").classList.toggle("hide")});
 
-
         </script>
-        
-        <!-- 
-        Donation nation
-        -->
-
-        <script>
-        (function () {
-        if (document.querySelector('.commitchange-donate[data-fixed]')) 
-        return;
-        var cc_donate = document.createElement('div');
-        cc_donate.innerHTML = "<a data-fixed class='commitchange-donate'></a>";
-        document
-        .body
-        .appendChild(cc_donate);
-        var npo = 5726;
-        var script = document.createElement('script');
-        var first = document.getElementsByTagName('script')[0];
-        script.setAttribute('data-npo-id', npo);
-        script.id = 'commitchange-script';
-        script.src = 'https://us.commitchange.com/js/donate-button.v2.js';
-        first
-        .parentNode
-        .insertBefore(script, first);
-        })();
-
-
-        </script>
-        </body>
-        </html>
+    </body>
+</html>
