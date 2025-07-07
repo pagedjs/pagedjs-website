@@ -1,0 +1,140 @@
+:root {
+  --color-primary: rebeccapurple;
+  --color-query-0: #b1b960;
+  --color-query-1: #c2e6d3;
+  --color-query-2: #cfcca6;
+  --color-query-3: #94d659;
+  --color-query-4: #e1c4d9;
+  --color-query-5: #b7a170;
+  --color-white: #fff;
+
+  --color-grid: rgba(192, 186, 126, 0.9);
+
+  --tint: 300;
+  --light: 0%;
+  --saturation: 100%;
+  --color-background: hsl(0, 0%, 100%);
+  --color-lightest-grey: rgb(245, 245, 245);
+  --color-lightest-grey: hsl(var(--tint), 0%, 88%);
+  --symbol-content: "❧";
+  --shadow-paper:
+    0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12),
+    0 4px 4px rgba(0, 0, 0, 0.12), 0 8px 8px rgba(0, 0, 0, 0.12),
+    0 16px 16px rgba(0, 0, 0, 0.12);
+  --shadow-main: var(--shadow-paper);
+  --shadow-paper: none;
+  --shadow-main: none;
+  --color-body: hsl(var(--tint), 0%, 23%);
+  --color-link: var(--color-accent);
+  --color-paper: var(--color-background);
+  --color-accent: var(--color-primary);
+  /* --color-primary: var(--color-body); */
+  --color-grey: #ddd;
+  --color-darkest-grey: #999;
+  --font-serif: "Linden Hill", serif;
+  --font-sans: "Jost", sans-serif;
+  --font-mono: "Victor Mono";
+  --font-size: 1.2em;
+  --color-cropmark: black;
+  --color-highlight: yellow;
+}
+
+@font-face {
+  font-family: jost;
+  src:
+    url(/fonts/Jost-400-Book.woff2) format("woff2"),
+    url(/fonts/Jost-400-Book.woff) format("woff"),
+    url(/fonts/Jost-400-Book.otf) format("opentype");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: jost;
+  src:
+    url(/fonts/Jost-400-BookItalic.woff2) format("woff2"),
+    url(/fonts/Jost-400-BookItalic.woff) format("woff"),
+    url(/fonts/Jost-400-BookItalic.otf) format("opentype");
+  font-style: italic;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: jost;
+  src:
+    url(/fonts/Jost-600-Semi.woff2) format("woff2"),
+    url(/fonts/Jost-600-Semi.woff) format("woff"),
+    url(/fonts/Jost-600-Semi.otf) format("opentype");
+  font-style: normal;
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: jost;
+  src:
+    url(/fonts/Jost-600-SemiItalic.woff2) format("woff2"),
+    url(/fonts/Jost-600-SemiItalic.woff) format("woff"),
+    url(/fonts/Jost-600-SemiItalic.otf) format("opentype");
+  font-style: italic;
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: victor mono;
+  src:
+    url(/fonts/VictorMono-Light.woff2) format("woff2"),
+    url(/fonts/VictorMono-Light.woff) format("woff"),
+    url(/fonts/VictorMono-Light.otf) format("opentype");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: victor mono;
+  src:
+    url(/fonts/VictorMono-LightItalic.woff2) format("woff2"),
+    url(/fonts/VictorMono-LightItalic.woff) format("woff"),
+    url(/fonts/VictorMono-LightItalic.otf) format("opentype");
+  font-style: italic;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: victor mono;
+  src:
+    url(/fonts/VictorMono-Regular.woff2) format("woff2"),
+    url(/fonts/VictorMono-Regular.woff) format("woff"),
+    url(/fonts/VictorMono-Regular.otf) format("opentype");
+  font-style: normal;
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: victor mono;
+  src:
+    url(/fonts/VictorMono-Italic.woff2) format("woff2"),
+    url(/fonts/VictorMono-Italic.woff) format("woff"),
+    url(/fonts/VictorMono-Italic.otf) format("opentype");
+  font-style: italic;
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: linden hill;
+  src:
+    url(/fonts/LindenHill-Regular.woff2) format("woff2"),
+    url(/fonts/LindenHill-Regular.woff) format("woff"),
+    url(/fonts/LindenHill-Regular.otf) format("opentype");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: linden hill;
+  src:
+    url(/fonts/LindenHill-Italic.woff2) format("woff2"),
+    url(/fonts/LindenHill-Italic.woff) format("woff"),
+    url(/fonts/LindenHill-Italic.otf) format("opentype");
+  font-style: italic;
+  font-weight: 400;
+}

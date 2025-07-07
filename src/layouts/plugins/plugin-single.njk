@@ -30,7 +30,6 @@
                 <section class="code">
                     {% set url = ['static/plugins/', plugin.filename] | join %}
                     {% highlight "js" %}
-                    {{ js | log }}
                     {% include url ignore missing %}
                 {% endhighlight %}
             </section>
