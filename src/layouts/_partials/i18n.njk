@@ -1,10 +1,13 @@
 <aside class="lang">
-    <ul>
+    <ul class="lang-selector">
         {% for link in page.url | locale_links %}
-            {%- if not loop.first %},{% endif %}
-            <a href="{{ link.url }}"
-               lang="{{ link.lang }}"
-               hreflang="{{ link.lang }}">{{ link.label }}</a>
+            <li class="actived-lang">{{ page.lang }}</li>
+            <li>
+                <a href="{{ link.url }}"
+                   lang="{{ link.lang }}"
+                   title="{{ link.label }}"
+                   hreflang="{{ link.lang }}">{{ link.lang }}</a>
+            </li>
         {% endfor %}
     </ul>
 </aside>

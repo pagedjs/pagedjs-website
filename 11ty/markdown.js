@@ -12,9 +12,11 @@ export default function (eleventyConfig) {
   }).use(markdownItAnchor, {});
 
   eleventyConfig.addFilter("markdownify", function (rawString) {
+    if (!rawString) return "";
     return markdown.render(rawString);
   });
   eleventyConfig.addFilter("markdownifyInline", function (rawString) {
+    if (!rawString) return "";
     return markdown.render(rawString);
   });
 
