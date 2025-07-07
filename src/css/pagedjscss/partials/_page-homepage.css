@@ -2,81 +2,77 @@
   min-height: 80vh;
   align-items: center;
   justify-content: center;
+  width: 100%;
   grid-template-rows: auto 1fr;
-}
 
-.homepage .running-head {
-  height: 50px;
-  display: flex;
-  justify-content: flex-end;
-}
+  .running-head {
+    display: flex;
+    justify-content: center;
+  }
 
-.homepage .running-head .menu {
-  height: auto;
-}
+  .running-head .menu {
+    height: auto;
+  }
 
-.homepage .back-home {
-  background: 0 0;
-  border: none;
-  box-shadow: none;
-}
+  .back-home {
+    background: 0 0;
+    border: none;
+    box-shadow: none;
+  }
 
-.homepage article {
-  display: flex;
-  /* align-content: center; */
-  /* justify-content: center; */
-  grid-column: left/end;
-  /* grid-gap: 8ch; */
-  font-size: 1em;
-  height: 100%;
-}
+  article {
+    display: flex;
+    grid-column: left/end;
+    font-size: 1em;
+    height: 100%;
 
-.homepage article svg {
-  width: 80%;
-}
+    .contents {
+      margin: auto;
+      display: flex;
+      flex-direction: column;
 
-.homepage article p {
-  margin: 0 auto;
-  margin-bottom: 0;
-  max-width: 40ch;
-  margin-bottom: 1em;
-  text-align: center;
-  font-size: 1em;
-}
+      > a {
+        background: none;
+      }
+    }
 
-.homepage .contents {
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-}
+    .intro-logo {
+      width: 81%;
+      margin: 0 auto 2em;
+      display: block;
+    }
+  }
 
-.homepage .intro-logo {
-  width: 81%;
-  margin: 0 auto 2em;
-  display: block;
-}
+  p {
+    margin: 0 auto;
+    margin-bottom: 0;
+    max-width: 40ch;
+    margin-bottom: 1em;
+    font-size: 1em;
+    text-align: center;
+  }
 
-.homepage article ul {
-  font-size: 0.9em;
-  list-style-type: none;
-  text-transform: uppercase;
-  display: flex;
-  justify-content: center;
-  justify-self: flex-end;
-}
+  ul {
+    font-size: 0.9em;
+    list-style-type: none;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    justify-self: flex-end;
 
-.homepage article ul li::before {
-  content: none;
-}
-
-.homepage article ul li {
-  letter-spacing: 0.2ch;
-  display: flex;
-  padding: 0;
-  margin: 0;
-  flex-direction: row;
-  display: inline-block;
-  font-family: var(--font-sans);
-  padding: 1em;
-  text-align: center;
+    li {
+      letter-spacing: 0.2ch;
+      display: flex;
+      padding: 0;
+      margin: 0;
+      flex-direction: row;
+      display: inline-block;
+      font-family: var(--font-sans);
+      padding: 1em;
+      text-align: center;
+      &::before {
+        content: none;
+      }
+    }
+  }
 }
