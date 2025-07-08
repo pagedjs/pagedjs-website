@@ -5,13 +5,17 @@ class: homepage
 ---
 
 
-<a href="about">
-    {% include "_partials/pagedjs-logo.njk" %}
-</a>
 
-A javascript library to transform html document into beautiful print-ready pdf.
 
-*Founded by Adam Hyde <br> maintained by Julien Taquet, Fred Chasen and Gijs de Heij*
+<figure class="intro-logo">
+{% include "_partials/pagedjs-logo.njk" %}
+<figcaption>
+<p class="baseline">A javascript library to transform HTML document into beautiful print-ready pdf.</p>
+
+<p><em>Founded by Adam Hyde and<br> maintained by Julien Taquet, Fred Chasen and Gijs de Heij</em></p></figcaption>
+</figure>
+
+
 
 - open source
 - standards compliant

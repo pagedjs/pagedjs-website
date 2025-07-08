@@ -5,6 +5,7 @@ menu: FAQ
 
 ## What are the differences between `paged.js` and `paged.polyfill.js`?
 
+
 Paged.js comes as two different scripts
 
 1. `paged.js`: this version of the script let the user define the

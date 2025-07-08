@@ -15,21 +15,21 @@ export default async function (eleventyConfig) {
   // create examples
   eleventyConfig.addCollection("examples", (collectionApi) => {
     return collectionApi
-      .getFilteredByGlob("src/content/examples/**/*.md")
+      .getFilteredByGlob("src/content/en/examples/**/*.md")
       .sort((a, b) => a.data.part - b.data.part);
   });
 
   //templates for css
   eleventyConfig.addCollection("templates", (collectionApi) => {
     return collectionApi
-      .getFilteredByGlob("src/content/templates/**/*.md")
+      .getFilteredByGlob("src/content/en/templates/**/*.md")
       .sort((a, b) => a.data.title - b.data.title);
   });
 
   //paged.js plugins
   eleventyConfig.addCollection("plugins", (collectionApi) => {
     return collectionApi
-      .getFilteredByGlob("src/content/plugins/**/*.md")
+      .getFilteredByGlob("src/content/en/plugins/**/*.md")
       .sort((a, b) => a.data.title - b.data.title);
   });
 

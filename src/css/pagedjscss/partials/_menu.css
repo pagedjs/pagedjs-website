@@ -13,92 +13,76 @@
     -4px 4px 0 var(--color-paper),
     0 4px 0 var(--color-paper),
     4px 4px 0 var(--color-paper);
-}
 
-.running-head .baseline {
-  line-height: 1;
-  position: relative;
-  font-family: var(--font-sans);
-  font-size: 0.8em;
-  font-variant: all-small-caps;
-  top: 5px;
-  margin-left: 1ch;
-}
-
-.running-head .back-home {
-  width: 14ch;
-  background: 0 0;
-  padding: 0;
-  position: relative;
-  top: 0;
-  margin-left: 0;
-  min-width: 10ch;
-  box-shadow: none;
-  border: none;
-}
-
-.running-head #paged-logo {
-  background: 0 0;
-}
-
-.menu {
-  grid-column: left/end;
-  margin: 0;
-  font-family: var(--font-sans);
-  text-transform: uppercase;
-  font-variant: all-small-caps;
-  font-size: 1.1em;
-}
-
-.menu.hide {
-  display: flex;
-}
-
-.menu ul {
-  width: 100%;
-  list-style-type: none;
-  display: flex;
-  justify-content: space-between;
-  margin: 0;
-  flex-wrap: wrap;
-}
-
-.menu ul li {
-  margin: 0;
-  margin-left: 3ch;
-  line-height: 1.6;
-}
-
-.menu ul li.active {
-  color: var(--color-primary);
-  box-shadow: 0 5px 0 0 var(--color-primary);
-}
-
-.menu ul li a {
-  font-style: normal;
-  text-decoration: none;
-  background: var(--color-paper);
-
-  &:hover {
-    color: var(--color-primary);
+  .back-home {
+    width: 14ch;
+    background: 0 0;
+    padding: 0;
+    position: relative;
+    top: 0;
+    margin-left: 0;
+    min-width: 10ch;
+    box-shadow: none;
+    border: none;
   }
-}
 
-.menu ul li::before {
-  content: none;
-  margin: 0;
-}
+  #paged-logo {
+    background: 0 0;
+  }
 
-.menu ul .gitlab-link svg {
-  display: none;
-}
+  .menu {
+    grid-column: left/end;
+    margin: 0;
+    font-family: var(--font-sans);
+    text-transform: uppercase;
+    font-variant: all-small-caps;
+    font-size: 1.1em;
 
-.menu-call {
-  font-family: var(--font-sans);
-  padding: 1em;
-  background: 0 0;
-  border: none;
-  position: absolute;
-  right: 0;
-  top: 14px;
+    &.hide {
+      display: flex;
+    }
+
+    ul {
+      padding: 0;
+      width: 100%;
+      list-style-type: none;
+      display: flex;
+      justify-content: space-between;
+      gap: 0 2ch;
+      margin: 0;
+      flex-wrap: wrap;
+      letter-spacing: 0.1ch;
+
+      li {
+        margin: 0;
+        padding: 0;
+        &.active {
+          color: var(--color-primary);
+          box-shadow: 0 5px 0 0 var(--color-primary);
+        }
+      }
+      a {
+        font-style: normal;
+        text-decoration: none;
+        background: var(--color-paper);
+        padding: 0 0.3ch;
+
+        &:hover {
+          background: var(--color-primary);
+          color: white;
+          box-shadow: 0 5px 0 0 var(--color-primary);
+        }
+      }
+    }
+  }
+
+  .menu-call {
+    font-family: var(--font-sans);
+    padding: 1em;
+    background: 0 0;
+    border: none;
+    position: absolute;
+    right: 0;
+    top: 14px;
+  }
 }

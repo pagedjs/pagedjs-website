@@ -46,6 +46,9 @@
       font-family: var(--font-sans);
       font-size: 0.7em;
       margin-bottom: 0;
+      p {
+        margin: 0.2em 0 1em;
+      }
     }
 
     .intro {
@@ -54,7 +57,7 @@
       line-height: 1.5;
       max-width: 50ch;
       margin-top: 0.3em;
-      color: var(--color-primary);
+      /* color: var(--color-primary); */
       padding-left: 1em;
       border-left: 2px solid var(--color-grey);
       max-width: 51ch;
@@ -72,6 +75,7 @@
       border-color: transparent;
       margin-bottom: 0;
       line-height: 1.1;
+      /* font-weight: 600; */
       &::before {
         content: ".................................................................................................................................................";
         text-align: right;
@@ -91,6 +95,10 @@
         padding-right: 0.5ch;
         font-style: italic;
         line-height: 1.1;
+
+        &:hover {
+          color: var(--color-primary);
+        }
 
         &::after {
           padding-left: 1ch;

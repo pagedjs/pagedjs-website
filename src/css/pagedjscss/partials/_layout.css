@@ -353,9 +353,6 @@ article {
     }
   }
 
-  header {
-  }
-
   p,
   ul,
   ol,
@@ -508,46 +505,12 @@ a.tag {
   margin-top: 1em;
 }
 
-.lang {
-  grid-column: 1/-1;
-  font-size: 0.8em;
-  margin: 0;
-}
-
-.lang-selector {
-  margin: 0;
-  width: 100%;
-  height: auto;
-  list-style-type: none;
-  display: flex;
-  gap: 1ch;
-  padding: 0;
-  justify-content: end;
-  width: 100%;
-
-  li {
-    font-style: italic;
-    text-transform: lowercase;
-
-    &.actived-lang {
-      color: var(--color-primary);
-    }
-
-    a {
-      display: flex;
-      align-content: center;
-      justify-content: center;
-      text-decoration: underline;
-    }
-  }
-}
-
 section {
   grid-column: left/end;
 }
 
 header {
-  --color-primary: var(--color-body);
+  /* --color-primary: var(--color-body); */
   display: flex;
   flex-direction: column;
   position: relative;
@@ -603,5 +566,35 @@ header {
     margin-left: 2ch;
     font-weight: 400;
     background: 0 0;
+  }
+}
+
+.lang {
+  font-size: 1.2em;
+  grid-column: 1/-1;
+  margin: 0;
+}
+
+.lang-selector {
+  margin: 0;
+  width: 100%;
+  height: auto;
+  list-style-type: none;
+  display: flex;
+  gap: 1ch;
+  padding: 0;
+  justify-content: start;
+  width: 100%;
+  font-style: italic;
+  text-transform: lowercase;
+
+  a {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    text-decoration: underline;
+    &:hover {
+      color: var(--color-primary);
+    }
   }
 }

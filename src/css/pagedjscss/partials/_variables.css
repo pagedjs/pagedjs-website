@@ -1,5 +1,5 @@
 :root {
-  --color-primary: rebeccapurple;
+  --color-primary: #0e916c;
   --color-query-0: #b1b960;
   --color-query-1: #c2e6d3;
   --color-query-2: #cfcca6;
@@ -28,7 +28,6 @@
   --color-link: var(--color-accent);
   --color-paper: var(--color-background);
   --color-accent: var(--color-primary);
-  /* --color-primary: var(--color-body); */
   --color-grey: #ddd;
   --color-darkest-grey: #999;
   --font-serif: "Linden Hill", serif;
