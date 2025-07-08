@@ -4,24 +4,22 @@ permalink: "/missing-i18n.json"
 
 {
 "existing languages": [
-{% for lang in languages %}
+{%- for lang in languages -%}
     "{{ lang }}"
-    {%- if not loop.last %},
-    {% endif -%}
-{% endfor %}
-],
+    {%- if not loop.last -%},
+    {%- endif -%}
+{%- endfor -%}],
 "articles": [
-{% for unit in collections.en %}
+{%- for unit in collections.en -%}
+    {% if not unit.data.notranslation %}{% endif %}
     {
-    "src": "{{ unit.inputPath }}",
-    "link": "{{ unit.pagepage.url }}",
-    "unit": "{{ unit.data.title }}",
-    "slug": "{{ unit.data.title | slugify }}",
-    "lang": [
-    {"en": true
-    {% for link in unit.page.url | locale_links %}",{{ link.lang }}: true"{%- endfor %}}
-        ]
-        }{%- if  not loop.last -%},{%- endif %}
-        {# {% for link in unit.page.url | locale_links %}{{ |log }}{% endfor %} #}
-    {% endfor %}
-    ]
+    {% if  unit.inputPath %}"src": {{ unit.inputPath | dump | safe }},{% endif %}
+    {% if unit.page.url %}"link": {{ unit.page.url| dump | safe }},{% endif %}
+    {% if unit.data.title %}"unit": {{ unit.data.title| dump | safe }},{% endif %}
+    "langs": [
+    {%- for link in unit.page.url | locale_links -%}{ "{{ link.lang }}": true },{% endfor %}
+    {"{{ unit.data.lang }}": true}
+    ]}
+    {%- if  not loop.last %},{% endif %}
+{% endfor %}
+]}
