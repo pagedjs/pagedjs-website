@@ -33,6 +33,11 @@ export default async function (eleventyConfig) {
       .sort((a, b) => a.data.title - b.data.title);
   });
 
+  //collection all files in english (all default ones)
+  eleventyConfig.addCollection("en", (collectionApi) => {
+    return collectionApi.getFilteredByGlob("src/content/en/**/*.md");
+  });
+
   //documentation
   eleventyConfig.addCollection("documentation", (collectionApi) => {
     return collectionApi
