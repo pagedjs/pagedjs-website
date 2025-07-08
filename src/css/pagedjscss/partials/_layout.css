@@ -559,42 +559,32 @@ header {
     font-weight: 400;
     margin-bottom: 0;
     margin-top: 0;
-  }
 
-  .meta a {
-    font-style: normal;
-    margin-left: 2ch;
-    font-weight: 400;
-    background: 0 0;
-  }
-}
+    a {
+      font-style: normal;
+      margin-left: 2ch;
+      font-weight: 400;
+      background: 0 0;
+    }
 
-.lang {
-  font-size: 1.2em;
-  grid-column: 1/-1;
-  margin: 0;
-}
-
-.lang-selector {
-  margin: 0;
-  width: 100%;
-  height: auto;
-  list-style-type: none;
-  display: flex;
-  gap: 1ch;
-  padding: 0;
-  justify-content: start;
-  width: 100%;
-  font-style: italic;
-  text-transform: lowercase;
-
-  a {
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    text-decoration: underline;
-    &:hover {
-      color: var(--color-primary);
+    .alternative-lang {
+      font-style: italic;
+      font-family: var(--font-serif);
+      color: inherit;
+      font-size: 1.12em;
+      &:hover {
+        font-style: italic;
+        color: var(--color-primary);
+      }
     }
   }
+}
+
+.help-wanted {
+  background: #f5f7f8;
+  font-family: var(--font-sans);
+  font-size: 0.8em;
+  padding: 0.6em 2ch;
+  margin: 1em 0 5em;
+  border-radius: 8px;
 }
