@@ -20,9 +20,9 @@
     </header>
     <article>
         {# // if the page is only in one lang, welcome a translation #}
-        {% if translate == "no" %}
-            {% include "_partials/to-translate.njk" %}
-        {% endif %}
+        {# {% if translate == "no" %} #}
+        {% include "_partials/to-translate.njk" %}
+        {# {% endif %} #}
         {% if addIntro %}
             <p class="intro">
                 {# {{ intro }} #}

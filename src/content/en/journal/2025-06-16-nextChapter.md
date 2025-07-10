@@ -7,7 +7,6 @@ class:
 intro: "Features, people and grants, an introduction to the next chapter of paged.js"
 ---
 
-
 I can still picture the room where Adam Hyde put Fred Chasen and myself around the table, looking at options for making pdf from html, and, while we couldn’t find a way that was satisfying enough, he looked at us, and said: “let’s just make it”. 
 
 And then we started, and very early in the process, Julie Blanc joined, and in a couple of months we had a working proof of concept, and in not so much more, a full fledge library. All that was possible thanks to all the energy and ressources that Adam and Coko put into the project.
@@ -56,15 +55,31 @@ Gjis de Heis:
 
 Julie Blanc officially stopped working on paged.js when she started working on her thesis [ “Composer avec les technologies du web ” ](http://phd.julie-blanc.fr/) (*Composing with web technologies. Collective instrumental genesis for the development of a community of practice of graphic designers*). The thesis observes how paged.js was used by graphic designers to share knowledge and build communities, and she defended it with talent, and she’s now Julie Blanc, PhD. If you need to hire someone who could help you make amazing publications (printed or not), you can check [https://studio-cascade.fr/](). She’s still around paged.js quite a lot, and part of the Weasyprint × Paged.js project.
 
-Coko’s been supporting paged.js for all of us for a long time, and we wouldn’t be where we are now if it wasn’t for Adam Hyde’s time, energy, trust and generosity. I don’t think i’ll ever thank him enough for all the support he gave each one of us. Coko is not financially supporting paged.js anymore, but Adam is still around to help, all is good.
-
-
-that it’s nice that we can actually share the burden a bi
+Coko’s been supporting paged.js for all of us for a long time, and we wouldn’t be where we are now if it wasn’t for Adam Hyde’s time, energy, trust and generosity. I don’t think i’ll ever thank him enough for all the support he gave each one of us. Coko is not financially supporting paged.js anymore, but Adam is still around to help, and we wouldn’t like it any other way.
 
 
 ### on paged.js future
 
-We’re also looking at how we can welcome more users to share knowledge and support each others. Over the last years, we’ve tried the gitlab issues and conversations, Coko’s mattermost, forums, and wikis but somehow this never worked out, and a lot of knowledge about paged.js are put in different places on the web, either as part of other project that use paged.js or simply as blog articles. We’re also looking at how we can manage translations of the documentation, writing it together. 
+This post is already too long (and i wrote it in french & english, maybe i’m the one who find it long). So, to not take too much of your time, a couple of info:
+
+- Paged.js a mastodon account on fosstodon: https://fosstodon.org/@pagedjs, we don’t use the twitter one anymore. 
+
+- Paged.js code is now on github, same for the website, and we’re slowly bringing back some of the plugins and stuff we did here and there. (https://github.com/pagedjs/)
+
+- We’re now available on contact at pagedjs dot org
+- Paged.js now has a Matrix channel. Come to chat and discuss the futur with us: https://matrix.to/#/#pagedjs:matrix.org
+- The website is now fully internationalized. Thanks for the amazing amazing (not a typo, i wrote it twice) [Eleventy](https://11ty.dev). You can now join the translation effort if you feel like it :D. 
+
+There are a bunch of other things to share in the coming weeks, from pagedjs structural changes to documentation update/rewriting (for devs & users), and other things we want to bring back (plugins, templates, etc.)
+
+With the hope that you’ll want to take part in Paged.js future, as you may have done before. 
+
+See yall very soon.
+
+<p class="signature">
+julientaq 
+</p>
+
 
 
 
