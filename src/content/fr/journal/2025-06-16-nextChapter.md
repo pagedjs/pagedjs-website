@@ -53,8 +53,7 @@ Le premier changement est l’arrivée de Gijs de Heij dans la *core team*. Gijs
 
 Le second changement est mon implication dans le code de paged.js. Jusqu’à présent, il s’agissait d’accompagner Fred et de tester les changements pour en rendre compte à la communauté ou proposer des plugins. Je serai beaucoup plus partie prenante dans la mise à jour du code, l’implémentation de features et l’écriture de spécifications, en plus de m’assurer que tout le monde soit ravi, que les frustrations soient réduites et que les contributeurs se sentent à l’aise.
 
-Sur le reste de l’équipe, Fred est toujours là, mais son temps sera forcément moindre, et 
-si Julie ne fait plus partie officiellement de l’équipe depuis qu’elle a commencé à écrire sa thèse (dont le sujet ne peux être plus dans le mille: [ “Composer avec les technologies du web ” ](http://phd.julie-blanc.fr/), et qu’elle a soutenu avec la plus jolie des réussites), elle n’est jamais vraiment loin de l’équipe, ni des questions qui nous concernent.
+Sur le reste de l’équipe, Fred est toujours là, mais son temps sera forcément moindre, et si Julie ne fait plus partie officiellement de l’équipe depuis qu’elle a commencé à écrire sa thèse (dont le sujet ne peux être plus dans le mille: [ “Composer avec les technologies du web ” ](http://phd.julie-blanc.fr/), et qu’elle a soutenu avec la plus jolie des réussites), elle n’est jamais vraiment loin de l’équipe, ni des questions qui nous concernent.
 
 Coko a été un super espace dans lequel dévlopper paged.js et nous ne serions pas là où on en est sans le temps, l’énergie, la confiance et la générosité d’Adam Hyde, et si Coko ne participe plus au financement de paged.js, Adam n’est jamais loin pour nous aider.  
 

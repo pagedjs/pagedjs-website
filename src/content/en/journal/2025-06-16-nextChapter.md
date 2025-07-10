@@ -42,20 +42,13 @@ Second, Paged.js has also been accepted for a NGIzero grant to support the impor
 ### Meet the team
 
 
-First, Gjis de Heis is joining the team as a core maintainer. While Fred is working a fulltime position at Mozilla, we decided to redraw a bit how the team work around paged.js. Instead of putting everything of Fred’s shoulders, we’re moving toward a team of core developpers, as Gijs and myself will be more involved into paged.js development by contributing codes, features and managing user support.
+First, Gijs de Heij is joining the team as a core maintainer. While Fred is working a fulltime position at Mozilla, we decided to redraw a bit how the team work around paged.js. Instead of putting everything of Fred’s shoulders, we’re moving toward a team of core developpers, as Gijs and myself will be more involved into paged.js development by contributing codes, features and managing user support.
 
-Let’s introduce ourselve:
+Gijs is an amazing designer / developer, part for quite some time now of the Open Source Publishing collective, and he’s been working with paged.js for quite a long time to now what work, what doesn’t, what need a work around and how to make it work anyway.
 
-i’ll start, as i have the microphone: i’m julien taquet and I’ve been working for Coko since the beginning, and on paged.js since its debut. I’m now focussing my effort on paged.js (and only paged.js after years of doing too many different things). I’m in charge of making things run smoothly, developping paged.js features, writing specs, organizing things, welcoming folks and reducing the frustration around paged.js when some appears. Nice to meet ya if we’ve never met, happy to see you again if we did :)
+As Fred’s time is reduced, his work on paged.js will be less visible, and if Julie officially stopped working on paged.js when she started working on her thesis [ “Composer avec les technologies du web ” ](http://phd.julie-blanc.fr/) (*Composing with web technologies. Collective instrumental genesis for the development of a community of practice of graphic designers*). The thesis observes how paged.js was used by graphic designers to share knowledge and build communities, and she defended it with talent, and she’s now Julie Blanc, PhD. Even if she has many others things to attend to, she’s still around paged.js quite a lot, and part of the Weasyprint × Paged.js project.
 
-Fred Chasen:
-
-
-Gjis de Heis:
-
-Julie Blanc officially stopped working on paged.js when she started working on her thesis [ “Composer avec les technologies du web ” ](http://phd.julie-blanc.fr/) (*Composing with web technologies. Collective instrumental genesis for the development of a community of practice of graphic designers*). The thesis observes how paged.js was used by graphic designers to share knowledge and build communities, and she defended it with talent, and she’s now Julie Blanc, PhD. If you need to hire someone who could help you make amazing publications (printed or not), you can check [https://studio-cascade.fr/](). She’s still around paged.js quite a lot, and part of the Weasyprint × Paged.js project.
-
-Coko’s been supporting paged.js for all of us for a long time, and we wouldn’t be where we are now if it wasn’t for Adam Hyde’s time, energy, trust and generosity. I don’t think i’ll ever thank him enough for all the support he gave each one of us. Coko is not financially supporting paged.js anymore, but Adam is still around to help, and we wouldn’t like it any other way.
+Coko has been supporting paged.js for all of us for a long time, and we wouldn’t be where we are now if it wasn’t for Adam Hyde’s time, energy, trust and generosity. I don’t think i’ll ever thank him enough for all the support he gave to each one of us. And even if Coko is not financially supporting paged.js anymore, Adam is still around to help, and we wouldn’t like it any other way.
 
 
 ### on paged.js future
