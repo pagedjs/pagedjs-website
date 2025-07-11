@@ -2,29 +2,29 @@
 title: About Paged.js?
 menu: about
 permalink: "{{lang}}/about/"
-symbol: ﺶ
+# symbol: ﺶ
 ---
 
 Paged.js is a free and open source JavaScript library that paginates content in the browser to create PDF output from any HTML content. This means you can design works for print (eg. books) using HTML and CSS!
 
 Paged.js follows the Paged Media standards published by the W3C (ie the Paged Media Module, and the Generated Content for Paged Media Module). In effect Paged.js acts as a [polyfill](<https://en.wikipedia.org/wiki/Polyfill_(programming)>) for the CSS modules to print content using features that are not yet natively supported by browsers.
 
-- Discussions and help: [Mattermost](https://mattermost.coko.foundation), [Discourse](https://discourse.cabbagetreelabs.org/)
-- Development: [Gitlab](https://gitlab.coko.foundation/pagedjs)
+- Discussions and help: [Matrix channel](https://matrix.to/#/#pagedjs:matrix.org), [Mastodon](https://fosstodon.org/@pagedjs)
+- Development: [Github](https://github.com/pagedjs/)
 
 ## Paged.js
 
 After years of trying a lot of solutions to make books out of HTML, and frustrated by the issues we found with each one of them, we ended up by building one of our own, following some mandatory principles.
 
 1. We’ll follow the standards of the W3C. Standards are in the DNA of what we’re doing. If we want to add some feature, we’ll write down the specifications and discuss with all the members of the W3C to see how it would make sense for them and we are open to anyone who want to share their thoughts. This project will be over when we are happy with the browsers’ implementation of the W3C specification for print.
-2. Paged.js is a community driven project, we’ll make sure that anyone feels just like at home, newcomers and old friends alike. We’ll always put the community needs first: we have a [Mattermost](https://mattermost.coko.foundation) that we use to discuss everything and the development is hosted on our [gitlab](https://gitlab.coko.foundation/pagedjs/pagedjs/public). All the issues are read and answered as fast as possible.
+2. Paged.js is a community driven project, we’ll make sure that anyone feels just like at home, newcomers and old friends alike. We’ll always put the community needs first: we have a [Mattermost](https://mattermost.coko.foundation) that we use to discuss everything and the development is hosted on [github](https://github.com/pagedjs/). All the issues are read and answered as fast as possible.
 3. Paged.js comes either as a paginated preview or as a command line interface (<small>CLI</small>) to produce the pdf.
 
 Welcome around :)
 
 ## Colophon
 
-Paged.js was founded by [Adam Hyde](https://www.adamhyde.net) and is currently developed by [Julie Blanc](http://julie-blanc.fr), [Fred Chasen](http://fchasen.com/) and Julien Taquet at [Coko](https://www.coko.foundation).
+Paged.js was founded by [Adam Hyde](https://www.adamhyde.net) and is currently developed by [julientaq](julientaq.fr), [Fred Chasen](http://fchasen.com/) and [Gijs de Heij](https://de-heij.com/)).
 
 The Paged.js logo was designed by the lovely [Anton Moglia](http://moglia.fr/) and our own awesome [Julie Blanc](http://julie-blanc.fr) during a train journey returning from the 60-year-old type design event called [Les Rencontres de Lure](http://delure.org).
 
