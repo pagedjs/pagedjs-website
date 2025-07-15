@@ -1,0 +1,27 @@
+.not-found {
+  --color-paper: white;
+}
+
+.not-found .background {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.not-found h1,
+.not-found p,
+.not-found #title {
+  max-width: max-content;
+  padding: 0.4em;
+  background: #fff;
+}
+.not-found p {
+  font-size: 1.3em;
+}
+.not-found header #title::before {
+  content: none;
+}

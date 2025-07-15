@@ -1,14 +1,21 @@
-import { I18nPlugin, RenderPlugin, HtmlBasePlugin } from "@11ty/eleventy";
-
+import { HtmlBasePlugin } from "@11ty/eleventy";
 import markdownConfig from "./11ty/markdown.js";
 import collections from "./11ty/collections.js";
 import filters from "./11ty/filters.js";
+import i18n from "./11ty/i18n.js";
+import css from "./11ty/css.js";
+import yaml from "./11ty/yaml.js";
 
 export default async function (eleventyConfig) {
+  // a better css setup?
+
   eleventyConfig.addPlugin(HtmlBasePlugin);
   eleventyConfig.addPlugin(markdownConfig);
   eleventyConfig.addPlugin(filters);
   eleventyConfig.addPlugin(collections);
+  eleventyConfig.addPlugin(i18n);
+  eleventyConfig.addPlugin(css);
+  eleventyConfig.addPlugin(yaml);
 
   // create journal collection
 

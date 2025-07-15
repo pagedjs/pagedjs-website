@@ -1,0 +1,38 @@
+{% extends "base.njk" %}
+{% block content %}
+    <article>
+        <header>
+            <h1 id="title">{{ title }}</h1>
+        </header>
+        <section class="meta">
+            <p class="version">Work with pagedjs v. {{ pagedjsversion }}</p>
+            {% if dependencies %}
+                <ol class="dependencies">
+                    {% for dependency in dependencies %}<li>{{ dependency | markdownify | safe }}</li>{% endfor %}
+                </ol>
+            {% else %}
+                <p>This script has no dependencies.</p>
+            {% endif %}
+        </section>
+        <section class="description">
+            {{ content | safe }}
+            {% if plugin.sources %}
+                <p>
+                    See the sources: <a href="{{ plugin.sources }}">{{ plugin.sources }}</a>
+                </p>
+            {% endif %}
+        </section>
+        <section class="filepreview">
+            {% if plugin.filename %}
+                <h2>
+                    The code
+                </h3>
+                <section class="code">
+                    {% set url = ['static/plugins/', plugin.filename] | join %}
+                    {% highlight "js" %}
+                    {% include url ignore missing %}
+                {% endhighlight %}
+            </section>
+        {% endif %}
+    </article>
+{% endblock content %}

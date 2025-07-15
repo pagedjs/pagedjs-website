@@ -15,28 +15,33 @@ export default async function (eleventyConfig) {
   // create examples
   eleventyConfig.addCollection("examples", (collectionApi) => {
     return collectionApi
-      .getFilteredByGlob("src/content/examples/**/*.md")
+      .getFilteredByGlob("src/content/en/examples/**/*.md")
       .sort((a, b) => a.data.part - b.data.part);
   });
 
   //templates for css
   eleventyConfig.addCollection("templates", (collectionApi) => {
     return collectionApi
-      .getFilteredByGlob("src/content/templates/**/*.md")
+      .getFilteredByGlob("src/content/en/templates/**/*.md")
       .sort((a, b) => a.data.title - b.data.title);
   });
 
   //paged.js plugins
   eleventyConfig.addCollection("plugins", (collectionApi) => {
     return collectionApi
-      .getFilteredByGlob("src/content/plugins/**/*.md")
+      .getFilteredByGlob("src/content/en/plugins/**/*.md")
       .sort((a, b) => a.data.title - b.data.title);
+  });
+
+  //collection all files in english (all default ones)
+  eleventyConfig.addCollection("en", (collectionApi) => {
+    return collectionApi.getFilteredByGlob("src/content/en/**/*.md");
   });
 
   //documentation
   eleventyConfig.addCollection("documentation", (collectionApi) => {
     return collectionApi
-      .getFilteredByGlob("src/content/documentation/**/*.md")
+      .getFilteredByGlob("src/content/en/documentation/**/*.md")
 
       .sort((a, b) => a.data.date - b.data.date)
       .filter((item) => {
@@ -47,7 +52,7 @@ export default async function (eleventyConfig) {
   //the journal
   eleventyConfig.addCollection("journal", (collectionApi) => {
     return collectionApi
-      .getFilteredByGlob("src/content/journal/**/*.md")
+      .getFilteredByGlob("src/content/en/journal/**/*.md")
 
       .sort((a, b) => a.data.date - b.data.date)
       .filter((item) => {

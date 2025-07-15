@@ -1,0 +1,42 @@
+#TableOfContents a,
+tableofcontents a {
+  text-decoration: none;
+  background: var(--color-paper);
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.85em;
+}
+
+#TableOfContents ul,
+tableofcontents ul {
+  font-family: var(--font-sans);
+  padding-top: 0.5em;
+  border-left: 2px solid var(--color-grey);
+}
+
+#TableOfContents li a,
+tableofcontents li a {
+  background: var(--color-paper);
+  z-index: 30;
+  position: relative;
+}
+
+#TableOfContents li a::after,
+tableofcontents li a::after {
+  float: right;
+  position: relative;
+  bottom: -4px;
+}
+
+#TableOfContents li::before,
+tableofcontents li::before {
+  content: none;
+}
+
+.table-of-contents li {
+  margin-left: unset;
+}
+
+.toc h2.toc-title {
+  margin-bottom: 0;
+}

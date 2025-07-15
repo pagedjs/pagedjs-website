@@ -1,38 +1,24 @@
+{# {% include "../_partials/i18n.njk" %} #}
 <div class="running-head">
-{% if class != "homepage" %}
-        
-    
-    <a class="back-home" href="/">
-        {% include "_partials/logo.njk" %}
-    </a>
+    {% if class != "homepage" %}
+        <a class="back-home" href="/">{% include "_partials/logo.njk" %}</a>
     {% endif %}
     <button class="menu-call">MENU</button>
     <nav class="menu hide" role="main">
         <ul>
-
             {% for item in collections.sortedByOrder %}
                 {% if item.data.menu.length %}
-                    <li  class="{% if item.url == page.url %}active{% endif %}">
-                        <a href="{{item.url}}">{{item.data.menu}}</a>
-                    </li>
+                    {% if item.data.lang == page.lang %}
+                        <li class="{% if item.url == page.url %}active{% endif %}">
+                            <a href="{{ item.url | locale_url }}">{{ item.data.menu }}</a>
+                        </li>
+                    {% endif %}
                 {% endif %}
-
             {% endfor %}
-
             <li>
-                <a class="gitlab-link" href="https://gitlab.coko.foundation/pagedjs/pagedjs/">Gitlab</a>
+                <a class=github-link"
+                href="https://github.com/pagedjs/pagedjs/">github</a>
             </li>
         </ul>
     </nav>
-
 </div>
-{# <script>
-        document
-            .querySelector(".menu-call")
-            .addEventListener("click", function () {
-                document
-                    .querySelector('.topbar nav')
-                    .classList
-                    .toggle('hide');
-            })
-    </script> #}

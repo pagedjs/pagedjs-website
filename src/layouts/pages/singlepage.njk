@@ -1,0 +1,40 @@
+{% extends "base.njk" %}
+{% block side %}
+    {# {% include "_partials/readbuttons.njk" %} #}
+{% endblock %}
+{% block scripts %}{% endblock %}
+{% block content %}
+    <header>
+        <h1 id="title">
+            {% if toptitle %}<span class="top-title">{{ toptitle }}</span>{% endif %}
+            {{ title }}
+        </h1>
+        {% if author or date %}
+            <p class="meta">
+                written
+                {% if author %}by <span class="author">{{ author }}</span>{% endif %}
+                {% if date %}on <time class="date">{{ date | postDate }}</time>{% endif %}
+                {% include "_partials/i18n.njk" %}
+            </p>
+        {% endif %}
+    </header>
+    <article>
+        {# // if the page is only in one lang, welcome a translation #}
+        {# {% if translate == "no" %} #}
+        {% include "_partials/to-translate.njk" %}
+        {# {% endif %} #}
+        {% if addIntro %}
+            <p class="intro">
+                {# {{ intro }} #}
+                {% if addTags %}
+                    {% if tags %}
+                        <br>
+                        <span class="tags">
+                            {% for tag in tags %}<a class=  "tag" href="/tags/{{ tag }}/">{{ tag }}</a>{% endfor %}
+                        </span>
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+            {{ content | safe }}
+        </article>
+    {% endblock %}

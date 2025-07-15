@@ -7,6 +7,7 @@ export default async function (eleventyConfig) {
   });
 
   eleventyConfig.addFilter("slugify", function (rawString) {
+    if (!rawString) return "";
     return slugify(rawString.toLowerCase());
   });
   eleventyConfig.addFilter(

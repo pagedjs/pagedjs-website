@@ -1,0 +1,42 @@
+footer {
+  margin: 10em 0 0;
+  background: var(--color-light);
+  /* color: var(--color-primary); */
+  font-size: 0.8em;
+  grid-column: left/end;
+  font-family: var(--font-sans);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  footer p {
+    line-height: 1.4;
+    max-width: unset;
+  }
+
+  footer a {
+    color: var(--color-primary);
+    background: 0 0;
+    margin-top: 2em;
+    text-decoration: underline;
+  }
+
+  footer svg {
+    max-height: 100px;
+    display: block;
+  }
+
+  footer svg path {
+    fill: var(--color-primary);
+  }
+
+  footer svg:hover path {
+    fill: var(--color-accent);
+  }
+
+  footer .postit {
+    border-left-width: 0;
+    max-height: unset;
+    position: relative;
+  }
+}

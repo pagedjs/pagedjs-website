@@ -1,0 +1,25 @@
+---
+permalink: "/missing-i18n.json"
+---
+
+{
+"existing languages": [
+{%- for lang in languages -%}
+    "{{ lang }}"
+    {%- if not loop.last -%},
+    {%- endif -%}
+{%- endfor -%}],
+"articles": [
+{%- for unit in collections.en -%}
+    {% if not unit.data.notranslation %}{% endif %}
+    {
+    {% if  unit.inputPath %}"src": {{ unit.inputPath | dump | safe }},{% endif %}
+    {% if unit.page.url %}"link": {{ unit.page.url| dump | safe }},{% endif %}
+    {% if unit.data.title %}"unit": {{ unit.data.title| dump | safe }},{% endif %}
+    "langs": [
+    {%- for link in unit.page.url | locale_links -%}{ "{{ link.lang }}": true },{% endfor %}
+    {"{{ unit.data.lang }}": true}
+    ]}
+    {%- if  not loop.last %},{% endif %}
+{% endfor %}
+]}

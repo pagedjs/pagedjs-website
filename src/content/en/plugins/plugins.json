@@ -1,0 +1,5 @@
+{
+  "permalink": "/plugins/{{title | slug}}/index.html",
+  "layout": "plugins/plugin-single.njk",
+  "class": "plugin"
+}
