@@ -11,6 +11,8 @@ export default function (eleventyConfig) {
     linkify: true,
   }).use(markdownItAnchor, {});
 
+  //custom block with markdown
+
   eleventyConfig.addFilter("markdownify", function (rawString) {
     if (!rawString) return "";
     return markdown.render(rawString);
