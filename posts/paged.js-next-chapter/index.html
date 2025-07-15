@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+
+<html lang=" dir="ltr class="no-js">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Paged.js — Paged.js next chapter</title>
+        <script type="module">
+        document.documentElement.classList.remove('no-js'); 
+        document.documentElement.classList.add('js'); 
+        </script>
+        <meta name="description" content="">
+        <meta property="og:title" content="Paged.js next chapter — ">
+        <meta property="og:description" content="">
+        <meta property="og:image" content="">
+        <meta property="og:image:alt" content="Image description">
+        <meta property="og:locale" content="en">
+        <meta property="og:type" content="website">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta property="og:url" content="site.url">
+        <link rel="canonical" href="https://www.mywebsite.com/page">
+        <link rel="icon" href="/favicon.ico">
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+        <link rel="manifest" href="/my.webmanifest">
+        <meta name="theme-color" content="NaN">
+        
+        <meta name="twitter:dnt" content="on">
+        
+        <link rel="stylesheet" href="/css/main.css">
+        <link href="https://unpkg.com/prismjs@1.20.0/themes/prism.css"
+              rel="stylesheet">
+        <script>
+        // if there is a dark mode in the storage, use that
+        if (localStorage.getItem('Nightmode') == "true") {
+        document
+        .documentElement
+        .classList
+        .add('nightmode')
+        }
+        </script>
+        
+            <script>
+
+  if (window.location.href.includes("?night")) {
+    document.documentElement.classList.add("nightmode");
+  }
+
+function start() {
+
+    document.querySelectorAll("a").forEach((a) => {
+      if (a.href.includes(`?day`)) {
+        // add the infor mation in the url of each link
+        a.href = `${a.href.replace("?day", "?night")}`;
+      } else if (a.href.includes("#")) {
+        a.href = a.href.replace("#", "index.html?night#");
+      } else {
+        a.href = `${a.href}?night`;
+      }
+    });
+};
+
+start()
+</script>
+        
+    </head>
+    <body class=" "
+          style="">
+        <div class="crop-marks">
+    <div class="crop-mark vertical"></div>
+    <div class="crop-mark horizontal"></div>
+    <div class="paper"></div>
+</div>
+        
+        
+            
+<div class="running-head">
+    
+        <a class="back-home" href="/">
+    <svg id="paged-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 213 52" fill="none" id="paged-logo"><path fill="var(--color-body)" d="M69.1 34.7c0 1.3-.5 2.7-1.6 2.7s-1.6-1.1-1.6-4.6v-7.1c0-7.3-1.5-13.5-12.1-13.5-6.5.0-13.4 2.2-13.4 8.4.0 4.7 6.9 6.1 9.9 2.6-1-1.3-1.7-3-1.7-4.5.0-2.9 2.2-3.5 4.4-3.5 2.4.0 3.9 1.4 3.9 8.6v1.3l-4.1 1.1c-7.9 2.2-12.9 4.9-12.9 9.1.0 3.9 2.2 6 7.1 6 4.6.0 8.7-2.4 11-7.7h.5c.9 5 2.4 7.7 6.8 7.7 3.1.0 6.6-1.5 6.1-6.7h-2.3v.1zm-17.8 1.8c-1.7.0-2.6-.9-2.6-2.1.0-3.2 2.3-4.7 8.2-6.5.1 4-2.5 8.6-5.6 8.6zM24.8 12.3c-3.6.0-9.6 1.2-10.6 9.1h-.9v-9.1L.9 15.2v2.4h6v31l-5.4.4v2.4h20.2V49l-6.2-.5V37.3c1.3 1.9 4 4.2 8.7 4.2 5.1.0 12.3-4.4 12.3-14.2.0-9.2-5.1-15-11.7-15zm-2.4 25.2c-2.8.0-5.3-1.5-6.5-5.7v-8.9c.1-1.3 1.5-5.4 5-5.4 4.4.0 7 5.1 7 10.5-.1 4.7-2 9.5-5.5 9.5zm155-21.6h5.8v32c0 3.4-4.3.4-5.1-3.1H177c-1.3 3.5-.2 6.9 3.1 6.9 3.2.0 7.4-1.7 7.4-8.9l.1-30.6-10.2 1.4v2.3zm-6 17.9c-2.4.0-3.7 1.3-3.7 3.7.0 2.4 1.3 3.7 3.7 3.7 2.4.0 3.7-1.3 3.7-3.7.0-2.4-1.4-3.7-3.7-3.7zM95.8 37.4c-4.9-1.1-12.3-1.1-15.9-1.6l1.2-2.4c1.4.4 3.1.6 5 .6 8.6.0 13.3-4.9 13.3-11.3.0-4.4-3-8-7.8-9.6l.2-.6c1.9.4 3.9.7 5.4.7 2.3.0 4-.8 4-3.4.0-1.8-1.3-4.1-3.3-6.2-3.3 3.6-6.2 7.3-10.7 8.7-.2-.1-.4-.1-.6-.1-8.6.0-13 4.8-13 11.3.0 4 1.8 7.4 5.7 9.2l-5.5 4.6c.4.8 1.7 2.9 6.5 4.4v.7c-4.4.6-7 1.9-7 3.7.0 3.8 7 5.7 12.3 5.7 9.1.0 16.6-2.3 16.9-7.9.0-3.6-1.6-5.4-6.7-6.5zm-10-22.2c3.3.0 4.8 2.4 4.8 7.4.0 5.7-1.1 8.5-4 8.5-3.4.0-4.8-2.9-4.8-8.4.1-5.3 1.2-7.5 4-7.5zm5.1 32.5c-6.2.0-10.5-1.5-10.5-3.2.0-.6.6-1.3 1.8-2.2l.9.2c9.4 1.8 14.8 1.3 14.8 3 .1 1.4-2.5 2.2-7 2.2zM199 21.5c-2.3-1.4-3.3-2.6-3.3-4 0-1.6 1.1-3.3 4-3.3 4.3.0 8.1 3.6 10.6 8.9h1.1v-8.4c-3-1.6-6.4-2.4-9.5-2.4-5.3.0-9.8 2.4-9.8 7.3.0 3.9 3.1 6.7 6.2 8.4 5.8 3.2 11 4.4 11 7.8.0 2.3-2.2 3.6-4.7 3.6-5.2.0-8.9-2.7-10.9-10.2h-1.1v9.4c2.7 1.8 6.5 2.8 10.1 2.8 5.4.0 10.2-2.2 10.2-7.7.1-6.5-7.5-8.3-13.9-12.2zM185.7 1.8c-2 0-2.9 1.1-2.9 2.9.0 1.9 1 2.9 2.9 2.9 1.8.0 2.9-1 2.9-2.9s-1.1-2.9-2.9-2.9zM126.1 29.1c.1.4.1.7.1 1.1.0 3.9-2.8 6.1-6.8 6.1-3.9.0-6.7-2.8-7.7-8.5l17.2-4.3c-.2-7.7-4.7-11.3-12.9-11.3-6.2.0-13 4.5-13 14.4.0 7.5 4.9 14.6 13.9 14.6 8 0 12.3-5.3 12.3-11.2.0-.5-.1-1-.1-1.5l-3 .6zm-14.7-5.8c0-5.2 2.2-8 5.3-8 2.9.0 3.8 3.2 3.8 5.6.0 1.5-1.9 1.8-5.1 2.9l-4 1.3v-1.8zM147 4.7l6.2.5v10.6c-1.5-2.1-4-3.6-8.4-3.6-5.1.0-12.3 4.4-12.3 14.2.0 9.1 5.1 14.9 11.7 14.9 3.6.0 9.6-1.2 10.6-9.1h1l1.9 8.3h4V.8l-14.8 1.5v2.4h.1zm6.2 26c-.1 1.2-1.1 5.4-5.9 5.4-4 0-6-4.9-6-10.5.0-4.7 1.9-9.5 5.4-9.5 2.8.0 5.3 1.5 6.5 5.7v8.9z"></path></svg>    
+</a>
+    
+    <button class="menu-call">MENU</button>
+    <nav class="menu hide" role="main">
+        <ul>
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                    
+                        <li class="">
+                            <a href="/en/about/">about</a>
+                        </li>
+                    
+                
+            
+                
+                    
+                        <li class="">
+                            <a href="/en/frequently-asked-questions-about-paged.js.html">FAQ</a>
+                        </li>
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+            
+                
+                    
+                        <li class="">
+                            <a href="/en/documentation/">documentation</a>
+                        </li>
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                        <li class="">
+                            <a href="/en/made-with-paged.js.html">examples</a>
+                        </li>
+                    
+                
+            
+                
+                    
+                
+            
+                
+            
+                
+            
+                
+                    
+                        <li class="">
+                            <a href="/en/posts/">journal</a>
+                        </li>
+                    
+                
+            
+                
+                    
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+            <li>
+                <a class=github-link"
+                href="https://github.com/pagedjs/pagedjs/">github</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+        
+        
+    
+
+        
+    
+    <header>
+        <h1 id="title">
+            
+            Paged.js next chapter
+        </h1>
+        
+            <p class="meta">
+                written
+                by <span class="author">@julientaq</span>
+                on <time class="date">5/17/2025</time>
+                
+    <a class="alternative-lang"
+       href="/posts/fr/le-prochain-chapitre-de-paged.js/"
+       lang="fr"
+       title="Français"
+       hreflang="fr">Lisez en   Français</a>
+
+</span>
+
+            </p>
+        
+    </header>
+    <article>
+        
+        
+        
+
+
+
+        
+        
+            <p class="intro">
+                
+                
+                    
+                
+            
+            <p>I can still picture the room where Adam Hyde put Fred Chasen and myself around the table, looking at options for making pdf from html, and, while we couldn’t find a way that was satisfying enough, he looked at us, and said: “let’s just make it”.</p>
+<p>And then we started, and very early in the process, Julie Blanc joined, and in a couple of months we had a working proof of concept, and in not so much more, a full fledge library. All that was possible thanks to all the energy and ressources that Adam and Coko put into the project.</p>
+<p>At that time, paged.js was all about showing how CSSPrint could make single source publishing a reality since we would take care of the PDF/print world. Most of our work was about helping folks who wanted to implement paged.js in their workflows, or build use case around it and we were spending a lot of energy on workshops, book fair, user support and demo projects. Plus, with the hook systems, people would run their own javascripts and manage to do amazing publications, from vote ballots, to complex (almost) automatic layouts: we were mostly helping folks implementing complex algorythm for print or even implementing some of it ourselves.</p>
+<p>At some point, we were doing more work to help users with paged.js than we spent updating paged.js core code, features or documentation nor keep the community in the loop of what’s what happening.</p>
+<p>So let’s change that, welcome to paged.js 2.0</p>
+<h2 id="didn%E2%80%99t-you-skip-a-number%3F-where-is-1.0%3F" tabindex="-1">Didn’t you skip a number? Where is 1.0?</h2>
+<p>The idea we had with paged.js was that, at some point, the browser would do the work of supporting paged media specs and folks could get rid of paged.js and simply use the browser for all their pdf needs, and we could stop working on it. But what we discovered on the path is that paged.js is more than a polyfill for the future features, it’s also a gateway to css print because of the preview you get on the screen.</p>
+<p>In short, when you use paged.js, the library will take your html and css, find all the properties used for print (@page, margin-boxes, target-counter, etc.), and replace them with html and css to have, on screen, what will appear on paper. This allows you to inspect your pages, look at the css, test changes in the context and run paged.js again. And print from the browser, which doesn’t use the css for print, but the converted css you have on the screen.</p>
+<p>And then, Chromium team did what we wanted them to do before paged.js: they started to implement print features, <a href="https://developer.chrome.com/blog/new-in-chrome-131">starting with the margin-boxes</a>. Hopefully, it will push the other engines to do their work. But, in the meantime, things get tricky for paged.js.</p>
+<p>Supporting chromium updates would mean transforming paged.js in such a way that firefox or other browsers would be left behind, which goes against our goals. Yes, we did repeat that chromium was better because it allows for custom page sizes and manage widows and orphans better, but Firefox, or Safari, or any other browser would still be a valid option.</p>
+<p>Therefore paged.js need to change a bit to support more context of use and more engines and this is such a breaking changes that we’ll jump on paged.js 2.0 very quickly.</p>
+<h2 id="so-long-paged.js%2C-hello-paged.js-neue" tabindex="-1">So long paged.js, hello paged.js neue</h2>
+<p>First, paged.js members are part of a NGIzero supported project, <a href="https://nlnet.nl/project/CSS-Print/">Pushing forward for CSS Print</a>, for which we’re joining force with the lovely Lucie and Guillaume of Weasyprint (a python based engine to make PDF out of HTML and CSS) to push #CSSprint forward. We’ll write down new specifications to print with CSS and implement them in weasyprint and paged.js, in order to push the conversation forward with the W3C folks. (You can check our <a href="link">Notes on notes</a> to see some examples of what we could do).</p>
+<p>Second, Paged.js has also been accepted for a NGIzero grant to support the important structural update of paged.js and its dependencies. This plan of update includes a lot of breaking changes: removing CSSTree to replace it with cssOM, use web-components for pages, and document, transform the chunker into its own library, change the algorythm that find breaktoken, allows for multiple break tokens, etc. We’ll cover more of that in the future updates on the blog, as soon as we have a proper calendar to share. The grant is only available for a year so that’s already a nice information.</p>
+<h3 id="meet-the-team" tabindex="-1">Meet the team</h3>
+<p>First, Gijs de Heij is joining the team as a core maintainer. While Fred is working a fulltime position at Mozilla, we decided to redraw a bit how the team work around paged.js. Instead of putting everything of Fred’s shoulders, we’re moving toward a team of core developpers, as Gijs and myself will be more involved into paged.js development by contributing codes, features and managing user support.</p>
+<p>Gijs is an amazing designer / developer, part for quite some time now of the Open Source Publishing collective, and he’s been working with paged.js for quite a long time to now what work, what doesn’t, what need a work around and how to make it work anyway.</p>
+<p>As Fred’s time is reduced, his work on paged.js will be less visible, and if Julie officially stopped working on paged.js when she started working on her thesis <a href="http://phd.julie-blanc.fr/"> “Composer avec les technologies du web ” </a> (<em>Composing with web technologies. Collective instrumental genesis for the development of a community of practice of graphic designers</em>). The thesis observes how paged.js was used by graphic designers to share knowledge and build communities, and she defended it with talent, and she’s now Julie Blanc, PhD. Even if she has many others things to attend to, she’s still around paged.js quite a lot, and part of the Weasyprint × Paged.js project.</p>
+<p>Coko has been supporting paged.js for all of us for a long time, and we wouldn’t be where we are now if it wasn’t for Adam Hyde’s time, energy, trust and generosity. I don’t think i’ll ever thank him enough for all the support he gave to each one of us. And even if Coko is not financially supporting paged.js anymore, Adam is still around to help, and we wouldn’t like it any other way.</p>
+<h3 id="on-paged.js-future" tabindex="-1">on paged.js future</h3>
+<p>This post is already too long (and i wrote it in french &amp; english, maybe i’m the one who find it long). So, to not take too much of your time, a couple of info:</p>
+<ul>
+<li>
+<p>Paged.js a mastodon account on fosstodon: <a href="https://fosstodon.org/@pagedjs">https://fosstodon.org/@pagedjs</a>, we don’t use the twitter one anymore.</p>
+</li>
+<li>
+<p>Paged.js code is now on github, same for the website, and we’re slowly bringing back some of the plugins and stuff we did here and there. (<a href="https://github.com/pagedjs/">https://github.com/pagedjs/</a>)</p>
+</li>
+<li>
+<p>We’re now available on contact at pagedjs dot org</p>
+</li>
+<li>
+<p>Paged.js now has a Matrix channel. Come to chat and discuss the futur with us: <a href="https://matrix.to/#/#pagedjs:matrix.org">https://matrix.to/#/#pagedjs:matrix.org</a></p>
+</li>
+<li>
+<p>The website is now fully internationalized. Thanks for the amazing amazing (not a typo, i wrote it twice) <a href="https://11ty.dev">Eleventy</a>. You can now join the translation effort if you feel like it :D.</p>
+</li>
+</ul>
+<p>There are a bunch of other things to share in the coming weeks, from pagedjs structural changes to documentation update/rewriting (for devs &amp; users), and other things we want to bring back (plugins, templates, etc.)</p>
+<p>With the hope that you’ll want to take part in Paged.js future, as you may have done before.</p>
+<p>See yall very soon.</p>
+<p class="signature">
+julientaq 
+</p>
+
+        </article>
+    
+      
+      
+      
+      <aside class="paginator ">
+        
+        
+      </aside>
+
+
+        
+            <footer>
+    <p class="foot-content"></p>
+</footer>
+
+        
+        
+        
+        <script>
+        if (document.querySelector('.toc .title')) {
+        document.querySelector('.toc .title').addEventListener("click", function() {
+        document.querySelector('.toc').classList.toggle("show");
+        })
+        }
+
+        document.querySelector(".menu-call").addEventListener("click", function() {document.querySelector(".menu").classList.toggle("hide")});
+
+        </script>
+    </body>
+</html>

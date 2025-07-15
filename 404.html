@@ -1,56 +1,36 @@
 <!DOCTYPE html>
 
-
-
-<html lang=" en" class="no-js">
-
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width">
-
-<title>Paged.js — 404 Page not found</title>
-
-<script type="module">
-document
-.documentElement
-.classList
-.remove('no-js');
-document
-.documentElement
-.classList
-.add('js');
-</script>
-<meta name="description" content="">
-<meta property="og:title" content="404 Page not found — ">
+<html lang=" dir=" class="no-js">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Paged.js — 404 Page not found</title>
+        <script type="module">
+        document.documentElement.classList.remove('no-js'); 
+        document.documentElement.classList.add('js'); 
+        </script>
+        <meta name="description" content="">
+        <meta property="og:title" content="404 Page not found — ">
         <meta property="og:description" content="">
         <meta property="og:image" content="">
         <meta property="og:image:alt" content="Image description">
-        <meta property="og:locale" content="en_GB">
+        <meta property="og:locale" content="en">
         <meta property="og:type" content="website">
         <meta name="twitter:card" content="summary_large_image">
         <meta property="og:url" content="site.url">
         <link rel="canonical" href="https://www.mywebsite.com/page">
-
         <link rel="icon" href="/favicon.ico">
         <link rel="icon" href="/favicon.svg" type="image/svg+xml">
         <link rel="apple-touch-icon" href="/apple-touch-icon.png">
         <link rel="manifest" href="/my.webmanifest">
         <meta name="theme-color" content="NaN">
-
         
         <meta name="twitter:dnt" content="on">
         
-            
-
-        
-
-        
-            <link rel="stylesheet" href="/css/theme-pagedjs/main.css">
-        
-
-        <link href="https://unpkg.com/prismjs@1.20.0/themes/prism.css" rel="stylesheet">
+        <link rel="stylesheet" href="/css/main.css">
+        <link href="https://unpkg.com/prismjs@1.20.0/themes/prism.css"
+              rel="stylesheet">
         <script>
-
         // if there is a dark mode in the storage, use that
         if (localStorage.getItem('Nightmode') == "true") {
         document
@@ -59,9 +39,7 @@ document
         .add('nightmode')
         }
         </script>
-
         
-
             <script>
 
   if (window.location.href.includes("?night")) {
@@ -84,27 +62,21 @@ function start() {
 
 start()
 </script>
-
         
-        </head>
-
-        <body  class="not-found " style="">
-
+    </head>
+    <body class="not-found "
+          style="">
         <div class="crop-marks">
     <div class="crop-mark vertical"></div>
     <div class="crop-mark horizontal"></div>
     <div class="paper"></div>
 </div>
-
         
-
         
      
 
-
         
   
-
 
         
   <header>
@@ -117,20 +89,15 @@ start()
     </article>
   </article>
 
+        
+            <footer>
+    <p class="foot-content"></p>
+</footer>
 
         
-            <footer><p class="foot-content">Paged.js is maintained by the nice folks at
-<a href="https://coko.foundation" class="footer-logo">Coko</a>.</p></footer>
-
         
-
-        
-        
-        
-
         
         <script>
-
         if (document.querySelector('.toc .title')) {
         document.querySelector('.toc .title').addEventListener("click", function() {
         document.querySelector('.toc').classList.toggle("show");
@@ -139,34 +106,6 @@ start()
 
         document.querySelector(".menu-call").addEventListener("click", function() {document.querySelector(".menu").classList.toggle("hide")});
 
-
         </script>
-        
-        <!-- 
-        Donation nation
-        -->
-
-        <script>
-        (function () {
-        if (document.querySelector('.commitchange-donate[data-fixed]')) 
-        return;
-        var cc_donate = document.createElement('div');
-        cc_donate.innerHTML = "<a data-fixed class='commitchange-donate'></a>";
-        document
-        .body
-        .appendChild(cc_donate);
-        var npo = 5726;
-        var script = document.createElement('script');
-        var first = document.getElementsByTagName('script')[0];
-        script.setAttribute('data-npo-id', npo);
-        script.id = 'commitchange-script';
-        script.src = 'https://us.commitchange.com/js/donate-button.v2.js';
-        first
-        .parentNode
-        .insertBefore(script, first);
-        })();
-
-
-        </script>
-        </body>
-        </html>
+    </body>
+</html>

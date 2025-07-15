@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+
+<html lang=" dir="ltr class="no-js">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Paged.js — The plan</title>
+        <script type="module">
+        document.documentElement.classList.remove('no-js'); 
+        document.documentElement.classList.add('js'); 
+        </script>
+        <meta name="description" content="">
+        <meta property="og:title" content="The plan — ">
+        <meta property="og:description" content="">
+        <meta property="og:image" content="">
+        <meta property="og:image:alt" content="Image description">
+        <meta property="og:locale" content="en">
+        <meta property="og:type" content="website">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta property="og:url" content="site.url">
+        <link rel="canonical" href="https://www.mywebsite.com/page">
+        <link rel="icon" href="/favicon.ico">
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+        <link rel="manifest" href="/my.webmanifest">
+        <meta name="theme-color" content="NaN">
+        
+        <meta name="twitter:dnt" content="on">
+        
+        <link rel="stylesheet" href="/css/main.css">
+        <link href="https://unpkg.com/prismjs@1.20.0/themes/prism.css"
+              rel="stylesheet">
+        <script>
+        // if there is a dark mode in the storage, use that
+        if (localStorage.getItem('Nightmode') == "true") {
+        document
+        .documentElement
+        .classList
+        .add('nightmode')
+        }
+        </script>
+        
+            <script>
+
+  if (window.location.href.includes("?night")) {
+    document.documentElement.classList.add("nightmode");
+  }
+
+function start() {
+
+    document.querySelectorAll("a").forEach((a) => {
+      if (a.href.includes(`?day`)) {
+        // add the infor mation in the url of each link
+        a.href = `${a.href.replace("?day", "?night")}`;
+      } else if (a.href.includes("#")) {
+        a.href = a.href.replace("#", "index.html?night#");
+      } else {
+        a.href = `${a.href}?night`;
+      }
+    });
+};
+
+start()
+</script>
+        
+    </head>
+    <body class=" "
+          style="">
+        <div class="crop-marks">
+    <div class="crop-mark vertical"></div>
+    <div class="crop-mark horizontal"></div>
+    <div class="paper"></div>
+</div>
+        
+        
+            
+<div class="running-head">
+    
+        <a class="back-home" href="/">
+    <svg id="paged-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 213 52" fill="none" id="paged-logo"><path fill="var(--color-body)" d="M69.1 34.7c0 1.3-.5 2.7-1.6 2.7s-1.6-1.1-1.6-4.6v-7.1c0-7.3-1.5-13.5-12.1-13.5-6.5.0-13.4 2.2-13.4 8.4.0 4.7 6.9 6.1 9.9 2.6-1-1.3-1.7-3-1.7-4.5.0-2.9 2.2-3.5 4.4-3.5 2.4.0 3.9 1.4 3.9 8.6v1.3l-4.1 1.1c-7.9 2.2-12.9 4.9-12.9 9.1.0 3.9 2.2 6 7.1 6 4.6.0 8.7-2.4 11-7.7h.5c.9 5 2.4 7.7 6.8 7.7 3.1.0 6.6-1.5 6.1-6.7h-2.3v.1zm-17.8 1.8c-1.7.0-2.6-.9-2.6-2.1.0-3.2 2.3-4.7 8.2-6.5.1 4-2.5 8.6-5.6 8.6zM24.8 12.3c-3.6.0-9.6 1.2-10.6 9.1h-.9v-9.1L.9 15.2v2.4h6v31l-5.4.4v2.4h20.2V49l-6.2-.5V37.3c1.3 1.9 4 4.2 8.7 4.2 5.1.0 12.3-4.4 12.3-14.2.0-9.2-5.1-15-11.7-15zm-2.4 25.2c-2.8.0-5.3-1.5-6.5-5.7v-8.9c.1-1.3 1.5-5.4 5-5.4 4.4.0 7 5.1 7 10.5-.1 4.7-2 9.5-5.5 9.5zm155-21.6h5.8v32c0 3.4-4.3.4-5.1-3.1H177c-1.3 3.5-.2 6.9 3.1 6.9 3.2.0 7.4-1.7 7.4-8.9l.1-30.6-10.2 1.4v2.3zm-6 17.9c-2.4.0-3.7 1.3-3.7 3.7.0 2.4 1.3 3.7 3.7 3.7 2.4.0 3.7-1.3 3.7-3.7.0-2.4-1.4-3.7-3.7-3.7zM95.8 37.4c-4.9-1.1-12.3-1.1-15.9-1.6l1.2-2.4c1.4.4 3.1.6 5 .6 8.6.0 13.3-4.9 13.3-11.3.0-4.4-3-8-7.8-9.6l.2-.6c1.9.4 3.9.7 5.4.7 2.3.0 4-.8 4-3.4.0-1.8-1.3-4.1-3.3-6.2-3.3 3.6-6.2 7.3-10.7 8.7-.2-.1-.4-.1-.6-.1-8.6.0-13 4.8-13 11.3.0 4 1.8 7.4 5.7 9.2l-5.5 4.6c.4.8 1.7 2.9 6.5 4.4v.7c-4.4.6-7 1.9-7 3.7.0 3.8 7 5.7 12.3 5.7 9.1.0 16.6-2.3 16.9-7.9.0-3.6-1.6-5.4-6.7-6.5zm-10-22.2c3.3.0 4.8 2.4 4.8 7.4.0 5.7-1.1 8.5-4 8.5-3.4.0-4.8-2.9-4.8-8.4.1-5.3 1.2-7.5 4-7.5zm5.1 32.5c-6.2.0-10.5-1.5-10.5-3.2.0-.6.6-1.3 1.8-2.2l.9.2c9.4 1.8 14.8 1.3 14.8 3 .1 1.4-2.5 2.2-7 2.2zM199 21.5c-2.3-1.4-3.3-2.6-3.3-4 0-1.6 1.1-3.3 4-3.3 4.3.0 8.1 3.6 10.6 8.9h1.1v-8.4c-3-1.6-6.4-2.4-9.5-2.4-5.3.0-9.8 2.4-9.8 7.3.0 3.9 3.1 6.7 6.2 8.4 5.8 3.2 11 4.4 11 7.8.0 2.3-2.2 3.6-4.7 3.6-5.2.0-8.9-2.7-10.9-10.2h-1.1v9.4c2.7 1.8 6.5 2.8 10.1 2.8 5.4.0 10.2-2.2 10.2-7.7.1-6.5-7.5-8.3-13.9-12.2zM185.7 1.8c-2 0-2.9 1.1-2.9 2.9.0 1.9 1 2.9 2.9 2.9 1.8.0 2.9-1 2.9-2.9s-1.1-2.9-2.9-2.9zM126.1 29.1c.1.4.1.7.1 1.1.0 3.9-2.8 6.1-6.8 6.1-3.9.0-6.7-2.8-7.7-8.5l17.2-4.3c-.2-7.7-4.7-11.3-12.9-11.3-6.2.0-13 4.5-13 14.4.0 7.5 4.9 14.6 13.9 14.6 8 0 12.3-5.3 12.3-11.2.0-.5-.1-1-.1-1.5l-3 .6zm-14.7-5.8c0-5.2 2.2-8 5.3-8 2.9.0 3.8 3.2 3.8 5.6.0 1.5-1.9 1.8-5.1 2.9l-4 1.3v-1.8zM147 4.7l6.2.5v10.6c-1.5-2.1-4-3.6-8.4-3.6-5.1.0-12.3 4.4-12.3 14.2.0 9.1 5.1 14.9 11.7 14.9 3.6.0 9.6-1.2 10.6-9.1h1l1.9 8.3h4V.8l-14.8 1.5v2.4h.1zm6.2 26c-.1 1.2-1.1 5.4-5.9 5.4-4 0-6-4.9-6-10.5.0-4.7 1.9-9.5 5.4-9.5 2.8.0 5.3 1.5 6.5 5.7v8.9z"></path></svg>    
+</a>
+    
+    <button class="menu-call">MENU</button>
+    <nav class="menu hide" role="main">
+        <ul>
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                    
+                        <li class="">
+                            <a href="/en/about/">about</a>
+                        </li>
+                    
+                
+            
+                
+                    
+                        <li class="">
+                            <a href="/en/frequently-asked-questions-about-paged.js.html">FAQ</a>
+                        </li>
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+            
+                
+                    
+                        <li class="">
+                            <a href="/en/documentation/">documentation</a>
+                        </li>
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                        <li class="">
+                            <a href="/en/made-with-paged.js.html">examples</a>
+                        </li>
+                    
+                
+            
+                
+                    
+                
+            
+                
+            
+                
+            
+                
+                    
+                        <li class="">
+                            <a href="/en/posts/">journal</a>
+                        </li>
+                    
+                
+            
+                
+                    
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+            <li>
+                <a class=github-link"
+                href="https://github.com/pagedjs/pagedjs/">github</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+        
+        
+    
+
+        
+    
+    <header>
+        <h1 id="title">
+            
+            The plan
+        </h1>
+        
+            <p class="meta">
+                written
+                by <span class="author">@julientaq</span>
+                on <time class="date">5/19/2025</time>
+                
+    <a class="alternative-lang"
+       href="/posts/fr/paged.js-next-tables-des-matieres/"
+       lang="fr"
+       title="Français"
+       hreflang="fr">Lisez en   Français</a>
+
+</span>
+
+            </p>
+        
+    </header>
+    <article>
+        
+        
+        
+
+
+
+        
+        
+            <p class="intro">
+                
+                
+                    
+                
+            
+            <p>::: cite<br>
+text: Polyfill is the greek work for hack<br>
+author: Dave Cramer<br>
+:::</p>
+<p>A polyfill is a bit of code used to simulate features in a browser that doesn’t support them yet. For a while, using svg in the browser was made using the <code>svgweb.js</code> library, able to convert those code into shapes on screen. And then, browsers evolved and once they managed to support svg without help, <code>svgweb</code> wasn’t really useful anymore.</p>
+<p>Paged.js is a <em>polyfill</em> for all the features for print that folks have been pushing to the W3C. With a slight distinction, since the printing module of the browsers are not really available through javascript as browsers use other dependencies to print paper or generate PDF. And since we can’t really do anything to that PDF generator, Paged.js is cheating a little bit by faking the result of the printing process on the screen: we can preview the page, its margins, by recreating the html and css that will be rendered on screen and then we can print this whole preview.</p>
+<p>We’re simulating print on screen, and by doing so, we’re blurring a little bit the distinction between the print and screen medias of the css, since we’re translating print for the screen. And this gives us superpowers, simply by giving acces to the inspector, to explore the source code of our printed page. And we can do a lot to those pages before printing them, as we’d design a website, using css and javascript, and we can also transform the content as it’s being deployed on the page: for example, you can calculate the size of an image and automatically decide if there is enough room on the page, or if you want to move it to the next and keep the  rest of the text flowing.</p>
+<p>Possibilities are endless, and you can do a pretty good automated layout, and yet you can still have a typesetter or a designer clean up everything.</p>
+<p>This <s>hack</s> polyfill has become the main feature of Paged.js: web designer could start to work on printed stuff without having to leave the tool they know and love, graphic desginers who were used to <em>wysiwyg</em> got a place to try webdesign tools in the most tangible way, using a finished canvas instead of this infinite screen, and industries could use web2print and single source publishing ideas and keep the workers to make sure the quality is still there.</p>
+<p>This is the work of the polyfill: prove that something works by offering the features and find users to promote them, and then disappear as the browsers took over the work. And then Chromium, starting from version 131, supports the <code>margin-boxes</code> allowing users to add content in the margins of a printed media, without the need of showing them on screen. This signal that things finally get to move in the CSSPrint world is amazing, and we’be been waiting for decades (literally), which forces us to ask ourselves: what shall we do with Paged.js and how should we move around this evolution. Right now, there is no plan to quit Paged.js: browsers only support a tiny tiny bit of what Paged.js support, and when i say browser, it’s only really chromium and blink-based browsers. But we need to take into account those changes, and find the right spot to stand on to make sure that what we want to be able to do for print with web technologies get in.</p>
+<p>For now, you can still use Paged.js as you would normally, there may be some bugs here and there, but nothing you can’t override with hooks or Paged.js fixes. That said, as the browsers ship features for print, Paged.js will need to evolve to either support them, or support the browser implementation. Let’s take a look at a simple example: let’s say we have a table of content, and that Chrome supports <code>target-counter</code> (which is not yet the case but let’s assume it will at some point). So Paged.js will find this <code>target-counter</code> and convert it to what it needs to be, and then Chrome will do the exact same thing, and the table of content will show the same page number twice, which is definitely what we don’t want to happen. So which one should we use and in which cases?</p>
+<p>Until we spend enough time of work that, Gijs, Fred and myself will be working on figuring it out. And to do so, we made the decision of modularizing Paged.js into smaller dependencies that we’ll be able to update as time goes by, making sure that we could replace some bits wihtout having to throw everything away everytime a new feature appears.</p>
+<h3 id="let%E2%80%99s-get-practical" tabindex="-1">Let’s get practical</h3>
+<p>Paged.js works on 3 pillars, that are a bit complex to define, because they’re too much intertwined, but let’s try it anyway.</p>
+<ul>
+<li>the <code>chunker</code> is the module in charge of placing elements on the page, find the overflow, mark the spot of the break, add a new page, and keep doing it. The paper cutter for the web.</li>
+<li>the <code>polisher</code> is in charge of locating the stylesheets, and styles and mark the content that will need some custom transformation for print: avoiding page break, changing colors when on a new page. It reads the CSS, transform the HTML, before pages are generated</li>
+<li>the <code>previewer</code> is the main orchestrator of this whole little world, managing all the little tasks that all the other modules run.</li>
+</ul>
+<p>Those three bits will change. Some will be quite transformed, others will be a tiny bit changed and we’ll be quite precautionous to make sure that, if someone followed the W3C specs for print, then they’ll be able to keep using their code without any changes. If you did have some specific custom hooks, some things may change a bit, but we’ll explain those as we go.</p>
+<p>First change: the <code>chunker</code> will soon be its own javascript library. It will be able to take a content, fill an <code>HTML element</code> with it, and return the overflowing bit and the multiple break tokens. Paged.js will use that library as a dependency, and it will help us quite a lot to test new HTML elements and new CSS features without having to run Paged.js. The second interesting bit of that is that we’ll be able to run multiple chunkers in multiple places, allowing for very complex layout with multiple flows or customs side/margin notes, or, in another context, it will allow for chained block, like you would have in a classic book designing program. We also want to change how the overflow is found in today’s Paged.js and instead of stoping as soon as something overflow, we want to let the browser do its job and find the overflow after, using the <code>Interesection Observer API</code></p>
+<p>Second change, the creations of a set of <code>web-component</code> for print that Paged.js will use instead of the template literals we have today. <code>&lt;paged-page&gt;</code> will generate a page on screen ready to be printed. This component will come with their own CSS and javascript for print and will ease some of the work we do for customizing pages (to allow for PDF with different page sizes and orientation). These components will be usable without Paged.js and will simplify any project that would need a preview on screen for printed matters.</p>
+<p>Third change, we’re replacing <code>CSS Tree</code> with <code>CSS OM</code>. The idea is to avoid the preprocessing of any CSS. This will give us more control on what CSS we’ll polyfill. This will give us more stability over time, and reduce dependencies as much as possible.</p>
+<p>There are a bunch of other changes in the pipes, including some update on the website: almost finished, and a rewriting of all the documentation, from the long awaited dev documentation for the development of the library and an update of the user manual (more like a CSS print course), and we’re now thinking of who should take part in the governance of Paged.js future.</p>
+<p>There a lot on the plates.</p>
+
+        </article>
+    
+      
+      
+      
+      <aside class="paginator ">
+        
+        
+      </aside>
+
+
+        
+            <footer>
+    <p class="foot-content"></p>
+</footer>
+
+        
+        
+        
+        <script>
+        if (document.querySelector('.toc .title')) {
+        document.querySelector('.toc .title').addEventListener("click", function() {
+        document.querySelector('.toc').classList.toggle("show");
+        })
+        }
+
+        document.querySelector(".menu-call").addEventListener("click", function() {document.querySelector(".menu").classList.toggle("hide")});
+
+        </script>
+    </body>
+</html>

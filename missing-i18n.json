@@ -1,0 +1,477 @@
+
+{
+"existing languages": ["en","fr"],
+"articles": [
+    {
+    "src": "./src/content/en/documentation/print.md",
+    "link": "/en/documentation/-paged.js-the-official-documentation/",
+    "unit": "Paged.js, the official documentation",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/journal/2020-02-25-Creating-Templates-Atla.md",
+    "link": "/posts/creating-templates:-atla/",
+    "unit": "Creating Templates: Atla",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/documentation/01-overview.md",
+    "link": "/en/documentation/1-the-big-picture/",
+    "unit": "The big picture",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/documentation/02-getting-started-with-paged-js.md",
+    "link": "/en/documentation/2-getting-started-with-paged.js/",
+    "unit": "Getting Started with Paged.js",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/documentation/04-how-pagedjs-works.md",
+    "link": "/en/documentation/4-how-paged.js-works/",
+    "unit": "How Paged.js works",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/documentation/05-designing-for-print.md",
+    "link": "/en/documentation/5-web-design-for-print/",
+    "unit": "Web design for print",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/documentation/06-generated-content.md",
+    "link": "/en/documentation/6-generated-content/",
+    "unit": "Generated Content",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/documentation/07-generated-content-in-margin-boxes.md",
+    "link": "/en/documentation/7-generated-content-in-margin-boxes/",
+    "unit": "Generated Content in Margin Boxes",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/documentation/cheatsheet.md",
+    "link": "/en/documentation/14-supported-feature-of-the-w3c-specifications/",
+    "unit": "Supported feature of the W3C specifications",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/documentation/03-w3c-specs.md",
+    "link": "/en/documentation/3-w3c-specifications-for-printing/",
+    "unit": "W3C specifications for printing",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/journal/2020-02-19-toc.md",
+    "link": "/posts/build-a-table-of-contents-from-your-html/",
+    "unit": " Build a Table of Contents from your HTML",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/documentation/99-contribute.md",
+    "link": "/en/documentation/11-contribute/",
+    "unit": "Contribute",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/documentation/99-command-line-interface.md",
+    "link": "/en/documentation/12-command-line-interface/",
+    "unit": "Command Line Interface",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/documentation/99-esm.md",
+    "link": "/en/documentation/13-module-vs-polyfill/",
+    "unit": "Module vs Polyfill",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/documentation/08-named-pages.md",
+    "link": "/en/documentation/8-named-page/",
+    "unit": "Named Page",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/documentation/09-cross-references.md",
+    "link": "/en/documentation/-cross-references/",
+    "unit": "Cross References",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/documentation/11-hooks.md",
+    "link": "/en/documentation/10-handlers-hooks-and-custom-javascript/",
+    "unit": "Handlers, Hooks and custom javascript",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/journal/2018-04-02-page-floats.md",
+    "link": "/page-floats/",
+    "unit": "Paged Media approaches : page floats",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/journal/2020-02-16-BuildAnIndexWithPagedjs.md",
+    "link": "/posts/2020-02-16-buildanindexwithpagedjs/",
+    "unit": "Build An Index With Pagedjs",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/journal/2020-02-18-w3c-position.md",
+    "link": "/posts/our-position-paper-for-the-w3c-css-print-workshop/",
+    "unit": "Our position paper for the W3C CSS print workshop",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/journal/2020-02-18-return-from-prague-the-future-of-web-to-print.md",
+    "link": "/posts/return-from-prague:-the-future-of-web-to-print/",
+    "unit": "Return from Prague: the future of web to print",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/journal/2020-02-25-weekly.md",
+    "link": "/posts/welcome-to-paged.js-0.1.38/",
+    "unit": "Welcome to paged.js 0.1.38",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/journal/2020-12-01.md",
+    "link": "/posts/a-tiny-update-to-paged.js/",
+    "unit": "A tiny update to Paged.js",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/journal/2020-03-09-MakingTheTemplateWithAtla.md",
+    "link": "/posts/finding-letters-for-atla/",
+    "unit": "Finding letters for Atla",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/journal/2020-03-20-Atla-baseline.md",
+    "link": "/posts/atla:-humming-the-baseline/",
+    "unit": "Atla: humming the baseline",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/journal/2020-04-01-pagedjs-0-1-40.md",
+    "link": "/posts/pagedjs-0.1.40/",
+    "unit": "Pagedjs 0.1.40",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/journal/2020-05-13-notes-about-notes.md",
+    "link": "/posts/notes-about-notes/",
+    "unit": "Notes About Notes",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/journal/2020-06-22-pagedjs-0-1-42.md",
+    "link": "/posts/welcome-pagedjs-0.1.42/",
+    "unit": "Welcome Pagedjs 0.1.42",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/journal/2020-09-21_avoid-whitespaces.md",
+    "link": "/posts/avoid-whitespaces/",
+    "unit": "Avoid whitespaces on pages",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/journal/2021-03-18_hackathon.md",
+    "link": "/posts/2021-03-hackathon/",
+    "unit": "A paged.js hackathon at EnsadLab",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/journal/2021-06-1_Pagedjs0-2-0.md",
+    "link": "/posts/2021-06-newRelease/",
+    "unit": "Paged.js 0.2.0 Release notes",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/journal/2021-06-uke.md",
+    "link": "/posts/2021-06-uke-partOne/",
+    "unit": "Uke and inks",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/journal/2022-04-01-onStarterKits.md",
+    "link": "/posts/2020-04-15-starterkits-for-pagedjs/",
+    "unit": "A collection of starter kits for Paged.js ",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/journal/2022-07-10-breakingPaged.md",
+    "link": "/posts/paged-break-the-long-overdue-update/",
+    "unit": "Paged Break, the long overdue update",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/journal/2022-11-17-SoLongAtScreen.md",
+    "link": "/posts/so-long-@media-screen!/",
+    "unit": "So long @media screen!",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/journal/2025-06-16-nextChapter.md",
+    "link": "/posts/paged.js-next-chapter/",
+    "unit": "Paged.js next chapter",
+    "langs": [{ "fr": true },
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/journal/2025-06-19-the_plan_for_2025-2026.md",
+    "link": "/posts/the-plan/",
+    "unit": "The plan",
+    "langs": [{ "fr": true },
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/examples/cetf.md",
+    "link": "/en/c-and-f-editions.html",
+    "unit": "C & F Éditions",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/examples/chiragan.md",
+    "link": "/en/les-sculptures-de-la-villa-romaine-de-chiragan.html",
+    "unit": "Les sculptures de la villa romaine de Chiragan",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/examples/cityFab2.md",
+    "link": "/en/city-fab2.html",
+    "unit": "City fab2",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/examples/controverses.md",
+    "link": "/en/controverses-mode-d'emploi.html",
+    "unit": "Controverses mode d’emploi",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/examples/roussilhe.md",
+    "link": "/en/situer-le-numerique.html",
+    "unit": "Situer le numérique",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/examples/walden-pond.md",
+    "link": "/en/walden-pond.html",
+    "unit": "Walden Pond",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/pages/about.md",
+    "link": "/en/about/",
+    "unit": "About Paged.js?",
+    "langs": [{ "fr": true },
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/pages/documentation.md",
+    "link": "/en/documentation/",
+    "unit": "How to use Paged.js",
+    "langs": [{ "fr": true },
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/pages/examples.md",
+    "link": "/en/made-with-paged.js.html",
+    "unit": "Made with paged.js",
+    "langs": [{ "fr": true },
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/pages/faq.md",
+    "link": "/en/frequently-asked-questions-about-paged.js.html",
+    "unit": "Frequently Asked Questions about Paged.js",
+    "langs": [{ "fr": true },
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/pages/homepage.md",
+    "link": "/",
+    
+    "langs": [{ "fr": true },
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/pages/journal.md",
+    "link": "/en/posts/",
+    "unit": "Journal",
+    "langs": [{ "fr": true },
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/pages/plugins.md",
+    "link": "/en/plugins/",
+    "unit": "A collection of plugins",
+    "langs": [{ "fr": true },
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/pages/search.md",
+    "link": "/en/looking-for-something.html",
+    "unit": "Looking for something?",
+    "langs": [{ "fr": true },
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/pages/tagsList.md",
+    "link": "/en/tags/",
+    "unit": "Index",
+    "langs": [{ "fr": true },
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/pages/templates.md",
+    "link": "/en/templates/",
+    "unit": "A collection of templates",
+    "langs": [{ "fr": true },
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/plugins/addidtoelements.md",
+    "link": "/plugins/add-id-to-elements/",
+    "unit": "Add id to elements",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/plugins/changeLang.md",
+    "link": "/plugins/change-or-add-lang/",
+    "unit": "change or add lang",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/plugins/endnotes-to-foonotes.md",
+    "link": "/plugins/endnotes-to-footnotes/",
+    "unit": "Endnotes to footnotes",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/plugins/pushthings.md",
+    "link": "/plugins/push-things/",
+    "unit": "Push things",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/plugins/temporaryFixForMissedBreak.md",
+    "link": "/plugins/temporary-fix-for-break-after-avoid/",
+    "unit": "Temporary fix for break after avoid",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/templates/juanlespins.md",
+    "link": "/templates/juan-les-pins/",
+    "unit": "Juan-les-Pins",
+    "langs": [
+    {"en": true}
+    ]}
+
+]}
