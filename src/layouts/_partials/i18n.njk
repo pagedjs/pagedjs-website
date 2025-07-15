@@ -1,8 +1,8 @@
 {% for link in page.url | locale_links %}
     <a class="alternative-lang"
        href="{{ link.url }}"
-       lang="{{ link.lang | log }}"
+       lang="{{ link.lang }}"
        title="{{ link.label }}"
-       hreflang="{{ link.lang }}">{{ translations.read_in[link.lang] | log }} {{ link.label }}</a>
+       hreflang="{{ link.lang }}">{{ translations.read_in[link.lang] }} {{ link.label }}</a>
 {% endfor %}
 </span>
