@@ -1,5 +1,5 @@
 ---
-title: "Paged.js next"
+title: "A new chapter in Paged.js lifePaged.js neue"
 date: 2025-05-17
 draft: false
 author: "@julientaq"
