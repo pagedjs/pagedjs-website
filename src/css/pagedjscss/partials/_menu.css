@@ -86,3 +86,21 @@
     top: 14px;
   }
 }
+
+.gbflag {
+  width: 20px;
+  height: 20px;
+  /* border-radius: 50%; */
+}
+
+.english-only sup {
+  font-family: var(--font-serif);
+  text-transform: lowercase;
+  font-variant: none;
+  font-style: italic;
+  line-height: 0;
+  font-size: 1em;
+  letter-spacing: 0.3ch;
+
+  letter-spacing: normal;
+}

@@ -2,6 +2,7 @@
 title: Frequently Asked Questions about Paged.js
 menu: FAQ
 id: faq
+order: 22000
 ---
 
 ## What are the differences between `paged.js` and `paged.polyfill.js`?

@@ -16,6 +16,20 @@
                         <li class="{% if item.url == page.url %}active{% endif %}">
                             <a href="{{ item.url | locale_url }}">{{ item.data.menu }}</a>
                         </li>
+                    {% else %}
+                        {# only show the one without french in their  #}
+                        {% set show = true %}
+                        {% for itemlang in item.url | locale_links %}
+                            {% if lang == itemlang.lang %}
+                                {% set show = false %}
+                            {% endif %}
+                        {% endfor %}
+                        {% if show %}
+                            <li class="{% if item.url == page.url %}active{% endif %} english-only">
+                                {# {% include "./gb-flag.njk" %} #}
+                                <a href="{{ item.url }}">{{ item.data.menu }} <sup>en</sup></a>
+                            </li>
+                        {% endif %}
                     {% endif %}
                 {% endif %}
             {% endfor %}
