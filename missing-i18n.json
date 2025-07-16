@@ -358,7 +358,7 @@
     "src": "./src/content/en/pages/documentation.md",
     "link": "/en/documentation/",
     "unit": "How to use Paged.js",
-    "langs": [{ "fr": true },
+    "langs": [
     {"en": true}
     ]},
 
@@ -366,7 +366,7 @@
     "src": "./src/content/en/pages/examples.md",
     "link": "/en/examples.html",
     "unit": "Made with paged.js",
-    "langs": [{ "fr": true },
+    "langs": [
     {"en": true}
     ]},
 
@@ -374,7 +374,7 @@
     "src": "./src/content/en/pages/faq.md",
     "link": "/en/faq.html",
     "unit": "Frequently Asked Questions about Paged.js",
-    "langs": [{ "fr": true },
+    "langs": [
     {"en": true}
     ]},
 
@@ -398,7 +398,7 @@
     "src": "./src/content/en/pages/plugins.md",
     "link": "/en/plugins/",
     "unit": "A collection of plugins",
-    "langs": [{ "fr": true },
+    "langs": [
     {"en": true}
     ]},
 
@@ -406,7 +406,7 @@
     "src": "./src/content/en/pages/search.md",
     "link": "/en/search.html",
     "unit": "Looking for something?",
-    "langs": [{ "fr": true },
+    "langs": [
     {"en": true}
     ]},
 
@@ -414,7 +414,7 @@
     "src": "./src/content/en/pages/tagsList.md",
     "link": "/en/tags/",
     "unit": "Index",
-    "langs": [{ "fr": true },
+    "langs": [
     {"en": true}
     ]},
 
@@ -422,7 +422,7 @@
     "src": "./src/content/en/pages/templates.md",
     "link": "/en/templates/",
     "unit": "A collection of templates",
-    "langs": [{ "fr": true },
+    "langs": [
     {"en": true}
     ]},
 
