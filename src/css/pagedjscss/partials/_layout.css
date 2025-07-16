@@ -572,6 +572,7 @@ header {
     font-style: italic;
     font-family: var(--font-serif);
     color: inherit;
+    margin-top: 0.8em;
     font-size: 1.32em;
     color: inherit;
 

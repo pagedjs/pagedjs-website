@@ -1,6 +1,7 @@
 ---
-title: à propos de paged.js?
+title: À propos de Paged.js?
 menu: À propos
+id: about
 ---
 
 
