@@ -212,8 +212,16 @@ start()
             
                 
                     
+                
+            
+                
+                    
+                
+            
+                
+                    
                         <li class="">
-                            <a href="/en/about/">about</a>
+                            <a href="/en/about.html">about</a>
                         </li>
                     
                 
@@ -221,19 +229,15 @@ start()
                 
                     
                         <li class="">
-                            <a href="/en/frequently-asked-questions-about-paged.js.html">FAQ</a>
+                            <a href="/en/faq.html">FAQ</a>
                         </li>
                     
                 
             
                 
-                    
-                
             
                 
                     
-                
-            
                 
             
                 
@@ -251,17 +255,17 @@ start()
                 
                     
                         <li class="">
-                            <a href="/en/made-with-paged.js.html">examples</a>
+                            <a href="/en/examples.html">examples</a>
                         </li>
                     
                 
             
                 
+            
+                
+            
+                
                     
-                
-            
-                
-            
                 
             
                 
@@ -269,10 +273,6 @@ start()
                         <li class="">
                             <a href="/en/posts/">journal</a>
                         </li>
-                    
-                
-            
-                
                     
                 
             
@@ -328,7 +328,9 @@ start()
                 written
                 by <span class="author">@julientaq</span>
                 on <time class="date">5/19/2025</time>
-                
+            </p>
+        
+        
     <a class="alternative-lang"
        href="/posts/the-plan/"
        lang="en"
@@ -337,8 +339,6 @@ start()
 
 </span>
 
-            </p>
-        
     </header>
     <article>
         
@@ -355,15 +355,14 @@ start()
                     
                 
             
-            <p>::: cite<br>
-text: Polyfill is the greek work for hack<br>
-author: Dave Cramer<br>
-:::</p>
+            <blockquote>
+<p>« Polyfill is the greek work for hack » — Dave Cramer</p>
+</blockquote>
 <p>Un <code>polyfill</code> est un bout de code utilisé pour fournir des fonctionnalités récentes dans les navigateurs qui ne les supporte pas encore. Pendant longtemps, l’usage de svg dans le navigateur dépendait de l’utilisation de svgweb.js, une bibiliothèque capable de transformer les svg en éléments visible à l’écran. Et puis les navigateurs ont été mis à jour, et svgweb.js n’est quasiment plus utile.</p>
 <p>Paged.js est un <em>polyfill</em> pour les fonctionnalités d’impression du navigateur proposés par le W3C. Avec une légère distinction, puisque le module d’impression des navigateurs n’est pas vraiment accessible depuis javascript, puisque les navigateurs dépendent d’autres dépendances qui s’occupent de produire les fichiers pour l’imprimante (ou le PDF). Et comme on ne peut pas vraiment changer ça, on a un peu triché : on ne touche pas au moteur de fabrication de pdf, mais on fait en sorte qu’à l’écran se trouve tout la page, ses marges, ses attributs de livre, et on imprime le tout en faisant bien attention à ne pas mettre de marge dans la fenêtre d’impression.</p>
 <p>On simule donc l’imprimé à l’écran, et, se faisant, on triche avec la distinction qui est faite entre le media écran et le média paginé dans le css: <code>@print</code> qui devrait ne toucher que le print est en fait visible à l’écran. Et cette distinction donne des superpouvoirs, puisqu’on accède à l’inspecteur, comme un code source de notre page imprimé. On peut ainsi lui faire subir des transformations que les outils classiques (Julie dirait les <em>wysiwyg</em>) ne permettent pas si facilement : un exemple tout bête, on pourrait calculer la taille que prend une image selon un certain layout, pour voir si, à la mise en page, elle pourrait être déplacée ailleurs dans la page.</p>
 <p>Les possiblités sont infinies, et s’il est possible de se passer d’un éxécutant pour automatiser une mise en page, il est très simple de lui donner les moyens d’améliorer le résultat.</p>
-<p>Ce <s>hack</s> <em>polyfill</em> est devenu avec le temps la principale <em>feature</em> de Paged.js : les designers web ont pu faire du print sans avoir à apprendre un autre outil,  les graphistes qui le souhaitaient ont trouvé un terrain de jeu pour apprendre le web dans un univers moins complexe à appréhender que la page web infinie de l’écran, et l’industrie peut utiliser les principes du « web2print » pour automatiser au maximum des publications tout en gardant la main sur les changements nécessaires à assurer la qualité.</p>
+<p>Ce <s>hack</s> <em>polyfill</em> est devenu avec le temps la principale <em>feature</em> de Paged.js : les designers web ont pu faire du print sans avoir à apprendre un autre outil,  les graphistes qui le souhaitaient ont trouvé un terrain de jeu pour apprendre le web dans un univers moins complexe à appréhender que la page web infinie de l’écran, et l’industrie a pu utiliser les principes du « web2print » pour automatiser au maximum des publications tout en gardant la main sur les changements nécessaires à assurer la qualité de la mise en page.</p>
 <p>Voilà le travail du polyfill : prouver qu’un usage peut exister en le rendant possible, trouver les utilisateurs pour promouvoir son usage, et disparaître quand les navigateurs ont fait le travail.</p>
 <p>Et voilà Chromium qui, depuis sa version 131, supporte l’utilisation des <code>margin-box</code>, donnant la possibilité à l’utilisateur de poser des choses dans des marges qui ne se voient pas à l’écran mais qui sont visibles une fois imprimé. Ce signal que les choses avancent pour le print est aussi le moment de se poser la question de quoi faire de Paged.js. Non pas qu’il faille abandonner l’outil, seul Chromium bouge pour l’instant, et les fonctionnalités proposées sont bien loin de tout le nécessaire à la fabrication d’un document imprimé complet, mais ça nous pousse à trouver comment se positionner.</p>
 <p>Pour l’instant, on peut continuer à utiliser Paged.js tel quel, j’imagine quelques bugs par-ci par là, mais rien qui ne devrait tout casser trop vite. Par contre, au fur et à mesure que les fonctionnalités approchent, il va falloir les intégrer. Prenons un exemple simple: j’ai une table des matières et j’utilise un CSS spécifique pour ajouter les numéros de page. Si Paged.js le fait ET chrome le fait aussi, est-ce que le numéro de page doit être doublé? est-ce qu’on va vouloir préféré ce que produit Paged.js ou ce que produit chrome?</p>
@@ -396,7 +395,7 @@ author: Dave Cramer<br>
       
       <aside class="paginator ">
         
-        
+        <a class="next" href="/posts/the-plan/">The plan</a>
       </aside>
 
 

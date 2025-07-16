@@ -300,7 +300,7 @@
 
     {
     "src": "./src/content/en/examples/cetf.md",
-    "link": "/en/c-and-f-editions.html",
+    
     "unit": "C & F Éditions",
     "langs": [
     {"en": true}
@@ -308,7 +308,7 @@
 
     {
     "src": "./src/content/en/examples/chiragan.md",
-    "link": "/en/les-sculptures-de-la-villa-romaine-de-chiragan.html",
+    
     "unit": "Les sculptures de la villa romaine de Chiragan",
     "langs": [
     {"en": true}
@@ -316,7 +316,7 @@
 
     {
     "src": "./src/content/en/examples/cityFab2.md",
-    "link": "/en/city-fab2.html",
+    
     "unit": "City fab2",
     "langs": [
     {"en": true}
@@ -324,7 +324,7 @@
 
     {
     "src": "./src/content/en/examples/controverses.md",
-    "link": "/en/controverses-mode-d'emploi.html",
+    
     "unit": "Controverses mode d’emploi",
     "langs": [
     {"en": true}
@@ -332,7 +332,7 @@
 
     {
     "src": "./src/content/en/examples/roussilhe.md",
-    "link": "/en/situer-le-numerique.html",
+    
     "unit": "Situer le numérique",
     "langs": [
     {"en": true}
@@ -340,7 +340,7 @@
 
     {
     "src": "./src/content/en/examples/walden-pond.md",
-    "link": "/en/walden-pond.html",
+    
     "unit": "Walden Pond",
     "langs": [
     {"en": true}
@@ -348,7 +348,7 @@
 
     {
     "src": "./src/content/en/pages/about.md",
-    "link": "/en/about/",
+    "link": "/en/about.html",
     "unit": "About Paged.js?",
     "langs": [{ "fr": true },
     {"en": true}
@@ -364,7 +364,7 @@
 
     {
     "src": "./src/content/en/pages/examples.md",
-    "link": "/en/made-with-paged.js.html",
+    "link": "/en/examples.html",
     "unit": "Made with paged.js",
     "langs": [{ "fr": true },
     {"en": true}
@@ -372,7 +372,7 @@
 
     {
     "src": "./src/content/en/pages/faq.md",
-    "link": "/en/frequently-asked-questions-about-paged.js.html",
+    "link": "/en/faq.html",
     "unit": "Frequently Asked Questions about Paged.js",
     "langs": [{ "fr": true },
     {"en": true}
@@ -404,7 +404,7 @@
 
     {
     "src": "./src/content/en/pages/search.md",
-    "link": "/en/looking-for-something.html",
+    "link": "/en/search.html",
     "unit": "Looking for something?",
     "langs": [{ "fr": true },
     {"en": true}

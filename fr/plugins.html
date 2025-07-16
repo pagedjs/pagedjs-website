@@ -4,13 +4,13 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
-        <title>Paged.js — Frequently Asked Questions about Paged.js</title>
+        <title>Paged.js — A collection of plugins</title>
         <script type="module">
         document.documentElement.classList.remove('no-js'); 
         document.documentElement.classList.add('js'); 
         </script>
         <meta name="description" content="">
-        <meta property="og:title" content="Frequently Asked Questions about Paged.js — ">
+        <meta property="og:title" content="A collection of plugins — ">
         <meta property="og:description" content="">
         <meta property="og:image" content="">
         <meta property="og:image:alt" content="Image description">
@@ -64,7 +64,7 @@ start()
 </script>
         
     </head>
-    <body class=" "
+    <body class="plugins "
           style="">
         <div class="crop-marks">
     <div class="crop-mark vertical"></div>
@@ -213,15 +213,15 @@ start()
                 
                     
                         <li class="">
-                            <a href="/en/about/">about</a>
+                            <a href="/fr/about.html">À propos</a>
                         </li>
                     
                 
             
                 
                     
-                        <li class="active">
-                            <a href="/en/frequently-asked-questions-about-paged.js.html">FAQ</a>
+                        <li class="">
+                            <a href="/fr/faq.html">FAQ</a>
                         </li>
                     
                 
@@ -239,7 +239,7 @@ start()
                 
                     
                         <li class="">
-                            <a href="/en/documentation/">documentation</a>
+                            <a href="/fr/documentation.html">documentation</a>
                         </li>
                     
                 
@@ -251,7 +251,7 @@ start()
                 
                     
                         <li class="">
-                            <a href="/en/made-with-paged.js.html">examples</a>
+                            <a href="/fr/examples.html">examples</a>
                         </li>
                     
                 
@@ -267,7 +267,7 @@ start()
                 
                     
                         <li class="">
-                            <a href="/en/posts/">journal</a>
+                            <a href="/fr/posts/">journal</a>
                         </li>
                     
                 
@@ -314,45 +314,69 @@ start()
 
         
         
-    
+  
+  
 
         
-    <header>
-        <h1 id="title">
+  <header>
+     <h1 id="title">A collection of plugins</h1>
+  </header>
+    
+    
+    <div class="list content">
+    
+    <ul>
+      
+        <li class="article">
+          <h2><a href="/plugins/add-id-to-elements/"><span>Add id to elements</span></a></h2>
+          <div class="meta">
             
-            Frequently Asked Questions about Paged.js
-        </h1>
-        
-    </header>
-    <article>
-        
-        
-        
+            <span class="intro">Add ID to all your element in html!</span>
+          </div>  
+          <div class = "toc"></div>                         
+        </li>
+      
+        <li class="article">
+          <h2><a href="/plugins/change-or-add-lang/"><span>change or add lang</span></a></h2>
+          <div class="meta">
+            
+            <span class="intro">Add a lang attribute to the html if it’s not available in the HTML.</span>
+          </div>  
+          <div class = "toc"></div>                         
+        </li>
+      
+        <li class="article">
+          <h2><a href="/plugins/endnotes-to-footnotes/"><span>Endnotes to footnotes</span></a></h2>
+          <div class="meta">
+            
+            <span class="intro">Move your end notes to footnotes!</span>
+          </div>  
+          <div class = "toc"></div>                         
+        </li>
+      
+        <li class="article">
+          <h2><a href="/plugins/push-things/"><span>Push things</span></a></h2>
+          <div class="meta">
+            
+            <span class="intro">Move things around before printing the book</span>
+          </div>  
+          <div class = "toc"></div>                         
+        </li>
+      
+        <li class="article">
+          <h2><a href="/plugins/temporary-fix-for-break-after-avoid/"><span>Temporary fix for break after avoid</span></a></h2>
+          <div class="meta">
+            
+            <span class="intro">Sometimes you have two elements that should be tied together but chrome doesnt seem to care. This will make him care a bit more</span>
+          </div>  
+          <div class = "toc"></div>                         
+        </li>
+      
+    </ul>
+  </div>
 
-
-
-        
-        
-            <h2 id="what-are-the-differences-between-paged.js-and-paged.polyfill.js%3F" tabindex="-1">What are the differences between <code>paged.js</code> and <code>paged.polyfill.js</code>?</h2>
-<p>Paged.js comes as two different scripts</p>
-<ol>
-<li><code>paged.js</code>: this version of the script let the user define the<br>
-content, the styles and the output element of paged.js, as explained in Paged.js<br>
-readme. It follows those rules:</li>
-</ol>
-<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">let</span> paged <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Previewer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token keyword">let</span> flow <span class="token operator">=</span> paged<span class="token punctuation">.</span><span class="token function">preview</span><span class="token punctuation">(</span>DOMContent<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">"path/to/css/file.css"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> document<span class="token punctuation">.</span>body<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">flow</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>	console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Rendered"</span><span class="token punctuation">,</span> flow<span class="token punctuation">.</span>total<span class="token punctuation">,</span> <span class="token string">"pages."</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
-<ol start="2">
-<li><code>paged.polyfill.js</code>: this version of the script is the default setup for<br>
-paged.js: it will start as soon as the page is loaded, it will use the full<br>
-content of the webpage, and all the styles linked to the content, and the<br>
-output will be rendered as the replacement of the full <code>body</code> element of the<br>
-webpage.</li>
-</ol>
-<p>Paged.js will work the same way with both scripts, the first one allows for more<br>
-customized uses.</p>
-
-        </article>
     
+
         
             <footer>
     <p class="foot-content"></p>

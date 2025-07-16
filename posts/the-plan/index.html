@@ -212,8 +212,16 @@ start()
             
                 
                     
+                
+            
+                
+                    
+                
+            
+                
+                    
                         <li class="">
-                            <a href="/en/about/">about</a>
+                            <a href="/en/about.html">about</a>
                         </li>
                     
                 
@@ -221,19 +229,15 @@ start()
                 
                     
                         <li class="">
-                            <a href="/en/frequently-asked-questions-about-paged.js.html">FAQ</a>
+                            <a href="/en/faq.html">FAQ</a>
                         </li>
                     
                 
             
                 
-                    
-                
             
                 
                     
-                
-            
                 
             
                 
@@ -251,17 +255,17 @@ start()
                 
                     
                         <li class="">
-                            <a href="/en/made-with-paged.js.html">examples</a>
+                            <a href="/en/examples.html">examples</a>
                         </li>
                     
                 
             
                 
+            
+                
+            
+                
                     
-                
-            
-                
-            
                 
             
                 
@@ -269,10 +273,6 @@ start()
                         <li class="">
                             <a href="/en/posts/">journal</a>
                         </li>
-                    
-                
-            
-                
                     
                 
             
@@ -328,7 +328,9 @@ start()
                 written
                 by <span class="author">@julientaq</span>
                 on <time class="date">5/19/2025</time>
-                
+            </p>
+        
+        
     <a class="alternative-lang"
        href="/posts/fr/paged.js-next-tables-des-matieres/"
        lang="fr"
@@ -337,8 +339,6 @@ start()
 
 </span>
 
-            </p>
-        
     </header>
     <article>
         
@@ -355,10 +355,9 @@ start()
                     
                 
             
-            <p>::: cite<br>
-text: Polyfill is the greek work for hack<br>
-author: Dave Cramer<br>
-:::</p>
+            <blockquote>
+<p>“Polyfill is the greek word for hack” — Dave Cramer</p>
+</blockquote>
 <p>A polyfill is a bit of code used to simulate features in a browser that doesn’t support them yet. For a while, using svg in the browser was made using the <code>svgweb.js</code> library, able to convert those code into shapes on screen. And then, browsers evolved and once they managed to support svg without help, <code>svgweb</code> wasn’t really useful anymore.</p>
 <p>Paged.js is a <em>polyfill</em> for all the features for print that folks have been pushing to the W3C. With a slight distinction, since the printing module of the browsers are not really available through javascript as browsers use other dependencies to print paper or generate PDF. And since we can’t really do anything to that PDF generator, Paged.js is cheating a little bit by faking the result of the printing process on the screen: we can preview the page, its margins, by recreating the html and css that will be rendered on screen and then we can print this whole preview.</p>
 <p>We’re simulating print on screen, and by doing so, we’re blurring a little bit the distinction between the print and screen medias of the css, since we’re translating print for the screen. And this gives us superpowers, simply by giving acces to the inspector, to explore the source code of our printed page. And we can do a lot to those pages before printing them, as we’d design a website, using css and javascript, and we can also transform the content as it’s being deployed on the page: for example, you can calculate the size of an image and automatically decide if there is enough room on the page, or if you want to move it to the next and keep the  rest of the text flowing.</p>
@@ -378,7 +377,7 @@ author: Dave Cramer<br>
 <p>First change: the <code>chunker</code> will soon be its own javascript library. It will be able to take a content, fill an <code>HTML element</code> with it, and return the overflowing bit and the multiple break tokens. Paged.js will use that library as a dependency, and it will help us quite a lot to test new HTML elements and new CSS features without having to run Paged.js. The second interesting bit of that is that we’ll be able to run multiple chunkers in multiple places, allowing for very complex layout with multiple flows or customs side/margin notes, or, in another context, it will allow for chained block, like you would have in a classic book designing program. We also want to change how the overflow is found in today’s Paged.js and instead of stoping as soon as something overflow, we want to let the browser do its job and find the overflow after, using the <code>Interesection Observer API</code></p>
 <p>Second change, the creations of a set of <code>web-component</code> for print that Paged.js will use instead of the template literals we have today. <code>&lt;paged-page&gt;</code> will generate a page on screen ready to be printed. This component will come with their own CSS and javascript for print and will ease some of the work we do for customizing pages (to allow for PDF with different page sizes and orientation). These components will be usable without Paged.js and will simplify any project that would need a preview on screen for printed matters.</p>
 <p>Third change, we’re replacing <code>CSS Tree</code> with <code>CSS OM</code>. The idea is to avoid the preprocessing of any CSS. This will give us more control on what CSS we’ll polyfill. This will give us more stability over time, and reduce dependencies as much as possible.</p>
-<p>There are a bunch of other changes in the pipes, including some update on the website: almost finished, and a rewriting of all the documentation, from the long awaited dev documentation for the development of the library and an update of the user manual (more like a CSS print course), and we’re now thinking of who should take part in the governance of Paged.js future.</p>
+<p>There are a bunch of other changes in the pipes, including some update on the website (which is almost completely updated as you can now participate in its translations to any language you’d like). a rewriting of all the documentation that will include a real developer docs for contributors and a better css print 101., from the long awaited dev documentation for the development of the library and an update of the user manual (more like a CSS print course), and we’re now thinking of who should take part in the governance of Paged.js future.</p>
 <p>There a lot on the plates.</p>
 
         </article>
@@ -388,7 +387,7 @@ author: Dave Cramer<br>
       
       <aside class="paginator ">
         
-        
+        <a class="next" href="/posts/the-plan/">The plan</a>
       </aside>
 
 

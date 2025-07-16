@@ -4,13 +4,13 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
-        <title>Paged.js — Les questions les plus fréquentes autour de paged.js</title>
+        <title>Paged.js — About Paged.js?</title>
         <script type="module">
         document.documentElement.classList.remove('no-js'); 
         document.documentElement.classList.add('js'); 
         </script>
         <meta name="description" content="">
-        <meta property="og:title" content="Les questions les plus fréquentes autour de paged.js — ">
+        <meta property="og:title" content="About Paged.js? — ">
         <meta property="og:description" content="">
         <meta property="og:image" content="">
         <meta property="og:image:alt" content="Image description">
@@ -220,16 +220,16 @@ start()
             
                 
                     
-                        <li class="">
-                            <a href="/fr/about/">à propos</a>
-                        </li>
-                    
-                
-            
-                
-                    
                         <li class="active">
-                            <a href="/fr/les-questions-les-plus-frequentes-autour-de-paged.js.html">FAQ</a>
+                            <a href="/en/about.html">about</a>
+                        </li>
+                    
+                
+            
+                
+                    
+                        <li class="">
+                            <a href="/en/faq.html">FAQ</a>
                         </li>
                     
                 
@@ -243,7 +243,7 @@ start()
                 
                     
                         <li class="">
-                            <a href="/fr/documentation/">documentation</a>
+                            <a href="/en/documentation/">documentation</a>
                         </li>
                     
                 
@@ -255,7 +255,7 @@ start()
                 
                     
                         <li class="">
-                            <a href="/fr/made-with-paged.js.html">examples</a>
+                            <a href="/en/examples.html">examples</a>
                         </li>
                     
                 
@@ -271,7 +271,7 @@ start()
                 
                     
                         <li class="">
-                            <a href="/fr/posts/">journal</a>
+                            <a href="/en/posts/">journal</a>
                         </li>
                     
                 
@@ -320,9 +320,18 @@ start()
     <header>
         <h1 id="title">
             
-            Les questions les plus fréquentes autour de paged.js
+            About Paged.js?
         </h1>
         
+        
+    <a class="alternative-lang"
+       href="/fr/about.html"
+       lang="fr"
+       title="Français"
+       hreflang="fr">Lisez en   Français</a>
+
+</span>
+
     </header>
     <article>
         
@@ -333,16 +342,18 @@ start()
 
         
         
-            <h2 id="quelles-diff%C3%A9rences-y-a-t-il-entre-paged.js-et-paged.polyfill.js%3F" tabindex="-1">Quelles différences y a-t-il entre <code>paged.js</code> et <code>paged.polyfill.js</code>?</h2>
-<p>Paged.js est délivré sous deux formats :</p>
-<ol>
-<li><code>paged.js</code> qui permet à l’utilisateur de définir le contenu, les styles utilisés et l’élément HTML dans lequel paged.js produira la pagination. Il s’utilise comme suit :</li>
-</ol>
-<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">let</span> paged <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Previewer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token keyword">let</span> flow <span class="token operator">=</span> paged<span class="token punctuation">.</span><span class="token function">preview</span><span class="token punctuation">(</span>DOMContent<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">"path/to/css/file.css"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> document<span class="token punctuation">.</span>body<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">flow</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>	console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Rendered"</span><span class="token punctuation">,</span> flow<span class="token punctuation">.</span>total<span class="token punctuation">,</span> <span class="token string">"pages."</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
-<ol start="2">
-<li><code>paged.polyfill.js</code> qui lui, est un script qui lance paged.js dès que le navigateur a chargé la page. Il prend tout le contenu du <code>&lt;body&gt;</code>, toutes les feuilles de styles appelées dans le <code>&lt;head&gt;</code>, et le HTML produit remplace l’intégralité du <code>&lt;body&gt;</code>.</li>
-</ol>
-<p>Paged.js fonctionne de la même manière quelque soit le script.</p>
+            <p>Paged.js is a free and open source JavaScript library that paginates content in the browser to create PDF output from any HTML content. This means you can design works for print (eg. books) using HTML and CSS!</p>
+<p>After years of trying a lot of solutions to make books out of HTML, and frustrated by the issues we found with each one of them, we ended up by building one of our own, following some mandatory principles.</p>
+<p>Paged.js follows the Paged Media standards published by the W3C (ie the Paged Media Module, and the Generated Content for Paged Media Module). In effect Paged.js acts as a <a href="https://en.wikipedia.org/wiki/Polyfill_(programming)">polyfill</a> for the CSS modules to print content using features that are not yet natively supported by browsers.</p>
+<p>We’ll follow the standards of the W3C. Standards are in the DNA of what we’re doing. If we want to add some feature, we’ll write down the specifications and discuss with all the members of the W3C to see how it would make sense for them and we are open to anyone who want to share their thoughts. This project will be over when we are happy with the browsers’ implementation of the W3C specification for print.</p>
+<p>Paged.js is a community driven project, we’ll make sure that anyone feels just like at home, newcomers and old friends alike. We’ll always put the community needs first: we have a <a href="https://mattermost.coko.foundation">Mattermost</a> that we use to discuss everything and the development is hosted on <a href="https://github.com/pagedjs/">github</a>. All the issues are read and answered as fast as possible.</p>
+<p>Welcome around :)</p>
+<h2 id="colophon" tabindex="-1">Colophon</h2>
+<p>Paged.js was founded by <a href="https://www.adamhyde.net">Adam Hyde</a> and is currently developed by <a href="julientaq.fr">julientaq</a>, <a href="http://fchasen.com/">Fred Chasen</a> and <a href="https://de-heij.com/">Gijs de Heij</a>).</p>
+<p>The Paged.js logo was designed by the lovely <a href="http://moglia.fr/">Anton Moglia</a> and our own awesome <a href="http://julie-blanc.fr">Julie Blanc</a> during a train ourney returning from the 60-year-old type design event called <a href="http://delure.org">Les Rencontres de Lure</a>.</p>
+<p>The Paged.js website was designed and built by <a href="https://www.adamhyde.net">Adam Hyde</a> and Julien Taquet using the great static website generator <a href="https://11ty.dev/">11ty</a>.</p>
+<p>Our articles go through the brilliant eyes of <a href="https://allmyownwords.wordpress.com/">Raewyn Whyte</a>, our amazing editor, based in New Zealand. If you find a typo somewhere, it means that it went live on the website without going through her magic hands.</p>
+<p>The website is mainly using the <a href="https://indestructibletype.com/Jost.html">Jost*</a> font from Indestructible type and <a href="https://www.theleagueofmoveabletype.com/fanwood">Fanwood Text</a> from the league of moveable type, both free and open source fonts. When it comes to code, we’re also using <a href="https://rubjo.github.io/victor-mono/">Victor Mono</a>, designed by Rune B, which is also free and open source.</p>
 
         </article>
     
