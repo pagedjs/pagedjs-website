@@ -547,7 +547,7 @@ header {
       top: -0.44em;
       left: -0.3em;
       font-style: normal;
-      color: var(--color-grey);
+      color: var(--color-lightest-grey);
       display: block;
       position: absolute;
     }
@@ -566,16 +566,18 @@ header {
       font-weight: 400;
       background: 0 0;
     }
+  }
 
-    .alternative-lang {
+  .alternative-lang {
+    font-style: italic;
+    font-family: var(--font-serif);
+    color: inherit;
+    font-size: 1.32em;
+    color: inherit;
+
+    &:hover {
       font-style: italic;
-      font-family: var(--font-serif);
-      color: inherit;
-      font-size: 1.12em;
-      &:hover {
-        font-style: italic;
-        color: var(--color-primary);
-      }
+      color: var(--color-primary);
     }
   }
 }

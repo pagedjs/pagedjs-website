@@ -29,6 +29,7 @@
   --color-paper: var(--color-background);
   --color-accent: var(--color-primary);
   --color-grey: #ddd;
+  --color-lightest-grey: #e2e2e2;
   --color-darkest-grey: #999;
   --font-serif: "Linden Hill", serif;
   --font-sans: "Jost", sans-serif;
