@@ -1,22 +1,92 @@
 {% extends "base.njk" %}
-
 {% block side %}
     {# <p style="color: purple; position: absolute; left: -60px; top: 0; transform : rotate(90deg) ">single</p> #}
     {# {% include "_partials/readbuttons.njk" %} #}
 {% endblock %}
-
 {% block scripts %}{% endblock %}
-
 {% block content %}
-
     <header>
-        <h1 id="title">{{title}}</h1>
+        <h1 id="title">{{ title }}</h1>
+        {% include "_partials/i18n.njk" %}
     </header>
-    {% from "createIndex.njk" import index with context %}
-    {{index(collections.documentation, addTOC=['h2', 'h3'])}}
-    {# 
-        <aside class="paginator">
-            <a class="next alone" href="https://www.pagedjs.org/search/">Looking for something?</a>
-        </aside> #}
-
+    <div class="list content">
+        {% include "_partials/to-translate.njk" %}
+        <ul>
+            {# get the right collections from the lang? #}
+            {% for item in collections.documentation %}
+                {# if lang exist use the lang #}
+                {% if item.data.lang == lang %}
+                    <li class="article">
+                        <h2>
+                            <a href="{{ item.url }}"><span>{{ item.data.title }}</span></a>
+                            <span class="langs">
+                                <a href="{{ item.url }}">{{ item.data.lang }}</a>
+                                {%- for link in item.url | locale_links %}
+                                    <a class="alternative-lang"
+                                       href="{{ link.url }}"
+                                       lang="{{ link.lang }}"
+                                       title="{{ link.label }}"
+                                       hreflang="{{ link.lang }}">{{ link.lang }}</a>
+                                {%- endfor -%}
+                            </span>
+                        </h2>
+                        <div class="meta">
+                            {% if item.data.author or item.data.date %}
+                                <p>
+                                    written
+                                    {% if item.data.author %}by <span class="author">{{ item.data.author }}</span>{% endif %}
+                                    {% if item.data.date %}on <time class="date">{{ item.data.date | postDate }}</time>{% endif %}
+                                </p>
+                            {% endif %}
+                            {% if item.data.intro %}<span class="intro">{{ item.data.intro | markdownifyInline | safe }}</span>{% endif %}
+                        </div>
+                        {# let’s addlangs #}
+                        <a href=""></a>
+                        {# <div class="toc"></div> #}
+                    </li>
+                {% else %}
+                    {# only show the one without french in their  #}
+                    {% set show = true %}
+                    {% for itemlang in item.url | locale_links %}
+                        {% if lang == itemlang.lang %}
+                            {% set show = false %}
+                        {% endif %}
+                    {% endfor %}
+                    {% if show %}
+                        <li class="article no-available-lang">
+                            <h2>
+                                <a href="{{ item.url }}"><span>{{ item.data.title }}</span></a>
+                                <span class="langs">
+                                    <a href="{{ item.url }}">{{ item.data.lang }}</a>
+                                    {%- for link in item.url | locale_links %}
+                                        <a class="alternative-lang"
+                                           href="{{ link.url }}"
+                                           lang="{{ link.lang }}"
+                                           title="{{ link.label }}"
+                                           hreflang="{{ link.lang }}">{{ link.lang }}</a>
+                                    {%- endfor -%}
+                                </span>
+                            </h2>
+                            <div class="meta">
+                                {% if item.data.author or item.data.date %}
+                                    <p>
+                                        written
+                                        {% if item.data.author %}by <span class="author">{{ item.data.author }}</span>{% endif %}
+                                        {% if item.data.date %}on <time class="date">{{ item.data.date | postDate }}</time>{% endif %}
+                                    </p>
+                                {% endif %}
+                                {% if item.data.intro %}<span class="intro">{{ item.data.intro | markdownifyInline | safe }}</span>{% endif %}
+                            </div>
+                            {# let’s addlangs #}
+                            <a href=""></a>
+                            {# <div class="toc"></div> #}
+                        </li>
+                        {# if the article doesnt exist in the lang #}
+                        {# check for the article that have no fr in their locale #}
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
 {% endblock %}
+

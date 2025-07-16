@@ -1,7 +1,7 @@
 ---
 title: A collection of templates
 layout: "templates/template-collection.njk"
-permalink: en/templates/index.html
+id: templates
 # menu: templates
 class: templates
 ---

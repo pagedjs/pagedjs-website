@@ -1,4 +1,4 @@
 {
-  "permalink": "{{lang}}/{{id | slug}}.html",
+  "permalink": "{{lang}}/{{id | slug}}/index.html",
   "addIntro": false
 }

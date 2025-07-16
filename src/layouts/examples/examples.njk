@@ -1,37 +1,32 @@
 {% extends "base.njk" %}
-
 {% block side %}
     {# <p style="color: purple; position: absolute; left: -60px; top: 0; transform : rotate(90deg) ">single</p> #}
     {# {% include "_partials/readbuttons.njk" %} #}
 {% endblock %}
-
 {% block scripts %}{% endblock %}
-
 {% block content %}
-
     <header>
-        <h1 id="title">{{title}}</h1>
+        <h1 id="title">{{ title }}</h1>
+        {% include "_partials/i18n.njk" %}
     </header>
-
     {% for item in collections.examples %}
-
         <article class="example">
+            {% include "_partials/to-translate.njk" %}
             <section class="content">
-                <h2 id="{{item.data.title | slug}}">{{item.data.title}}</em>
+                <h2 id="{{ item.data.title | slug }}">
+                {{ item.data.title }}</em>
             </h2>
-            {{item.templateContent | markdownify | safe}}
+            {{ item.templateContent | markdownify | safe }}
             <ul class="links">
-                {% for link in item.data.links %}
-                    <li>{{link | markdownify | safe }}</li>
-                {% endfor %}
+                {% for link in item.data.links %}<li>{{ link | markdownify | safe }}</li>{% endfor %}
             </ul>
         </section>
         <figure class="eighty example">
             {% for image in item.data.images %}
-                <img loading="lazy" src="/images/{{image}}" alt="excerpt from the book.">
+                <img loading="lazy" src="/images/{{ image }}" alt="excerpt from the book.">
             {% endfor %}
         </figure>
     </article>
 {% endfor %}
-
 {% endblock %}
+

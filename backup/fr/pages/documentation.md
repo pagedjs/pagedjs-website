@@ -1,7 +1,7 @@
 ---
-layout: /documentation/documentation-list.njk
+title: Comment utiliser paged.js ?
 menu: documentation
-title: Comment utiliser Paged.js  
+layout: documentation/documentation-list.njk
 class: documentation
 id: documentation
 ---

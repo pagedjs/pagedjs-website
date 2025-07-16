@@ -1,9 +1,9 @@
 ---
 title: Journal
-menu: journal
+menu: Journal
 layout: journal/journal-list.njk
 class: posts
-permalink: "{{lang}}/posts/"
+id: journal
 ---
 
 welcome to journal page

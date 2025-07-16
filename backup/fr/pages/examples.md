@@ -1,9 +1,8 @@
 ---
-title: Made with paged.js
-menu: examples
+title: Fait avec paged.js 
+menu: exemples
 layout: examples/examples.njk
-id: examples
+class: exemples
+id: exemples
 ---
 
-Paged.js is in use in a lot of different projects, from publishing workflows to handcrafted books.
-Here are some examples. Drop us a line at *contact at pagedjs dot org* if you want to show your work in there.
