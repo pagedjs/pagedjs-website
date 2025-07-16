@@ -4,13 +4,13 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
-        <title>Paged.js — The plan</title>
+        <title>Paged.js — Frequently Asked Questions about Paged.js</title>
         <script type="module">
         document.documentElement.classList.remove('no-js'); 
         document.documentElement.classList.add('js'); 
         </script>
         <meta name="description" content="">
-        <meta property="og:title" content="The plan — ">
+        <meta property="og:title" content="Frequently Asked Questions about Paged.js — ">
         <meta property="og:description" content="">
         <meta property="og:image" content="">
         <meta property="og:image:alt" content="Image description">
@@ -214,22 +214,28 @@ start()
             
                 
                     
+                    
                         <li class="">
-                            <a href="/en/about.html">about</a>
+                            <a href="/en/about/">about</a>
                         </li>
+                        
                     
                 
             
                 
                     
-                        <li class="">
-                            <a href="/en/faq.html">FAQ</a>
+                    
+                        <li class="active">
+                            <a href="/en/faq/">FAQ</a>
                         </li>
+                        
                     
                 
             
                 
                     
+                    
+                        
                         
                         
                         
@@ -245,34 +251,42 @@ start()
             
                 
                     
-                        <li class="">
-                            <a href="/en/documentation/">documentation</a>
-                        </li>
-                    
-                
-            
-                
                     
                         <li class="">
-                            <a href="/en/examples.html">examples</a>
+                            <a href="/en/undefined/">documentation</a>
                         </li>
+                        
                     
                 
             
                 
-            
-                
-            
-                
+                    
                     
                         <li class="">
-                            <a href="/en/posts/">journal</a>
+                            <a href="/en/examples/">examples</a>
                         </li>
+                        
+                    
+                
+            
+                
+            
+                
+            
+                
+                    
+                    
+                        <li class="">
+                            <a href="/en/journal/">Journal</a>
+                        </li>
+                        
                     
                 
             
                 
                     
+                    
+                        
                         
                         
                         
@@ -317,27 +331,13 @@ start()
     
 
         
-    
     <header>
         <h1 id="title">
             
-            The plan
+            Frequently Asked Questions about Paged.js
         </h1>
         
-            <p class="meta">
-                written
-                by <span class="author">@julientaq</span>
-                on <time class="date">5/19/2025</time>
-            </p>
         
-        
-    <a class="alternative-lang"
-       href="/posts/fr/paged.js-next-tables-des-matieres/"
-       lang="fr"
-       title="Français"
-       hreflang="fr">Lisez en   Français</a>
-
-</span>
 
     </header>
     <article>
@@ -345,52 +345,33 @@ start()
         
         
 
+    <p class="help-wanted">
+        This page is only available in English. If you want to help us translate, you can open an issue on <a href="github.com/pagedjs/pagedjs-website/issues/">Github</a> and we’ll guide you through the process. Thank you!
+    </p>
 
 
         
         
-            <p class="intro">
-                
-                
-                    
-                
-            
-            <blockquote>
-<p>“Polyfill is the greek word for hack” — Dave Cramer</p>
-</blockquote>
-<p>A polyfill is a bit of code used to simulate features in a browser that doesn’t support them yet. For a while, using svg in the browser was made using the <code>svgweb.js</code> library, able to convert those code into shapes on screen. And then, browsers evolved and once they managed to support svg without help, <code>svgweb</code> wasn’t really useful anymore.</p>
-<p>Paged.js is a <em>polyfill</em> for all the features for print that folks have been pushing to the W3C. With a slight distinction, since the printing module of the browsers are not really available through javascript as browsers use other dependencies to print paper or generate PDF. And since we can’t really do anything to that PDF generator, Paged.js is cheating a little bit by faking the result of the printing process on the screen: we can preview the page, its margins, by recreating the html and css that will be rendered on screen and then we can print this whole preview.</p>
-<p>We’re simulating print on screen, and by doing so, we’re blurring a little bit the distinction between the print and screen medias of the css, since we’re translating print for the screen. And this gives us superpowers, simply by giving acces to the inspector, to explore the source code of our printed page. And we can do a lot to those pages before printing them, as we’d design a website, using css and javascript, and we can also transform the content as it’s being deployed on the page: for example, you can calculate the size of an image and automatically decide if there is enough room on the page, or if you want to move it to the next and keep the  rest of the text flowing.</p>
-<p>Possibilities are endless, and you can do a pretty good automated layout, and yet you can still have a typesetter or a designer clean up everything.</p>
-<p>This <s>hack</s> polyfill has become the main feature of Paged.js: web designer could start to work on printed stuff without having to leave the tool they know and love, graphic desginers who were used to <em>wysiwyg</em> got a place to try webdesign tools in the most tangible way, using a finished canvas instead of this infinite screen, and industries could use web2print and single source publishing ideas and keep the workers to make sure the quality is still there.</p>
-<p>This is the work of the polyfill: prove that something works by offering the features and find users to promote them, and then disappear as the browsers took over the work. And then Chromium, starting from version 131, supports the <code>margin-boxes</code> allowing users to add content in the margins of a printed media, without the need of showing them on screen. This signal that things finally get to move in the CSSPrint world is amazing, and we’be been waiting for decades (literally), which forces us to ask ourselves: what shall we do with Paged.js and how should we move around this evolution. Right now, there is no plan to quit Paged.js: browsers only support a tiny tiny bit of what Paged.js support, and when i say browser, it’s only really chromium and blink-based browsers. But we need to take into account those changes, and find the right spot to stand on to make sure that what we want to be able to do for print with web technologies get in.</p>
-<p>For now, you can still use Paged.js as you would normally, there may be some bugs here and there, but nothing you can’t override with hooks or Paged.js fixes. That said, as the browsers ship features for print, Paged.js will need to evolve to either support them, or support the browser implementation. Let’s take a look at a simple example: let’s say we have a table of content, and that Chrome supports <code>target-counter</code> (which is not yet the case but let’s assume it will at some point). So Paged.js will find this <code>target-counter</code> and convert it to what it needs to be, and then Chrome will do the exact same thing, and the table of content will show the same page number twice, which is definitely what we don’t want to happen. So which one should we use and in which cases?</p>
-<p>Until we spend enough time of work that, Gijs, Fred and myself will be working on figuring it out. And to do so, we made the decision of modularizing Paged.js into smaller dependencies that we’ll be able to update as time goes by, making sure that we could replace some bits wihtout having to throw everything away everytime a new feature appears.</p>
-<h3 id="let%E2%80%99s-get-practical" tabindex="-1">Let’s get practical</h3>
-<p>Paged.js works on 3 pillars, that are a bit complex to define, because they’re too much intertwined, but let’s try it anyway.</p>
-<ul>
-<li>the <code>chunker</code> is the module in charge of placing elements on the page, find the overflow, mark the spot of the break, add a new page, and keep doing it. The paper cutter for the web.</li>
-<li>the <code>polisher</code> is in charge of locating the stylesheets, and styles and mark the content that will need some custom transformation for print: avoiding page break, changing colors when on a new page. It reads the CSS, transform the HTML, before pages are generated</li>
-<li>the <code>previewer</code> is the main orchestrator of this whole little world, managing all the little tasks that all the other modules run.</li>
-</ul>
-<p>Those three bits will change. Some will be quite transformed, others will be a tiny bit changed and we’ll be quite precautionous to make sure that, if someone followed the W3C specs for print, then they’ll be able to keep using their code without any changes. If you did have some specific custom hooks, some things may change a bit, but we’ll explain those as we go.</p>
-<p>First change: the <code>chunker</code> will soon be its own javascript library. It will be able to take a content, fill an <code>HTML element</code> with it, and return the overflowing bit and the multiple break tokens. Paged.js will use that library as a dependency, and it will help us quite a lot to test new HTML elements and new CSS features without having to run Paged.js. The second interesting bit of that is that we’ll be able to run multiple chunkers in multiple places, allowing for very complex layout with multiple flows or customs side/margin notes, or, in another context, it will allow for chained block, like you would have in a classic book designing program. We also want to change how the overflow is found in today’s Paged.js and instead of stoping as soon as something overflow, we want to let the browser do its job and find the overflow after, using the <code>Interesection Observer API</code></p>
-<p>Second change, the creations of a set of <code>web-component</code> for print that Paged.js will use instead of the template literals we have today. <code>&lt;paged-page&gt;</code> will generate a page on screen ready to be printed. This component will come with their own CSS and javascript for print and will ease some of the work we do for customizing pages (to allow for PDF with different page sizes and orientation). These components will be usable without Paged.js and will simplify any project that would need a preview on screen for printed matters.</p>
-<p>Third change, we’re replacing <code>CSS Tree</code> with <code>CSS OM</code>. The idea is to avoid the preprocessing of any CSS. This will give us more control on what CSS we’ll polyfill. This will give us more stability over time, and reduce dependencies as much as possible.</p>
-<p>There are a bunch of other changes in the pipes, including some update on the website (which is almost completely updated as you can now participate in its translations to any language you’d like). a rewriting of all the documentation that will include a real developer docs for contributors and a better css print 101., from the long awaited dev documentation for the development of the library and an update of the user manual (more like a CSS print course), and we’re now thinking of who should take part in the governance of Paged.js future.</p>
-<p>There a lot on the plates.</p>
+            <h2 id="what-are-the-differences-between-paged.js-and-paged.polyfill.js%3F" tabindex="-1">What are the differences between <code>paged.js</code> and <code>paged.polyfill.js</code>?</h2>
+<p>Paged.js comes as two different scripts</p>
+<ol>
+<li><code>paged.js</code>: this version of the script let the user define the<br>
+content, the styles and the output element of paged.js, as explained in Paged.js<br>
+readme. It follows those rules:</li>
+</ol>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">let</span> paged <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Previewer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token keyword">let</span> flow <span class="token operator">=</span> paged<span class="token punctuation">.</span><span class="token function">preview</span><span class="token punctuation">(</span>DOMContent<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">"path/to/css/file.css"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> document<span class="token punctuation">.</span>body<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">flow</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>	console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Rendered"</span><span class="token punctuation">,</span> flow<span class="token punctuation">.</span>total<span class="token punctuation">,</span> <span class="token string">"pages."</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<ol start="2">
+<li><code>paged.polyfill.js</code>: this version of the script is the default setup for<br>
+paged.js: it will start as soon as the page is loaded, it will use the full<br>
+content of the webpage, and all the styles linked to the content, and the<br>
+output will be rendered as the replacement of the full <code>body</code> element of the<br>
+webpage.</li>
+</ol>
+<p>Paged.js will work the same way with both scripts, the first one allows for more<br>
+customized uses.</p>
 
         </article>
     
-      
-      
-      
-      <aside class="paginator ">
-        
-        <a class="next" href="/posts/the-plan/">The plan</a>
-      </aside>
-
-
         
             <footer>
     <p class="foot-content"></p>

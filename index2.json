@@ -214,22 +214,28 @@ start()
             
                 
                     
+                    
                         <li class="">
-                            <a href="/en/about.html">about</a>
+                            <a href="/en/about/">about</a>
                         </li>
+                        
                     
                 
             
                 
                     
+                    
                         <li class="">
-                            <a href="/en/faq.html">FAQ</a>
+                            <a href="/en/faq/">FAQ</a>
                         </li>
+                        
                     
                 
             
                 
                     
+                    
+                        
                         
                         
                         
@@ -245,34 +251,42 @@ start()
             
                 
                     
-                        <li class="">
-                            <a href="/en/documentation/">documentation</a>
-                        </li>
-                    
-                
-            
-                
                     
                         <li class="">
-                            <a href="/en/examples.html">examples</a>
+                            <a href="/en/undefined/">documentation</a>
                         </li>
+                        
                     
                 
             
                 
-            
-                
-            
-                
+                    
                     
                         <li class="">
-                            <a href="/en/posts/">journal</a>
+                            <a href="/en/examples/">examples</a>
                         </li>
+                        
+                    
+                
+            
+                
+            
+                
+            
+                
+                    
+                    
+                        <li class="">
+                            <a href="/en/journal/">Journal</a>
+                        </li>
+                        
                     
                 
             
                 
                     
+                    
+                        
                         
                         
                         
@@ -324,7 +338,6 @@ start()
         </h1>
         
         
-</span>
 
     </header>
     <article>
@@ -1927,9 +1940,9 @@ However, if your document is long, maybe your target element is not yet loaded a
 &lt;p&gt;There a lot on the plates.&lt;/p&gt;
 ",
     "intro": "Paged.js new era has begun, let’s have a proper look at the upcoming changes, why they’re needed and where we’re going",
-    "permalink": "/posts/the-plan/",
+    "permalink": "/posts/paged.js-next-an-introduction/",
     "tags": "",
-    "title": "The plan"
+    "title": " Paged.js next, an introduction"
     }
     ,
 {
@@ -1967,9 +1980,9 @@ However, if your document is long, maybe your target element is not yet loaded a
 &lt;p&gt;On ne va pas chômer :)&lt;/p&gt;
 ",
     "intro": "La nouvelle ère de Paged.js a commencé. Jetons un œil aux changements qui arrivent, pourquoi ils sont nécessaires et la direction dans laquelle nous allons",
-    "permalink": "/posts/fr/paged.js-next-tables-des-matieres/",
+    "permalink": "/posts/fr/paged.js-next-une-introduction/",
     "tags": "",
-    "title": "Paged.js next — Tables des matières"
+    "title": "Paged.js next, une introduction"
     }
     ,
 {
@@ -2019,9 +2032,9 @@ julientaq
 &lt;/p&gt;
 ",
     "intro": "Features, people and grants, an introduction to the next chapter of paged.js",
-    "permalink": "/posts/paged.js-next-chapter/",
+    "permalink": "/posts/paged.js-next/",
     "tags": "",
-    "title": "Paged.js next chapter"
+    "title": "Paged.js next"
     }
     ,
 {

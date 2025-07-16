@@ -284,16 +284,16 @@
 
     {
     "src": "./src/content/en/journal/2025-06-16-nextChapter.md",
-    "link": "/posts/paged.js-next-chapter/",
-    "unit": "Paged.js next chapter",
+    "link": "/posts/paged.js-next/",
+    "unit": "Paged.js next",
     "langs": [{ "fr": true },
     {"en": true}
     ]},
 
     {
     "src": "./src/content/en/journal/2025-06-19-the_plan_for_2025-2026.md",
-    "link": "/posts/the-plan/",
-    "unit": "The plan",
+    "link": "/posts/paged.js-next-an-introduction/",
+    "unit": " Paged.js next, an introduction",
     "langs": [{ "fr": true },
     {"en": true}
     ]},
@@ -348,7 +348,7 @@
 
     {
     "src": "./src/content/en/pages/about.md",
-    "link": "/en/about.html",
+    "link": "/en/about/",
     "unit": "About Paged.js?",
     "langs": [{ "fr": true },
     {"en": true}
@@ -356,7 +356,7 @@
 
     {
     "src": "./src/content/en/pages/documentation.md",
-    "link": "/en/documentation/",
+    "link": "/en/undefined/",
     "unit": "How to use Paged.js",
     "langs": [
     {"en": true}
@@ -364,7 +364,7 @@
 
     {
     "src": "./src/content/en/pages/examples.md",
-    "link": "/en/examples.html",
+    "link": "/en/examples/",
     "unit": "Made with paged.js",
     "langs": [
     {"en": true}
@@ -372,7 +372,7 @@
 
     {
     "src": "./src/content/en/pages/faq.md",
-    "link": "/en/faq.html",
+    "link": "/en/faq/",
     "unit": "Frequently Asked Questions about Paged.js",
     "langs": [
     {"en": true}
@@ -388,7 +388,7 @@
 
     {
     "src": "./src/content/en/pages/journal.md",
-    "link": "/en/posts/",
+    "link": "/en/journal/",
     "unit": "Journal",
     "langs": [{ "fr": true },
     {"en": true}
@@ -404,7 +404,7 @@
 
     {
     "src": "./src/content/en/pages/search.md",
-    "link": "/en/search.html",
+    "link": "/en/search/",
     "unit": "Looking for something?",
     "langs": [
     {"en": true}
