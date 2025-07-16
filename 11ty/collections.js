@@ -52,9 +52,9 @@ export default async function (eleventyConfig) {
   //the journal
   eleventyConfig.addCollection("journal", (collectionApi) => {
     return collectionApi
-      .getFilteredByGlob("src/content/en/journal/**/*.md")
+      .getFilteredByGlob("src/content/**/journal/**/*.md")
 
-      .sort((a, b) => a.data.date - b.data.date)
+      .sort((a, b) => b.data.date - a.data.date)
       .filter((item) => {
         return item.data.draft != true;
       });

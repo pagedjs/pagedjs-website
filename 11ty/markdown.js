@@ -19,7 +19,7 @@ export default function (eleventyConfig) {
   });
   eleventyConfig.addFilter("markdownifyInline", function (rawString) {
     if (!rawString) return "";
-    return markdown.render(rawString);
+    return markdown.renderInline(rawString);
   });
 
   // plugin TOC

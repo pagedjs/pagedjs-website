@@ -1,15 +1,17 @@
 ---
-title: Les questions les plus fréquentes autour de paged.js
+title: Frequently Asked Questions about Paged.js
 menu: FAQ
+id: faq
 ---
 
-## Quelles différences y a-t-il entre `paged.js` et `paged.polyfill.js`?
+## What are the differences between `paged.js` and `paged.polyfill.js`?
 
 
-Paged.js est délivré sous deux formats :
+Paged.js comes as two different scripts
 
-1. `paged.js` qui permet à l’utilisateur de définir le contenu, les styles utilisés et l’élément HTML dans lequel paged.js produira la pagination. Il s’utilise comme suit :
-
+1. `paged.js`: this version of the script let the user define the
+content, the styles and the output element of paged.js, as explained in Paged.js
+readme. It follows those rules: 
 
 ```javascript
 let paged = new Previewer();
@@ -18,8 +20,12 @@ let flow = paged.preview(DOMContent, ["path/to/css/file.css"], document.body).th
 })
 ```
 
-2. `paged.polyfill.js` qui lui, est un script qui lance paged.js dès que le navigateur a chargé la page. Il prend tout le contenu du `<body>`, toutes les feuilles de styles appelées dans le `<head>`, et le HTML produit remplace l’intégralité du `<body>`.
+2. `paged.polyfill.js`: this version of the script is the default setup for
+   paged.js: it will start as soon as the page is loaded, it will use the full
+   content of the webpage, and all the styles linked to the content, and the
+   output will be rendered as the replacement of the full `body` element of the
+   webpage. 
 
 
-Paged.js fonctionne de la même manière quelque soit le script.
-
+Paged.js will work the same way with both scripts, the first one allows for more
+customized uses.

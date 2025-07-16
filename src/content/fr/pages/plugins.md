@@ -1,8 +1,7 @@
 ---
 title: A collection of plugins
 layout: "/plugins/plugin-collection.njk"
-permalink: fr/plugins/index.html
-# menu: plugins
+id: plugins
 class: plugins
 ---
 

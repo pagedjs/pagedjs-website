@@ -5,5 +5,5 @@ pagination:
   alias: tag
 addAllPagesToCollections: true
 layout: tags/tags.njk
-permalink: "fr/tags/{{ tag }}/"
+permalink: "{{lang}}/tags/{{ tag }}/"
 ---

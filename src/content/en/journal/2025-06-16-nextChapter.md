@@ -1,7 +1,7 @@
 ---
 title: "Paged.js next chapter"
 date: 2025-05-17
-draft: true
+draft: false
 author: "@julientaq"
 class:
 intro: "Features, people and grants, an introduction to the next chapter of paged.js"

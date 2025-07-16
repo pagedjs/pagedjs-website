@@ -88,6 +88,7 @@
         letter-spacing: 2px;
         overflow: hidden;
       }
+
       a {
         counter-increment: doc;
         position: relative;
@@ -102,7 +103,7 @@
 
         &::after {
           padding-left: 1ch;
-          content: counter(doc);
+          /* content: counter(doc); */
           float: right;
           background: var(--color-paper);
           font-style: normal;
@@ -126,4 +127,25 @@
 }
 .tagsList .article h2 a::after {
   content: "";
+}
+
+.list h2 {
+  display: grid;
+  grid-template-columns: 1fr auto;
+
+  .langs {
+    text-align: right;
+    display: inline-block;
+    background: var(--color-paper);
+    z-index: 2;
+    a {
+      margin-left: 1ch;
+      font-weight: 500;
+      /* text-transform: uppercase; */
+      /* font-family: var(--font-sans); */
+      font-size: 0.7em;
+      /* font-style: normal; */
+      /* background: var(--color-background); */
+    }
+  }
 }
