@@ -215,21 +215,6 @@ start()
                 
                     
                     
-                        
-                        
-                        
-                        
-                            
-                                
-                            
-                        
-                        
-                    
-                
-            
-                
-                    
-                    
                         <li class="">
                             <a href="/en/about/">about</a>
                         </li>
@@ -248,12 +233,6 @@ start()
                 
             
                 
-            
-                
-            
-                
-            
-                
                     
                     
                         
@@ -268,14 +247,6 @@ start()
                     
                 
             
-                
-                    
-                    
-                        <li class="">
-                            <a href="/en/journal/">Journal</a>
-                        </li>
-                        
-                    
                 
             
                 
@@ -294,6 +265,35 @@ start()
                         <li class="">
                             <a href="/en/examples/">examples</a>
                         </li>
+                        
+                    
+                
+            
+                
+            
+                
+            
+                
+                    
+                    
+                        <li class="">
+                            <a href="/en/journal/">Journal</a>
+                        </li>
+                        
+                    
+                
+            
+                
+                    
+                    
+                        
+                        
+                        
+                        
+                            
+                                
+                            
+                        
                         
                     
                 
@@ -1927,43 +1927,6 @@ The result is a book of 460 page made with paged.js.</p>
       </section>
       
       
-      <section class="data" id="paged.js-next-une-introduction">
-        <h1></h1>
-        <blockquote>
-<p>« Polyfill is the greek work for hack » — Dave Cramer</p>
-</blockquote>
-<p>Un <code>polyfill</code> est un bout de code utilisé pour fournir des fonctionnalités récentes dans les navigateurs qui ne les supporte pas encore. Pendant longtemps, l’usage de svg dans le navigateur dépendait de l’utilisation de svgweb.js, une bibiliothèque capable de transformer les svg en éléments visible à l’écran. Et puis les navigateurs ont été mis à jour, et svgweb.js n’est quasiment plus utile.</p>
-<p>Paged.js est un <em>polyfill</em> pour les fonctionnalités d’impression du navigateur proposés par le W3C. Avec une légère distinction, puisque le module d’impression des navigateurs n’est pas vraiment accessible depuis javascript, puisque les navigateurs dépendent d’autres dépendances qui s’occupent de produire les fichiers pour l’imprimante (ou le PDF). Et comme on ne peut pas vraiment changer ça, on a un peu triché : on ne touche pas au moteur de fabrication de pdf, mais on fait en sorte qu’à l’écran se trouve tout la page, ses marges, ses attributs de livre, et on imprime le tout en faisant bien attention à ne pas mettre de marge dans la fenêtre d’impression.</p>
-<p>On simule donc l’imprimé à l’écran, et, se faisant, on triche avec la distinction qui est faite entre le media écran et le média paginé dans le css: <code>@print</code> qui devrait ne toucher que le print est en fait visible à l’écran. Et cette distinction donne des superpouvoirs, puisqu’on accède à l’inspecteur, comme un code source de notre page imprimé. On peut ainsi lui faire subir des transformations que les outils classiques (Julie dirait les <em>wysiwyg</em>) ne permettent pas si facilement : un exemple tout bête, on pourrait calculer la taille que prend une image selon un certain layout, pour voir si, à la mise en page, elle pourrait être déplacée ailleurs dans la page.</p>
-<p>Les possiblités sont infinies, et s’il est possible de se passer d’un éxécutant pour automatiser une mise en page, il est très simple de lui donner les moyens d’améliorer le résultat.</p>
-<p>Ce <s>hack</s> <em>polyfill</em> est devenu avec le temps la principale <em>feature</em> de Paged.js : les designers web ont pu faire du print sans avoir à apprendre un autre outil,  les graphistes qui le souhaitaient ont trouvé un terrain de jeu pour apprendre le web dans un univers moins complexe à appréhender que la page web infinie de l’écran, et l’industrie a pu utiliser les principes du « web2print » pour automatiser au maximum des publications tout en gardant la main sur les changements nécessaires à assurer la qualité de la mise en page.</p>
-<p>Voilà le travail du polyfill : prouver qu’un usage peut exister en le rendant possible, trouver les utilisateurs pour promouvoir son usage, et disparaître quand les navigateurs ont fait le travail.</p>
-<p>Et voilà Chromium qui, depuis sa version 131, supporte l’utilisation des <code>margin-box</code>, donnant la possibilité à l’utilisateur de poser des choses dans des marges qui ne se voient pas à l’écran mais qui sont visibles une fois imprimé. Ce signal que les choses avancent pour le print est aussi le moment de se poser la question de quoi faire de Paged.js. Non pas qu’il faille abandonner l’outil, seul Chromium bouge pour l’instant, et les fonctionnalités proposées sont bien loin de tout le nécessaire à la fabrication d’un document imprimé complet, mais ça nous pousse à trouver comment se positionner.</p>
-<p>Pour l’instant, on peut continuer à utiliser Paged.js tel quel, j’imagine quelques bugs par-ci par là, mais rien qui ne devrait tout casser trop vite. Par contre, au fur et à mesure que les fonctionnalités approchent, il va falloir les intégrer. Prenons un exemple simple: j’ai une table des matières et j’utilise un CSS spécifique pour ajouter les numéros de page. Si Paged.js le fait ET chrome le fait aussi, est-ce que le numéro de page doit être doublé? est-ce qu’on va vouloir préféré ce que produit Paged.js ou ce que produit chrome?</p>
-<p>Ces questions là n’ont pas de réponses simples, mais nécessite un travail de recherche dans lequel Gijs, Fred et moi-même allons plonger. Et pour assurer l’atterissage, nous avond décidé de modulariser Paged.js pour pouvoir en remplacer des bouts sans avoir à tout jeter avec le temps.</p>
-<p>Cette longue intro va nous permettre de comprendre les décisions que nous avons prises et que nous allons mettre en place d’ici juin 2026, comme la suite logique pour pouvoir continuer à « polyfiller » ce qui manque dans les navigateurs, tout en mettant en avant les possibilités de design qu’offre l’inspecteur.</p>
-<h2 id="en-pratique" tabindex="-1">En pratique</h2>
-<p>Paged.js fonctionne sur 3 pilliers qu’on a toujours eu du mal à définir par ce que très liés. Voyons un peu les modules:</p>
-<ul>
-<li>
-<p>le <code>chunker</code> est le module qui se charge de poser les éléments sur la page, trouver ce qui en dépasse et marquer la localisation exacte du point de coupe, ajouter une nouvelle page, et continuer le boulot. Un massicot pour page web.</p>
-</li>
-<li>
-<p>le <code>polisher</code> qui lui s’occupe de trouver dans les feuilles de styles les éléments qui devront subir un traitement spécifique pour l’impression: marque les sauts de page, les changements de contenus, etc. Il lit le css et modifie le HTML, avant que les pages ne soient construites.</p>
-</li>
-<li>
-<p>le <code>previewer</code> est l’orchestrateur de tout ce petit monde, puisqu’il déclenche les différentes étapes de Paged.js, utilisant des bouts du polisher et du chunker à la volée.</p>
-</li>
-</ul>
-<p>Ces trois modules vont subir des changements plus ou moins importants. (Nous avons pour ambition de les rendre les plus transparents possibles pour qu’une utilisatrice de Paged.js qui suive scrupuleusement les spécifications du W3C puissent continuer à utiliser son travail sans avoir à tout refaire).</p>
-<p>Premier changement de taille, nous allons sortir le chunker de Paged.js et en faire une bibliothèque javascript capable de couler un contenu dans un élément, de définir le (ou les) surplus, pour de retourner toutes ces informations. Un usage probable de cette bibliothèque, à long terme, est la fabrication d’un système de blocs chaînés comme on peut en trouver dans les logiciels de mise en page. Et Paged.js utilisera cette bibliothèque pour fabriquer les pages, les colonnes, les notes, les éléments dans les marges. En plus de cette bibliothèque, nous voulons changer l’algo pour trouver les breaktokens : au lieu de couper la page dès que quelque chose dépasse, nous voulons utiliser l’API <em>IntersectionObserver</em> pour trouver les éléments qui devront être coupés.</p>
-<p>Deuxième changement, c’est la création de <code>web-component</code> pour le print et que Paged.js utilisera comme une dépendance. <code>&lt;paged-page&gt;</code> permettra de prévisualiser une page à l’écran, qui viendra avec le css et le js nécessaire à son impression, nous permettant de produire des PDF avec des pages de tailles différentes à la volée (ce qu’on fait avec des plugins et des <em>hacks</em> partout dans Paged.js). Nous avons bon espoir que cette nouvelle dépendance va nous permettre d’accueillir des contributions plus facilement et de proposer des outils supplémentaires pour le CSS Print.</p>
-<p>Troisième changement, c’est le remplacement de <code>CSS Tree</code> par l’implémentation du <code>CSS Object Model</code> des navigateurs. L’idée est de ne plus avoir à lire les feuilles de styles en amont pour laisser le navigateur faire tout le travail. Ça nous donnera aussi plus de stabilité et, à long terme, nous pourrons réduire les dépendances à leur strict minimum.</p>
-<p>Il y a aussi quelques changements prévus (dont le changement de moteur du site pour la mise en place du multilingue, et l’écriture de documentation pour les dév et les utilisateurs) et une réflexion sur la gouvernance de Paged.js à long terme et son financement.</p>
-<p>On ne va pas chômer :)</p>
-
-      </section>
-      
       <section class="data" id="a-new-chapter-in-paged.js-life">
         <h1></h1>
         <p>I can still picture the room where Adam Hyde put Fred Chasen and myself around the table, looking at options for making pdf from html, and, while we couldn’t find a way that was satisfying enough, he looked at us, and said: “let’s just make it”.</p>
@@ -1997,48 +1960,6 @@ The result is a book of 460 page made with paged.js.</p>
 <p>There are a bunch of other things to share in the coming weeks, from pagedjs structural changes to documentation update/rewriting (for devs &amp; users), and other things we want to bring back (plugins, templates, etc.)</p>
 <p>With the hope that you’ll want to take part in Paged.js future, as you may have done before.</p>
 <p>See yall very soon.</p>
-
-      </section>
-      
-      <section class="data" id="le-prochain-chapitre-de-paged.js">
-        <h1></h1>
-        <p>Je me souviens précisément de la pièce où, accompagné d’Adam Hyde et de Fred Chasen, nous regardions les possibilités existantesp pour transformer du HTML en PDF, et alors qu’on ne trouvait rien de probant, Adam s’est arrêté, nous a regardé et à dit : <em>Let’s just make it</em>.</p>
-<p>Et nous voilà partis. Julie Blanc nous a rejoint très vite, et au bout de quelques mois nous avions un preuve de concept fonctionnelles, et en moins d’un an, une bibliothèque javascript capable de produire des PDF. Rien de tout ça n’aurait pu être possible si Adam et Coko n’avaient pas autant investi de temps et de ressources dans le projet.</p>
-<p>Les années qui ont suivi ont surtout été le moment de mettre le <em>CSS Print</em> sur le devant de la scène, comme pierre angulaire du <em>single source publishing</em>. La majorité de notre travail consistait à accompagner les utilisateurs de paged.js, que ce soit pour de accompagner des implémentations &amp; des workflows, former des designers et des éditeurs aux concepts de <code>web to print</code>, participer à des salons du livres et évenements professionnels, et, lorsqu’il restait un peu de temps, accompagner des projets de livres numériques multi-formats.</p>
-<p>Avec Paged.js et son système de hooks, on a vu apparaître une quantité importante de documents produits avec Paged.js, qu’il s’agisse de rapports scientifiques, de bulletins de vote US, d’articles scientifique à la mise en page quasi automatique, et c’est avec une grande fierté que nous avons pu participer à quelques-uns de ces chantiers.</p>
-<p>Mais ce travail a un coût et si on a pu accompagner des projets, nous n’avons pas été des plus efficace pour tenir au courant la communauté des changements, mises à jour et autres expérimentations.</p>
-<p>Il est temps de changer ça et de passer à paged.js 2.0</p>
-<h2 id="2.0-%3F-mais-o%C3%B9-est-pass%C3%A9-la-1.0-%3F" tabindex="-1">2.0 ? Mais où est passé la 1.0 ?</h2>
-<p>Une idée que nous avons gardé en tête depuis le début de paged.js était que, tôt ou tard, les navigateurs allaient implémenter les fonctionnalités que nous utilisons si bien qu’à la fin, nous pourrions nous séparer de paged.js pour de bon. Mais ce que nous avons réalisé en chemin, c’est que le polyfill n’est qu’un usage restreint de Paged.js qui passe à côté de sa fonctionnalité principale: la prévisualisation à l’écran de ce que donnera le document imprimé permet d’imaginer les usages futurs du CSS Print.</p>
-<p>Pour faire simple, paged.js va lire votre HTML et votre CSS, va trouver les fonctionnalités utilisées pour le print (<code>@page</code>, <code>.footnote</code>, etc.), et va les convertir en HTML et CSS que le navigateur va pouvoir afficher à l’écran, rendant possible l’usage de l’inspecteur, meilleur ami de tout bon développeur web, pour imprimer la page en utilisant la fonction <code>save as PDF</code> du module d’impression. Dès lors, le navigateur n’imprime plus seulement la feuille de style pour le print, mais aussi ce que l’utilisateur voit dans sa fenêtre. Plus vraiment un <em>polyfill</em> mais un nouvel outil.</p>
-<p>La deuxième chose importante date de fin 2024, quand l’équipe derrière Chrome décide d’augmenter la voilure sur l’implémentation des features de print, <a href="https://developer.chrome.com/blog/new-in-chrome-131">en commençant avec les <code>margin-boxes</code></a>. Bonne nouvelle, CSSPrint avance, autre bonne nouvelle, mais plus technique, paged.js doit évoluer.</p>
-<p>Si l’on transforme paged.js pour suivre les mises à jour de chromium, alors paged.js devra tellement changer que les autres navigateurs risqueraient d’être abandonné. Même si chromium a une petite longueur d’avance sur quelque fonctionnalité que nous utilisons déjà (en particulier les veuves et les orphelines, ou la possibilité d’imprimer d’autres formats que les standards), nous continuons de penser que chaque navigateur est une option solide pour imprimer.</p>
-<p>Alors il faut changer la façon dont paged.js fonctionne pour être plus stable avec plus de moteur de rendu, et comme il va y avoir un nombre de changement important, passer à paged.js 2.0 nous semble être la meilleure solution.</p>
-<h2 id="paged.js-neue" tabindex="-1"><em>Paged.js neue</em></h2>
-<p>D’abord, les bonnes nouvelles.</p>
-<p>NLNet, par le biais de NGI 0 accompagne cette transformation de paged.js sur plusieurs  projets.</p>
-<p>Le premier, <a href="https://nlnet.nl/project/CSS-Print/">Pushing forward for CSS Print</a> est une mission partagée entre l’équipe de WeasyPrint (les fantastiques Lucie et Guillaume) et Julie Blanc et Julien Taquet (moi-même), contributeurs de Paged.js. Ce projet finance l’écriture de spécifications pour le CSS Print pour aller plus loin que ce que nous pouvons faire aujourd’hui. La pemière de ces spécifications est la continuité du travail que nous avons commencé sur les notes. La spécification est en cours de discussion et va intégrer les conversations avec les W3C (vous pouvez la lire et la commenter ici : <a href="">https://css-print-lab.github.io/specs/notes-in-css-print/</a>).</p>
-<p>NlNet finance aussi un second projet, autour de la mise à jour de paged.js vers le 2.0. Parmi les changements qui arrivent on trouve le remplacement de cssTree par CSSOM, l’utilisation de web-components pour la partie dev, sortir le chunker de paged.js pour en faire une dépendance et permettre l’utilisations de plusiers breakTokens. Nous reviendrons là-dessus plus en détail dans les semaines qui arrivent avec un calendrier plus clair. Le financement ne peux durer qu’un an, ça donne une petite idée de la vitesse avec laquelle nous devons avancer.</p>
-<h3 id="la-nouvelle-%C3%A9quipe." tabindex="-1">La nouvelle équipe.</h3>
-<p>Depuis que Fred a intégré Mozilla à temps plein, le temps qu’il peut fournir à paged.js s’est sensiblement réduit. Nous avons décidé de lui alléger un peu les épaules en transformant un peu l’équipe autour de paged.js</p>
-<p>Le premier changement est l’arrivée de Gijs de Heij dans la <em>core team</em>. Gijs est un designer/developer, membre du collectif Open Source Publishing et manipule paged.js depuis suffisament longtemps pour savoir ce qui marche et ce qui va poser problème :)</p>
-<p>Le second changement est mon implication dans le code de paged.js. Jusqu’à présent, il s’agissait d’accompagner Fred et de tester les changements pour en rendre compte à la communauté ou proposer des plugins. Je serai beaucoup plus partie prenante dans la mise à jour du code, l’implémentation de features et l’écriture de spécifications, en plus de m’assurer que tout le monde soit ravi, que les frustrations soient réduites et que les contributeurs se sentent à l’aise.</p>
-<p>Sur le reste de l’équipe, Fred est toujours là, mais son temps sera forcément moindre, et si Julie ne fait plus partie officiellement de l’équipe depuis qu’elle a commencé à écrire sa thèse (dont le sujet ne peux être plus dans le mille: <a href="http://phd.julie-blanc.fr/"> “Composer avec les technologies du web ” </a>, et qu’elle a soutenu avec la plus jolie des réussites), elle n’est jamais vraiment loin de l’équipe, ni des questions qui nous concernent.</p>
-<p>Coko a été un super espace dans lequel dévlopper paged.js et nous ne serions pas là où on en est sans le temps, l’énergie, la confiance et la générosité d’Adam Hyde, et si Coko ne participe plus au financement de paged.js, Adam n’est jamais loin pour nous aider.</p>
-<h2 id="%C3%A0-propos-du-futur-de-paged.js" tabindex="-1">À propos du futur de paged.js</h2>
-<p>Ce poste de blog est déjà trop long, alors je ne vais pas vous prendre plus de temps, mais je dois dire en quelques mots:</p>
-<ul>
-<li>Paged.js a un compte <a href="https://fosstodon.org/@pagedjs">mastodon</a> :)</li>
-<li>Le code de paged.js et son site internet sont maintenant hébergés sur Github (<a href="https://github.com/pagedjs/">https://github.com/pagedjs/</a>), et nous sommes en train de rapatrier ce qui traîne sur des repos ici et là sur les différents serveurs git que nous avons pu utiliser.</li>
-<li>Nous sommes joignables par mail <a href="mailto:contact@pagedjs.org">contact@pagedjs.org</a></li>
-<li>Pagedjs a maintenant un channel Matrix pour discuter du futur du projet <a href="https://matrix.to/#/#pagedjs:matrix.org">https://matrix.to/#/#pagedjs:matrix.org</a></li>
-<li>Le site de paged.js a subi la mise à jour du fantasique <a href="https://11ty.dev">Eleventy</a> et permet donc l’internationalisation de tous ses contenus. Sérieusement je crois pas qu’il y ait meilleur générateur de site statique.</li>
-</ul>
-<p>Nous avons pas mal de choses dans les cartons, en particulier sur la partie réécriture de la documentation (de développement ET pour les utilisateurs) avec l’espoir de trouver la bonne solution pour que, si vous souhaitiez participer à son élaboration, nous puissions vous accueuillir du mieux possible.</p>
-<p>On se retrouve très vite.</p>
-<p class="signature">
-julientaq 
-</p>
 
       </section>
       
