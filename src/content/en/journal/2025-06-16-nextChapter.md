@@ -1,5 +1,5 @@
 ---
-title: "A new chapter in Paged.js lifePaged.js neue"
+title: "A new chapter in Paged.js life"
 date: 2025-05-17
 draft: false
 author: "@julientaq"
@@ -57,7 +57,7 @@ This post is already too long. So, to not take too much of your time, some final
 
 - Paged.js now has a mastodon account on fosstodon: https://fosstodon.org/@pagedjs, we won’t be using twitter anymore. 
 - Paged.js code (and submited issues) are now on github, as well as the sources for this website, and we’re slowly bringing back some of the plugins and snippets we developed here and there. (<https://github.com/pagedjs/>)
-- You can reach us by email at pagedjs dot org
+- You can reach us by email: [contact@pagedjs.org](mailto:contact@pagedjs.org)
 - Paged.js now has a Matrix channel. Come to chat and discuss the futur with us: <https://matrix.to/#/#pagedjs:matrix.org>
 - The website is now fully internationalized. Thanks for the amazing amazing (not a typo, i wrote it twice) [Eleventy](https://11ty.dev). You can now join the translation effort if you feel like it :D. 
 
@@ -67,9 +67,6 @@ With the hope that you’ll want to take part in Paged.js future, as you may hav
 
 See yall very soon.
 
-<p class="signature">
-julientaq 
-</p>
 
 
 

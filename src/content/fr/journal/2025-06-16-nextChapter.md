@@ -64,7 +64,7 @@ Ce poste de blog est déjà trop long, alors je ne vais pas vous prendre plus de
 
 - Paged.js a un compte [mastodon](https://fosstodon.org/@pagedjs) :)
 - Le code de paged.js et son site internet sont maintenant hébergés sur Github (https://github.com/pagedjs/), et nous sommes en train de rapatrier ce qui traîne sur des repos ici et là sur les différents serveurs git que nous avons pu utiliser. 
-- Nous sommes joignables par mail contact at pagedjs dot org
+- Nous sommes joignables par mail [contact@pagedjs.org](mailto:contact@pagedjs.org)
 - Pagedjs a maintenant un channel Matrix pour discuter du futur du projet https://matrix.to/#/#pagedjs:matrix.org
 - Le site de paged.js a subi la mise à jour du fantasique [Eleventy](https://11ty.dev) et permet donc l’internationalisation de tous ses contenus. Sérieusement je crois pas qu’il y ait meilleur générateur de site statique. 
 
