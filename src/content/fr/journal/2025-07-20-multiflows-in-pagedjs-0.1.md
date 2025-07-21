@@ -1,11 +1,10 @@
 ---
-title: "Multiflwo in paged.js"
+title: "Multiflux avec Paged.js"
 date: 2025-07-26
-draft: true
+draft: false
 author: "@julientaq"
 class:
 intro: Il est difficile de penser le web autrement que son long flux vertical, héritage de la roue crantée de la souris. Mais avec l’apparition des grilles CSS et de flex, il est intéressant de se poser la question de ce que ça signifie pour l’imprimé
-lang: fr
 ---
 
 S’il est facile d’imaginer un livre multilingue qui partagerait ses pages pour y accueillir les contenus dans deux langues, il a toujours été difficile d’imaginer le web autrement que ce long flux vertical, héritier de la molette. Le contenu d’une page démarre en haut, et se termine, lorsqu’il n’y a plus de contenu à poser sur la page, bien en-desssous de ce que l’écran laisse entrevoir, donnant à chacune l’illusion de l’infini, ce que les économistes de l’attention ont bien intégré à leurs outils.
@@ -95,7 +94,7 @@ et ce CSS :
 }
 ```
 
-Notez que chaque élément possède déjà les proprités de placement : `#alpha` a une largeur de 30% de son partent, `#beta` de 65% et sera placé à droite, grâce à l’utilisation de `margin-left: auto`. Les blocs définis ici sont donc les emplacements des contenants.
+Notez que chaque élément possède déjà les propriétés de placement : `#alpha` a une largeur de 30% de son parent, `#beta` de 65% et sera placé à droite, grâce à l’utilisation de `margin-left: auto`. Les blocs définis ici sont donc les emplacements des contenants autant que les contenus.
 
 `#alpha` et `#beta` devront être traités en même temps et partager un espace, `#epsilon` et `#delta` en partagent un autre.
 

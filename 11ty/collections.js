@@ -49,17 +49,22 @@ export default async function (eleventyConfig) {
       });
   });
 
-  //the journal
   eleventyConfig.addCollection("journal", (collectionApi) => {
     return collectionApi
-      .getFilteredByGlob("src/content/en/journal/**/*.md")
-
+      .getFilteredByGlob("src/content/**/journal/**/*.md")
       .sort((a, b) => b.data.date - a.data.date)
       .filter((item) => {
         return item.data.draft != true;
       });
   });
-
+  eleventyConfig.addCollection("journalfr", (collectionApi) => {
+    return collectionApi
+      .getFilteredByGlob("src/content/**/journal/**/*.md")
+      .sort((a, b) => b.data.date - a.data.date)
+      .filter((item) => {
+        return item.data.draft != true && item.data.lang == "fr";
+      });
+  });
   // eleventyConfig.addFilter("filterTagList", filterTagList)
   eleventyConfig.addCollection("tagList", (collection) => {
     let tagSet = new Set();

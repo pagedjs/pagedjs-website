@@ -1,3 +1,6 @@
 read_in:
   en: "Read in "
   fr: "Lisez en  "
+back_to_journal:
+  en: "Back to the journal"
+  fr: "Retour au journal"

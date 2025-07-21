@@ -6,4 +6,4 @@ class: posts
 id: journal
 ---
 
-welcome to journal page
+Bienvenue sur le journal

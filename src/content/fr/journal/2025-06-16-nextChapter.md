@@ -2,7 +2,7 @@
 title: "Le prochain chapitre de Paged.js"
 date: 2025-05-17
 draft: false
-author: "Julien Taquet"
+author: "julientaq"
 intro: ""
 ---
 

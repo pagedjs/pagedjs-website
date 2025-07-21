@@ -1,1 +1,3 @@
-{ "layout": "pages/singlepage.njk" }
+{
+  "layout": "pages/singlepage.njk"
+}

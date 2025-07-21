@@ -1,7 +1,8 @@
 {# This adds pagination to singlePage.njk #}
 {% extends "../pages/singlepage.njk" %}
-{% from "../addPaginator.njk" import defaultPaginator with context %}
 {% block content %}
     {{ super() }}
-    {{ defaultPaginator(collections.journal) }}
+    <aside class="paginator-back">
+        <a href="/{{ lang }}/journal/" lang="{{ lang }}" hreflang="{{ lang }}">{{ translations.back_to_journal[lang] }}</a>
+    </aside>
 {% endblock %}
