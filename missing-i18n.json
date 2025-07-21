@@ -472,6 +472,14 @@
     "unit": "Juan-les-Pins",
     "langs": [
     {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/journal/2025-07-20-multiflows-in-pagedjs-0.1.md",
+    "link": "/posts/multiflows-in-paged.js-an-experiment/",
+    "unit": "Multiflows in paged.js — an experiment",
+    "langs": [{ "fr": true },
+    {"en": true}
     ]}
 
 ]}
