@@ -4,8 +4,10 @@ date: 2025-07-26
 draft: false
 author: "@julientaq"
 class:
-intro: Il est difficile de penser le web autrement que son long flux vertical, héritage de la roue crantée de la souris. Mais avec l’apparition des grilles CSS et de flex, il est intéressant de se poser la question de ce que ça signifie pour l’imprimé
+intro: Il est difficile de penser le web autrement que son long flux vertical, héritage de la roue crantée de la souris. Mais avec l’apparition des grilles CSS et de flex, il est intéressant de se poser la question de ce que ça signifie pour l’imprimé
 ---
+
+
 
 S’il est facile d’imaginer un livre multilingue qui partagerait ses pages pour y accueillir les contenus dans deux langues, il a toujours été difficile d’imaginer le web autrement que ce long flux vertical, héritier de la molette. Le contenu d’une page démarre en haut, et se termine, lorsqu’il n’y a plus de contenu à poser sur la page, bien en-desssous de ce que l’écran laisse entrevoir, donnant à chacune l’illusion de l’infini, ce que les économistes de l’attention ont bien intégré à leurs outils.
 
@@ -50,10 +52,13 @@ La question du multiflux est difficile quelque soit le média, mais c’est le m
 
 Dans le cadre du projet, les designers ont eu besoin d’une solution pour mettre en page des textes en plusieurs langues, de les traiter avec les mêmes égards, en évitant d’en placer un avant l’autre. Parfait point de départ pour remettre la question des régions CSS sur la table, maintenant que les grilles CSS sont devenues un outil central dans les habitudes de web design.
 
-pagedjs-multi-flow.0.1b.js
---------------------------
+pagedjs-multiple-flows.0.1b.js
+------------------------------
 
-Pagedjs multi flow est un plugin paged.js qui permet de définir des flux dit parallèles (à défaut d’un meilleur nom). L’idée est d’utiliser le CSS pour définir des flux qui partageront un espace, que ce soit une page (plusieurs langues sur la même page), soit une double page (où chaque langue a sa propre page).
+
+> Si vous voulez d’abord jeter un coup d’œil au code, il se trouve ici : [https://github.com/pagedjs/pagedjs-experiments/tree/main/multiple-flows_0.1b](multiple-flows_0.1b).
+
+`paged.js multi-flows est un plugin Paged.js qui permet de définir des flux dit parallèles (à défaut d’un meilleur nom). L’idée est d’utiliser le CSS pour définir des flux qui partageront un espace, que ce soit une page (plusieurs langues sur la même page), soit une double page (où chaque langue a sa propre page).
 
 Pour se faire, nous utilisons une propriété CSS inventé pour l’occasion, que nous appellerons `--parallel-flow`. Cette propriété attend pour valeur le nom d’un flux qui servira d’identifiant. Tous les éléments qui possèdent la même valeur pour cette propriété feront donc parti du même flux parallèle.
 
@@ -165,6 +170,9 @@ Pour modifier l’élément overlap fabriqué, par exemple dans la secion #alpha
 * `--parallel impact` ne marche qu’à condition que l’image soit dans le flux principal. Puisque c’est le flux qui est mis en page avant les autres, et qui ne peux donc pas prendre la main sur la suite. Le flux principal est automatiquement détecté, il s’agit du flux le plus 
 long (en prenant en compte les objets et images. Pour se faire, le script fait une première passe de mise en page avant de couler le contenu pour de bon) 
     
+
+> Rappel: Si vous voulez d’abord jeter un coup d’œil au code, il se trouve ici : [https://github.com/pagedjs/pagedjs-experiments/tree/main/multiple-flows_0.1b](multiple-flows_0.1b).
+
 ### Dernière remarque 
 
 *   Les versions futures permettront de définir, pour chaque flux le type, s’il s’agit d’un `same-page` ou d’un `same-spread` à l’aide d’un `--parallel-flow-policy: [same-page | same-spread]` ainsi que d’un `--parallel-flow-fill: [balance|auto]` ou `balance ajoute une page blanche et `auto` laisse le flux couler automatiquement.
