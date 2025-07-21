@@ -22,6 +22,7 @@ export default async function (eleventyConfig) {
   // filterTagList(tags , ["nav","posts"])
 
   eleventyConfig.addPassthroughCopy({ "static/css": "/css" });
+  eleventyConfig.addPassthroughCopy("CNAME");
   eleventyConfig.addPassthroughCopy({ "static/fonts": "/fonts" });
   eleventyConfig.addPassthroughCopy({ "static/js": "/js" });
   eleventyConfig.addPassthroughCopy({ "static/images": "/images" });
