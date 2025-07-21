@@ -4,7 +4,7 @@ author: Julien Taquet (Coko)
 app: editoria
 cover: cover.png
 pdfpreview: preview.pdf
-collection: pagedjs × editoria 2022
+# collection: pagedjs × editoria 2022
 sources: "https://gitlab.coko.foundation/pagedjs/pagedjs-templates/juan-les-pins"
 ---
 

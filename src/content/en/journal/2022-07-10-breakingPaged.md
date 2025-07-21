@@ -35,7 +35,7 @@ A reminder: Paged.js is a polyfill, a Javascript library that does what the brow
 
 To be a working polyfill, Paged.js needs to work exactly like a browser.
 
-In a browser, when we set @media queries, we can define styles for a specific environment. We know that well because that’s how responsive design works: you define what happens when the usable surface is smaller than 800px @media (max-width: 800px) or when night mode is wanted  @media (prefers-color-scheme: dark) or simply when you want to print something with @media print.
+In a browser, when we set @media queries, we can define styles for a specific environment. We know that well because that’s how responsive design works: you define what happens when the usable surface is smaller than 800px @media (max-width: 800px) or when night mode is wanted @media (prefers-color-scheme: dark) or simply when you want to print something with @media print.
 
 If you don’t set any query, then your CSS will be used in all situations.
 

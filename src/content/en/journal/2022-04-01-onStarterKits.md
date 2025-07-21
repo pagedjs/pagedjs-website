@@ -8,7 +8,7 @@ intro: "Paged.js have been used by book designers quite a lot over the past few 
 tags:
   - starting with Paged.js
   - guide
-permalink: /posts/2020-04-15-starterkits-for-pagedjs/
+# permalink: /posts/2020-04-15-starterkits-for-pagedjs/
 ---
 
 We’ve done a lot of work to bring new users to paged.js and as i’m on my way to a new workshop with graphic design students, I thought that it would be a good time to share a little bit more about the different [starter kits](https://gitlab.coko.foundation/pagedjs/starter-kits) I've build around Paged.js since a few years to help anyone to get started.

@@ -30,7 +30,7 @@ couple of solutions for you.
 We explained it last time ([you can read the post
 here](https://pagedjs.org/posts/paged-break-the-long-overdue-update/), but we
 moved forward to follow the standards for the media queries. So, from now on,
-pagedjs  will ignore any rule that should not apply to a media screen. `@media
+pagedjs will ignore any rule that should not apply to a media screen. `@media
 screen` being the most useful example.
 
 The most standard change, for all of you, is the preview on screen: if you want
