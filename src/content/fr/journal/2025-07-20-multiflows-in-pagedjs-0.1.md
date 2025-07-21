@@ -58,9 +58,16 @@ pagedjs-multiple-flows.0.1b.js
 
 > Si vous voulez d’abord jeter un coup d’œil au code, il se trouve ici : [https://github.com/pagedjs/pagedjs-experiments/tree/main/multiple-flows_0.1b](multiple-flows_0.1b).
 
+
+
 `paged.js multi-flows est un plugin Paged.js qui permet de définir des flux dit parallèles (à défaut d’un meilleur nom). L’idée est d’utiliser le CSS pour définir des flux qui partageront un espace, que ce soit une page (plusieurs langues sur la même page), soit une double page (où chaque langue a sa propre page).
 
-Pour se faire, nous utilisons une propriété CSS inventé pour l’occasion, que nous appellerons `--parallel-flow`. Cette propriété attend pour valeur le nom d’un flux qui servira d’identifiant. Tous les éléments qui possèdent la même valeur pour cette propriété feront donc parti du même flux parallèle.
+Ça ressemble à ça :
+
+![A layout of two flows on the same page, using paged.js](/images/betterapig.jpg)
+
+
+Pour ce faire, nous utilisons une propriété CSS inventé pour l’occasion, que nous appellerons `--parallel-flow`. Cette propriété attend pour valeur le nom d’un flux qui servira d’identifiant. Tous les éléments qui possèdent la même valeur pour cette propriété feront donc parti du même flux parallèle.
 
 Prenons par exemple ce HTML :
 
