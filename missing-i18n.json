@@ -11,14 +11,6 @@
     ]},
 
     {
-    "src": "./src/content/en/journal/2020-02-25-Creating-Templates-Atla.md",
-    "link": "/posts/creating-templates:-atla/",
-    "unit": "Creating Templates: Atla",
-    "langs": [
-    {"en": true}
-    ]},
-
-    {
     "src": "./src/content/en/documentation/01-overview.md",
     "link": "/en/documentation/1-the-big-picture/",
     "unit": "The big picture",
@@ -84,7 +76,7 @@
 
     {
     "src": "./src/content/en/journal/2020-02-19-toc.md",
-    "link": "/posts/build-a-table-of-contents-from-your-html/",
+    "link": "/posts/en/build-a-table-of-contents-from-your-html/",
     "unit": " Build a Table of Contents from your HTML",
     "langs": [
     {"en": true}
@@ -140,7 +132,7 @@
 
     {
     "src": "./src/content/en/journal/2018-04-02-page-floats.md",
-    "link": "/page-floats/",
+    "link": "/posts/en/paged-media-approaches-:-page-floats/",
     "unit": "Paged Media approaches : page floats",
     "langs": [
     {"en": true}
@@ -148,7 +140,7 @@
 
     {
     "src": "./src/content/en/journal/2020-02-16-BuildAnIndexWithPagedjs.md",
-    "link": "/posts/2020-02-16-buildanindexwithpagedjs/",
+    "link": "/posts/en/build-an-index-with-pagedjs/",
     "unit": "Build An Index With Pagedjs",
     "langs": [
     {"en": true}
@@ -156,7 +148,7 @@
 
     {
     "src": "./src/content/en/journal/2020-02-18-w3c-position.md",
-    "link": "/posts/our-position-paper-for-the-w3c-css-print-workshop/",
+    "link": "/posts/en/our-position-paper-for-the-w3c-css-print-workshop/",
     "unit": "Our position paper for the W3C CSS print workshop",
     "langs": [
     {"en": true}
@@ -164,7 +156,7 @@
 
     {
     "src": "./src/content/en/journal/2020-02-18-return-from-prague-the-future-of-web-to-print.md",
-    "link": "/posts/return-from-prague:-the-future-of-web-to-print/",
+    "link": "/posts/en/return-from-prague:-the-future-of-web-to-print/",
     "unit": "Return from Prague: the future of web to print",
     "langs": [
     {"en": true}
@@ -172,39 +164,23 @@
 
     {
     "src": "./src/content/en/journal/2020-02-25-weekly.md",
-    "link": "/posts/welcome-to-paged.js-0.1.38/",
+    "link": "/posts/en/welcome-to-paged.js-0.1.38/",
     "unit": "Welcome to paged.js 0.1.38",
     "langs": [
     {"en": true}
     ]},
 
     {
-    "src": "./src/content/en/journal/2020-12-01.md",
-    "link": "/posts/a-tiny-update-to-paged.js/",
-    "unit": "A tiny update to Paged.js",
-    "langs": [
-    {"en": true}
-    ]},
-
-    {
     "src": "./src/content/en/journal/2020-03-09-MakingTheTemplateWithAtla.md",
-    "link": "/posts/finding-letters-for-atla/",
+    "link": "/posts/en/finding-letters-for-atla/",
     "unit": "Finding letters for Atla",
     "langs": [
     {"en": true}
     ]},
 
     {
-    "src": "./src/content/en/journal/2020-03-20-Atla-baseline.md",
-    "link": "/posts/atla:-humming-the-baseline/",
-    "unit": "Atla: humming the baseline",
-    "langs": [
-    {"en": true}
-    ]},
-
-    {
     "src": "./src/content/en/journal/2020-04-01-pagedjs-0-1-40.md",
-    "link": "/posts/pagedjs-0.1.40/",
+    "link": "/posts/en/pagedjs-0.1.40/",
     "unit": "Pagedjs 0.1.40",
     "langs": [
     {"en": true}
@@ -212,7 +188,7 @@
 
     {
     "src": "./src/content/en/journal/2020-05-13-notes-about-notes.md",
-    "link": "/posts/notes-about-notes/",
+    "link": "/posts/en/notes-about-notes/",
     "unit": "Notes About Notes",
     "langs": [
     {"en": true}
@@ -220,7 +196,7 @@
 
     {
     "src": "./src/content/en/journal/2020-06-22-pagedjs-0-1-42.md",
-    "link": "/posts/welcome-pagedjs-0.1.42/",
+    "link": "/posts/en/welcome-pagedjs-0.1.42/",
     "unit": "Welcome Pagedjs 0.1.42",
     "langs": [
     {"en": true}
@@ -228,7 +204,7 @@
 
     {
     "src": "./src/content/en/journal/2020-09-21_avoid-whitespaces.md",
-    "link": "/posts/avoid-whitespaces/",
+    "link": "/posts/en/avoid-whitespaces-on-pages/",
     "unit": "Avoid whitespaces on pages",
     "langs": [
     {"en": true}
@@ -236,7 +212,7 @@
 
     {
     "src": "./src/content/en/journal/2021-03-18_hackathon.md",
-    "link": "/posts/2021-03-hackathon/",
+    "link": "/posts/en/a-paged.js-hackathon-at-ensadlab/",
     "unit": "A paged.js hackathon at EnsadLab",
     "langs": [
     {"en": true}
@@ -244,7 +220,7 @@
 
     {
     "src": "./src/content/en/journal/2021-06-1_Pagedjs0-2-0.md",
-    "link": "/posts/2021-06-newRelease/",
+    "link": "/posts/en/paged.js-0.2.0-release-notes/",
     "unit": "Paged.js 0.2.0 Release notes",
     "langs": [
     {"en": true}
@@ -252,7 +228,7 @@
 
     {
     "src": "./src/content/en/journal/2021-06-uke.md",
-    "link": "/posts/2021-06-uke-partOne/",
+    "link": "/posts/en/uke-and-inks/",
     "unit": "Uke and inks",
     "langs": [
     {"en": true}
@@ -260,7 +236,7 @@
 
     {
     "src": "./src/content/en/journal/2022-04-01-onStarterKits.md",
-    "link": "/posts/2020-04-15-starterkits-for-pagedjs/",
+    "link": "/posts/en/a-collection-of-starter-kits-for-paged.js/",
     "unit": "A collection of starter kits for Paged.js ",
     "langs": [
     {"en": true}
@@ -268,7 +244,7 @@
 
     {
     "src": "./src/content/en/journal/2022-07-10-breakingPaged.md",
-    "link": "/posts/paged-break-the-long-overdue-update/",
+    "link": "/posts/en/paged-break-the-long-overdue-update/",
     "unit": "Paged Break, the long overdue update",
     "langs": [
     {"en": true}
@@ -276,7 +252,7 @@
 
     {
     "src": "./src/content/en/journal/2022-11-17-SoLongAtScreen.md",
-    "link": "/posts/so-long-@media-screen!/",
+    "link": "/posts/en/so-long-@media-screen!/",
     "unit": "So long @media screen!",
     "langs": [
     {"en": true}
@@ -284,7 +260,7 @@
 
     {
     "src": "./src/content/en/journal/2025-06-16-nextChapter.md",
-    "link": "/posts/a-new-chapter-in-paged.js-life/",
+    "link": "/posts/en/a-new-chapter-in-paged.js-life/",
     "unit": "A new chapter in Paged.js life",
     "langs": [{ "fr": true },
     {"en": true}
@@ -292,8 +268,8 @@
 
     {
     "src": "./src/content/en/journal/2025-06-19-the_plan_for_2025-2026.md",
-    "link": "/posts/paged.js-next-an-introduction/",
-    "unit": " Paged.js next, an introduction",
+    "link": "/posts/en/paged.js-next-an-introduction/",
+    "unit": "Paged.js next, an introduction",
     "langs": [{ "fr": true },
     {"en": true}
     ]},
@@ -471,14 +447,6 @@
     "link": "/templates/juan-les-pins/",
     "unit": "Juan-les-Pins",
     "langs": [
-    {"en": true}
-    ]},
-
-    {
-    "src": "./src/content/en/journal/2025-07-20-multiflows-in-pagedjs-0.1.md",
-    "link": "/posts/multiflows-in-paged.js-an-experiment/",
-    "unit": "Multiflows in paged.js — an experiment",
-    "langs": [{ "fr": true },
     {"en": true}
     ]}
 

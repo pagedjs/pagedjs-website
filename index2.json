@@ -209,29 +209,6 @@ start()
                 
             
                 
-            
-                
-            
-                
-            
-                
-            
-                
-                    
-                    
-                        
-                        
-                        
-                        
-                            
-                                
-                            
-                        
-                        
-                    
-                
-            
-                
                     
                     
                         <li class="">
@@ -252,12 +229,6 @@ start()
                 
             
                 
-            
-                
-            
-                
-            
-                
                     
                     
                         
@@ -270,24 +241,6 @@ start()
                         
                         
                     
-                
-            
-                
-                    
-                    
-                        <li class="">
-                            <a href="/en/journal/">Journal</a>
-                        </li>
-                        
-                    
-                
-            
-                
-            
-                
-            
-                
-            
                 
             
                 
@@ -310,6 +263,45 @@ start()
                         </li>
                         
                     
+                
+            
+                
+            
+                
+            
+                
+                    
+                    
+                        <li class="">
+                            <a href="/en/journal/">Journal</a>
+                        </li>
+                        
+                    
+                
+            
+                
+                    
+                    
+                        
+                        
+                        
+                        
+                            
+                                
+                            
+                        
+                        
+                    
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
                 
             
                 
@@ -349,9 +341,11 @@ start()
         
         
 
-    <p class="help-wanted">
-        This page is only available in English. If you want to help us translate, you can open an issue on <a href="github.com/pagedjs/pagedjs-website/issues/">Github</a> and we’ll guide you through the process. Thank you!
-    </p>
+    
+        <p class="help-wanted">
+            This page is only available in English. If you want to help us translate, you can open an issue on <a href="github.com/pagedjs/pagedjs-website/issues/">Github</a> and we’ll guide you through the process. Thank you!
+        </p>
+    
 
 
         
@@ -1918,6 +1912,82 @@ However, if your document is long, maybe your target element is not yet loaded a
     }
     
 {
+    "content": "&lt;p&gt;S’il est facile d’imaginer un livre multilingue qui partagerait ses pages pour y accueillir les contenus dans deux langues, il a toujours été difficile d’imaginer le web autrement que ce long flux vertical, héritier de la molette. Le contenu d’une page démarre en haut, et se termine, lorsqu’il n’y a plus de contenu à poser sur la page, bien en-desssous de ce que l’écran laisse entrevoir, donnant à chacune l’illusion de l’infini, ce que les économistes de l’attention ont bien intégré à leurs outils.&lt;/p&gt;
+&lt;p&gt;En réalité, nous avons bien imaginé des subterfuges pour proposer un semblant de flux parallèle, de la mise en page grâce aux &lt;code&gt;table&lt;/code&gt; jusqu’à l’apparition des grilles CSS ou de Flex, mais il s’agit toujours de ce même mouvement descendant, et même si le tour de magine est invisible, par ce que remarquablement réalisé, il saute aux yeux dès lors qu’on souhaite le traduire sur un média paginé.&lt;/p&gt;
+&lt;h2 id=&quot;la-promesse-non-tenue-des-r%C3%A9gions-css&quot; tabindex=&quot;-1&quot;&gt;La promesse non tenue des régions CSS&lt;/h2&gt;
+&lt;p&gt;Quand les éditeurs du w3c travaillent sur les spécifications pour l’imprimé, le web n’est pas encore un monde de web app, de CSS surpuissant et d’automatisations de mise en page. On sort à peine des layouts de &lt;code&gt;&amp;lt;table&amp;gt;&lt;/code&gt; et on découvre le monde merveilleux des &lt;em&gt;floats&lt;/em&gt; (de l’habillage de texte, très conditionnel). C’est encore le web du document pour lequel une page a un début (en haut) et une fin (en bas). Autant dire que quand on pense l’imprimé, on ne cherche pas beaucoup plus loin que de découper ce flux en une suite de pages jusqu’à former, pour les esprits les plus fous, un livre.&lt;/p&gt;
+&lt;p&gt;Bon, en vrai, y a eu des tentatives, dont une assez poussée, qu’on appelait les régions CSS, et qui permettaient de définir des espaces dans lesquels faire couler des flux de contenu auparavant dissociés dans le code HTML. Et c’était tout sauf simple: l’HTML était divisé en deux: d’une part le contenu, et d’autre part le contenant. Et un CSS complexe qui définissait les positionnements des boites, et la forme de leur contenu. Je ne reviendrai pas ici sur les raisons qui ont poussé les gens de Chromium à abandonner l’idée, par ce que ce serait trop long et sujet à tellement de controverses qu’on y perdrait la journée (et un peu de santé mentale). Sachez simplement que, l’espace de quelques années, nous avions des régions CSS dans Chrome et que nous avions su nous en servir.&lt;/p&gt;
+&lt;p&gt;Et d’ailleurs, Open Source Publishing, à qui le CSS Print doit énormément, a montré plus d’une fois l’intérêt d’une telle pratique, même si je crois que le meilleur exemple vient de &lt;a href=&quot;https://osp.kitchen/work/the-riddle/&quot;&gt;&lt;em&gt;The Riddle&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/theriddle.png&quot; alt=&quot;Une reproduction du livre The Riddle conçu par Open Source Publishing, en web2print, qui montre deux flux de texte indépendants qui partagent la page.&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;et-css-grid-fut.&quot; tabindex=&quot;-1&quot;&gt;Et CSS Grid fut.&lt;/h2&gt;
+&lt;p&gt;Si on regarde les vidéos de présentations des grilles CSS, celles produites pour pousser à leur adoption, on retrouve toujours mentionnée l’idée qu’il s’agit de retrouver des artifices de mises en page qui viennent du livre. Et en particulier des expérimentations graphiques qui viennent tout droit de la presse magazine.&lt;/p&gt;
+&lt;p&gt;La grille CSS est l’étape totale de la séparation entre le contenu et sa forme. Si avant ces propriétés, le HTML se devait de donner l’ordre selon lequel devaient s’afficher des éléments sur la page, ce n’est plus forcément le cas aujourd’hui, puisque le CSS offre la possibilité aux auteurs de définir, en plus de leur forme, le positionnement et l’ordre de ces contenus.&lt;/p&gt;
+&lt;p&gt;La façon la plus simple de regarder une grille CSS, c’est de voir un plateau de touché-coulé. Pour y déposer chaque bateau, il suffit de donner ses coordonnées horizontales et verticales sur une grille en 2D. Dès lors, l’ordre de lecture n’est plus descendant, il est multiple, et dépend de l’organisation de la page induite par le CSS.&lt;/p&gt;
+&lt;p&gt;Pour autant, la grille CSS a une limitation fondamentale : aucun élément ne peux être séparé en deux blocs de cette grille. L’image suivante démontre quelque chose d’impossible en CSS :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/blocalautre.jpg&quot; alt=&quot;Un contenu textuel séparé entre deux blocs de texte&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;le-print-comme-cheval-de-troie&quot; tabindex=&quot;-1&quot;&gt;Le print comme cheval de Troie&lt;/h2&gt;
+&lt;p&gt;Le bon côté du CSS print, c’est que contrairement au web, on travaille sur une page dont les dimensions sont limitées, et qu’il nous appartient de prendre les décisions graphiques et typographiques qui autorisent la coupe d’un long texte en une infinité de plus petits. Même si les spécifications du W3C montrent que des questions se sont posées et que des réponses ont pu apparaître, il est certain que la traduction en imprimé est un impensé des évolutions du web.&lt;/p&gt;
+&lt;p&gt;D’abord parce que l’imprimé ne représente qu’un usage limité de notre vie numérique et ensuite par ce que cela viendrait poser une question épineuse : si on le fait pour un média paginé, pourquoi est-ce qu’on ne le ferait pas pour le web ? Si une grille CSS imprimée doit permettre la coupe d’un contenu sur plusieurs cellules, alors pourquoi est-ce qu’on ne peut pas se le permettre à l’écran ?&lt;/p&gt;
+&lt;p&gt;Une chose intéressante à faire lorsque qu’une pratique n’a pas l’air d’exister sur le web, c’est d’investir le champ et de commencer à réfléchir à des solutions, suffisamment abstraites pour être réutilisables et assez claires pour être expliquées, commentées et analysées.&lt;/p&gt;
+&lt;p&gt;La question du multiflux est difficile quelque soit le média, mais c’est le média paginé qui semble avoir le plus besoin de réponses, puisque contrairement à l’écran, le papier n’est pas infini. Dès lors, voici un retour d’expérience sur le multiflux dans paged.js, organisé autour du projet Écran Papier Éditer, (EPE), mené par l’Ésad Grenoble / Valence.&lt;/p&gt;
+&lt;p&gt;Dans le cadre du projet, les designers ont eu besoin d’une solution pour mettre en page des textes en plusieurs langues, de les traiter avec les mêmes égards, en évitant d’en placer un avant l’autre. Parfait point de départ pour remettre la question des régions CSS sur la table, maintenant que les grilles CSS sont devenues un outil central dans les habitudes de web design.&lt;/p&gt;
+&lt;h2 id=&quot;pagedjs-multi-flow.0.1b.js&quot; tabindex=&quot;-1&quot;&gt;pagedjs-multi-flow.0.1b.js&lt;/h2&gt;
+&lt;p&gt;Pagedjs multi flow est un plugin paged.js qui permet de définir des flux dit parallèles (à défaut d’un meilleur nom). L’idée est d’utiliser le CSS pour définir des flux qui partageront un espace, que ce soit une page (plusieurs langues sur la même page), soit une double page (où chaque langue a sa propre page).&lt;/p&gt;
+&lt;p&gt;Pour se faire, nous utilisons une propriété CSS inventé pour l’occasion, que nous appellerons &lt;code&gt;--parallel-flow&lt;/code&gt;. Cette propriété attend pour valeur le nom d’un flux qui servira d’identifiant. Tous les éléments qui possèdent la même valeur pour cette propriété feront donc parti du même flux parallèle.&lt;/p&gt;
+&lt;p&gt;Prenons par exemple ce HTML :&lt;/p&gt;
+&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;section&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;alpha&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;contenu&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;section&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;section&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;beta&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;contenu&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;section&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;section&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;delta&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;contenu&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;section&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;section&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;epsilon&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;contenu&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;section&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;et ce CSS :&lt;/p&gt;
+&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;br&gt;&lt;span class=&quot;token selector&quot;&gt;#alpha&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;br&gt;  &lt;span class=&quot;token property&quot;&gt;--parallel-flow&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; main&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br&gt;  &lt;span class=&quot;token property&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 30%&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;span class=&quot;token selector&quot;&gt;#beta&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;br&gt;  &lt;span class=&quot;token property&quot;&gt;--parallel-flow&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; main&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br&gt;  &lt;span class=&quot;token property&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 65%&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br&gt;  &lt;span class=&quot;token property&quot;&gt;margin-left&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; auto&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;span class=&quot;token selector&quot;&gt;#epsilon&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;br&gt;  &lt;span class=&quot;token property&quot;&gt;--parallel-flow&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; else&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br&gt;  &lt;span class=&quot;token property&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 45%&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;span class=&quot;token selector&quot;&gt;#delta&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;br&gt;  &lt;span class=&quot;token property&quot;&gt;--parallel-flow&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; else&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br&gt;  &lt;span class=&quot;token property&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 45%&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br&gt;  &lt;span class=&quot;token property&quot;&gt;margin-left&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; auto&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Notez que chaque élément possède déjà les propriétés de placement : &lt;code&gt;#alpha&lt;/code&gt; a une largeur de 30% de son parent, &lt;code&gt;#beta&lt;/code&gt; de 65% et sera placé à droite, grâce à l’utilisation de &lt;code&gt;margin-left: auto&lt;/code&gt;. Les blocs définis ici sont donc les emplacements des contenants autant que les contenus.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;#alpha&lt;/code&gt; et &lt;code&gt;#beta&lt;/code&gt; devront être traités en même temps et partager un espace, &lt;code&gt;#epsilon&lt;/code&gt; et &lt;code&gt;#delta&lt;/code&gt; en partagent un autre.&lt;/p&gt;
+&lt;h3 id=&quot;la-config-du-javascript&quot; tabindex=&quot;-1&quot;&gt;La config du javascript&lt;/h3&gt;
+&lt;p&gt;Le javascript attend une configuration spécifique qui informe sur le type de contenu et surtout les choix de sa mise en place&lt;/p&gt;
+&lt;p&gt;Le type de flux:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;samepage&lt;/code&gt; : les flux partagent les mêmes pages&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;samespread&lt;/code&gt; : les flux partagent la même double page&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;flowLocation &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;samespread&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;ou&lt;/p&gt;
+&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;flowLocation &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;samepage&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Dans le cas de flux qui seraient configuré pour utiliser le &lt;code&gt;samespread&lt;/code&gt;, on peut automatiquement ajouter une page blanche si les flux ne sont pas de même longueur.&lt;/p&gt;
+&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;flowSpreadAddWhite &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;ce-qui-se-passe.&quot; tabindex=&quot;-1&quot;&gt;Ce qui se passe.&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Paged.js trouve le point de départ de chaque flux et en marque le premier élément comme le point de départ du flux parallèle.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Paged.js dessine les deux éléments en suivant les règles de css, pour trouver le plus long qui devient le flux principal de ce flux, et il est déplacé avant le premier élément du flux. Les flux secondaires sont envoyés tout à la fin du contenu pour être traités dans un second temps.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Une fois la totalité du contenu mis en page, Paged.js retrouve chaque flux principal et ramène les éléments des flux secondaires sur les mêmes pages (ou sur les pages adjacentes dans le cas d’un &lt;code&gt;samespread&lt;/code&gt;), avant de supprimer les pages qui sont maintenant vides. Note: s’il s’agit d’un &lt;code&gt;samespread&lt;/code&gt;, les pages sont directement déplacées.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&quot;/images/flows.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;bonus%2C-une-exp%C3%A9rimentation.&quot; tabindex=&quot;-1&quot;&gt;Bonus, une expérimentation.&lt;/h3&gt;
+&lt;p&gt;Il arrive que le flux principal contienne des images. Et il n’est pas rare de vouloir ces images dépasser de la largeur de texte, sans forcément empiéter sur l’espace nécessaire à un autre flux. Pour cela, on utilise &lt;code&gt;--parallel-impact: all&lt;/code&gt;. Cette fonctionnalité expérimentale permet d’autoriser les éléments du flux principal à impacter la mise en forme des flux secondaires. Un cas d’usage : une image du premier flux, en habillage, pourrait, en plus d’habiller le premier flux, habiller le second : d’un point de vue technique, un élément invisible flottant est rajouté au début de ce flux secondaire, sur la page ou l’élément A existe. Ce nouvel élément peut être sélectionné en CSS&lt;/p&gt;
+&lt;p&gt;Il est possible que le positionnement de l’élément rajouté ne soit pas positionné correctement, c’est pourquoi il est possible de rajouter dans le css les changements nécessaire. Pour cela, il faut retrouver l’identifiant de l’élément et rajouter &lt;code&gt;-overlap&lt;/code&gt; dans son id.&lt;/p&gt;
+&lt;p&gt;Par exemple:&lt;/p&gt;
+&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;#porco&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;br&gt;    &lt;span class=&quot;token property&quot;&gt;--parallel-impact&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; all&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Pour modifier l’élément overlap fabriqué, par exemple dans la secion #alpha&lt;/p&gt;
+&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;#alpha #porco-overlap&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;br&gt;   &lt;span class=&quot;token property&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 350px &lt;span class=&quot;token important&quot;&gt;!important&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;--parallel impact&lt;/code&gt; ne marche qu’à condition que l’image soit dans le flux principal. Puisque c’est le flux qui est mis en page avant les autres, et qui ne peux donc pas prendre la main sur la suite. Le flux principal est automatiquement détecté, il s’agit du flux le plus&lt;br&gt;
+long (en prenant en compte les objets et images. Pour se faire, le script fait une première passe de mise en page avant de couler le contenu pour de bon)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;derni%C3%A8re-remarque&quot; tabindex=&quot;-1&quot;&gt;Dernière remarque&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Les versions futures permettront de définir, pour chaque flux le type, s’il s’agit d’un &lt;code&gt;same-page&lt;/code&gt; ou d’un &lt;code&gt;same-spread&lt;/code&gt; à l’aide d’un &lt;code&gt;--parallel-flow-policy: [same-page | same-spread]&lt;/code&gt; ainsi que d’un &lt;code&gt;--parallel-flow-fill: [balance|auto]&lt;/code&gt; ou &lt;code&gt;balance ajoute une page blanche et &lt;/code&gt;auto` laisse le flux couler automatiquement.&lt;/li&gt;
+&lt;/ul&gt;
+",
+    "intro": "Il est difficile de penser le web autrement que son long flux vertical, héritage de la roue crantée de la souris. Mais avec l’apparition des grilles CSS et de flex, il est intéressant de se poser la question de ce que ça signifie pour l’imprimé",
+    "permalink": "/posts/fr/multiflux-avec-paged.js/",
+    "tags": "",
+    "title": "Multiflux avec Paged.js"
+    }
+    ,
+{
     "content": "&lt;p&gt;I can still picture the room where Adam Hyde put Fred Chasen and myself around the table, looking at options for making PDF from HTML, and, while we couldn’t find a way that was satisfying enough, he looked at us, and said: “let’s just make it”.&lt;/p&gt;
 &lt;p&gt;And then we started. Very early in the process Julie Blanc joined, and within a couple of months we had a working proof of concept. In not so much more; a full fledge library. All of this was possible thanks to all the energy and resources Adam Hyde and Coko put into the project.&lt;/p&gt;
 &lt;p&gt;At that time the goal of paged.js was to show how CSSPrint could make single source publishing a reality. Most of our work was about helping folks who wanted to implement paged.js in their workflows, or build use cases around it and we were spending a lot of energy on workshops, book fairs, user support and demo projects. Plus, with the &lt;a href=&quot;/en/documentation/10-handlers-hooks-and-custom-javascript/&quot;&gt;hook systems&lt;/a&gt;, people would extend the functionality of paged.js with their own scripts and manage to create amazing publications: from vote ballots, to complex (almost) automatic layouts. We were mostly helping folks implementing complex algorithms for print or even implementing some of it ourselves.&lt;/p&gt;
@@ -1951,9 +2021,54 @@ However, if your document is long, maybe your target element is not yet loaded a
 &lt;p&gt;See yall very soon.&lt;/p&gt;
 ",
     "intro": "Features, people and grants, an introduction to the next chapter of paged.js",
-    "permalink": "/posts/a-new-chapter-in-paged.js-life/",
+    "permalink": "/posts/en/a-new-chapter-in-paged.js-life/",
     "tags": "",
     "title": "A new chapter in Paged.js life"
+    }
+    ,
+{
+    "content": "&lt;p&gt;Je me souviens précisément de la pièce où, accompagné d’Adam Hyde et de Fred Chasen, nous regardions les possibilités existantesp pour transformer du HTML en PDF, et alors qu’on ne trouvait rien de probant, Adam s’est arrêté, nous a regardé et à dit : &lt;em&gt;Let’s just make it&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Et nous voilà partis. Julie Blanc nous a rejoint très vite, et au bout de quelques mois nous avions un preuve de concept fonctionnelles, et en moins d’un an, une bibliothèque javascript capable de produire des PDF. Rien de tout ça n’aurait pu être possible si Adam et Coko n’avaient pas autant investi de temps et de ressources dans le projet.&lt;/p&gt;
+&lt;p&gt;Les années qui ont suivi ont surtout été le moment de mettre le &lt;em&gt;CSS Print&lt;/em&gt; sur le devant de la scène, comme pierre angulaire du &lt;em&gt;single source publishing&lt;/em&gt;. La majorité de notre travail consistait à accompagner les utilisateurs de paged.js, que ce soit pour de accompagner des implémentations &amp;amp; des workflows, former des designers et des éditeurs aux concepts de &lt;code&gt;web to print&lt;/code&gt;, participer à des salons du livres et évenements professionnels, et, lorsqu’il restait un peu de temps, accompagner des projets de livres numériques multi-formats.&lt;/p&gt;
+&lt;p&gt;Avec Paged.js et son système de hooks, on a vu apparaître une quantité importante de documents produits avec Paged.js, qu’il s’agisse de rapports scientifiques, de bulletins de vote US, d’articles scientifique à la mise en page quasi automatique, et c’est avec une grande fierté que nous avons pu participer à quelques-uns de ces chantiers.&lt;/p&gt;
+&lt;p&gt;Mais ce travail a un coût et si on a pu accompagner des projets, nous n’avons pas été des plus efficace pour tenir au courant la communauté des changements, mises à jour et autres expérimentations.&lt;/p&gt;
+&lt;p&gt;Il est temps de changer ça et de passer à paged.js 2.0&lt;/p&gt;
+&lt;h2 id=&quot;2.0-%3F-mais-o%C3%B9-est-pass%C3%A9-la-1.0-%3F&quot; tabindex=&quot;-1&quot;&gt;2.0 ? Mais où est passé la 1.0 ?&lt;/h2&gt;
+&lt;p&gt;Une idée que nous avons gardé en tête depuis le début de paged.js était que, tôt ou tard, les navigateurs allaient implémenter les fonctionnalités que nous utilisons si bien qu’à la fin, nous pourrions nous séparer de paged.js pour de bon. Mais ce que nous avons réalisé en chemin, c’est que le polyfill n’est qu’un usage restreint de Paged.js qui passe à côté de sa fonctionnalité principale: la prévisualisation à l’écran de ce que donnera le document imprimé permet d’imaginer les usages futurs du CSS Print.&lt;/p&gt;
+&lt;p&gt;Pour faire simple, paged.js va lire votre HTML et votre CSS, va trouver les fonctionnalités utilisées pour le print (&lt;code&gt;@page&lt;/code&gt;, &lt;code&gt;.footnote&lt;/code&gt;, etc.), et va les convertir en HTML et CSS que le navigateur va pouvoir afficher à l’écran, rendant possible l’usage de l’inspecteur, meilleur ami de tout bon développeur web, pour imprimer la page en utilisant la fonction &lt;code&gt;save as PDF&lt;/code&gt; du module d’impression. Dès lors, le navigateur n’imprime plus seulement la feuille de style pour le print, mais aussi ce que l’utilisateur voit dans sa fenêtre. Plus vraiment un &lt;em&gt;polyfill&lt;/em&gt; mais un nouvel outil.&lt;/p&gt;
+&lt;p&gt;La deuxième chose importante date de fin 2024, quand l’équipe derrière Chrome décide d’augmenter la voilure sur l’implémentation des features de print, &lt;a href=&quot;https://developer.chrome.com/blog/new-in-chrome-131&quot;&gt;en commençant avec les &lt;code&gt;margin-boxes&lt;/code&gt;&lt;/a&gt;. Bonne nouvelle, CSSPrint avance, autre bonne nouvelle, mais plus technique, paged.js doit évoluer.&lt;/p&gt;
+&lt;p&gt;Si l’on transforme paged.js pour suivre les mises à jour de chromium, alors paged.js devra tellement changer que les autres navigateurs risqueraient d’être abandonné. Même si chromium a une petite longueur d’avance sur quelque fonctionnalité que nous utilisons déjà (en particulier les veuves et les orphelines, ou la possibilité d’imprimer d’autres formats que les standards), nous continuons de penser que chaque navigateur est une option solide pour imprimer.&lt;/p&gt;
+&lt;p&gt;Alors il faut changer la façon dont paged.js fonctionne pour être plus stable avec plus de moteur de rendu, et comme il va y avoir un nombre de changement important, passer à paged.js 2.0 nous semble être la meilleure solution.&lt;/p&gt;
+&lt;h2 id=&quot;paged.js-neue&quot; tabindex=&quot;-1&quot;&gt;&lt;em&gt;Paged.js neue&lt;/em&gt;&lt;/h2&gt;
+&lt;p&gt;D’abord, les bonnes nouvelles.&lt;/p&gt;
+&lt;p&gt;NLNet, par le biais de NGI 0 accompagne cette transformation de paged.js sur plusieurs  projets.&lt;/p&gt;
+&lt;p&gt;Le premier, &lt;a href=&quot;https://nlnet.nl/project/CSS-Print/&quot;&gt;Pushing forward for CSS Print&lt;/a&gt; est une mission partagée entre l’équipe de WeasyPrint (les fantastiques Lucie et Guillaume) et Julie Blanc et Julien Taquet (moi-même), contributeurs de Paged.js. Ce projet finance l’écriture de spécifications pour le CSS Print pour aller plus loin que ce que nous pouvons faire aujourd’hui. La pemière de ces spécifications est la continuité du travail que nous avons commencé sur les notes. La spécification est en cours de discussion et va intégrer les conversations avec les W3C (vous pouvez la lire et la commenter ici : &lt;a href=&quot;&quot;&gt;https://css-print-lab.github.io/specs/notes-in-css-print/&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;NlNet finance aussi un second projet, autour de la mise à jour de paged.js vers le 2.0. Parmi les changements qui arrivent on trouve le remplacement de cssTree par CSSOM, l’utilisation de web-components pour la partie dev, sortir le chunker de paged.js pour en faire une dépendance et permettre l’utilisations de plusiers breakTokens. Nous reviendrons là-dessus plus en détail dans les semaines qui arrivent avec un calendrier plus clair. Le financement ne peux durer qu’un an, ça donne une petite idée de la vitesse avec laquelle nous devons avancer.&lt;/p&gt;
+&lt;h3 id=&quot;la-nouvelle-%C3%A9quipe.&quot; tabindex=&quot;-1&quot;&gt;La nouvelle équipe.&lt;/h3&gt;
+&lt;p&gt;Depuis que Fred a intégré Mozilla à temps plein, le temps qu’il peut fournir à paged.js s’est sensiblement réduit. Nous avons décidé de lui alléger un peu les épaules en transformant un peu l’équipe autour de paged.js&lt;/p&gt;
+&lt;p&gt;Le premier changement est l’arrivée de Gijs de Heij dans la &lt;em&gt;core team&lt;/em&gt;. Gijs est un designer/developer, membre du collectif Open Source Publishing et manipule paged.js depuis suffisament longtemps pour savoir ce qui marche et ce qui va poser problème :)&lt;/p&gt;
+&lt;p&gt;Le second changement est mon implication dans le code de paged.js. Jusqu’à présent, il s’agissait d’accompagner Fred et de tester les changements pour en rendre compte à la communauté ou proposer des plugins. Je serai beaucoup plus partie prenante dans la mise à jour du code, l’implémentation de features et l’écriture de spécifications, en plus de m’assurer que tout le monde soit ravi, que les frustrations soient réduites et que les contributeurs se sentent à l’aise.&lt;/p&gt;
+&lt;p&gt;Sur le reste de l’équipe, Fred est toujours là, mais son temps sera forcément moindre, et si Julie ne fait plus partie officiellement de l’équipe depuis qu’elle a commencé à écrire sa thèse (dont le sujet ne peux être plus dans le mille: &lt;a href=&quot;http://phd.julie-blanc.fr/&quot;&gt; “Composer avec les technologies du web ” &lt;/a&gt;, et qu’elle a soutenu avec la plus jolie des réussites), elle n’est jamais vraiment loin de l’équipe, ni des questions qui nous concernent.&lt;/p&gt;
+&lt;p&gt;Coko a été un super espace dans lequel dévlopper paged.js et nous ne serions pas là où on en est sans le temps, l’énergie, la confiance et la générosité d’Adam Hyde, et si Coko ne participe plus au financement de paged.js, Adam n’est jamais loin pour nous aider.&lt;/p&gt;
+&lt;h2 id=&quot;%C3%A0-propos-du-futur-de-paged.js&quot; tabindex=&quot;-1&quot;&gt;À propos du futur de paged.js&lt;/h2&gt;
+&lt;p&gt;Ce poste de blog est déjà trop long, alors je ne vais pas vous prendre plus de temps, mais je dois dire en quelques mots:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Paged.js a un compte &lt;a href=&quot;https://fosstodon.org/@pagedjs&quot;&gt;mastodon&lt;/a&gt; :)&lt;/li&gt;
+&lt;li&gt;Le code de paged.js et son site internet sont maintenant hébergés sur Github (&lt;a href=&quot;https://github.com/pagedjs/&quot;&gt;https://github.com/pagedjs/&lt;/a&gt;), et nous sommes en train de rapatrier ce qui traîne sur des repos ici et là sur les différents serveurs git que nous avons pu utiliser.&lt;/li&gt;
+&lt;li&gt;Nous sommes joignables par mail &lt;a href=&quot;mailto:contact@pagedjs.org&quot;&gt;contact@pagedjs.org&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Pagedjs a maintenant un channel Matrix pour discuter du futur du projet &lt;a href=&quot;https://matrix.to/#/#pagedjs:matrix.org&quot;&gt;https://matrix.to/#/#pagedjs:matrix.org&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Le site de paged.js a subi la mise à jour du fantasique &lt;a href=&quot;https://11ty.dev&quot;&gt;Eleventy&lt;/a&gt; et permet donc l’internationalisation de tous ses contenus. Sérieusement je crois pas qu’il y ait meilleur générateur de site statique.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Nous avons pas mal de choses dans les cartons, en particulier sur la partie réécriture de la documentation (de développement ET pour les utilisateurs) avec l’espoir de trouver la bonne solution pour que, si vous souhaitiez participer à son élaboration, nous puissions vous accueuillir du mieux possible.&lt;/p&gt;
+&lt;p&gt;On se retrouve très vite.&lt;/p&gt;
+&lt;p class=&quot;signature&quot;&gt;
+julientaq 
+&lt;/p&gt;
+",
+    "intro": "",
+    "permalink": "/posts/fr/le-prochain-chapitre-de-paged.js/",
+    "tags": "",
+    "title": "Le prochain chapitre de Paged.js"
     }
     ,
 {
@@ -1971,7 +2086,7 @@ couple of solutions for you.&lt;/p&gt;
 &lt;p&gt;We explained it last time (&lt;a href=&quot;https://pagedjs.org/posts/paged-break-the-long-overdue-update/&quot;&gt;you can read the post&lt;br&gt;
 here&lt;/a&gt;, but we&lt;br&gt;
 moved forward to follow the standards for the media queries. So, from now on,&lt;br&gt;
-pagedjs  will ignore any rule that should not apply to a media screen. &lt;code&gt;@media screen&lt;/code&gt; being the most useful example.&lt;/p&gt;
+pagedjs will ignore any rule that should not apply to a media screen. &lt;code&gt;@media screen&lt;/code&gt; being the most useful example.&lt;/p&gt;
 &lt;p&gt;The most standard change, for all of you, is the preview on screen: if you want&lt;br&gt;
 to use the &lt;code&gt;interface.css&lt;/code&gt; we’re making, you can simply update and use the&lt;br&gt;
 &lt;a href=&quot;https://gitlab.coko.foundation/pagedjs/interface-polyfill/blob/master/interface.css&quot;&gt;https://gitlab.coko.foundation/pagedjs/interface-polyfill/blob/master/interface.css&lt;/a&gt;&lt;br&gt;
@@ -2039,7 +2154,7 @@ commas:&lt;/p&gt;
 &lt;p&gt;Take care&lt;/p&gt;
 ",
     "intro": "Pagedjs 0.4.0, release notes, breaking changes and what’s next",
-    "permalink": "/posts/so-long-@media-screen!/",
+    "permalink": "/posts/en/so-long-@media-screen!/",
     "tags": "breaking changes,guide,release notes",
     "title": "So long @media screen!"
     }
@@ -2057,7 +2172,7 @@ commas:&lt;/p&gt;
 &lt;h2 id=&quot;goodbye-web2print%2C-hello-web%2Bprint&quot; tabindex=&quot;-1&quot;&gt;Goodbye web2print, hello web+print&lt;/h2&gt;
 &lt;p&gt;A reminder: Paged.js is a polyfill, a Javascript library that does what the browser should be doing by itself. That means that what you do with Paged.js today needs to be what you will be able to do in Chromium, Firefox, Edge, Vivaldi, etc in future -- one day, the browsers will have implemented the print feature and when that happens, we won’t need Paged.js anymore&lt;/p&gt;
 &lt;p&gt;To be a working polyfill, Paged.js needs to work exactly like a browser.&lt;/p&gt;
-&lt;p&gt;In a browser, when we set @media queries, we can define styles for a specific environment. We know that well because that’s how responsive design works: you define what happens when the usable surface is smaller than 800px @media (max-width: 800px) or when night mode is wanted  @media (prefers-color-scheme: dark) or simply when you want to print something with @media print.&lt;/p&gt;
+&lt;p&gt;In a browser, when we set @media queries, we can define styles for a specific environment. We know that well because that’s how responsive design works: you define what happens when the usable surface is smaller than 800px @media (max-width: 800px) or when night mode is wanted @media (prefers-color-scheme: dark) or simply when you want to print something with @media print.&lt;/p&gt;
 &lt;p&gt;If you don’t set any query, then your CSS will be used in all situations.&lt;/p&gt;
 &lt;p&gt;So a simple example: we have some &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt; and we want them to have a font-size of 2em in all situations, but we want them red on screen, black on paper. This is how it will be set.&lt;/p&gt;
 &lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;/* shared for all the context */&lt;/span&gt;  &lt;br&gt;&lt;span class=&quot;token selector&quot;&gt;h1&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;  &lt;br&gt;  &lt;span class=&quot;token property&quot;&gt;font-size&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 2em&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;  &lt;br&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;  &lt;br&gt;  &lt;br&gt;&lt;span class=&quot;token comment&quot;&gt;/* only for screen */&lt;/span&gt;  &lt;br&gt;&lt;span class=&quot;token atrule&quot;&gt;&lt;span class=&quot;token rule&quot;&gt;@media&lt;/span&gt; screen&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;  &lt;br&gt;  &lt;span class=&quot;token selector&quot;&gt;h1&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;  &lt;br&gt;    &lt;span class=&quot;token property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; red&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;  &lt;br&gt;  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;  &lt;br&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;  &lt;br&gt;  &lt;br&gt;&lt;span class=&quot;token comment&quot;&gt;/* only for print */&lt;/span&gt;  &lt;br&gt;&lt;span class=&quot;token atrule&quot;&gt;&lt;span class=&quot;token rule&quot;&gt;@media&lt;/span&gt; print&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;  &lt;br&gt;  &lt;span class=&quot;token selector&quot;&gt;h1&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;  &lt;br&gt;    &lt;span class=&quot;token property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; black&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;  &lt;br&gt;  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;  &lt;br&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
@@ -2087,7 +2202,7 @@ commas:&lt;/p&gt;
 &lt;p&gt;Have a nice printing!&lt;/p&gt;
 ",
     "intro": "Paged.js has been through a lot of changes over  the last year or so. And those were quite interesting to navigate. Let’s see where we’re at.",
-    "permalink": "/posts/paged-break-the-long-overdue-update/",
+    "permalink": "/posts/en/paged-break-the-long-overdue-update/",
     "tags": "breaking changes,guide,release notes",
     "title": "Paged Break, the long overdue update"
     }
@@ -2129,7 +2244,7 @@ And since not everyone has the same needs, it will be four stater kits instead o
 &lt;p&gt;You are now ready to get started with Paged.js! We would be very happy to see your productions, so jump on the &lt;a href=&quot;https://mattermost.coko.foundation/&quot;&gt;Coko Mattermost&lt;/a&gt; to say hello (~pagedjs channel) or contact us on &lt;a href=&quot;https://twitter.com/paged_js&quot;&gt;twitter&lt;/a&gt;.&lt;/p&gt;
 ",
     "intro": "Paged.js have been used by book designers quite a lot over the past few months. And looking at code can always be a tricky thing when you’re used to look at classic design tools. So we made some starterkits",
-    "permalink": "/posts/2020-04-15-starterkits-for-pagedjs/",
+    "permalink": "/posts/en/a-collection-of-starter-kits-for-paged.js/",
     "tags": "starting with Paged.js,guide",
     "title": "A collection of starter kits for Paged.js "
     }
@@ -2278,7 +2393,7 @@ constructor. In this script, I&#39;m creating a &lt;code&gt;this. floatFullPage&
 &lt;p&gt;Have fun!&lt;/p&gt;
 ",
     "intro": "Last month, I was asked by Adam to summarise the new options offered by Coko&#39;s Editoria export-to-PDF feature. It&#39;s rare to get to choose the subject you want to talk about, so as I&#39;m in the middle of building my home studio, I&#39;ll also talk about my ukulele.",
-    "permalink": "/posts/2021-06-uke-partOne/",
+    "permalink": "/posts/en/uke-and-inks/",
     "tags": "hooks,custom js",
     "title": "Uke and inks"
     }
@@ -2318,7 +2433,7 @@ constructor. In this script, I&#39;m creating a &lt;code&gt;this. floatFullPage&
 &lt;p&gt;Until next time!&lt;/p&gt;
 ",
     "intro": "Being able to generate hundreds of pages from the browser that will be printed on an offset printer using copper ink is great, but did you try footnotes?",
-    "permalink": "/posts/2021-06-newRelease/",
+    "permalink": "/posts/en/paged.js-0.2.0-release-notes/",
     "tags": "footnotes,release notes",
     "title": "Paged.js 0.2.0 Release notes"
     }
@@ -2381,7 +2496,7 @@ constructor. In this script, I&#39;m creating a &lt;code&gt;this. floatFullPage&
 &lt;img src=&quot;/images/9J1A5716_retouch.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 ",
     "intro": "The the 1st and 2nd of March 2021, some graphic designers got together for a Paged.js hackathon in Paris.",
-    "permalink": "/posts/2021-03-hackathon/",
+    "permalink": "/posts/en/a-paged.js-hackathon-at-ensadlab/",
     "tags": "hackathon,workshop,baseline,float notes,canvas,imposition,layout",
     "title": "A paged.js hackathon at EnsadLab"
     }
@@ -2397,7 +2512,7 @@ constructor. In this script, I&#39;m creating a &lt;code&gt;this. floatFullPage&
 &lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: It&#39;s not exactly how the float page specifications work, but it&#39;s currently the easiest way to do it with Paged.js. A real &lt;code&gt;float: top&lt;/code&gt; on an element should move the element to the top of the page where it is anchored. However, this would mean that the text already rendered in the page by paged.js (which is before the element) would have to be pushed to the next page, causing the text to be split again. There is currently no simple way in paged.js to re-render the page if an element in the layout is moved. For the moment, this script is the easiest way to do it.&lt;/p&gt;
 ",
     "intro": "A little script to float elements and avoid large whitespaces at the end of pages.",
-    "permalink": "/posts/avoid-whitespaces/",
+    "permalink": "/posts/en/avoid-whitespaces-on-pages/",
     "tags": "page-floats,guide",
     "title": "Avoid whitespaces on pages"
     }
@@ -2452,7 +2567,7 @@ Here, the Text node after &lt;code&gt;&amp;quot;Hello&amp;quot;&lt;/code&gt; and
 &lt;p&gt;If you find any bugs, or have any questions, or want to discuss anything, feel free to join us on our chat: &lt;a href=&quot;mattermost.coko.foundation.org&quot;&gt;mattermost.coko.foundation&lt;/a&gt;&lt;/p&gt;
 ",
     "intro": "Some news from paged.js and an update!",
-    "permalink": "/posts/welcome-pagedjs-0.1.42/",
+    "permalink": "/posts/en/welcome-pagedjs-0.1.42/",
     "tags": "Specifications,W3C,updates,page number",
     "title": "Welcome Pagedjs 0.1.42"
     }
@@ -2554,7 +2669,7 @@ To make &lt;code&gt;element()&lt;/code&gt; work with &lt;code&gt;note()&lt;/code
 &lt;p&gt;This article is an overview of the specifications imagined for the notes, and is an extract from the &lt;a href=&quot;https://github.com/w3c/css-print/issues/3&quot;&gt;issue&lt;/a&gt; published in the GitHub of the CSS print community group. That issue provides more detail than the few properties we have presented here and a few others (note policy for example). You are invited to take a look at this more complete document and comment on it. The specifications are a community work and it is only together that we will be able to improve them.&lt;/p&gt;
 ",
     "intro": "This article proposing new CSS specifications to design differents kind of notes  in  continuous and paged medias.",
-    "permalink": "/posts/notes-about-notes/",
+    "permalink": "/posts/en/notes-about-notes/",
     "tags": "specifications,w3c,foot notes,margin notes",
     "title": "Notes About Notes"
     }
@@ -2576,7 +2691,7 @@ Paged.js can now handle &lt;code&gt;&amp;lt;p id=&amp;quot;#this.paragraph&amp;q
 &lt;p&gt;See you all very soon!&lt;/p&gt;
 ",
     "intro": "This week, paged.js turns 0.1.40. Happy new release day! Here come a couple of fixes and some new features",
-    "permalink": "/posts/pagedjs-0.1.40/",
+    "permalink": "/posts/en/pagedjs-0.1.40/",
     "tags": "",
     "title": "Pagedjs 0.1.40"
     }
@@ -2639,7 +2754,7 @@ Established in 1946 as the American Theological Library Association, Atla is a m
 &lt;p&gt;&lt;em&gt;The next article of the series will be all about the amount of content we can put on a page, defining margins, headings, and page types. See you all very soon.&lt;/em&gt;&lt;/p&gt;
 ",
     "intro": "The nice folks of Atla Open Press have been working with Coko to develop their new publishing workflow around the amazing [Editoria](https://www.editoria.pub). So we helped them designing their new book template.",
-    "permalink": "/posts/finding-letters-for-atla/",
+    "permalink": "/posts/en/finding-letters-for-atla/",
     "tags": "Atla,creating templates,typefaces,book design",
     "title": "Finding letters for Atla"
     }
@@ -2715,7 +2830,7 @@ Established in 1946 as the American Theological Library Association, Atla is a m
 &lt;p&gt;Stay tuned!&lt;/p&gt;
 ",
     "intro": "We just released a new version of Paged.js! The 0.1.38 is now available to download from [unpkg](https://unpkg.com) or [npm](https://www.npmjs.com/package/pagedjs).",
-    "permalink": "/posts/welcome-to-paged.js-0.1.38/",
+    "permalink": "/posts/en/welcome-to-paged.js-0.1.38/",
     "tags": "",
     "title": "Welcome to paged.js 0.1.38"
     }
@@ -2747,7 +2862,7 @@ Established in 1946 as the American Theological Library Association, Atla is a m
 &lt;p&gt;The purpose of the group is to “work together to gather use cases, help with specifications, and advocate for more and better implementations”. At the end of the day, the community group was launched and accepted in the list of the current W3C community group: &lt;a href=&quot;https://www.w3.org/community/cssprint/.&quot;&gt;https://www.w3.org/community/cssprint/&lt;/a&gt;. You don&#39;t need to be part of W3C to join it, so jump in!&lt;/p&gt;
 ",
     "intro": "A report on the recent W3C print workshop.",
-    "permalink": "/posts/return-from-prague:-the-future-of-web-to-print/",
+    "permalink": "/posts/en/return-from-prague:-the-future-of-web-to-print/",
     "tags": "",
     "title": "Return from Prague: the future of web to print"
     }
@@ -2804,7 +2919,7 @@ Established in 1946 as the American Theological Library Association, Atla is a m
 &lt;p&gt;We welcome you to join us!&lt;/p&gt;
 ",
     "intro": "With the upcoming W3C workshop on CSS print in Prague, we put together this position paper. If you never heard of Paged.js, it’s a pretty good start.",
-    "permalink": "/posts/our-position-paper-for-the-w3c-css-print-workshop/",
+    "permalink": "/posts/en/our-position-paper-for-the-w3c-css-print-workshop/",
     "tags": "",
     "title": "Our position paper for the W3C CSS print workshop"
     }
@@ -2866,7 +2981,7 @@ Add this code in the &lt;code&gt;head&lt;/code&gt; of you html document:&lt;/p&g
 &lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;#list-index-generated&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;br&gt;  &lt;span class=&quot;token property&quot;&gt;list-style-type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; none&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;span class=&quot;token selector&quot;&gt;.list-alphabet-element&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;br&gt;  &lt;span class=&quot;token property&quot;&gt;font-weight&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; bold&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br&gt;  &lt;span class=&quot;token property&quot;&gt;padding-top&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 18px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br&gt;  &lt;span class=&quot;token property&quot;&gt;padding-bottom&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 9px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br&gt;  &lt;span class=&quot;token property&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Arial&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; Helvetica&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; sans-serif&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;span class=&quot;token selector&quot;&gt;.index-value&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;br&gt;  &lt;span class=&quot;token property&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; inline-block&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br&gt;  &lt;span class=&quot;token property&quot;&gt;min-width&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 120px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;token selector&quot;&gt;.index-value:first-letter&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;br&gt;  &lt;span class=&quot;token property&quot;&gt;text-transform&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; uppercase&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;token selector&quot;&gt;.index-value::after&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;br&gt;  &lt;span class=&quot;token property&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;none&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;span class=&quot;token selector&quot;&gt;.link-page a&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;br&gt;  &lt;span class=&quot;token property&quot;&gt;text-decoration&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; none&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br&gt;  &lt;span class=&quot;token property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; currentColor&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br&gt;  &lt;span class=&quot;token property&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Arial&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; Helvetica&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; sans-serif&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br&gt;  &lt;span class=&quot;token property&quot;&gt;font-size&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 12px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 ",
     "intro": "Indexing is not an easy task. But what if we could automatize a bit the whole experience, on the export? Here is how you can do it with Paged.js",
-    "permalink": "/posts/2020-02-16-buildanindexwithpagedjs/",
+    "permalink": "/posts/en/build-an-index-with-pagedjs/",
     "tags": "indexing,target-counter,guide",
     "title": "Build An Index With Pagedjs"
     }
@@ -3003,7 +3118,7 @@ float: snap-block(2em near)&lt;br&gt;
 &lt;figure&gt; &lt;img src=&quot;/images/article-figures16.png&quot;  /&gt;&lt;/figure&gt;
 ",
     "intro": "In CSS specifications, the float property is very interesting. The property indicates that an element is to be removed from the normal flow and instead be placed into a different place - currently, on the right or left side of its container. Text and other inline elements will then surround the floated element.",
-    "permalink": "/page-floats/",
+    "permalink": "/posts/en/paged-media-approaches-:-page-floats/",
     "tags": "automated typesetting,CSS layout design,page-floats",
     "title": "Paged Media approaches : page floats"
     }
@@ -3033,7 +3148,7 @@ float: snap-block(2em near)&lt;br&gt;
 All the files (scripts, CSS, HTML exemples) to create a table of contents are available on gitlab: &lt;a href=&quot;https://gitlab.coko.foundation/pagedjs/experiments/tree/master/table-of-content&quot;&gt;https://gitlab.coko.foundation/pagedjs/experiments/tree/master/table-of-content&lt;/a&gt;.&lt;/p&gt;
 ",
     "intro": "You got some HTML content you want to make a book with, but it would takes too much time to set the ids and hyperlinks? We got you covered!",
-    "permalink": "/posts/build-a-table-of-contents-from-your-html/",
+    "permalink": "/posts/en/build-a-table-of-contents-from-your-html/",
     "tags": "table of content,target-counter,guide",
     "title": " Build a Table of Contents from your HTML"
     }
