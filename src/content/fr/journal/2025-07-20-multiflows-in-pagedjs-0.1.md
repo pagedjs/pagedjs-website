@@ -8,7 +8,6 @@ intro: Il est difficile de penser le web autrement que son long flux vertical, h
 ---
 
 
-
 S’il est facile d’imaginer un livre multilingue qui partagerait ses pages pour y accueillir les contenus dans deux langues, il a toujours été difficile d’imaginer le web autrement que ce long flux vertical, héritier de la molette. Le contenu d’une page démarre en haut, et se termine, lorsqu’il n’y a plus de contenu à poser sur la page, bien en-desssous de ce que l’écran laisse entrevoir, donnant à chacune l’illusion de l’infini, ce que les économistes de l’attention ont bien intégré à leurs outils.
 
 En réalité, nous avons bien imaginé des subterfuges pour proposer un semblant de flux parallèle, de la mise en page grâce aux `table` jusqu’à l’apparition des grilles CSS ou de Flex, mais il s’agit toujours de ce même mouvement descendant, et même si le tour de magine est invisible, par ce que remarquablement réalisé, il saute aux yeux dès lors qu’on souhaite le traduire sur un média paginé.
@@ -178,9 +177,7 @@ Pour modifier l’élément overlap fabriqué, par exemple dans la secion #alpha
 long (en prenant en compte les objets et images. Pour se faire, le script fait une première passe de mise en page avant de couler le contenu pour de bon) 
     
 
-> Rappel: Si vous voulez d’abord jeter un coup d’œil au code, il se trouve ici : [https://github.com/pagedjs/pagedjs-experiments/tree/main/multiple-flows_0.1b](multiple-flows_0.1b).
+> Rappel: Si vous voulez d’abord jeter un coup d’œil au code, il se trouve ici : [https://github.com/pagedjs/pagedjs-experiments/tree/main/multiple-flows_0.1b](https://github.com/pagedjs/pagedjs-experiments/tree/main/multiple-flows_0.1b).
 
 ### Dernière remarque 
-
-*   Les versions futures permettront de définir, pour chaque flux le type, s’il s’agit d’un `same-page` ou d’un `same-spread` à l’aide d’un `--parallel-flow-policy: [same-page | same-spread]` ainsi que d’un `--parallel-flow-fill: [balance|auto]` ou `balance ajoute une page blanche et `auto` laisse le flux couler automatiquement.
 
