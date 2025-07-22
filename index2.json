@@ -1982,12 +1982,9 @@ However, if your document is long, maybe your target element is not yet loaded a
 long (en prenant en compte les objets et images. Pour se faire, le script fait une première passe de mise en page avant de couler le contenu pour de bon)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Rappel: Si vous voulez d’abord jeter un coup d’œil au code, il se trouve ici : &lt;a href=&quot;multiple-flows_0.1b&quot;&gt;https://github.com/pagedjs/pagedjs-experiments/tree/main/multiple-flows_0.1b&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Rappel: Si vous voulez d’abord jeter un coup d’œil au code, il se trouve ici : &lt;a href=&quot;https://github.com/pagedjs/pagedjs-experiments/tree/main/multiple-flows_0.1b&quot;&gt;https://github.com/pagedjs/pagedjs-experiments/tree/main/multiple-flows_0.1b&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id=&quot;derni%C3%A8re-remarque&quot; tabindex=&quot;-1&quot;&gt;Dernière remarque&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Les versions futures permettront de définir, pour chaque flux le type, s’il s’agit d’un &lt;code&gt;same-page&lt;/code&gt; ou d’un &lt;code&gt;same-spread&lt;/code&gt; à l’aide d’un &lt;code&gt;--parallel-flow-policy: [same-page | same-spread]&lt;/code&gt; ainsi que d’un &lt;code&gt;--parallel-flow-fill: [balance|auto]&lt;/code&gt; ou &lt;code&gt;balance ajoute une page blanche et &lt;/code&gt;auto` laisse le flux couler automatiquement.&lt;/li&gt;
-&lt;/ul&gt;
 ",
     "intro": "Il est difficile de penser le web autrement que son long flux vertical, héritage de la roue crantée de la souris. Mais avec l’apparition des grilles CSS et de flex, il est intéressant de se poser la question de ce que ça signifie pour l’imprimé",
     "permalink": "/posts/fr/multiflux-avec-paged.js/",
