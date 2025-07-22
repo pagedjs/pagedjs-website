@@ -22,12 +22,10 @@ export default async function (eleventyConfig) {
   // filterTagList(tags , ["nav","posts"])
 
   eleventyConfig.addPassthroughCopy({ "static/css": "/css" });
+  eleventyConfig.addPassthroughCopy("CNAME");
   eleventyConfig.addPassthroughCopy({ "static/fonts": "/fonts" });
   eleventyConfig.addPassthroughCopy({ "static/js": "/js" });
   eleventyConfig.addPassthroughCopy({ "static/images": "/images" });
-  eleventyConfig.addPassthroughCopy({
-    "src/content/**/*.(png|jpg|jpeg|gif|webp)": "/images",
-  });
   eleventyConfig.addPassthroughCopy({ "static/outputs": "/outputs" });
   eleventyConfig.addPassthroughCopy({ "static/plugins": "/plugins" });
   eleventyConfig.addPassthroughCopy({ "static/templates": "/templates" });
