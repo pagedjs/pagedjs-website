@@ -25,6 +25,10 @@ export default async function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("CNAME");
   eleventyConfig.addPassthroughCopy({ "static/fonts": "/fonts" });
   eleventyConfig.addPassthroughCopy({ "static/js": "/js" });
+
+  eleventyConfig.addPassthroughCopy({
+    "src/content/**/images/*.(jpg|jpeg|png|gif)": "/images",
+  });
   eleventyConfig.addPassthroughCopy({ "static/images": "/images" });
   eleventyConfig.addPassthroughCopy({ "static/outputs": "/outputs" });
   eleventyConfig.addPassthroughCopy({ "static/plugins": "/plugins" });
