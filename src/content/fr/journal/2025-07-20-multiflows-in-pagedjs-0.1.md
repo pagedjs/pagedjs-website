@@ -2,7 +2,7 @@
 title: "Multiflux avec Paged.js"
 date: 2025-07-26
 draft: false
-author: "@julientaq"
+author: "@julientaq, avec l’adorable relecture (et ses justifées corrections) de Julien Bidoret"
 class:
 intro: Il est difficile de penser le web autrement que son long flux vertical, héritage de la roue crantée de la souris. Mais avec l’apparition des grilles CSS et de flex, il est intéressant de se poser la question de ce que ça signifie pour l’imprimé
 ---
