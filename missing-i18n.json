@@ -332,7 +332,7 @@
 
     {
     "src": "./src/content/en/pages/documentation.md",
-    "link": "/en/undefined/",
+    "link": "/en/documentation/",
     "unit": "How to use Paged.js",
     "langs": [
     {"en": true}
