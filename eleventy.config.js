@@ -5,9 +5,12 @@ import filters from "./11ty/filters.js";
 import i18n from "./11ty/i18n.js";
 import css from "./11ty/css.js";
 import yaml from "./11ty/yaml.js";
+import rss from "./11ty/rss.js";
 
 export default async function (eleventyConfig) {
   // a better css setup?
+  //
+  eleventyConfig.addPlugin(rss);
 
   eleventyConfig.addPlugin(HtmlBasePlugin);
   eleventyConfig.addPlugin(markdownConfig);

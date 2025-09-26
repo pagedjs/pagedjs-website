@@ -1,17 +1,18 @@
 ---
-title: "Under new management"
+title: "Kickstarting the next iteration of Paged.js "
 date: 2025-09-16
 draft: true
 author: "@julientaq"
 class:
-intro: "We’re getting started on paged.js next!"
+intro: "If you told me, 10 years ago, that we would restart paged.js from the office of Open Source Publishing in Brussels, i wouldn’t have believe it :)"
 ---
-
-Hi folks!
 
 Last week, paged.js core team kickstarted the work on the next version of paged.js.
 
 While Fred stayed in California, Gjis and I were in the office of Open Source Publishing in Brussels, where we did quite a lot of things, around paged.js future. 
+
+
+![We did meet!](/images/25-09-brussels.jpg)
 
 For those who are discovering the world of CSS Print, a couple words about OSP. Open Source Publishing is a collective that have been making books and printed stuff using the technologies of the web for a very long time. Such a long time that they even knew CSS-Regions, and even had their own web-kit implementation to support their practices and work.
 
@@ -29,7 +30,7 @@ As you may remember, Chrome is now supporting a subset of paged media specificat
 
 When we did our proposal to NLnet to modernize paged.js, here is the list of tasks we put on ourselves.
 
-The full roadmap will be soon available on the site.
+The full roadmap will be soon available on the website.
 
 ### Use web components for reusable page elements 
 
@@ -69,11 +70,10 @@ This layer will be a converter that will do a good amount of work:
 With the possibility of having nested CSS and CSS custom properties, the amount of work is not that big, as we don’t have to rewrite everything from scratch. 
 
 
-> ** A word about browser**
-
+> **A word about browsers**
 > As you may have seen, we’re mostly talking about Chromium and derivative, and that really hurt. Because we believe that paged.js should work in any browser. To do so, we’ll first make it work in Chrome, because that’s where we have fewer features to rebuild, since we can use a lot of what’s already inside. But right after that, we’re moving toward Firefox and Safari and whatever else may appear. It’s a question of energy and *folkpower* that we can’t really go against right now. 
+> But mark those words, we refuse to be one of those Chromium only tool.
 
-But mark those words, we refuse to be one of those Chromium only tool.
 
 
 ### WPT Printing test
