@@ -4,13 +4,13 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
-        <title>Paged.js — A collection of starter kits for Paged.js </title>
+        <title>Paged.js — Under new management</title>
         <script type="module">
         document.documentElement.classList.remove('no-js'); 
         document.documentElement.classList.add('js'); 
         </script>
         <meta name="description" content="">
-        <meta property="og:title" content="A collection of starter kits for Paged.js  — ">
+        <meta property="og:title" content="Under new management — ">
         <meta property="og:description" content="">
         <meta property="og:image" content="">
         <meta property="og:image:alt" content="Image description">
@@ -64,7 +64,7 @@ start()
 </script>
         
     </head>
-    <body class="cookbook "
+    <body class=" "
           style="">
         <div class="crop-marks">
     <div class="crop-mark vertical"></div>
@@ -333,13 +333,13 @@ start()
     <header>
         <h1 id="title">
             
-            A collection of starter kits for Paged.js 
+            Under new management
         </h1>
         
             <p class="meta">
                 written
-                by <span class="author">Julie Blanc</span>
-                on <time class="date">4/15/2022</time>
+                by <span class="author">@julientaq</span>
+                on <time class="date">9/16/2025</time>
             </p>
         
         
@@ -363,47 +363,67 @@ start()
                 
                 
                     
-                        <br>
-                        <span class="tags">
-                            <a class=  "tag" href="/tags/starting with Paged.js/">starting with Paged.js</a><a class=  "tag" href="/tags/guide/">guide</a>
-                        </span>
-                    
                 
             
-            <p>We’ve done a lot of work to bring new users to paged.js and as i’m on my way to a new workshop with graphic design students, I thought that it would be a good time to share a little bit more about the different <a href="https://gitlab.coko.foundation/pagedjs/starter-kits">starter kits</a> I've build around Paged.js since a few years to help anyone to get started.<br>
-And since not everyone has the same needs, it will be four stater kits instead of one.</p>
-<p>Depending on your needs, you can start from these ready-made folders that contain Paged.js, some CSS reset code, a bit of interfaces and sometimes JavaScript features to help your work. Choose the right one !</p>
-<h2 id="the-spread-book-template%3A-the-lightest-starter-kit" tabindex="-1">The spread book template: the lightest starter-kit</h2>
-<p>This is the simplest template, which uses the polyfill in an HTML page. The folder is already structured for you:</p>
+            <p>Hi folks!</p>
+<p>Last week, paged.js core team kickstarted the work on the next version of paged.js.</p>
+<p>While Fred stayed in California, Gjis and I were in the office of Open Source Publishing in Brussels, where we did quite a lot of things, around paged.js future.</p>
+<p>For those who are discovering the world of CSS Print, a couple words about OSP. Open Source Publishing is a collective that have been making books and printed stuff using the technologies of the web for a very long time. Such a long time that they even knew CSS-Regions, and even had their own web-kit implementation to support their practices and work.</p>
+<p>Each member of OSP has been an inspiration and Paged.js wouldn’t be what it is today, if it weren’t for the love and energy they’ve put in the craft. If you don’t know what i’m talking about, a simple glance at the <a href="https://osp.kitchen">osp.kitchen</a> website will give you a good example of where you could find inspiration.</p>
+<p>I really like the symbol that paged.js <em>neue</em> starts there. Thank you for sharing your office with us.</p>
+<p>So let’s not spend more time, and let’s get into it.</p>
+<h3 id="a-quick-recap-of-what%E2%80%99s-on-the-road-map." tabindex="-1">A quick recap of what’s on the road map.</h3>
+<p>As you may remember, Chrome is now supporting a subset of paged media specifications and especially margin-boxes. But the browser support very little of all the possibilities: if you want some running headers, they need to be made by hand, there is no string-set, nor position running, paged.js is still needed for most of the book design tools we need.</p>
+<p>When we did our proposal to NLnet to modernize paged.js, here is the list of tasks we put on ourselves.</p>
+<p>The full roadmap will be soon available on the site.</p>
+<h3 id="use-web-components-for-reusable-page-elements" tabindex="-1">Use web components for reusable page elements</h3>
+<p>Paged.js is a big application that has small functions to do a lot of things in many places, and it may be hard for folks to start contributing back. One of the best example of that is the template for creating new page, that is a very long html string that contains everything: margin boxes, content-area, footnote area, etc.</p>
+<p>So we decided to look at web component to make reusable bit more reusable.<br>
+And the first element we made is a <code>paged-page</code> component that work as a custom html element you can use if you want to have a proper print preview. It takes a <code>width</code> and a <code>height</code> attribute, and, it comes with all the needed css to handle print and preview. Each component has its own size: if you’re using chrome, you can now have multiple page size in the same PDF.</p>
+<p>It’s still undocumented because we’re looking at options to handle the properties of the pages: for example, should they be component or <code>slot</code> to fill? Should we have <code>bleed</code> and <code>cropmarks</code> as custom component?</p>
+<p>But we wanted to share the progress with you, so here we are: you can check the code at the component on the <a href="https://github.com/pagedjs/paged-page">github</a>. We’re halfway through it, and we’ll eventually have a npm package.</p>
+<p>It has become my main setup to build cssPrint preview, and i hope you’ll enjoy playing with it.</p>
+<h3 id="use-cssom-for-css-parsing-and-manipulation." tabindex="-1">Use CSSOM for CSS parsing and manipulation.</h3>
+<p>As you may know, paged.js relies on css-tree for all the stylesheet manipulation. While this has been quite useful over the years, it seems that browsers have now some sort of standards tools for manipulating CSS, the CSS Object Model, also known as CSS OM.</p>
+<p>CSS OM is like the DOM for CSS. It comes with a good variety of functions and method that allows for quick CSS manipulation.</p>
+<p>So we did start the work of testing what was possible with CSS OM. Going through the CSS, finding rules, adding rules is so easy that it becomes fun to write CSS with javascript. (note that it’s not CSS in js, but CSS with JS, we still want to write CSS, not adding another layer of abstraction. TLDR: it’s amazing for things to complex to write in CSS, like generative stuff, but absolutely useless to write your daily CSS).</p>
+<p>One of the limitation of cssOM is that you can only access the rendered stylesheet, the one the browser will use to draw things on the page. For example, there are no comments in that final CSS.</p>
+<p>Worse, if a css line has an unknown property or value, then the line does not exist in the stylesheet, and the browser only manage the properties it knows. In the case of CSSPrint, we work with things that doesn’t exist yet in the browser, therefore, they just get removed. <code>string-set</code>? gone. <code>target-counter</code>? nada <code>@footnote</code>? lol.</p>
+<p>Until they get included in the list of features the browser support, we can’t have access to it.</p>
+<p>I believe that manipulating CSS in browsers is better than any preprocessing. To do so, we need to make a conversion layer that will transform a stylesheet into something the browser would understand. Which is exactly what a polyfill is, this is exactly what paged.js is doing.</p>
+<p>This layer will be a converter that will do a good amount of work:<br>
+- convert unknown values and property into CSS custom properties(that we too quickly call css variables);</p>
 <ul>
-<li>An HTML file where to add the structured content of your book, the file contains the links to all other files and elements;</li>
-<li>A CSS file that help you to see your book in spread and where you can add the visualization of a baseline (Be careful, this visualization in spread and the baseline is only for the screen. When rendering the PDF, it will be page by page again.)</li>
-<li>A <a href="https://github.com/necolas/normalize.css">CSS reset file</a> to normalize the style of some elements;</li>
-<li>The folder for your assets: a <code>fonts</code>, an <code>images</code> and a <code>scripts</code> folder where you can add your custom scripts with a pre-coded <a href="https://pagedjs.org/documentation/10-handlers-hooks-and-custom-javascript/">handler</a>;</li>
-<li>And, of course, the latest version of Paged.js.</li>
+<li>replace unknown selector into usable selectors before it get read by the browser.</li>
 </ul>
-<p>This starter-kit exist in two version: the <a href="https://gitlab.coko.foundation/pagedjs/starter-kits/book-spread_polyfill">polyfill version</a> and the <a href="https://gitlab.coko.foundation/pagedjs/starter-kits/book-spread_esm">esm module version</a>. The difference is the way Paged.js is called on the web page. The esm version is more flexible if you want to add your custom scripts to Paged.js or integrate it with other tools.</p>
-<p>The polyfill version contains in addition a little helpful script developed by the great Nicolas Taffin, the <a href="https://gitlab.com/nicolastaf/pagedjs-reload-in-place">reload-in-place script</a>: “On reload, it will make the web browser scroll to the place it was before reload.”</p>
-<p>You can easy add it this template in an existing site, in a print folder for example. This will allow you to access a special page to print a part of your site. All the HTML content of your site must however be rewritten in this HTML page.</p>
-<h2 id="the-advanced-interface-template%3A-to-facilitate-your-design-process" tabindex="-1">The advanced interface template: to facilitate your design process</h2>
-<p>This advanced <a href="https://gitlab.coko.foundation/pagedjs/starter-kits/book_avanced-interface">starter-kit</a> contains a little interface and some features to help you during your design process. It's a template that I developed during workshops for graphic design students not used to code but which can also be used for the production of books on a daily basis. All the element of the previous “spread book template“ are also in this start-kit. I also added different features that can be used with buttons always present on the web page:</p>
-<ul>
-<li>display of the baseline with modification of its values,</li>
-<li>display of margin boxes,</li>
-<li>“visualization” mode where the cut lines are hidden,</li>
-<li>print button</li>
-<li>And number of generated pages displayed.</li>
-</ul>
-<p><img src="/images/22-04-advanced-interface.png" alt=""></p>
-<h2 id="the-%E2%80%9Cprint-a-webpage%E2%80%9D-template%3A-a-responsive-web-page-that-can-be-printed" tabindex="-1">The “print-a-webpage” template: a responsive web page that can be printed</h2>
-<p>The last start-kit I propose is the <a href="https://gitlab.coko.foundation/pagedjs/starter-kits/print-a-webpage">“print-a-webpage” template</a>. It offers a double view of a web page: the classic web page for the responsive screen display and a paginated display for printing. Both displays are made from the same HTML content but the CSS for each version are separated. Buttons on the side of the web page allow you to switch from one version to the other or to print.</p>
-<p>In the printed version, all the element of the previous “spread book template“ are also in this start-kit, except the reload-in-place script.</p>
-<p><img src="/images/22-04-print-a-webpage.png" alt=""></p>
-<h2 id="don't-forget-your-local-server" tabindex="-1">Don't forget your local server</h2>
-<p>Before your start, just a reminder: you need to use a local server to work on your project. Paged.js needs it to make links from one file to another and in particular to read yourCSS files. Today, all the most used text editors have extensions to launch a local server (<a href="https://www.youtube.com/watch?v=FeR_eMXzNcY">Visual Studio, Atom</a>, <a href="https://www.youtube.com/watch?v=oqD5C77Tk3I">Sublime Text</a>, <a href="https://www.youtube.com/watch?v=f35_n9NFXSw">Atom</a>).</p>
-<p>If you haven't done it yet, you just have to install one of these extensions and launch the local server from your project. Please note that the entire folder of your project must be open in your editor for the local server to work properly.</p>
-<p>Most of the errors and difficulties come from the fact that the local server is not turned on, so I advise you to be particularly vigilant on this point.</p>
-<p>You are now ready to get started with Paged.js! We would be very happy to see your productions, so jump on the <a href="https://mattermost.coko.foundation/">Coko Mattermost</a> to say hello (~pagedjs channel) or contact us on <a href="https://twitter.com/paged_js">twitter</a>.</p>
+<p>With the possibility of having nested CSS and CSS custom properties, the amount of work is not that big, as we don’t have to rewrite everything from scratch.</p>
+<blockquote>
+<p>** A word about browser**</p>
+</blockquote>
+<blockquote>
+<p>As you may have seen, we’re mostly talking about Chromium and derivative, and that really hurt. Because we believe that paged.js should work in any browser. To do so, we’ll first make it work in Chrome, because that’s where we have fewer features to rebuild, since we can use a lot of what’s already inside. But right after that, we’re moving toward Firefox and Safari and whatever else may appear. It’s a question of energy and <em>folkpower</em> that we can’t really go against right now.</p>
+</blockquote>
+<p>But mark those words, we refuse to be one of those Chromium only tool.</p>
+<h3 id="wpt-printing-test" tabindex="-1">WPT Printing test</h3>
+<p>The amazing people at Weasyprint started to build a tool to use the test from the web platform (the WPT) to test the different software that makes CSS Print. This is an amazing effort that will help all of us, so we want to take part of it. The same way we help writing new specifications we want to support the tooling that allow for better printing.</p>
+<p>We looked at it with Guillaume from Weasyprint last week, and we’ll participate by using our knowledge to look how we can push it forward. We’ll most likely make some design work, to have a proper UX and UI, and we’ll make sure that the different version of paged.js work fine in there.</p>
+<h3 id="pagedjs.org-website-updates" tabindex="-1"><a href="http://Pagedjs.org">Pagedjs.org</a> website updates</h3>
+<p>We’re almost done with this one. You may not have seen it, but we transformed the whole setup for the website by updating to the latest <a href="https://11ty.dev">Eleventy</a>, and we added a multilingual system. We can now write the same post in different languages, and, if you want to participate, you can make a translation of any post (it’s a simple markdown file) and make a Github issue for it. And boom, new language added.</p>
+<p>We’ll be happy to see you contribute for any language. And if it’s not part of the website, you can contact us, we’ll make it happen :)</p>
+<p>We still need to have a proper JSdoc export from paged.js repo, for developer’s documentation, and we need to add RSS. (done, i was tired of not having RSS, so I decided to do it before publishing that article 😄 )</p>
+<h3 id="a-quick-look-at-the-other-tasks" tabindex="-1">A quick look at the other tasks</h3>
+<h4 id="split-out-content-fragmentation-to-its-own-library" tabindex="-1">Split out content fragmentation to its own library</h4>
+<p>The goal of this task is to get the chunker out of paged.js. The chunker is the part of the program that finds page breaks and handle the recreation of the HTML tree. Right now, it’s so much intertwined with all the other parts of paged.js, that it’s hard to reuse it for other things than page. Our idea is that,  if we could have the chunker running with any content on any HTML element, we could build some kind of chained blocks in the browser (or as we had back in the old days CSS regions, but with a modern twist in how it would work with CSS).</p>
+<p>And then, we will update paged.js to use that new library.</p>
+<h4 id="update-the-fragmentation-method-to-handle-multiple-break-tokens" tabindex="-1">Update the fragmentation method to handle multiple break tokens</h4>
+<p>Following the previous point, we could have multiple flows, with multiple break token much more easily than the demo we made for the EPE project (<a href="https://github.com/pagedjs/pagedjs-experiments/tree/main/--paged-parallel-flows">https://github.com/pagedjs/pagedjs-experiments/tree/main/--paged-parallel-flows</a>).</p>
+<h3 id="task-6%3A-tagged-pdf-support" tabindex="-1">Task 6: Tagged PDF support</h3>
+<p>Yeah, that’s one of the hardest, but we want to provide some tagged pdf with paged.js. It’s a long term work, but we have that in mind on every step to make sure everything can work as expected.</p>
+<p>So that’s what we did.</p>
+<hr>
+<p>Starting in a couple of weeks, we’ll provide more frequent but smaller updates on what we’re doing and where we are, as we’re starting to look at options to support the effort on the long run.</p>
+<hr>
+<p>Have a great couple of weeks.</p>
 
         </article>
     

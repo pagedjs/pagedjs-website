@@ -275,6 +275,14 @@
     ]},
 
     {
+    "src": "./src/content/en/journal/2025-09-12-getting-started-with-pagedjs2.md",
+    "link": "/posts/en/under-new-management/",
+    "unit": "Under new management",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
     "src": "./src/content/en/examples/cetf.md",
     
     "unit": "C & F Éditions",
