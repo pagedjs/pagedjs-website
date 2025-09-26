@@ -106,7 +106,7 @@ Following the previous point, we could have multiple flows, with multiple break 
 
 
 
-### Task 6: Tagged PDF support 
+#### Tagged PDF support 
 
 Yeah, that’s one of the hardest, but we want to provide some tagged pdf with paged.js. It’s a long term work, but we have that in mind on every step to make sure everything can work as expected.
 
@@ -119,8 +119,7 @@ Starting in a couple of weeks, we’ll provide more frequent but smaller updates
 
 ---
 
-
-Have a great couple of weeks.
+Have a great couple of weeks
 
 
 
