@@ -52,10 +52,11 @@ export default async function (eleventyConfig) {
   eleventyConfig.addCollection("journal", (collectionApi) => {
     return collectionApi
       .getFilteredByGlob("src/content/**/journal/**/*.md")
-      .sort((a, b) => a.data.date - b.data.date)
+      .sort((a, b) => b.data.date - a.data.date)
       .filter((item) => {
         return item.data.draft != true;
-      });
+      })
+      .reverse();
   });
   eleventyConfig.addCollection("journalfr", (collectionApi) => {
     return collectionApi
@@ -63,7 +64,8 @@ export default async function (eleventyConfig) {
       .sort((a, b) => b.data.date - a.data.date)
       .filter((item) => {
         return item.data.draft != true && item.data.lang == "fr";
-      });
+      })
+      .reverse();
   });
   // eleventyConfig.addFilter("filterTagList", filterTagList)
   eleventyConfig.addCollection("tagList", (collection) => {
