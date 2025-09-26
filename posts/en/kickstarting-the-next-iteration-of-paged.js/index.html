@@ -4,13 +4,13 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
-        <title>Paged.js — Under new management</title>
+        <title>Paged.js — Kickstarting the next iteration of Paged.js </title>
         <script type="module">
         document.documentElement.classList.remove('no-js'); 
         document.documentElement.classList.add('js'); 
         </script>
         <meta name="description" content="">
-        <meta property="og:title" content="Under new management — ">
+        <meta property="og:title" content="Kickstarting the next iteration of Paged.js  — ">
         <meta property="og:description" content="">
         <meta property="og:image" content="">
         <meta property="og:image:alt" content="Image description">
@@ -316,6 +316,8 @@ start()
             
                 
             
+                
+            
             <li>
                 <a class=github-link"
                 href="https://github.com/pagedjs/pagedjs/">github</a>
@@ -333,7 +335,7 @@ start()
     <header>
         <h1 id="title">
             
-            Under new management
+            Kickstarting the next iteration of Paged.js 
         </h1>
         
             <p class="meta">
@@ -365,9 +367,9 @@ start()
                     
                 
             
-            <p>Hi folks!</p>
-<p>Last week, paged.js core team kickstarted the work on the next version of paged.js.</p>
+            <p>Last week, paged.js core team kickstarted the work on the next version of paged.js.</p>
 <p>While Fred stayed in California, Gjis and I were in the office of Open Source Publishing in Brussels, where we did quite a lot of things, around paged.js future.</p>
+<p><img src="/images/25-09-brussels.jpg" alt="We did meet!"></p>
 <p>For those who are discovering the world of CSS Print, a couple words about OSP. Open Source Publishing is a collective that have been making books and printed stuff using the technologies of the web for a very long time. Such a long time that they even knew CSS-Regions, and even had their own web-kit implementation to support their practices and work.</p>
 <p>Each member of OSP has been an inspiration and Paged.js wouldn’t be what it is today, if it weren’t for the love and energy they’ve put in the craft. If you don’t know what i’m talking about, a simple glance at the <a href="https://osp.kitchen">osp.kitchen</a> website will give you a good example of where you could find inspiration.</p>
 <p>I really like the symbol that paged.js <em>neue</em> starts there. Thank you for sharing your office with us.</p>
@@ -375,7 +377,7 @@ start()
 <h3 id="a-quick-recap-of-what%E2%80%99s-on-the-road-map." tabindex="-1">A quick recap of what’s on the road map.</h3>
 <p>As you may remember, Chrome is now supporting a subset of paged media specifications and especially margin-boxes. But the browser support very little of all the possibilities: if you want some running headers, they need to be made by hand, there is no string-set, nor position running, paged.js is still needed for most of the book design tools we need.</p>
 <p>When we did our proposal to NLnet to modernize paged.js, here is the list of tasks we put on ourselves.</p>
-<p>The full roadmap will be soon available on the site.</p>
+<p>The full roadmap will be soon available on the website.</p>
 <h3 id="use-web-components-for-reusable-page-elements" tabindex="-1">Use web components for reusable page elements</h3>
 <p>Paged.js is a big application that has small functions to do a lot of things in many places, and it may be hard for folks to start contributing back. One of the best example of that is the template for creating new page, that is a very long html string that contains everything: margin boxes, content-area, footnote area, etc.</p>
 <p>So we decided to look at web component to make reusable bit more reusable.<br>
@@ -398,12 +400,10 @@ And the first element we made is a <code>paged-page</code> component that work a
 </ul>
 <p>With the possibility of having nested CSS and CSS custom properties, the amount of work is not that big, as we don’t have to rewrite everything from scratch.</p>
 <blockquote>
-<p>** A word about browser**</p>
+<p><strong>A word about browsers</strong><br>
+As you may have seen, we’re mostly talking about Chromium and derivative, and that really hurt. Because we believe that paged.js should work in any browser. To do so, we’ll first make it work in Chrome, because that’s where we have fewer features to rebuild, since we can use a lot of what’s already inside. But right after that, we’re moving toward Firefox and Safari and whatever else may appear. It’s a question of energy and <em>folkpower</em> that we can’t really go against right now.<br>
+But mark those words, we refuse to be one of those Chromium only tool.</p>
 </blockquote>
-<blockquote>
-<p>As you may have seen, we’re mostly talking about Chromium and derivative, and that really hurt. Because we believe that paged.js should work in any browser. To do so, we’ll first make it work in Chrome, because that’s where we have fewer features to rebuild, since we can use a lot of what’s already inside. But right after that, we’re moving toward Firefox and Safari and whatever else may appear. It’s a question of energy and <em>folkpower</em> that we can’t really go against right now.</p>
-</blockquote>
-<p>But mark those words, we refuse to be one of those Chromium only tool.</p>
 <h3 id="wpt-printing-test" tabindex="-1">WPT Printing test</h3>
 <p>The amazing people at Weasyprint started to build a tool to use the test from the web platform (the WPT) to test the different software that makes CSS Print. This is an amazing effort that will help all of us, so we want to take part of it. The same way we help writing new specifications we want to support the tooling that allow for better printing.</p>
 <p>We looked at it with Guillaume from Weasyprint last week, and we’ll participate by using our knowledge to look how we can push it forward. We’ll most likely make some design work, to have a proper UX and UI, and we’ll make sure that the different version of paged.js work fine in there.</p>
