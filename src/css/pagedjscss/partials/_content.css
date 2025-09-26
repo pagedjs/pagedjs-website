@@ -322,3 +322,8 @@ article .dd {
   padding: 0.5em 1em;
   display: none;
 }
+
+p:has(img) {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
