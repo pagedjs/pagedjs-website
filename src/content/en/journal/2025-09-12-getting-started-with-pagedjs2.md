@@ -71,7 +71,7 @@ With the possibility of having nested CSS and CSS custom properties, the amount 
 
 ### WPT Printing test
 
-The amazing people at Weasyprint built a tool to run the [Web Platform Test suite](https://web-platform-tests.org/) (WPT) on various tools used to make CSS Print. This is an amazing effort that will help all of us, so we want to take part of it. The same way we help writing new specifications we want to support the tooling that allows for better printing.
+The amazing people at Weasyprint built [a tool](https://github.com/CourtBouillon/wptprint) to run the [Web Platform Test suite](https://web-platform-tests.org/) (WPT) on various tools aimed at making CSS Print. This is an amazing effort that will help all of us, so we want to take part of it. The same way we help writing new specifications we want to support the tooling that allows for better printing.
 
 We looked at it with Guillaume from Weasyprint last week, and we’ll participate by using our knowledge to look how we can push it forward. We’ll most likely make some design work, to have improve the UX and UI, and we’ll make sure that the different version of paged.js work fine in there.
 
@@ -82,20 +82,20 @@ We’re almost done with this one. You may not have seen it, but we transformed 
 
 We’ll be happy to see you contribute for any language. And if it’s not part of the website, you can contact us, we’ll make it happen :)
 
-We still need to have a proper JSdoc export from paged.js repo, for developer’s documentation, and we need to add <del>RSS</del>. (done, i was tired of not having RSS, so I decided to do it before publishing that article 😄 )
+We still need to have a proper JSdoc export from paged.js repo, for developer’s documentation, <del>and we need to add RSS</del>. (done, I was tired of not having RSS, so I decided to do it before publishing the article 😄 )
 
 
 ### A quick look at the other tasks
 
 #### Split out content fragmentation to its own library
 
-The goal of this task is to get the chunker out of paged.js. The chunker is the part of the program that finds page breaks and handles the recreation of the HTML tree. Right now, it’s so intertwined with all the other parts of paged.js that it’s hard to reuse it for other things. Our idea is that, when the chunker can chunk arbritary content into an arbitrary set of HTML elements, building chained blocks in the browser becomes child's play. (As we had back in the old days CSS regions, but with a modern twist in how it would work with CSS). 
+The goal of this task is to get the chunker out of paged.js. The chunker is the part of the program that finds page breaks and handles the recreation of the HTML tree. Right now, it’s so intertwined with paged.js that it’s hard to reuse it without the paged.js page preview HTML structure. Our idea is that, when the chunker can chunk arbritary content into an arbitrary set of HTML elements, building tools with fragmented content in the browser becomes trivial. (For example chained blocks as we had back in the old days of CSS regions, but with a modern twist in how it would work with CSS). 
 
 And then, we will update paged.js to use that new library. 
 
 #### Update the fragmentation method to handle multiple break tokens
 
-Following the previous point, it should be possible to have multiple flows on the same page, with multiple break token much more easily than the demo we made for the EPE project (https://github.com/pagedjs/pagedjs-experiments/tree/main/--paged-parallel-flows). 
+Following the previous point, we think it should be possible to have multiple content flows on the same page, with multiple break tokens this becomes much more easy than the demo we made for the EPE project (https://github.com/pagedjs/pagedjs-experiments/tree/main/--paged-parallel-flows). 
 
 
 
