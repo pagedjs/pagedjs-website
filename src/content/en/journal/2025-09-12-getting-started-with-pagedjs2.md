@@ -1,7 +1,7 @@
 ---
 title: "Kickstarting the next iteration of Paged.js "
 date: 2025-09-16
-draft: true
+draft: false
 author: "@julientaq"
 class:
 intro: "If you told me 10 years ago that we would restart paged.js from the office of Open Source Publishing in Brussels, I wouldn’t have believed it :)"
