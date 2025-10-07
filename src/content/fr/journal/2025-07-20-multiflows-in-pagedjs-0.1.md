@@ -66,7 +66,7 @@ pagedjs-multiple-flows.0.1b.js
 ![A layout of two flows on the same page, using paged.js](/images/betterapig.jpg)
 
 
-Pour ce faire, nous utilisons une propriété CSS inventé pour l’occasion, que nous appellerons `--parallel-flow`. Cette propriété attend pour valeur le nom d’un flux qui servira d’identifiant. Tous les éléments qui possèdent la même valeur pour cette propriété feront donc partie du même flux parallèle.
+Pour ce faire, nous utilisons une propriété CSS inventé pour l’occasion, que nous appellerons `--paged-parallel-flow`. Cette propriété attend pour valeur le nom d’un flux qui servira d’identifiant. Tous les éléments qui possèdent la même valeur pour cette propriété feront donc partie du même flux parallèle.
 
 Prenons par exemple ce HTML :
 
@@ -82,24 +82,24 @@ et ce CSS :
 ```css
 
 #alpha {
-  --parallel-flow: main;
+  --paged-parallel-flow: main;
   width: 30%;
 }
 
 #beta {
-  --parallel-flow: main;
+  --paged-parallel-flow: main;
   width: 65%;
   margin-left: auto;
 }
 
 #epsilon {
-  --parallel-flow: else;
+  --paged-parallel-flow: else;
   width: 45%;
 
 }
 
 #delta {
-  --parallel-flow: else;
+  --paged-parallel-flow: else;
   width: 45%;
   margin-left: auto;
 }
@@ -149,7 +149,7 @@ this.flowSpreadAddWhite = true;
 
 ### Bonus, une expérimentation.
 
-Il arrive que le flux principal contienne des images. Et il n’est pas rare de vouloir que ces images dépassent de la largeur de texte, sans forcément empiéter sur l’espace nécessaire à un autre flux. Pour cela, on utilise `--parallel-impact: all`. Cette fonctionnalité expérimentale permet d’autoriser les éléments du flux principal à impacter la mise en forme des flux secondaires. Un cas d’usage : une image en habillage du premier flux, pourrait habiller le second. D’un point de vue technique, un élément invisible flottant est rajouté au début de ce flux secondaire, sur la page ou l’élément A existe. Ce nouvel élément peut être sélectionné en CSS.
+Il arrive que le flux principal contienne des images. Et il n’est pas rare de vouloir que ces images dépassent de la largeur de texte, sans forcément empiéter sur l’espace nécessaire à un autre flux. Pour cela, on utilise `--paged-parallel-impact: all`. Cette fonctionnalité expérimentale permet d’autoriser les éléments du flux principal à impacter la mise en forme des flux secondaires. Un cas d’usage : une image en habillage du premier flux, pourrait habiller le second. D’un point de vue technique, un élément invisible flottant est rajouté au début de ce flux secondaire, sur la page ou l’élément A existe. Ce nouvel élément peut être sélectionné en CSS.
 
 Il est possible que le positionnement de l’élément rajouté ne soit pas correct, c’est pourquoi il est possible de rajouter dans le css les changements nécessaire. Pour cela, il faut retrouver l’identifiant de l’élément et rajouter `-overlap` dans son id.
 
@@ -159,7 +159,7 @@ Par exemple:
 
 ```css   
 #porco {
-    --parallel-impact: all;
+    --paged-parallel-impact: all;
 }
 ```
 
@@ -177,7 +177,28 @@ Pour modifier l’élément overlap fabriqué, par exemple dans la secion `#alph
 long (en prenant en compte les objets et images). Pour ce faire, le script fait une première passe de mise en page avant de couler le contenu pour de bon. 
     
 
+
+
+### Une dernière chose 
+
+Raphael, qui teste l'implémentation est un esprit intelligent, et comme tous les développeurs comme certains problèmes très existentencial, comme: comment ne pas avoir à refaire le html entier pour casser le contenu est plus petit peu pour s'assurer qu'ils peuvent être correctement définis sur les pages.
+
+Il a donc eu l'idée de synchroniser les titres, et nous sommes arrivés tous les deux à une solution ``--paged-parallel-sync`. 
+
+Si vous avez deux morceaux de contenu que vous voulez afficher à côté de l'autre, et qu'ils sont tous les deux dans deux éléments HTML distincs. Vous pouvez vous assurer que les titres démarrent tous sur la même page.
+
+
+```css
+.en,.fr {
+  --paged-parallel-flow: alpha;
+}
+ 
+h3 {
+--paged-parallel-sync: alpha; 
+}
+```
+
+
+
+
 > Si vous voulez jeter un coup d’œil au code, il se trouve ici : [https://github.com/pagedjs/pagedjs-experiments/tree/main/multiple-flows_0.1b](https://github.com/pagedjs/pagedjs-experiments/tree/main/multiple-flows_0.1b).
-
-### Dernière remarque 
-
