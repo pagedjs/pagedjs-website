@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+
+<html lang=" dir="ltr class="no-js">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Paged.js — Multiflux within Paged.js</title>
+        <script type="module">
+        document.documentElement.classList.remove('no-js'); 
+        document.documentElement.classList.add('js'); 
+        </script>
+        <meta name="description" content="">
+        <meta property="og:title" content="Multiflux within Paged.js — ">
+        <meta property="og:description" content="">
+        <meta property="og:image" content="">
+        <meta property="og:image:alt" content="Image description">
+        <meta property="og:locale" content="en">
+        <meta property="og:type" content="website">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta property="og:url" content="site.url">
+        <link rel="canonical" href="https://www.mywebsite.com/page">
+        <link rel="icon" href="/favicon.ico">
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+        <link rel="manifest" href="/my.webmanifest">
+        <meta name="theme-color" content="NaN">
+        
+        <meta name="twitter:dnt" content="on">
+        
+        <link rel="stylesheet" href="/css/main.css">
+        <link href="https://unpkg.com/prismjs@1.20.0/themes/prism.css"
+              rel="stylesheet">
+        <script>
+        // if there is a dark mode in the storage, use that
+        if (localStorage.getItem('Nightmode') == "true") {
+        document
+        .documentElement
+        .classList
+        .add('nightmode')
+        }
+        </script>
+        
+            <script>
+
+  if (window.location.href.includes("?night")) {
+    document.documentElement.classList.add("nightmode");
+  }
+
+function start() {
+
+    document.querySelectorAll("a").forEach((a) => {
+      if (a.href.includes(`?day`)) {
+        // add the infor mation in the url of each link
+        a.href = `${a.href.replace("?day", "?night")}`;
+      } else if (a.href.includes("#")) {
+        a.href = a.href.replace("#", "index.html?night#");
+      } else {
+        a.href = `${a.href}?night`;
+      }
+    });
+};
+
+start()
+</script>
+        
+    </head>
+    <body class=" "
+          style="">
+        <div class="crop-marks">
+    <div class="crop-mark vertical"></div>
+    <div class="crop-mark horizontal"></div>
+    <div class="paper"></div>
+</div>
+        
+        
+            
+<div class="running-head">
+    
+        
+            <a class="back-home" href="/">
+    <svg id="paged-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 213 52" fill="none" id="paged-logo"><path fill="var(--color-body)" d="M69.1 34.7c0 1.3-.5 2.7-1.6 2.7s-1.6-1.1-1.6-4.6v-7.1c0-7.3-1.5-13.5-12.1-13.5-6.5.0-13.4 2.2-13.4 8.4.0 4.7 6.9 6.1 9.9 2.6-1-1.3-1.7-3-1.7-4.5.0-2.9 2.2-3.5 4.4-3.5 2.4.0 3.9 1.4 3.9 8.6v1.3l-4.1 1.1c-7.9 2.2-12.9 4.9-12.9 9.1.0 3.9 2.2 6 7.1 6 4.6.0 8.7-2.4 11-7.7h.5c.9 5 2.4 7.7 6.8 7.7 3.1.0 6.6-1.5 6.1-6.7h-2.3v.1zm-17.8 1.8c-1.7.0-2.6-.9-2.6-2.1.0-3.2 2.3-4.7 8.2-6.5.1 4-2.5 8.6-5.6 8.6zM24.8 12.3c-3.6.0-9.6 1.2-10.6 9.1h-.9v-9.1L.9 15.2v2.4h6v31l-5.4.4v2.4h20.2V49l-6.2-.5V37.3c1.3 1.9 4 4.2 8.7 4.2 5.1.0 12.3-4.4 12.3-14.2.0-9.2-5.1-15-11.7-15zm-2.4 25.2c-2.8.0-5.3-1.5-6.5-5.7v-8.9c.1-1.3 1.5-5.4 5-5.4 4.4.0 7 5.1 7 10.5-.1 4.7-2 9.5-5.5 9.5zm155-21.6h5.8v32c0 3.4-4.3.4-5.1-3.1H177c-1.3 3.5-.2 6.9 3.1 6.9 3.2.0 7.4-1.7 7.4-8.9l.1-30.6-10.2 1.4v2.3zm-6 17.9c-2.4.0-3.7 1.3-3.7 3.7.0 2.4 1.3 3.7 3.7 3.7 2.4.0 3.7-1.3 3.7-3.7.0-2.4-1.4-3.7-3.7-3.7zM95.8 37.4c-4.9-1.1-12.3-1.1-15.9-1.6l1.2-2.4c1.4.4 3.1.6 5 .6 8.6.0 13.3-4.9 13.3-11.3.0-4.4-3-8-7.8-9.6l.2-.6c1.9.4 3.9.7 5.4.7 2.3.0 4-.8 4-3.4.0-1.8-1.3-4.1-3.3-6.2-3.3 3.6-6.2 7.3-10.7 8.7-.2-.1-.4-.1-.6-.1-8.6.0-13 4.8-13 11.3.0 4 1.8 7.4 5.7 9.2l-5.5 4.6c.4.8 1.7 2.9 6.5 4.4v.7c-4.4.6-7 1.9-7 3.7.0 3.8 7 5.7 12.3 5.7 9.1.0 16.6-2.3 16.9-7.9.0-3.6-1.6-5.4-6.7-6.5zm-10-22.2c3.3.0 4.8 2.4 4.8 7.4.0 5.7-1.1 8.5-4 8.5-3.4.0-4.8-2.9-4.8-8.4.1-5.3 1.2-7.5 4-7.5zm5.1 32.5c-6.2.0-10.5-1.5-10.5-3.2.0-.6.6-1.3 1.8-2.2l.9.2c9.4 1.8 14.8 1.3 14.8 3 .1 1.4-2.5 2.2-7 2.2zM199 21.5c-2.3-1.4-3.3-2.6-3.3-4 0-1.6 1.1-3.3 4-3.3 4.3.0 8.1 3.6 10.6 8.9h1.1v-8.4c-3-1.6-6.4-2.4-9.5-2.4-5.3.0-9.8 2.4-9.8 7.3.0 3.9 3.1 6.7 6.2 8.4 5.8 3.2 11 4.4 11 7.8.0 2.3-2.2 3.6-4.7 3.6-5.2.0-8.9-2.7-10.9-10.2h-1.1v9.4c2.7 1.8 6.5 2.8 10.1 2.8 5.4.0 10.2-2.2 10.2-7.7.1-6.5-7.5-8.3-13.9-12.2zM185.7 1.8c-2 0-2.9 1.1-2.9 2.9.0 1.9 1 2.9 2.9 2.9 1.8.0 2.9-1 2.9-2.9s-1.1-2.9-2.9-2.9zM126.1 29.1c.1.4.1.7.1 1.1.0 3.9-2.8 6.1-6.8 6.1-3.9.0-6.7-2.8-7.7-8.5l17.2-4.3c-.2-7.7-4.7-11.3-12.9-11.3-6.2.0-13 4.5-13 14.4.0 7.5 4.9 14.6 13.9 14.6 8 0 12.3-5.3 12.3-11.2.0-.5-.1-1-.1-1.5l-3 .6zm-14.7-5.8c0-5.2 2.2-8 5.3-8 2.9.0 3.8 3.2 3.8 5.6.0 1.5-1.9 1.8-5.1 2.9l-4 1.3v-1.8zM147 4.7l6.2.5v10.6c-1.5-2.1-4-3.6-8.4-3.6-5.1.0-12.3 4.4-12.3 14.2.0 9.1 5.1 14.9 11.7 14.9 3.6.0 9.6-1.2 10.6-9.1h1l1.9 8.3h4V.8l-14.8 1.5v2.4h.1zm6.2 26c-.1 1.2-1.1 5.4-5.9 5.4-4 0-6-4.9-6-10.5.0-4.7 1.9-9.5 5.4-9.5 2.8.0 5.3 1.5 6.5 5.7v8.9z"></path></svg>    
+</a>
+        
+    
+    <button class="menu-call">MENU</button>
+    <nav class="menu hide" role="main">
+        <ul>
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                    
+                    
+                        <li class="">
+                            <a href="/en/about/">about</a>
+                        </li>
+                        
+                    
+                
+            
+                
+                    
+                    
+                        <li class="">
+                            <a href="/en/faq/">FAQ</a>
+                        </li>
+                        
+                    
+                
+            
+                
+                    
+                    
+                        
+                        
+                        
+                        
+                            
+                                
+                            
+                        
+                        
+                    
+                
+            
+                
+            
+                
+                    
+                    
+                        <li class="">
+                            <a href="/en/documentation/">documentation</a>
+                        </li>
+                        
+                    
+                
+            
+                
+                    
+                    
+                        <li class="">
+                            <a href="/en/examples/">examples</a>
+                        </li>
+                        
+                    
+                
+            
+                
+            
+                
+            
+                
+                    
+                    
+                        <li class="">
+                            <a href="/en/journal/">Journal</a>
+                        </li>
+                        
+                    
+                
+            
+                
+                    
+                    
+                        
+                        
+                        
+                        
+                            
+                                
+                            
+                        
+                        
+                    
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+            <li>
+                <a class=github-link"
+                href="https://github.com/pagedjs/pagedjs/">github</a>
+            </li>
+            <li>
+                <a class="rsslink" href="https://pagedjs.org/feed.xml">RSS</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+        
+        
+    
+
+        
+    
+    <header>
+        <h1 id="title">
+            
+            Multiflux within Paged.js
+        </h1>
+        
+            <p class="meta">
+                written
+                by <span class="author">@julientaq, with the tremendous help of the amazing Julien Bidoret</span>
+                on <time class="date">7/26/2025</time>
+            </p>
+        
+        
+    <a class="alternative-lang"
+       href="/posts/fr/multiflux-avec-paged.js/"
+       lang="fr"
+       title="Français"
+       hreflang="fr">Lisez en   Français</a>
+
+
+    </header>
+    <article>
+        
+        
+        
+
+
+
+        
+        
+            <p class="intro">
+                
+                
+                    
+                
+            
+            <p>While it is easy to imagine a multilingual book that would share its pages to accommodate content in two languages, it has always been difficult to imagine the web other than this long vertical flow, heir to the wheel. The content of a page starts at the top, and ends, when there is no more content to be placed on the page, well below what the screen shows, giving each illusion of infinity, what the attention economists have well integrated into their tools.</p>
+<p>In reality, we have imagined some subterfuges to offer a semblance of parallel flow, from the layout through the `table' to the appearance of CSS or Flex grids, but it is always about the same downward movement, and even if the magic trick is invisible, because remarkably realized, it comes to mind when we wish to translate it on a paginated media.</p>
+<h2 id="the-unfulfilled-promise-of-css-regions" tabindex="-1">The unfulfilled promise of CSS regions</h2>
+<p>When W3C editors work on the specifications for print, the web is not yet a world of <em>web apps</em>, of overpowered CSS and layout automation. We barely get out of the <code>&lt;table&gt;</code> layouts and we’re just discovering the wonderful world of <em>floats</em>. It is still <em>The web of the document</em> for which a page has a beginning (top) and an end (bottom). Suffice to say that when one thinks about printed matter, they do not look much further than to cut this flow into a sequence of pages until to form, for the most insane minds, a book.</p>
+<p>Well, in fact, there have been attempts, one of which has been quite extensive: the CSS regions. This technique allowed the definition of spaces in which previously dissociated content streams could flow into the HTML code. And it was all but simple: the HTML was divided into two parts: on one hand the content, and on the other hand the container, associated with a complex CSS that defined the positioning of the boxes, and the shape of their contents. Yes that sentence was as complex as using css regions was. I will not go back here to the reasons why people in Chromium gave up the idea, because it would be too long and subject to so much controversy that we would lose the day (and a little mental health) arguing.</p>
+<p>Just know that, within a few years, we had CSS regions in Chrome and we knew how to use them, and we made amazing things with it.</p>
+<p>Moreover, Open Source Publishing, to which the CSS Print owes a great deal, has shown more than once the interest of such a practice. I think the best example comes from <a href="https://osp.kitchen/work/the-riddle/"><em>The Riddle</em></a>.</p>
+<p><img src="/images/theriddle.png" alt="A reproduction of the book The Riddle designed by Open Source Publishing, web2print, showing two independent text streams that share the page."></p>
+<h2 id="and-css-grid-was." tabindex="-1">And CSS Grid was.</h2>
+<p>If you look at the CSS presentation videos, the ones produced to push them into adoption, you always find the idea that it is about finding artifices of layouts that come from the book. And especially graphic experiments that come straight from the magazine press.</p>
+<p>The CSS grid is the total step of the separation between the content and its form. If before these properties, the HTML was to give the order according to which items should be displayed on the page, this is not necessarily the case today, since the CSS offers authors the possibility to define, in addition to their form, the positioning and order of these contents.</p>
+<p>The simplest way to look at a CSS grid is to see a touch-and-tip tray. To place each vessel, simply give its horizontal and vertical coordinates on a 2D grid. Therefore, the reading order is no longer descending, it is multiple, and depends on the organization of the page induced by the CSS.</p>
+<p>However, the CSS grid has a fundamental limitation: no element can be separated into two blocks from this grid. The following image shows something impossible in CSS:</p>
+<p><img src="/images/blocalautre.jpg" alt="Textual content separated between two text blocks"></p>
+<h2 id="the-print-as-a-trojan-horse" tabindex="-1">The print as a Trojan horse</h2>
+<p>The good thing about CSS print is that unlike the web, we are working on a page with limited dimensions, and that it is up to us to make the graphic and typographical decisions that allow the cutting of a long text into an infinity of smaller ones. Even if the W3C specifications show that questions have arisen and answers may have appeared, it is certain that the translation into print is an understatement of the evolution of the web.</p>
+<p>First because print is only a limited use of our digital life and then because it would pose a thorny question: if we do it for a paginated media, why don't we do it for the web? If a printed CSS grid should allow the cutting of content on several cells, then why can't we afford it on the screen?</p>
+<p>An interesting thing to do when a practice does not seem to exist on the web is to invest the field and start thinking about solutions, abstract enough to be reusable and clear enough to be explained, commented and analyzed.</p>
+<p>The question of multiflux is difficult whatever the media, but it is the paginated media that seems to need the most answers, since unlike the screen, the paper is not infinite. Hence, here is a feedback on the multiflux in paged.js, organized around the project Screen Paper Edit, (EPE), led by l'Esad Grenoble / Valencia.</p>
+<p>As part of the project, designers needed a solution to put texts in several languages and deal with them in the same way, avoiding placing one before the other. Perfect starting point to put the question of CSS regions on the table, now that CSS grids have become a central tool in web design habits.</p>
+<p>pagedjs-multiple-flows.0.1d.js</p>
+<blockquote>
+<p>If you want to take a look at the code first, it is here: <a href="https://github.com/pagedjs/pagedjs-experiments/tree/main/--paged-parallel-flows">parallel-flows</a>. As i’m writing this, we’re on version 0.1d, working with paged.js 0.4.3 and 0.5b</p>
+</blockquote>
+<p><code>paged.js parallel-flows</code> is a Paged.js plugin that allows you to define so-called parallel streams (in the absence of a better name). The idea is to use CSS to define streams that will share a space, whether it is a page (several languages on the same page), or a double page (where each language has its own page).</p>
+<p>It looks like this:</p>
+<p><img src="/images/betterapig.jpg" alt="A layout of two flows on the same page, using paged.js"></p>
+<p>To do this, we use a custom CSS property we made, called <code>--paged-parallel-flow</code>. This property expects for value the name of a stream that will serve as an identifier. All elements that have the same value for this property will therefore be part of the same parallel flow.</p>
+<p>Take this HTML for example:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>alpha<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>content<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>beta<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>content<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>delta<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>content<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>epsilon<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>content<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">></span></span></code></pre>
+<p>and this CSS:</p>
+<pre class="language-css"><code class="language-css"><br><span class="token selector">#alpha</span> <span class="token punctuation">{</span><br><span class="token property">--paged-parallel-flow</span><span class="token punctuation">:</span> hand<span class="token punctuation">;</span><br><span class="token property">width</span><span class="token punctuation">:</span> 30%<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">#beta</span> <span class="token punctuation">{</span><br><span class="token property">--paged-parallel-flow</span><span class="token punctuation">:</span> hand<span class="token punctuation">;</span><br><span class="token property">width</span><span class="token punctuation">:</span> 65%<span class="token punctuation">;</span><br><span class="token property">margin-left</span><span class="token punctuation">:</span> car<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">#epsilon</span> <span class="token punctuation">{</span><br><span class="token property">--paged-parallel-flow</span><span class="token punctuation">:</span> else<span class="token punctuation">;</span><br><span class="token property">width</span><span class="token punctuation">:</span> 45%<span class="token punctuation">;</span><br><br><span class="token punctuation">}</span><br><br><span class="token selector">#delta</span> <span class="token punctuation">{</span><br><span class="token property">--paged-parallel-flow</span><span class="token punctuation">:</span> else<span class="token punctuation">;</span><br><span class="token property">width</span><span class="token punctuation">:</span> 45%<span class="token punctuation">;</span><br><span class="token property">margin-left</span><span class="token punctuation">:</span> car<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>Note that each element already has investment properties: <code>#alpha</code> has a 30% width of its parent, <code>#beta</code> 65% and will be placed to the right, thanks to the use of <code>margin-left: auto</code>. The blocks defined here are therefore the locations of the containers as much as the contents.</p>
+<p><code>#alpha</code> and <code>#beta</code> must be treated at the same time and share one space, <code>#epsilon</code> and <code>#delta</code> share another.</p>
+<h3 id="the-configuration-of-javascript" tabindex="-1">The configuration of javascript</h3>
+<p>The javascript expects a specific configuration that informs about the type of flow and the choices of its implementation</p>
+<p>The type of flow:</p>
+<ul>
+<li><code>samepage</code>: streams share the same pages</li>
+<li><code>samespread</code>: streams share the same double page</li>
+</ul>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">this</span><span class="token punctuation">.</span>flowLocation <span class="token operator">=</span> <span class="token string">"samespread"</span><span class="token punctuation">;</span></code></pre>
+<p>or</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">this</span><span class="token punctuation">.</span>flowLocation <span class="token operator">=</span> <span class="token string">"samepage"</span><span class="token punctuation">;</span></code></pre>
+<p>In the case of streams that would be configured to use <code>samespread</code>, you can automatically add a blank page if the streams are not of the same length.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">this</span><span class="token punctuation">.</span>flowSpreadAddWhite <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span></code></pre>
+<h3 id="what's-happening." tabindex="-1">What's happening.</h3>
+<ol>
+<li>
+<p>Paged.js finds the starting point of each flow and marks the first element as the starting point of the parallel flow.</p>
+</li>
+<li>
+<p>Paged.js draws the two elements by following the CSS rules, to find the longest. This then becomes the main flow of this stream, and it is moved before the first element of the stream. Secondary streams are sent all at the end of the content to be processed in a second time.</p>
+</li>
+<li>
+<p>Once the entire content has been paged, Paged.js finds each main stream and returns the secondary stream elements to the same pages (or adjacent pages in the case of a <code>samespread</code>), before deleting the pages that are now empty. Note: if it is a <code>samespread</code>, the pages are directly moved.</p>
+</li>
+</ol>
+<p><img src="/images/flows.jpg" alt=""></p>
+<p>Bonus, an experiment.</p>
+<p>Sometimes the main stream contains images. And it is not uncommon to want these images to exceed the width of text, without necessarily encroaching on the space needed for another stream. For this, we use <code>--paged-parallel-impact: all</code>. This experimental feature allows the main flow elements to impact the formatting of secondary flows. One case of use: an image dressed in the first stream, could dress the second. From a technical point of view, an invisible floating element is added at the beginning of this secondary flow, on the page or element A exists. This new item can be selected in CSS.</p>
+<p>It is possible that the position of the added element is not correct, which is why it is possible to add the necessary changes to the css. To do this, you need to find the element identifier and add <code>-overlap</code> to your id.</p>
+<p>For example:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">#porco</span> <span class="token punctuation">{</span><br>--paged-parallel <span class="token property">impact</span><span class="token punctuation">:</span> all<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>To modify the manufactured overlap element, e.g. in the <code>#alpha</code> secion:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">#alpha #porco-overlap</span> <span class="token punctuation">{</span><br><span class="token property">width</span><span class="token punctuation">:</span> 350px<span class="token important">!important</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<ul>
+<li><code>--paged-parallel impact</code> works only if the image is in the main stream, since it is it that is set up before the others, and therefore cannot be modified thereafter. Reminder: the main stream is automatically detected, it is the most<br>
+long (taking into account objects and images). To do this, the script makes a first layout pass before sinking the content for good.</li>
+</ul>
+<h3 id="one-last-thing" tabindex="-1">One last thing</h3>
+<p>Raphael, who’s testing the implementation is a smart mind, and like all developper as some very existencial issues, like: how to not have to redo the whole html to break the content is smallest bit to make sure they can be correctly set on the pages.</p>
+<p>So he came up with the idea of parallel-sync. If you have two pieces of content you want to show next to each other, and they’re both one long string of HTML, you can use another custom property.</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">.en,.fr</span> <span class="token punctuation">{</span><br>  <span class="token property">--paged-parallel-flow</span><span class="token punctuation">:</span> alpha<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><span class="token selector">h3</span><span class="token punctuation">{</span><br><span class="token property">--paged-parallel-sync</span><span class="token punctuation">:</span> alpha<span class="token punctuation">;</span> <br><span class="token punctuation">}</span></code></pre>
+<p>So if you have <code>h3</code> in the different flows, they’ll wait for each other to start on the same page.</p>
+<blockquote>
+<p>If you want to take a look at the code, it is here: <a href="https://github.com/pagedjs/pagedjs-experiments/tree/main/--paged-parallel-flows">parallel-flows</a>. As i’m writing this, we’re on version 0.1d, working with paged.js 0.4.3 and 0.5b</p>
+</blockquote>
+
+        </article>
+    
+    <aside class="paginator-back">
+        <a href="/en/journal/" lang="en" hreflang="en">Back to the journal</a>
+    </aside>
+
+        
+            <footer>
+    <p class="foot-content"></p>
+</footer>
+
+        
+        
+        
+        <script>
+        if (document.querySelector('.toc .title')) {
+        document.querySelector('.toc .title').addEventListener("click", function() {
+        document.querySelector('.toc').classList.toggle("show");
+        })
+        }
+
+        document.querySelector(".menu-call").addEventListener("click", function() {document.querySelector(".menu").classList.toggle("hide")});
+
+        </script>
+    </body>
+</html>

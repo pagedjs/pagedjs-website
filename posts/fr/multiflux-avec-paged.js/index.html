@@ -211,6 +211,8 @@ start()
                 
             
                 
+            
+                
                     
                     
                         
@@ -366,6 +368,12 @@ start()
             </p>
         
         
+    <a class="alternative-lang"
+       href="/posts/en/multiflux-within-paged.js/"
+       lang="en"
+       title="English"
+       hreflang="en">Read in  English</a>
+
 
     </header>
     <article>
@@ -373,11 +381,6 @@ start()
         
         
 
-    
-        <p class="help-wanted">
-            Cette page n’existe qu’en français. Si vous souhaitez nous aider à traduire, vous pouvez ouvrir une issue sur <a href="https://github.com/pagedjs/pagedjs-website/issues/">Github</a> et nous vous guiderons. Merci beaucoup !
-        </p>
-    
 
 
         
@@ -414,11 +417,11 @@ start()
 <p>`paged.js multi-flows est un plugin Paged.js qui permet de définir des flux dits parallèles (à défaut d’un meilleur nom). L’idée est d’utiliser le CSS pour définir des flux qui partageront un espace, que ce soit une page (plusieurs langues sur la même page), soit une double page (où chaque langue a sa propre page).</p>
 <p>Ça ressemble à ça :</p>
 <p><img src="/images/betterapig.jpg" alt="A layout of two flows on the same page, using paged.js"></p>
-<p>Pour ce faire, nous utilisons une propriété CSS inventé pour l’occasion, que nous appellerons <code>--parallel-flow</code>. Cette propriété attend pour valeur le nom d’un flux qui servira d’identifiant. Tous les éléments qui possèdent la même valeur pour cette propriété feront donc partie du même flux parallèle.</p>
+<p>Pour ce faire, nous utilisons une propriété CSS inventé pour l’occasion, que nous appellerons <code>--paged-parallel-flow</code>. Cette propriété attend pour valeur le nom d’un flux qui servira d’identifiant. Tous les éléments qui possèdent la même valeur pour cette propriété feront donc partie du même flux parallèle.</p>
 <p>Prenons par exemple ce HTML :</p>
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>alpha<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>contenu<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>beta<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>contenu<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>delta<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>contenu<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>epsilon<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>contenu<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">></span></span></code></pre>
 <p>et ce CSS :</p>
-<pre class="language-css"><code class="language-css"><br><span class="token selector">#alpha</span> <span class="token punctuation">{</span><br>  <span class="token property">--parallel-flow</span><span class="token punctuation">:</span> main<span class="token punctuation">;</span><br>  <span class="token property">width</span><span class="token punctuation">:</span> 30%<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">#beta</span> <span class="token punctuation">{</span><br>  <span class="token property">--parallel-flow</span><span class="token punctuation">:</span> main<span class="token punctuation">;</span><br>  <span class="token property">width</span><span class="token punctuation">:</span> 65%<span class="token punctuation">;</span><br>  <span class="token property">margin-left</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">#epsilon</span> <span class="token punctuation">{</span><br>  <span class="token property">--parallel-flow</span><span class="token punctuation">:</span> else<span class="token punctuation">;</span><br>  <span class="token property">width</span><span class="token punctuation">:</span> 45%<span class="token punctuation">;</span><br><br><span class="token punctuation">}</span><br><br><span class="token selector">#delta</span> <span class="token punctuation">{</span><br>  <span class="token property">--parallel-flow</span><span class="token punctuation">:</span> else<span class="token punctuation">;</span><br>  <span class="token property">width</span><span class="token punctuation">:</span> 45%<span class="token punctuation">;</span><br>  <span class="token property">margin-left</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<pre class="language-css"><code class="language-css"><br><span class="token selector">#alpha</span> <span class="token punctuation">{</span><br>  <span class="token property">--paged-parallel-flow</span><span class="token punctuation">:</span> main<span class="token punctuation">;</span><br>  <span class="token property">width</span><span class="token punctuation">:</span> 30%<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">#beta</span> <span class="token punctuation">{</span><br>  <span class="token property">--paged-parallel-flow</span><span class="token punctuation">:</span> main<span class="token punctuation">;</span><br>  <span class="token property">width</span><span class="token punctuation">:</span> 65%<span class="token punctuation">;</span><br>  <span class="token property">margin-left</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">#epsilon</span> <span class="token punctuation">{</span><br>  <span class="token property">--paged-parallel-flow</span><span class="token punctuation">:</span> else<span class="token punctuation">;</span><br>  <span class="token property">width</span><span class="token punctuation">:</span> 45%<span class="token punctuation">;</span><br><br><span class="token punctuation">}</span><br><br><span class="token selector">#delta</span> <span class="token punctuation">{</span><br>  <span class="token property">--paged-parallel-flow</span><span class="token punctuation">:</span> else<span class="token punctuation">;</span><br>  <span class="token property">width</span><span class="token punctuation">:</span> 45%<span class="token punctuation">;</span><br>  <span class="token property">margin-left</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
 <p>Notez que chaque élément possède déjà des propriétés de placement : <code>#alpha</code> a une largeur de 30% de son parent, <code>#beta</code> de 65% et sera placé à droite, grâce à l’utilisation de <code>margin-left: auto</code>. Les blocs définis ici sont donc les emplacements des contenants autant que les contenus.</p>
 <p><code>#alpha</code> et <code>#beta</code> devront être traités en même temps et partager un espace, <code>#epsilon</code> et <code>#delta</code> en partagent un autre.</p>
 <h3 id="la-config-du-javascript" tabindex="-1">La config du javascript</h3>
@@ -447,20 +450,24 @@ start()
 </ol>
 <p><img src="/images/flows.jpg" alt=""></p>
 <h3 id="bonus%2C-une-exp%C3%A9rimentation." tabindex="-1">Bonus, une expérimentation.</h3>
-<p>Il arrive que le flux principal contienne des images. Et il n’est pas rare de vouloir que ces images dépassent de la largeur de texte, sans forcément empiéter sur l’espace nécessaire à un autre flux. Pour cela, on utilise <code>--parallel-impact: all</code>. Cette fonctionnalité expérimentale permet d’autoriser les éléments du flux principal à impacter la mise en forme des flux secondaires. Un cas d’usage : une image en habillage du premier flux, pourrait habiller le second. D’un point de vue technique, un élément invisible flottant est rajouté au début de ce flux secondaire, sur la page ou l’élément A existe. Ce nouvel élément peut être sélectionné en CSS.</p>
+<p>Il arrive que le flux principal contienne des images. Et il n’est pas rare de vouloir que ces images dépassent de la largeur de texte, sans forcément empiéter sur l’espace nécessaire à un autre flux. Pour cela, on utilise <code>--paged-parallel-impact: all</code>. Cette fonctionnalité expérimentale permet d’autoriser les éléments du flux principal à impacter la mise en forme des flux secondaires. Un cas d’usage : une image en habillage du premier flux, pourrait habiller le second. D’un point de vue technique, un élément invisible flottant est rajouté au début de ce flux secondaire, sur la page ou l’élément A existe. Ce nouvel élément peut être sélectionné en CSS.</p>
 <p>Il est possible que le positionnement de l’élément rajouté ne soit pas correct, c’est pourquoi il est possible de rajouter dans le css les changements nécessaire. Pour cela, il faut retrouver l’identifiant de l’élément et rajouter <code>-overlap</code> dans son id.</p>
 <p>Par exemple:</p>
-<pre class="language-css"><code class="language-css"><span class="token selector">#porco</span> <span class="token punctuation">{</span><br>    <span class="token property">--parallel-impact</span><span class="token punctuation">:</span> all<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<pre class="language-css"><code class="language-css"><span class="token selector">#porco</span> <span class="token punctuation">{</span><br>    <span class="token property">--paged-parallel-impact</span><span class="token punctuation">:</span> all<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
 <p>Pour modifier l’élément overlap fabriqué, par exemple dans la secion <code>#alpha</code> :</p>
 <pre class="language-css"><code class="language-css"><span class="token selector">#alpha #porco-overlap</span> <span class="token punctuation">{</span><br>   <span class="token property">width</span><span class="token punctuation">:</span> 350px <span class="token important">!important</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
 <ul>
 <li><code>--parallel impact</code> ne marche qu’à condition que l’image soit dans le flux principal, puisque c’est lui qui est mis en page avant les autres, et qu’il ne peut donc pas être modifié par la suite. Rappel : le flux principal est automatiquement détecté, il s’agit du flux le plus<br>
 long (en prenant en compte les objets et images). Pour ce faire, le script fait une première passe de mise en page avant de couler le contenu pour de bon.</li>
 </ul>
+<h3 id="une-derni%C3%A8re-chose" tabindex="-1">Une dernière chose</h3>
+<p>Raphael, qui teste l'implémentation est un esprit intelligent, et comme tous les développeurs comme certains problèmes très existentencial, comme: comment ne pas avoir à refaire le html entier pour casser le contenu est plus petit peu pour s'assurer qu'ils peuvent être correctement définis sur les pages.</p>
+<p>Il a donc eu l'idée de synchroniser les titres, et nous sommes arrivés tous les deux à une solution ``--paged-parallel-sync`.</p>
+<p>Si vous avez deux morceaux de contenu que vous voulez afficher à côté de l'autre, et qu'ils sont tous les deux dans deux éléments HTML distincs. Vous pouvez vous assurer que les titres démarrent tous sur la même page.</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">.en,.fr</span> <span class="token punctuation">{</span><br>  <span class="token property">--paged-parallel-flow</span><span class="token punctuation">:</span> alpha<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br> <br><span class="token selector">h3</span> <span class="token punctuation">{</span><br><span class="token property">--paged-parallel-sync</span><span class="token punctuation">:</span> alpha<span class="token punctuation">;</span> <br><span class="token punctuation">}</span></code></pre>
 <blockquote>
 <p>Si vous voulez jeter un coup d’œil au code, il se trouve ici : <a href="https://github.com/pagedjs/pagedjs-experiments/tree/main/multiple-flows_0.1b">https://github.com/pagedjs/pagedjs-experiments/tree/main/multiple-flows_0.1b</a>.</p>
 </blockquote>
-<h3 id="derni%C3%A8re-remarque" tabindex="-1">Dernière remarque</h3>
 
         </article>
     
