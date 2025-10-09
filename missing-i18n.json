@@ -276,8 +276,8 @@
 
     {
     "src": "./src/content/en/journal/2025-07-20-multiflows-in-pagedjs-0.1.md",
-    "link": "/posts/en/multiflux-within-paged.js/",
-    "unit": "Multiflux within Paged.js",
+    "link": "/posts/en/parallel-flows-within-paged.js/",
+    "unit": "Parallel-flows within Paged.js",
     "langs": [{ "fr": true },
     {"en": true}
     ]},

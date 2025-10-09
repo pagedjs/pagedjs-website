@@ -4,13 +4,13 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
-        <title>Paged.js — Multiflux avec Paged.js</title>
+        <title>Paged.js — Flux parallel avec Paged.js</title>
         <script type="module">
         document.documentElement.classList.remove('no-js'); 
         document.documentElement.classList.add('js'); 
         </script>
         <meta name="description" content="">
-        <meta property="og:title" content="Multiflux avec Paged.js — ">
+        <meta property="og:title" content="Flux parallel avec Paged.js — ">
         <meta property="og:description" content="">
         <meta property="og:image" content="">
         <meta property="og:image:alt" content="Image description">
@@ -358,7 +358,7 @@ start()
     <header>
         <h1 id="title">
             
-            Multiflux avec Paged.js
+            Flux parallel avec Paged.js
         </h1>
         
             <p class="meta">
@@ -369,7 +369,7 @@ start()
         
         
     <a class="alternative-lang"
-       href="/posts/en/multiflux-within-paged.js/"
+       href="/posts/en/parallel-flows-within-paged.js/"
        lang="en"
        title="English"
        hreflang="en">Read in  English</a>
@@ -410,9 +410,9 @@ start()
 <p>Une chose intéressante à faire lorsque qu’une pratique n’a pas l’air d’exister sur le web, c’est d’investir le champ et de commencer à réfléchir à des solutions, suffisamment abstraites pour être réutilisables et assez claires pour être expliquées, commentées et analysées.</p>
 <p>La question du multiflux est difficile quelque soit le média, mais c’est le média paginé qui semble avoir le plus besoin de réponses, puisque contrairement à l’écran, le papier n’est pas infini. Dès lors, voici un retour d’expérience sur le multiflux dans paged.js, organisé autour du projet Écran Papier Éditer, (EPE), mené par l’Ésad Grenoble / Valence.</p>
 <p>Dans le cadre du projet, les designers ont eu besoin d’une solution pour mettre en page des textes en plusieurs langues et les traiter avec les mêmes égards, en évitant d’en placer une avant l’autre. Parfait point de départ pour remettre la question des régions CSS sur la table, maintenant que les grilles CSS sont devenues un outil central dans les habitudes de web design.</p>
-<h2 id="pagedjs-multiple-flows.0.1b.js" tabindex="-1">pagedjs-multiple-flows.0.1b.js</h2>
+<h2 id="pagedjs-parallel-flows" tabindex="-1">pagedjs-parallel-flows</h2>
 <blockquote>
-<p>Si vous voulez d’abord jeter un coup d’œil au code, il se trouve ici : <a href="https://github.com/pagedjs/pagedjs-experiments/tree/main/multiple-flows_0.1b">multiple-flows_0.1b</a>.</p>
+<p>Si vous voulez d’abord jeter un coup d’œil au code, il se trouve ici : <a href="https://github.com/pagedjs/pagedjs-experiments/tree/main/--paged-parallel-flows">https://github.com/pagedjs/pagedjs-experiments/tree/main/--paged-parallel-flows</a>.</p>
 </blockquote>
 <p>`paged.js multi-flows est un plugin Paged.js qui permet de définir des flux dits parallèles (à défaut d’un meilleur nom). L’idée est d’utiliser le CSS pour définir des flux qui partageront un espace, que ce soit une page (plusieurs langues sur la même page), soit une double page (où chaque langue a sa propre page).</p>
 <p>Ça ressemble à ça :</p>
@@ -466,7 +466,7 @@ long (en prenant en compte les objets et images). Pour ce faire, le script fait 
 <p>Si vous avez deux morceaux de contenu que vous voulez afficher à côté de l'autre, et qu'ils sont tous les deux dans deux éléments HTML distincs. Vous pouvez vous assurer que les titres démarrent tous sur la même page.</p>
 <pre class="language-css"><code class="language-css"><span class="token selector">.en,.fr</span> <span class="token punctuation">{</span><br>  <span class="token property">--paged-parallel-flow</span><span class="token punctuation">:</span> alpha<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br> <br><span class="token selector">h3</span> <span class="token punctuation">{</span><br><span class="token property">--paged-parallel-sync</span><span class="token punctuation">:</span> alpha<span class="token punctuation">;</span> <br><span class="token punctuation">}</span></code></pre>
 <blockquote>
-<p>Si vous voulez jeter un coup d’œil au code, il se trouve ici : <a href="https://github.com/pagedjs/pagedjs-experiments/tree/main/multiple-flows_0.1b">https://github.com/pagedjs/pagedjs-experiments/tree/main/multiple-flows_0.1b</a>.</p>
+<p>Si vous voulez enfin jeter un coup d’œil au code, il se trouve ici : <a href="https://github.com/pagedjs/pagedjs-experiments/tree/main/--paged-parallel-flows">https://github.com/pagedjs/pagedjs-experiments/tree/main/--paged-parallel-flows</a>.</p>
 </blockquote>
 
         </article>

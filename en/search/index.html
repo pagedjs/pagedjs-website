@@ -1980,7 +1980,7 @@ But mark those words, we refuse to be one of those Chromium only tool.</p>
 <p>The goal of this task is to get the chunker out of paged.js. The chunker is the part of the program that finds page breaks and handles the recreation of the HTML tree. Right now, it’s so intertwined with paged.js that it’s hard to reuse it without the paged.js page preview HTML structure. Our idea is that, when the chunker can chunk arbritary content into an arbitrary set of HTML elements, building tools with fragmented content in the browser becomes trivial. (For example chained blocks as we had back in the old days of CSS regions, but with a modern twist in how it would work with CSS).</p>
 <p>And then, we will update paged.js to use that new library.</p>
 <h4 id="update-the-fragmentation-method-to-handle-multiple-break-tokens" tabindex="-1">Update the fragmentation method to handle multiple break tokens</h4>
-<p>Following the previous point, we think it should be possible to have multiple content flows on the same page, with multiple break tokens this becomes much more easy than the demo we made for the EPE project (<a href="https://github.com/pagedjs/pagedjs-experiments/tree/main/--paged-parallel-flows">https://github.com/pagedjs/pagedjs-experiments/tree/main/--paged-parallel-flows</a>).</p>
+<p>Following the previous point, we think it should be possible to have multiple content flows on the same page, with multiple break tokens this becomes much easier than the demo we made for the EPE project (<a href="https://github.com/pagedjs/pagedjs-experiments/blob/main/--paged-parallel-flows/parallel-flows.js">https://github.com/pagedjs/pagedjs-experiments/blob/main/--paged-parallel-flows/parallel-flows.js</a>).</p>
 <h4 id="tagged-pdf-support" tabindex="-1">Tagged PDF support</h4>
 <p>Yeah, that’s one of the hardest, but we want to provide some tagged pdf with paged.js. It’s a long term work, but we have that in mind on every step to make sure everything can work as expected.</p>
 <p>So that’s what we did.</p>
@@ -1991,7 +1991,7 @@ But mark those words, we refuse to be one of those Chromium only tool.</p>
 
       </section>
       
-      <section class="data" id="multiflux-within-paged.js">
+      <section class="data" id="parallel-flows-within-paged.js">
         <h1></h1>
         <p>While it is easy to imagine a multilingual book that would share its pages to accommodate content in two languages, it has always been difficult to imagine the web other than this long vertical flow, heir to the wheel. The content of a page starts at the top, and ends, when there is no more content to be placed on the page, well below what the screen shows, giving each illusion of infinity, what the attention economists have well integrated into their tools.</p>
 <p>In reality, we have imagined some subterfuges to offer a semblance of parallel flow, from the layout through the `table' to the appearance of CSS or Flex grids, but it is always about the same downward movement, and even if the magic trick is invisible, because remarkably realized, it comes to mind when we wish to translate it on a paginated media.</p>
@@ -2074,7 +2074,7 @@ long (taking into account objects and images). To do this, the script makes a fi
 
       </section>
       
-      <section class="data" id="multiflux-avec-paged.js">
+      <section class="data" id="flux-parallel-avec-paged.js">
         <h1></h1>
         <p>S’il est facile d’imaginer un livre multilingue qui partagerait ses pages pour y accueillir les contenus dans deux langues, il a toujours été difficile d’imaginer le web autrement que ce long flux vertical, héritier de la molette. Le contenu d’une page démarre en haut, et se termine, lorsqu’il n’y a plus de contenu à poser sur la page, bien en-desssous de ce que l’écran laisse entrevoir, donnant à chacune l’illusion de l’infini, ce que les économistes de l’attention ont bien intégré à leurs outils.</p>
 <p>En réalité, nous avons bien imaginé des subterfuges pour proposer un semblant de flux parallèle, de la mise en page grâce aux <code>table</code> jusqu’à l’apparition des grilles CSS ou de Flex, mais il s’agit toujours de ce même mouvement descendant, et même si le tour de magie est invisible, parce que remarquablement réalisé, il saute aux yeux dès lors qu’on souhaite le traduire sur un média paginé.</p>
@@ -2095,9 +2095,9 @@ long (taking into account objects and images). To do this, the script makes a fi
 <p>Une chose intéressante à faire lorsque qu’une pratique n’a pas l’air d’exister sur le web, c’est d’investir le champ et de commencer à réfléchir à des solutions, suffisamment abstraites pour être réutilisables et assez claires pour être expliquées, commentées et analysées.</p>
 <p>La question du multiflux est difficile quelque soit le média, mais c’est le média paginé qui semble avoir le plus besoin de réponses, puisque contrairement à l’écran, le papier n’est pas infini. Dès lors, voici un retour d’expérience sur le multiflux dans paged.js, organisé autour du projet Écran Papier Éditer, (EPE), mené par l’Ésad Grenoble / Valence.</p>
 <p>Dans le cadre du projet, les designers ont eu besoin d’une solution pour mettre en page des textes en plusieurs langues et les traiter avec les mêmes égards, en évitant d’en placer une avant l’autre. Parfait point de départ pour remettre la question des régions CSS sur la table, maintenant que les grilles CSS sont devenues un outil central dans les habitudes de web design.</p>
-<h2 id="pagedjs-multiple-flows.0.1b.js" tabindex="-1">pagedjs-multiple-flows.0.1b.js</h2>
+<h2 id="pagedjs-parallel-flows" tabindex="-1">pagedjs-parallel-flows</h2>
 <blockquote>
-<p>Si vous voulez d’abord jeter un coup d’œil au code, il se trouve ici : <a href="https://github.com/pagedjs/pagedjs-experiments/tree/main/multiple-flows_0.1b">multiple-flows_0.1b</a>.</p>
+<p>Si vous voulez d’abord jeter un coup d’œil au code, il se trouve ici : <a href="https://github.com/pagedjs/pagedjs-experiments/tree/main/--paged-parallel-flows">https://github.com/pagedjs/pagedjs-experiments/tree/main/--paged-parallel-flows</a>.</p>
 </blockquote>
 <p>`paged.js multi-flows est un plugin Paged.js qui permet de définir des flux dits parallèles (à défaut d’un meilleur nom). L’idée est d’utiliser le CSS pour définir des flux qui partageront un espace, que ce soit une page (plusieurs langues sur la même page), soit une double page (où chaque langue a sa propre page).</p>
 <p>Ça ressemble à ça :</p>
@@ -2151,7 +2151,7 @@ long (en prenant en compte les objets et images). Pour ce faire, le script fait 
 <p>Si vous avez deux morceaux de contenu que vous voulez afficher à côté de l'autre, et qu'ils sont tous les deux dans deux éléments HTML distincs. Vous pouvez vous assurer que les titres démarrent tous sur la même page.</p>
 <pre class="language-css"><code class="language-css"><span class="token selector">.en,.fr</span> <span class="token punctuation">{</span><br>  <span class="token property">--paged-parallel-flow</span><span class="token punctuation">:</span> alpha<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br> <br><span class="token selector">h3</span> <span class="token punctuation">{</span><br><span class="token property">--paged-parallel-sync</span><span class="token punctuation">:</span> alpha<span class="token punctuation">;</span> <br><span class="token punctuation">}</span></code></pre>
 <blockquote>
-<p>Si vous voulez jeter un coup d’œil au code, il se trouve ici : <a href="https://github.com/pagedjs/pagedjs-experiments/tree/main/multiple-flows_0.1b">https://github.com/pagedjs/pagedjs-experiments/tree/main/multiple-flows_0.1b</a>.</p>
+<p>Si vous voulez enfin jeter un coup d’œil au code, il se trouve ici : <a href="https://github.com/pagedjs/pagedjs-experiments/tree/main/--paged-parallel-flows">https://github.com/pagedjs/pagedjs-experiments/tree/main/--paged-parallel-flows</a>.</p>
 </blockquote>
 
       </section>
