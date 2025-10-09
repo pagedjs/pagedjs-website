@@ -1,5 +1,5 @@
 ---
-title: "Multiflux avec Paged.js"
+title: "Flux parallel avec Paged.js"
 date: 2025-07-26
 draft: false
 author: "@julientaq, avec l’adorable relecture et les indispensables corrections de Julien Bidoret"
@@ -51,11 +51,11 @@ La question du multiflux est difficile quelque soit le média, mais c’est le m
 
 Dans le cadre du projet, les designers ont eu besoin d’une solution pour mettre en page des textes en plusieurs langues et les traiter avec les mêmes égards, en évitant d’en placer une avant l’autre. Parfait point de départ pour remettre la question des régions CSS sur la table, maintenant que les grilles CSS sont devenues un outil central dans les habitudes de web design.
 
-pagedjs-multiple-flows.0.1b.js
+pagedjs-parallel-flows
 ------------------------------
 
 
-> Si vous voulez d’abord jeter un coup d’œil au code, il se trouve ici : [multiple-flows_0.1b](https://github.com/pagedjs/pagedjs-experiments/tree/main/multiple-flows_0.1b).
+> Si vous voulez d’abord jeter un coup d’œil au code, il se trouve ici : [https://github.com/pagedjs/pagedjs-experiments/tree/main/--paged-parallel-flows](https://github.com/pagedjs/pagedjs-experiments/tree/main/--paged-parallel-flows).
 
 
 
@@ -198,7 +198,4 @@ h3 {
 }
 ```
 
-
-
-
-> Si vous voulez jeter un coup d’œil au code, il se trouve ici : [https://github.com/pagedjs/pagedjs-experiments/tree/main/multiple-flows_0.1b](https://github.com/pagedjs/pagedjs-experiments/tree/main/multiple-flows_0.1b).
+> Si vous voulez enfin jeter un coup d’œil au code, il se trouve ici : [https://github.com/pagedjs/pagedjs-experiments/tree/main/--paged-parallel-flows](https://github.com/pagedjs/pagedjs-experiments/tree/main/--paged-parallel-flows).

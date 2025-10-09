@@ -95,7 +95,7 @@ And then, we will update paged.js to use that new library.
 
 #### Update the fragmentation method to handle multiple break tokens
 
-Following the previous point, we think it should be possible to have multiple content flows on the same page, with multiple break tokens this becomes much more easy than the demo we made for the EPE project (https://github.com/pagedjs/pagedjs-experiments/tree/main/--paged-parallel-flows). 
+Following the previous point, we think it should be possible to have multiple content flows on the same page, with multiple break tokens this becomes much easier than the demo we made for the EPE project (https://github.com/pagedjs/pagedjs-experiments/blob/main/--paged-parallel-flows/parallel-flows.js). 
 
 
 

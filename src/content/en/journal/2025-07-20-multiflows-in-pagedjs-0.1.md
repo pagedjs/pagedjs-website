@@ -1,5 +1,5 @@
 ---
-title: "Multiflux within Paged.js"
+title: "Parallel-flows within Paged.js"
 date: 2025-07-26
 draft: false
 author: "@julientaq, with the tremendous help of the amazing Julien Bidoret"
