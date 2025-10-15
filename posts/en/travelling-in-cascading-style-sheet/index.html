@@ -4,13 +4,13 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
-        <title>Paged.js — Getting Started with Paged.js</title>
+        <title>Paged.js — Travelling in cascading style sheet</title>
         <script type="module">
         document.documentElement.classList.remove('no-js'); 
         document.documentElement.classList.add('js'); 
         </script>
         <meta name="description" content="">
-        <meta property="og:title" content="Getting Started with Paged.js — ">
+        <meta property="og:title" content="Travelling in cascading style sheet — ">
         <meta property="og:description" content="">
         <meta property="og:image" content="">
         <meta property="og:image:alt" content="Image description">
@@ -64,7 +64,7 @@ start()
 </script>
         
     </head>
-    <body class="documentation "
+    <body class=" "
           style="">
         <div class="crop-marks">
     <div class="crop-mark vertical"></div>
@@ -342,13 +342,13 @@ start()
     <header>
         <h1 id="title">
             
-            Getting Started with Paged.js
+            Travelling in cascading style sheet
         </h1>
         
             <p class="meta">
                 written
-                
-                on <time class="date">9/3/2019</time>
+                by <span class="author">@julientaq</span>
+                on <time class="date">10/15/2025</time>
             </p>
         
         
@@ -371,67 +371,52 @@ start()
             <p class="intro">
                 
                 
+                    
+                
             
-            <h2 id="starting-paged.js" tabindex="-1">Starting Paged.js</h2>
-<p>Paged.js comes in two flavours: a polyfill that will automatically run when you starts the browser, a npm module that you can run or a command line that uses a headless browser. All can be adapted to your need pretty easily, but feel free to use what’s the more convenient for you.</p>
-<h3 id="using-paged.js-as-a-polyfill-in-web-browsers" tabindex="-1">Using Paged.js as a polyfill in web browsers</h3>
-<p>To be able to run Paged.js on your document, you will need the following:</p>
-<ul>
-<li>The html and css files you want to transform into a book;</li>
-<li>Paged.js script (either locally, or using our CDN link);</li>
-<li>A web server to let the polyfill access your CSS file;</li>
-<li>a web browser to see the magic in the screen.</li>
-</ul>
-<h4 id="getting-the-script" tabindex="-1">Getting the script</h4>
-<p>To download the polyfill, go to <a href="https://unpkg.com/pagedjs/dist/">https://unpkg.com/pagedjs/dist/</a>. From there, you can choose the latest or older versions of <code>paged.polyfill.js</code>.</p>
-<p>Copy the script in a file and call it from the head of your HTML file:</p>
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>js/paged.polyfill.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
-<p>If you prefer, ou can use the hosted version of the script on <a href="https://unpkg.com/pagedjs">unpkg.com/pagedjs</a> by copying the line of code below in the <code>head</code> of your document. If you need a previous version of Paged.js you can check the releases on <a href="https://unpkg.com/browse/pagedjs/">unpgk.com/browse/pagedjs</a>. Please notice the button top right to get to older versions.</p>
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://unpkg.com/pagedjs/dist/paged.polyfill.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
-<p>As soon as your browser has loaded everything your HTML needs to be shown on screen (including images, font files, etc.), the script will start paginating the content and pages will appear on your screen.</p>
-<h4 id="preview-your-work-(interface)" tabindex="-1">Preview your work (interface)</h4>
-<p>Paged.js will manipulate the DOM so the browser can understand the css rules you wrote. On screen, pages will be shown from top to bottom on the left side of the page. To have a better understanding of what’s happening on the page, we made a small CSS file call interface that defines the layout to show your book on screen. Since we’re using <code>@media screen</code>, page borders and shadow won’t appear on paper when printed. To download the file of the interface go to the <a href="https://gitlab.coko.foundation/pagedjs/interface-polyfill">repo on gitlab</a>, download the <code>interface.css</code> file and link it to your document in the <code>&lt;head&gt;</code>. Please check the file, as it already offers options to show facing pages, recto/verso, baseline, etc.</p>
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>path/to/file/interface.css<span class="token punctuation">"</span></span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text/css<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></code></pre>
-<h4 id="generate-your-first-pdf-from-the-browser" tabindex="-1">Generate your first PDF from the browser</h4>
-<p>Once Paged.js has done its work, you can generate the PDF using the Save as PDF function your browser is using.</p>
-<ol>
-<li>
-<p>Click on the “Print” button of your browser. (It will most likely be in <code>File &gt; Print</code> or, on your keyboard, <code>CTRL/CMD + P</code>)</p>
-</li>
-<li>
-<p>Change the <em>Destination</em> to &quot;Save as a PDF file”.</p>
-</li>
-<li>
-<p>In the advanced settings, as Paged.js is not using any of those options, you need to be sure the that the following statements are right:</p>
-<ul>
-<li><em>Margins</em> are set to “none”,</li>
-<li>“Headers and footers” is unchecked or set to none,</li>
-<li>“Background graphics” is checked.</li>
-</ul>
-</li>
-</ol>
-<p>You can then open your PDF in your favorite PDF reading tool.</p>
-<h3 id="command-line-version" tabindex="-1">Command line version</h3>
-<p>The command line version of Paged.js uses a headless browser (a browser without any graphical interface) to generate a PDF. It can be run on the server to launch a headless Chromium in fully automated workflows. With the command line version, you don't need to call the Paged.js script in your document: it will be done automatically.</p>
-<p>First, download and install <code>pagedjs-cli</code> with your terminal (you need to have <code>git</code>, <code>node</code> and <code>npm</code> installed):</p>
-<pre class="language-bash"><code class="language-bash">$ <span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">-g</span> pagedjs-cli pagedjs</code></pre>
-<p>Then, in a new terminal window, go to the folder where the code of your document is located (use the <code>cd</code> command) and generate your PDF with the following command:</p>
-<pre class="language-bash"><code class="language-bash">$ pagedjs-cli index.html <span class="token parameter variable">-o</span> result.pdf</code></pre>
-<p>Some options to generate the PDF:</p>
-<pre class="language-bash"><code class="language-bash">-h, <span class="token parameter variable">--help</span>                  output usage information<br>-V, <span class="token parameter variable">--version</span>               output the version number<br>-i, <span class="token parameter variable">--inputs</span> <span class="token punctuation">[</span>inputs<span class="token punctuation">]</span>       Inputs<br>-o, <span class="token parameter variable">--output</span> <span class="token punctuation">[</span>output<span class="token punctuation">]</span>       Output<br>-d, <span class="token parameter variable">--debug</span>                 Show Electron Window to Debug<br>-l, <span class="token parameter variable">--landscape</span>             Landscape printing<br>-s, --page-size <span class="token punctuation">[</span>size<span class="token punctuation">]</span>      Print to Page Size <span class="token punctuation">[</span>size<span class="token punctuation">]</span><br>-w, <span class="token parameter variable">--width</span> <span class="token punctuation">[</span>size<span class="token punctuation">]</span>          Print to Page Width <span class="token punctuation">[</span>width<span class="token punctuation">]</span><br><span class="token parameter variable">-h</span> <span class="token parameter variable">--height</span> <span class="token punctuation">[</span>size<span class="token punctuation">]</span>          Print to Page Height <span class="token punctuation">[</span>weight<span class="token punctuation">]</span><br>-m, --page-margin <span class="token punctuation">[</span>margin<span class="token punctuation">]</span>  Print with margin <span class="token punctuation">[</span>margin<span class="token punctuation">]</span><br>-n, <span class="token parameter variable">--hyphenate</span> <span class="token punctuation">[</span>lang<span class="token punctuation">]</span>      Hyphenate with language <span class="token punctuation">[</span>language<span class="token punctuation">]</span>, defaults to <span class="token string">"en-us"</span><br>-hi, <span class="token parameter variable">--hypher_ignore</span> <span class="token punctuation">[</span>str<span class="token punctuation">]</span>  Ignore passed element selectors, such as <span class="token string">".class_to_ignore, h1"</span><br>-ho, <span class="token parameter variable">--hypher_only</span> <span class="token punctuation">[</span>str<span class="token punctuation">]</span>    Only hyphenate passed elements selector, such as <span class="token string">".hyphenate, aside"</span><br>-e, <span class="token parameter variable">--encoding</span> <span class="token punctuation">[</span>type<span class="token punctuation">]</span>       Set the encoding of the input html, defaults to <span class="token string">"utf-8"</span><br>-t, <span class="token parameter variable">--timeout</span> <span class="token punctuation">[</span>ms<span class="token punctuation">]</span>          Set a max <span class="token function">timeout</span> of <span class="token punctuation">[</span>ms<span class="token punctuation">]</span></code></pre>
+            <p>The work of pagedjs as a polyfill is simple, it needs to read the css and transform it to show on screen a preview of what you’ll print, and actually print the preview, chuncking the content into pages.</p>
+<p>Seems pretty easy, but like always, the devil, the details and all that.</p>
+<p>So the first decision Fred made at the beginning was to use a preprocessing tool to read, transform and update the CSS. At that time, it wasn’t a bad idea. CSSTree is after all a great tool to parse and manipulate CSS and get what we need from it.</p>
+<p>The real issue came when browsers started to support CSS they didn’t before, like the <code>@margin</code> or using css <code>custom-properties</code> (that we wrongfully name <code>css-variable</code>) for printing value, like the size of the printed page.</p>
+<p>To support that, we need to update the way we parse the CSS, and this can be done in two ways.</p>
+<p>The first path, is to update our implementation of CSS Tree to support more features, and fix some of the issues, and stabilize the code.</p>
+<p>The second path is to look at this new standard sets of API named CSS Object Model, <em>aka</em> CSS OM.</p>
+<p>So let’s not haste the decision too much, and let’s have a look at CSSOM.</p>
+<h2 id="an-object-model-for-css" tabindex="-1">An object Model for CSS</h2>
+<p>The CSSOM is a set of APIs that gives us some ways to manipulate CSS with javascript (the real <code>css-in-js</code>). For the CSS model, a <code>style</code> or a <code>link</code> element is a <code>stylesheet</code>, a specific js object with instances and properties, that contains <code>cssRule</code> that haves <code>selectors</code> and <code>styleMap</code> which contains the properties and values of the CSS declaration.</p>
+<p>And since it’s available in the browser, we get a CSS parser for free, with a model that feels like home for someone who knows CSS.</p>
+<p>Feels like magic and perfect, therefore there must be a catch, and there is one indeed.</p>
+<p>One of the most amazing things with the browsers is that if you’re writing some bad CSS or some bad CSS, it will find a way to show what it understands on screen. To do that, the browser simply drops the CSS it doesn’t know about.</p>
+<p>Until a couple of months ago, when Chrome was parsing this:</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@page</span></span> <span class="token punctuation">{</span><br>    <span class="token atrule"><span class="token rule">@bottom-right</span></span> <span class="token punctuation">{</span><br>        <span class="token property">content</span><span class="token punctuation">:</span> page<span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<p>it was reading that:</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@page</span></span> <span class="token punctuation">{</span> <span class="token punctuation">}</span></code></pre>
+<p>Yes, that’s right, all the CSS the browser doesn’t know about gets removed. As if it never was.</p>
+<p>But there has been an update to chrome that makes it understand the <code>@marginRules</code>, which means that this example is now working in Chrome.</p>
+<p>What about footnote?</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@page</span></span> <span class="token punctuation">{</span><br>    <span class="token atrule"><span class="token rule">@footnote</span></span> <span class="token punctuation">{</span><br>        <span class="token property">float</span><span class="token punctuation">:</span> footnote<span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<p>It just gets removed. And don’t try to do something the browser won’t find out, you will just lose every line of code, until the browser gets updated to include that new feature.</p>
+<p>We could go back to simply use cssTree again, but let’s not kill the idea too fast, CSS changed quite a lot, and if we mix <code>nested CSS</code> with <code>custom-properties</code>, we have almost everything to reduce the needs for preprocessing the CSS.</p>
+<h2 id="the-simplest-solution" tabindex="-1">The simplest solution</h2>
+<p>When paged.js has finished its job, the Css must be rid off anything that could impact the printing action from the browser. We need to remove any <code>@page</code>, <code>@margin-boxes</code> and others.</p>
+<p>Let’s get back to the previous example of the CSS:</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@page</span></span> <span class="token punctuation">{</span><br>    <span class="token atrule"><span class="token rule">@footnote</span></span> <span class="token punctuation">{</span><br>        <span class="token property">float</span><span class="token punctuation">:</span> footnote<span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<p>And let’s imagine how it would look like to be used in the browser today if we were to have a preview on the screen.</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">.pagedjs-page</span> <span class="token punctuation">{</span><br>  <span class="token selector">.pagedjs-footnote</span> <span class="token punctuation">{</span><br>    <span class="token property">float</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--footnote<span class="token punctuation">)</span> <span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<p>That’s it. No need for complex rewriting, or parsing impossible CSS.</p>
+<p><code>@page</code> becomes <code>.pagedjs-page</code>, <code>@footnote</code> becomes <code>.pagedjs-footnotes</code>, <code>@bottom-right</code> becomes <code>.paged-margin-right</code>. And this would become available to the browser, ready to be manipulated using CSS OM: in short, if paged.js can read the stylesheet for any object at any moment in the code.</p>
+<p>For a very long time, i was telling everyone “Grep is life”, as i just discovered the power of regex in inDesign, and somehow, it was, but let’s be honest, the amount of possible options in a css file is so enormous, that we feel safer using a tokenizer to transform the css in a manipulable object (we’re using this one: <a href="https://github.com/AdguardTeam/tsurlfilter/tree/master/packages/css-tokenizer">https://github.com/AdguardTeam/tsurlfilter/tree/master/packages/css-tokenizer</a>).</p>
+<p>i started a small repo with my experiments: <a href="">https://github.com/pagedjs/pagedjs-cssom</a>, feel free to look at those files, but let’s be honest, it’s a bunch of undocumented experiments for now, but we’re getting somewhere.</p>
+<p>I hope to have some things to show very quickly.</p>
+<p>Talk very soon with hopefully happy news :)</p>
+<p>Oh, and i almost forgot: we’re releasing the multi-flows script we made for the EPE project that i talked about here: <a href="">https://pagedjs.org/posts/en/parallel-flows-within-paged.js/</a></p>
+<p>i’ll talk to you in 2 weeks :)</p>
 
         </article>
     
-    
-    
-    
-    <aside class="paginator both">
-        <a class="previous" href="/en/documentation/1-the-big-picture/">The big picture</a>
-        
-            <a class="next" href="/en/documentation/4-how-paged.js-works/">How Paged.js works</a>
-        
+    <aside class="paginator-back">
+        <a href="/en/journal/" lang="en" hreflang="en">Back to the journal</a>
     </aside>
-
 
         
             <footer>

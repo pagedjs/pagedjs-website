@@ -291,6 +291,14 @@
     ]},
 
     {
+    "src": "./src/content/en/journal/2025-10-15-travel-through-CSS.md",
+    "link": "/posts/en/travelling-in-cascading-style-sheet/",
+    "unit": "Travelling in cascading style sheet",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
     "src": "./src/content/en/examples/cetf.md",
     
     "unit": "C & F Éditions",
