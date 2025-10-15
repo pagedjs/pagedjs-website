@@ -95,9 +95,11 @@ That’s it. No need for complex rewriting, or parsing impossible CSS.
 
 `@page` becomes `.pagedjs-page`, `@footnote` becomes `.pagedjs-footnotes`, `@bottom-right` becomes `.paged-margin-right`. And this would become available to the browser, ready to be manipulated using CSS OM: in short, if paged.js can read the stylesheet for any object at any moment in the code. 
 
-For a very long time, i was telling everyone “Grep is life”, as i just discovered the power of regex in inDesign, and somehow, it was, but let’s be honest, the amount of possible options in a css file is so enormous, that we feel safer using a tokenizer to transform the css in a manipulable object (we’re using this one: https://github.com/AdguardTeam/tsurlfilter/tree/master/packages/css-tokenizer). 
+For a very long time, i was telling everyone “Grep is life”, as i just discovered the power of regex in inDesign, and somehow, it was amazing. But let’s be honest, the amount of possible options in a CSS file is so enormous, that we feel safer to use a tokenizer to transform the CSS in a manipulable object (we’re using this one: [https://github.com/AdguardTeam/tsurlfilter/tree/master/packages/css-tokenizer]() that follows the W3C specs for CSS token). 
 
-i started a small repo with my experiments: [https://github.com/pagedjs/pagedjs-cssom](), feel free to look at those files, but let’s be honest, it’s a bunch of undocumented experiments for now, but we’re getting somewhere.
+So the goal is simple: find the token we need to update, update them, and throw all that CSS to the browser and CSSOM. We’re getting there :)
+
+> i started a small repo with my experiments: [https://github.com/pagedjs/pagedjs-cssom](), feel free to look at those files, but let’s be honest, it’s a bunch of undocumented experiments for now, but we’re getting somewhere.
 
 I hope to have some things to show very quickly.
 
