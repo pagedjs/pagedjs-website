@@ -4,11 +4,27 @@
   <subtitle>the latest news from paged.js and web2print development</subtitle>
   <link href="https://pagedjs.org/feed.xml" rel="self" />
   <link href="https://pagedjs.org/" />
-  <updated>2025-09-16T00:00:00Z</updated>
+  <updated>2025-10-16T00:00:00Z</updated>
   <id>https://pagedjs.org/</id>
   <author>
     <name>@julientaq</name>
   </author>
+  <entry>
+    <title>Documenting the update of the documentation</title>
+    <link href="https://pagedjs.org/posts/en/documenting-the-update-of-the-documentation/" />
+    <updated>2025-10-16T00:00:00Z</updated>
+    <id>https://pagedjs.org/posts/en/documenting-the-update-of-the-documentation/</id>
+    <content type="html">&lt;p&gt;Folks, today is a big day.&lt;/p&gt;
+&lt;p&gt;We managed to put some time into making a real developper’s documentation using &lt;code&gt;jsdocs&lt;/code&gt; comments directly inside the code.&lt;/p&gt;
+&lt;p&gt;As you may have seen, we now have an updated &lt;a href=&quot;https://11ty.dev&quot;&gt;eleventy&lt;/a&gt; with a great multilang setup. Where we can switch from one lang to another, and we can actually get new languages quite easily.&lt;/p&gt;
+&lt;p&gt;And better, we have a setup that will let you add issues, and commits to help us translate (which is, i think, one of the best contribution a project can get.)&lt;/p&gt;
+&lt;p&gt;On the developper’s world, i spent some time adding some &lt;code&gt;jsdocs&lt;/code&gt; comments to paged.js and setup the script to generate the new documentation pages when a feature is added.&lt;/p&gt;
+&lt;p&gt;It’s not perfect yet (as Fred needs to read the exising docs to make sure the comments make sense), but the whole mechanism exists, and it’s really cool to see it working that way. &lt;a href=&quot;https://pagedjs.org/devdocs/&quot;&gt;wink wink&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;If you want to contribute, you can actually join us, fork the repo and add features and comments to the code.&lt;/p&gt;
+&lt;p&gt;I’ll come back very soon with some news about Paged.js work around CSS parsing.&lt;/p&gt;
+&lt;p&gt;talk soon!&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>Kickstarting the next iteration of Paged.js </title>
     <link href="https://pagedjs.org/posts/en/kickstarting-the-next-iteration-of-paged.js/" />

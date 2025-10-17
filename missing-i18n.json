@@ -299,6 +299,14 @@
     ]},
 
     {
+    "src": "./src/content/en/journal/2025-10-13-pagedjs-docs-update.md",
+    "link": "/posts/en/documenting-the-update-of-the-documentation/",
+    "unit": "Documenting the update of the documentation",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
     "src": "./src/content/en/examples/cetf.md",
     
     "unit": "C & F Éditions",
