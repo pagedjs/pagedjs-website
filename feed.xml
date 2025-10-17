@@ -26,6 +26,23 @@
 </content>
   </entry>
   <entry>
+    <title>En documentant la mise à jour de la documentation</title>
+    <link href="https://pagedjs.org/posts/fr/en-documentant-la-mise-a-jour-de-la-documentation/" />
+    <updated>2025-10-16T00:00:00Z</updated>
+    <id>https://pagedjs.org/posts/fr/en-documentant-la-mise-a-jour-de-la-documentation/</id>
+    <content type="html">&lt;p&gt;Aujourd&#39;hui est un grand jour.&lt;/p&gt;
+&lt;p&gt;D’abord parce que c’est un vendredi et que demain, c’est week-end.&lt;/p&gt;
+&lt;p&gt;Ensuite par ce qu’on a pu avancé sur les questions de documentation de paged.js&lt;/p&gt;
+&lt;p&gt;Mais une chose à la fois.&lt;/p&gt;
+&lt;p&gt;Comme vous l&#39;avez peut-être vu, nous avons maintenant une mise à jour du site fait avec &lt;a href=&quot;https://11ty.dev&quot;&gt;eleventy&lt;/a&gt; (&lt;em&gt;mais c’est tellement bien 11ty&lt;/em&gt;), qui est maintenant configuré pour faire du multi langues.&lt;/p&gt;
+&lt;p&gt;Pour l’instant on écrit en français et en anglais par ce que c’est ce qu’on connaît, mais il est très simple de rajouter d’autres langues à la volée et si vous voulez participer, contacter nous &lt;a href=&quot;https://pagedjs.org/posts/fr/en-documentant-la-mise-a-jour-de-la-documentation/&quot;&gt;contact@pagedjs.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Pour nos amis développeurs, j&#39;ai passé un moment pour ajouter des commentaires &lt;code&gt;jsdocs&lt;/code&gt; à paged.js. Et à configurer le script pour générer une mise à jour de la documentation quand une fonctionnalité est ajoutée.&lt;/p&gt;
+&lt;p&gt;C’est pas encore parfait (j’attends que Fred puisse lire mes lignes pour s&#39;assurer ensemble que je ne raconte pas n’importe quoi dans les parties les plus obscures du code), mais tout le mécanisme existe. &lt;a href=&quot;https://pagedjs.org/devdocs/&quot;&gt;clin d’œil&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Si vous voulez contribuer, vous pouvez nous rejoindre sur le github, ou nous envoyer un mail (&lt;a href=&quot;mailto:contact@pagedjs.org&quot;&gt;contact@pagedjs.org&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;À très vite.&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
     <title>Kickstarting the next iteration of Paged.js </title>
     <link href="https://pagedjs.org/posts/en/kickstarting-the-next-iteration-of-paged.js/" />
     <updated>2025-09-16T00:00:00Z</updated>
