@@ -107,5 +107,13 @@ Talk very soon with hopefully happy news :)
 
 Oh, and i almost forgot: we’re releasing the multi-flows script we made for the EPE project that i talked about here: [https://pagedjs.org/posts/en/parallel-flows-within-paged.js/]()
 
+Oh and another side node: the path toward a better documentation is underway: the whole mecanism for multilang is now done on the website AND we  have a working jsdoc documentation export running directly from the code, and then we make it available on the site (after a quick overview of an human being).
+
+[wink wink](/devdocs)
+
+
 
 i’ll talk to you in 2 weeks :)
+
+
+
