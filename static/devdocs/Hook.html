@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Class: Hook</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Class: Hook</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2><span class="attribs"><span class="type-signature"></span></span>Hook<span class="signature">(context)</span><span class="type-signature"></span></h2>
+        
+            <div class="class-description"><p>Hooks allow for injecting functions that must all complete in order before finishing
+They will execute in parallel but all must finish before continuing
+Functions may return a promise if they are asycn.
+From epubjs/src/utils/hooks</p></div>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+    
+    <h2>Constructor</h2>
+    
+
+    
+    <h4 class="name" id="Hook"><span class="type-signature"></span>new Hook<span class="signature">(context)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>context</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">any</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>scope of this</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="utils_hook.js.html">utils/hook.js</a>, <a href="utils_hook.js.html#line9">line 9</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>this.content = new Hook(this);</code></pre>
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="register"><span class="type-signature"></span>register<span class="signature">()</span><span class="type-signature"> &rarr; {undefined}</span></h4>
+    
+
+    
+    <p class="summary"><p>Adds a function to be run before a hook completes</p>.</p>
+    
+
+
+
+<div class="description">
+    <p>Adds a function to be run before a hook completes</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="utils_hook.js.html">utils/hook.js</a>, <a href="utils_hook.js.html#line20">line 20</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>void</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">undefined</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>this.content.register(function(){...});</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="trigger"><span class="type-signature"></span>trigger<span class="signature">()</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    
+
+    
+    <p class="summary"><p>Triggers a hook to run all functions</p>.</p>
+    
+
+
+
+<div class="description">
+    <p>Triggers a hook to run all functions</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="utils_hook.js.html">utils/hook.js</a>, <a href="utils_hook.js.html#line38">line 38</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>results</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>this.content.trigger(args).then(function(){...});</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="triggerSync"><span class="type-signature"></span>triggerSync<span class="signature">()</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+    <p class="summary"><p>Triggers a hook to run all functions synchronously</p>.</p>
+    
+
+
+
+<div class="description">
+    <p>Triggers a hook to run all functions synchronously</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="utils_hook.js.html">utils/hook.js</a>, <a href="utils_hook.js.html#line66">line 66</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>results</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>this.content.trigger(args).then(function(){...});</code></pre>
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="a%2520js%2520object%2520that%2520defines%2520the%2520default%2520files%2520size%2520from%2520__%2520https___www.w3.org_TR_css3-page__module_page-size-prop.html">page-size-prop</a></li><li><a href="module-the%2520default%2520css%2520for%2520pagedjs.html">the default css for pagedjs</a></li><li><a href="tests_chunker.test.module_js.html">tests/chunker.test.js</a></li></ul><h3>Classes</h3><ul><li><a href="AtPage.html">AtPage</a></li><li><a href="BreakToken.html">BreakToken</a></li><li><a href="Breaks.html">Breaks</a></li><li><a href="Chunker.html">Chunker</a></li><li><a href="CommentsFilter.html">CommentsFilter</a></li><li><a href="ContentParser.html">ContentParser</a></li><li><a href="Counters.html">Counters</a></li><li><a href="Following.html">Following</a></li><li><a href="Footnotes.html">Footnotes</a></li><li><a href="Handlers.html">Handlers</a></li><li><a href="Hook.html">Hook</a></li><li><a href="Layout.html">Layout</a></li><li><a href="Lists.html">Lists</a></li><li><a href="NthOfType.html">NthOfType</a></li><li><a href="Overflow.html">Overflow</a></li><li><a href="OverflowContentError.html">OverflowContentError</a></li><li><a href="Page.html">Page</a></li><li><a href="PageCounterIncrement.html">PageCounterIncrement</a></li><li><a href="Polisher.html">Polisher</a></li><li><a href="PositionFixed.html">PositionFixed</a></li><li><a href="Previewer.html">Previewer</a></li><li><a href="PrintMedia.html">PrintMedia</a></li><li><a href="Queue.html">Queue</a></li><li><a href="RenderResult.html">RenderResult</a></li><li><a href="RunningHeaders.html">RunningHeaders</a></li><li><a href="ScriptsFilter.html">ScriptsFilter</a></li><li><a href="Sheet.html">Sheet</a></li><li><a href="Splits.html">Splits</a></li><li><a href="StringSets.html">StringSets</a></li><li><a href="TargetCounters.html">TargetCounters</a></li><li><a href="UndisplayedFilter.html">UndisplayedFilter</a></li><li><a href="WhiteSpaceFilter.html">WhiteSpaceFilter</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CSSValueToString">CSSValueToString</a></li><li><a href="global.html#Paged">Paged</a></li><li><a href="global.html#UUID">UUID</a></li><li><a href="global.html#attr">attr</a></li><li><a href="global.html#breakInsideAvoidParentNode">breakInsideAvoidParentNode</a></li><li><a href="global.html#child">child</a></li><li><a href="global.html#cleanPseudoContent">cleanPseudoContent</a></li><li><a href="global.html#cleanSelector">cleanSelector</a></li><li><a href="global.html#cloneNode">cloneNode</a></li><li><a href="global.html#cloneNodeAncestor">cloneNodeAncestor</a></li><li><a href="global.html#config">config</a></li><li><a href="global.html#copyWidth">copyWidth</a></li><li><a href="global.html#defer">defer</a></li><li><a href="global.html#displayedElementAfter">displayedElementAfter</a></li><li><a href="global.html#displayedElementBefore">displayedElementBefore</a></li><li><a href="global.html#elementAfter">elementAfter</a></li><li><a href="global.html#elementBefore">elementBefore</a></li><li><a href="global.html#filterTree">filterTree</a></li><li><a href="global.html#findCssSelector">findCssSelector</a></li><li><a href="global.html#findElement">findElement</a></li><li><a href="global.html#findRef">findRef</a></li><li><a href="global.html#getBoundingClientRect">getBoundingClientRect</a></li><li><a href="global.html#getClientRects">getClientRects</a></li><li><a href="global.html#getNodeWithNamedPage">getNodeWithNamedPage</a></li><li><a href="global.html#hasContent">hasContent</a></li><li><a href="global.html#hasTextContent">hasTextContent</a></li><li><a href="global.html#inIndexOfRefs">inIndexOfRefs</a></li><li><a href="global.html#indexOf">indexOf</a></li><li><a href="global.html#indexOfTextNode">indexOfTextNode</a></li><li><a href="global.html#initializeHandlers">initializeHandlers</a></li><li><a href="global.html#isAllWhitespace">isAllWhitespace</a></li><li><a href="global.html#isContainer">isContainer</a></li><li><a href="global.html#isElement">isElement</a></li><li><a href="global.html#isIgnorable">isIgnorable</a></li><li><a href="global.html#isText">isText</a></li><li><a href="global.html#isVisible">isVisible</a></li><li><a href="global.html#letters">letters</a></li><li><a href="global.html#needsBreakAfter">needsBreakAfter</a></li><li><a href="global.html#needsBreakBefore">needsBreakBefore</a></li><li><a href="global.html#needsPageBreak">needsPageBreak</a></li><li><a href="global.html#needsPreviousBreakAfter">needsPreviousBreakAfter</a></li><li><a href="global.html#nextSignificantNode">nextSignificantNode</a></li><li><a href="global.html#nextValidNode">nextValidNode</a></li><li><a href="global.html#nodeAfter">nodeAfter</a></li><li><a href="global.html#nodeBefore">nodeBefore</a></li><li><a href="global.html#parentOf">parentOf</a></li><li><a href="global.html#positionInNodeList">positionInNodeList</a></li><li><a href="global.html#prevValidNode">prevValidNode</a></li><li><a href="global.html#previewer">previewer</a></li><li><a href="global.html#previousSignificantNode">previousSignificantNode</a></li><li><a href="global.html#querySelectorEscape">querySelectorEscape</a></li><li><a href="global.html#ready">ready</a></li><li><a href="global.html#rebuildAncestors">rebuildAncestors</a></li><li><a href="global.html#rebuildTableRow">rebuildTableRow</a></li><li><a href="global.html#rebuildTree">rebuildTree</a></li><li><a href="global.html#registerHandlers">registerHandlers</a></li><li><a href="global.html#registeredHandlers">registeredHandlers</a></li><li><a href="global.html#replaceOrAppendElement">replaceOrAppendElement</a></li><li><a href="global.html#requestIdleCallback">requestIdleCallback</a></li><li><a href="global.html#setSplit">setSplit</a></li><li><a href="global.html#stackChildren">stackChildren</a></li><li><a href="global.html#validNode">validNode</a></li><li><a href="global.html#walk">walk</a></li><li><a href="global.html#words">words</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Fri Oct 17 2025 11:16:57 GMT+0200 (Central European Summer Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

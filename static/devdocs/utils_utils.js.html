@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: utils/utils.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: utils/utils.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Gets the bounding client rectangle of an element.
+ * Falls back to using Range if element.getBoundingClientRect is undefined.
+ *
+ * @param {Element} element - The DOM element to get the bounding rectangle for.
+ * @returns {DOMRect | undefined} The bounding client rectangle or undefined if no element.
+ */
+export function getBoundingClientRect(element) {
+	if (!element) {
+		return;
+	}
+	let rect;
+	if (typeof element.getBoundingClientRect !== "undefined") {
+		rect = element.getBoundingClientRect();
+	} else {
+		let range = document.createRange();
+		range.selectNode(element);
+		rect = range.getBoundingClientRect();
+	}
+	return rect;
+}
+
+/**
+ * Gets the client rectangles of an element.
+ * Falls back to using Range if element.getClientRects is undefined.
+ *
+ * @param {Element} element - The DOM element to get client rectangles for.
+ * @returns {DOMRectList | undefined} The client rectangles or undefined if no element.
+ */
+export function getClientRects(element) {
+	if (!element) {
+		return;
+	}
+	let rect;
+	if (typeof element.getClientRects !== "undefined") {
+		rect = element.getClientRects();
+	} else {
+		let range = document.createRange();
+		range.selectNode(element);
+		rect = range.getClientRects();
+	}
+	return rect;
+}
+
+/**
+ * Generates a UUID (version 4).
+ * Based on: http://stackoverflow.com/questions/105034/how-to-create-a-guid-uuid-in-javascript
+ *
+ * @returns {string} A UUID string.
+ */
+export function UUID() {
+	var d = new Date().getTime();
+	if (
+		typeof performance !== "undefined" &amp;&amp;
+		typeof performance.now === "function"
+	) {
+		d += performance.now(); //use high-precision timer if available
+	}
+	return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
+		var r = (d + Math.random() * 16) % 16 | 0;
+		d = Math.floor(d / 16);
+		return (c === "x" ? r : (r &amp; 0x3) | 0x8).toString(16);
+	});
+}
+
+/**
+ * Find the position of an element in a NodeList.
+ *
+ * @param {Element} element - The element to find.
+ * @param {NodeList} nodeList - The NodeList to search within.
+ * @returns {number} The index of the element in the NodeList, or -1 if not found.
+ */
+export function positionInNodeList(element, nodeList) {
+	for (let i = 0; i &lt; nodeList.length; i++) {
+		if (element === nodeList[i]) {
+			return i;
+		}
+	}
+	return -1;
+}
+
+/**
+ * Finds a unique CSS selector for a given element.
+ * The selector is unique within the element's document.
+ *
+ * @param {Element} ele - The element to find a selector for.
+ * @returns {string} A unique CSS selector string.
+ */
+export function findCssSelector(ele) {
+	let document = ele.ownerDocument;
+
+	let cssEscape = window.CSS.escape;
+
+	if (
+		ele.id &amp;&amp;
+		document.querySelectorAll("#" + cssEscape(ele.id)).length === 1
+	) {
+		return "#" + cssEscape(ele.id);
+	}
+
+	let tagName = ele.localName;
+	if (tagName === "html") {
+		return "html";
+	}
+	if (tagName === "head") {
+		return "head";
+	}
+	if (tagName === "body") {
+		return "body";
+	}
+
+	let selector, index, matches;
+	if (ele.classList.length > 0) {
+		for (let i = 0; i &lt; ele.classList.length; i++) {
+			selector = "." + cssEscape(ele.classList.item(i));
+			matches = document.querySelectorAll(selector);
+			if (matches.length === 1) {
+				return selector;
+			}
+			selector = cssEscape(tagName) + selector;
+			matches = document.querySelectorAll(selector);
+			if (matches.length === 1) {
+				return selector;
+			}
+			index = positionInNodeList(ele, ele.parentNode.children) + 1;
+			selector = selector + ":nth-child(" + index + ")";
+			matches = document.querySelectorAll(selector);
+			if (matches.length === 1) {
+				return selector;
+			}
+		}
+	}
+
+	if (ele.parentNode !== document &amp;&amp; ele.parentNode.nodeType === 1) {
+		index = positionInNodeList(ele, ele.parentNode.children) + 1;
+		selector =
+			findCssSelector(ele.parentNode) +
+			" > " +
+			cssEscape(tagName) +
+			":nth-child(" +
+			index +
+			")";
+	}
+
+	return selector;
+}
+
+/**
+ * Returns the value of the first attribute found from the given list on the element.
+ *
+ * @param {Element} element - The element to check attributes on.
+ * @param {string[]} attributes - Array of attribute names to look for.
+ * @returns {string | null | undefined} The attribute value, or undefined if none found.
+ */
+export function attr(element, attributes) {
+	for (var i = 0; i &lt; attributes.length; i++) {
+		if (element.hasAttribute(attributes[i])) {
+			return element.getAttribute(attributes[i]);
+		}
+	}
+}
+
+/**
+ * Escapes a string for use in a CSS selector.
+ * Allows # and . characters.
+ *
+ * @param {string} value - The string to escape.
+ * @returns {string} The escaped string.
+ * @throws {TypeError} If no argument is provided.
+ */
+export function querySelectorEscape(value) {
+	if (arguments.length == 0) {
+		throw new TypeError("`CSS.escape` requires an argument.");
+	}
+	var string = String(value);
+
+	var length = string.length;
+	var index = -1;
+	var codeUnit;
+	var result = "";
+	var firstCodeUnit = string.charCodeAt(0);
+	while (++index &lt; length) {
+		codeUnit = string.charCodeAt(index);
+
+		if (codeUnit == 0x0000) {
+			result += "\uFFFD";
+			continue;
+		}
+
+		if (
+			(codeUnit >= 0x0001 &amp;&amp; codeUnit &lt;= 0x001f) ||
+			codeUnit == 0x007f ||
+			(index == 0 &amp;&amp; codeUnit >= 0x0030 &amp;&amp; codeUnit &lt;= 0x0039) ||
+			(index == 1 &amp;&amp;
+				codeUnit >= 0x0030 &amp;&amp;
+				codeUnit &lt;= 0x0039 &amp;&amp;
+				firstCodeUnit == 0x002d)
+		) {
+			result += "\\" + codeUnit.toString(16) + " ";
+			continue;
+		}
+
+		if (index == 0 &amp;&amp; length == 1 &amp;&amp; codeUnit == 0x002d) {
+			result += "\\" + string.charAt(index);
+			continue;
+		}
+
+		if (codeUnit == 0x002e) {
+			if (string.charAt(0) == "#") {
+				result += "\\.";
+				continue;
+			}
+		}
+
+		if (
+			codeUnit >= 0x0080 ||
+			codeUnit == 0x002d ||
+			codeUnit == 0x005f ||
+			codeUnit == 35 || // Allow #
+			codeUnit == 46 || // Allow .
+			(codeUnit >= 0x0030 &amp;&amp; codeUnit &lt;= 0x0039) ||
+			(codeUnit >= 0x0041 &amp;&amp; codeUnit &lt;= 0x005a) ||
+			(codeUnit >= 0x0061 &amp;&amp; codeUnit &lt;= 0x007a)
+		) {
+			result += string.charAt(index);
+			continue;
+		}
+
+		result += "\\" + string.charAt(index);
+	}
+	return result;
+}
+
+/**
+ * Creates a deferred object with promise, resolve, and reject.
+ *
+ * @returns {object} Deferred object with properties:
+ *   - promise: {Promise} The promise object.
+ *   - resolve: {function} Function to resolve the promise.
+ *   - reject: {function} Function to reject the promise.
+ *   - id: {string} Unique identifier.
+ */
+export function defer() {
+	this.resolve = null;
+	this.reject = null;
+	this.id = UUID();
+
+	this.promise = new Promise((resolve, reject) => {
+		this.resolve = resolve;
+		this.reject = reject;
+	});
+	Object.freeze(this);
+}
+
+/**
+ * Uses requestIdleCallback if available, otherwise falls back to requestAnimationFrame.
+ */
+export const requestIdleCallback =
+	typeof window !== "undefined" &amp;&amp;
+	("requestIdleCallback" in window
+		? window.requestIdleCallback
+		: window.requestAnimationFrame);
+
+/**
+ * Converts a CSSValue object to a string representation.
+ *
+ * @param {Object} obj - The CSSValue object.
+ * @returns {string} The combined CSS value and unit string.
+ */
+export function CSSValueToString(obj) {
+	return obj.value + (obj.unit || "");
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="a%2520js%2520object%2520that%2520defines%2520the%2520default%2520files%2520size%2520from%2520__%2520https___www.w3.org_TR_css3-page__module_page-size-prop.html">page-size-prop</a></li><li><a href="module-the%2520default%2520css%2520for%2520pagedjs.html">the default css for pagedjs</a></li><li><a href="tests_chunker.test.module_js.html">tests/chunker.test.js</a></li></ul><h3>Classes</h3><ul><li><a href="AtPage.html">AtPage</a></li><li><a href="BreakToken.html">BreakToken</a></li><li><a href="Breaks.html">Breaks</a></li><li><a href="Chunker.html">Chunker</a></li><li><a href="CommentsFilter.html">CommentsFilter</a></li><li><a href="ContentParser.html">ContentParser</a></li><li><a href="Counters.html">Counters</a></li><li><a href="Following.html">Following</a></li><li><a href="Footnotes.html">Footnotes</a></li><li><a href="Handlers.html">Handlers</a></li><li><a href="Hook.html">Hook</a></li><li><a href="Layout.html">Layout</a></li><li><a href="Lists.html">Lists</a></li><li><a href="NthOfType.html">NthOfType</a></li><li><a href="Overflow.html">Overflow</a></li><li><a href="OverflowContentError.html">OverflowContentError</a></li><li><a href="Page.html">Page</a></li><li><a href="PageCounterIncrement.html">PageCounterIncrement</a></li><li><a href="Polisher.html">Polisher</a></li><li><a href="PositionFixed.html">PositionFixed</a></li><li><a href="Previewer.html">Previewer</a></li><li><a href="PrintMedia.html">PrintMedia</a></li><li><a href="Queue.html">Queue</a></li><li><a href="RenderResult.html">RenderResult</a></li><li><a href="RunningHeaders.html">RunningHeaders</a></li><li><a href="ScriptsFilter.html">ScriptsFilter</a></li><li><a href="Sheet.html">Sheet</a></li><li><a href="Splits.html">Splits</a></li><li><a href="StringSets.html">StringSets</a></li><li><a href="TargetCounters.html">TargetCounters</a></li><li><a href="UndisplayedFilter.html">UndisplayedFilter</a></li><li><a href="WhiteSpaceFilter.html">WhiteSpaceFilter</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CSSValueToString">CSSValueToString</a></li><li><a href="global.html#Paged">Paged</a></li><li><a href="global.html#UUID">UUID</a></li><li><a href="global.html#attr">attr</a></li><li><a href="global.html#breakInsideAvoidParentNode">breakInsideAvoidParentNode</a></li><li><a href="global.html#child">child</a></li><li><a href="global.html#cleanPseudoContent">cleanPseudoContent</a></li><li><a href="global.html#cleanSelector">cleanSelector</a></li><li><a href="global.html#cloneNode">cloneNode</a></li><li><a href="global.html#cloneNodeAncestor">cloneNodeAncestor</a></li><li><a href="global.html#config">config</a></li><li><a href="global.html#copyWidth">copyWidth</a></li><li><a href="global.html#defer">defer</a></li><li><a href="global.html#displayedElementAfter">displayedElementAfter</a></li><li><a href="global.html#displayedElementBefore">displayedElementBefore</a></li><li><a href="global.html#elementAfter">elementAfter</a></li><li><a href="global.html#elementBefore">elementBefore</a></li><li><a href="global.html#filterTree">filterTree</a></li><li><a href="global.html#findCssSelector">findCssSelector</a></li><li><a href="global.html#findElement">findElement</a></li><li><a href="global.html#findRef">findRef</a></li><li><a href="global.html#getBoundingClientRect">getBoundingClientRect</a></li><li><a href="global.html#getClientRects">getClientRects</a></li><li><a href="global.html#getNodeWithNamedPage">getNodeWithNamedPage</a></li><li><a href="global.html#hasContent">hasContent</a></li><li><a href="global.html#hasTextContent">hasTextContent</a></li><li><a href="global.html#inIndexOfRefs">inIndexOfRefs</a></li><li><a href="global.html#indexOf">indexOf</a></li><li><a href="global.html#indexOfTextNode">indexOfTextNode</a></li><li><a href="global.html#initializeHandlers">initializeHandlers</a></li><li><a href="global.html#isAllWhitespace">isAllWhitespace</a></li><li><a href="global.html#isContainer">isContainer</a></li><li><a href="global.html#isElement">isElement</a></li><li><a href="global.html#isIgnorable">isIgnorable</a></li><li><a href="global.html#isText">isText</a></li><li><a href="global.html#isVisible">isVisible</a></li><li><a href="global.html#letters">letters</a></li><li><a href="global.html#needsBreakAfter">needsBreakAfter</a></li><li><a href="global.html#needsBreakBefore">needsBreakBefore</a></li><li><a href="global.html#needsPageBreak">needsPageBreak</a></li><li><a href="global.html#needsPreviousBreakAfter">needsPreviousBreakAfter</a></li><li><a href="global.html#nextSignificantNode">nextSignificantNode</a></li><li><a href="global.html#nextValidNode">nextValidNode</a></li><li><a href="global.html#nodeAfter">nodeAfter</a></li><li><a href="global.html#nodeBefore">nodeBefore</a></li><li><a href="global.html#parentOf">parentOf</a></li><li><a href="global.html#positionInNodeList">positionInNodeList</a></li><li><a href="global.html#prevValidNode">prevValidNode</a></li><li><a href="global.html#previewer">previewer</a></li><li><a href="global.html#previousSignificantNode">previousSignificantNode</a></li><li><a href="global.html#querySelectorEscape">querySelectorEscape</a></li><li><a href="global.html#ready">ready</a></li><li><a href="global.html#rebuildAncestors">rebuildAncestors</a></li><li><a href="global.html#rebuildTableRow">rebuildTableRow</a></li><li><a href="global.html#rebuildTree">rebuildTree</a></li><li><a href="global.html#registerHandlers">registerHandlers</a></li><li><a href="global.html#registeredHandlers">registeredHandlers</a></li><li><a href="global.html#replaceOrAppendElement">replaceOrAppendElement</a></li><li><a href="global.html#requestIdleCallback">requestIdleCallback</a></li><li><a href="global.html#setSplit">setSplit</a></li><li><a href="global.html#stackChildren">stackChildren</a></li><li><a href="global.html#validNode">validNode</a></li><li><a href="global.html#walk">walk</a></li><li><a href="global.html#words">words</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Fri Oct 17 2025 11:16:57 GMT+0200 (Central European Summer Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

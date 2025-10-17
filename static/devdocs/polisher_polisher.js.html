@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: polisher/polisher.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: polisher/polisher.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import Sheet from "./sheet.js";
+import baseStyles from "./base.js";
+import Hook from "../utils/hook.js";
+import request from "../utils/request.js";
+
+/**
+ * The Polisher class handles the parsing and insertion of CSS stylesheets,
+ * including remote resources and special hooks for processing CSS content.
+ */
+class Polisher {
+	/**
+	 * Creates a new Polisher instance.
+	 * @param {boolean} [setup=true] - Whether to immediately run setup.
+	 */
+	constructor(setup) {
+		/** @type {Sheet[]} */
+		this.sheets = [];
+
+		/** @type {HTMLStyleElement[]} */
+		this.inserted = [];
+
+		/** @type {Object&lt;string, Hook>} */
+		this.hooks = {};
+		this.hooks.onUrl = new Hook(this);
+		this.hooks.onAtPage = new Hook(this);
+		this.hooks.onAtMedia = new Hook(this);
+		this.hooks.onRule = new Hook(this);
+		this.hooks.onDeclaration = new Hook(this);
+		this.hooks.onContent = new Hook(this);
+		this.hooks.onSelector = new Hook(this);
+		this.hooks.onPseudoSelector = new Hook(this);
+		this.hooks.onImport = new Hook(this);
+		this.hooks.beforeTreeParse = new Hook(this);
+		this.hooks.beforeTreeWalk = new Hook(this);
+		this.hooks.afterTreeWalk = new Hook(this);
+
+		if (setup !== false) {
+			this.setup();
+		}
+	}
+
+	/**
+	 * Sets up the base stylesheet and injects a &lt;style> element into the document head.
+	 * @returns {CSSStyleSheet} - The created stylesheet object.
+	 */
+	setup() {
+		this.base = this.insert(baseStyles);
+		this.styleEl = document.createElement("style");
+		document.head.appendChild(this.styleEl);
+		this.styleSheet = this.styleEl.sheet;
+		return this.styleSheet;
+	}
+
+	/**
+	 * Adds and processes one or more CSS sources (URLs or inline CSS).
+	 * @param {...(string|Object&lt;string, string>)} sources - URLs or object maps of URLs to CSS strings.
+	 * @returns {Promise&lt;string>} - The final processed CSS text.
+	 */
+	async add(...sources) {
+		let fetched = [];
+		let urls = [];
+
+		for (let source of sources) {
+			let f;
+
+			if (typeof source === "object") {
+				for (let url in source) {
+					let css = source[url];
+					urls.push(url);
+					f = Promise.resolve(css);
+				}
+			} else {
+				urls.push(source);
+				f = request(source).then((response) => response.text());
+			}
+
+			fetched.push(f);
+		}
+
+		return await Promise.all(fetched).then(async (originals) => {
+			let text = "";
+			for (let index = 0; index &lt; originals.length; index++) {
+				text = await this.convertViaSheet(originals[index], urls[index]);
+				this.insert(text);
+			}
+			return text;
+		});
+	}
+
+	/**
+	 * Converts raw CSS into a Sheet object, parses it, handles imports,
+	 * and returns the processed CSS string.
+	 * @param {string} cssStr - The raw CSS string.
+	 * @param {string} href - The source URL for the CSS.
+	 * @returns {Promise&lt;string>} - The processed CSS text.
+	 */
+	async convertViaSheet(cssStr, href) {
+		let sheet = new Sheet(href, this.hooks);
+		await sheet.parse(cssStr);
+
+		// Handle @imported styles recursively
+		for (let url of sheet.imported) {
+			let str = await request(url).then((response) => response.text());
+			let text = await this.convertViaSheet(str, url);
+			this.insert(text);
+		}
+
+		this.sheets.push(sheet);
+
+		if (typeof sheet.width !== "undefined") {
+			this.width = sheet.width;
+		}
+		if (typeof sheet.height !== "undefined") {
+			this.height = sheet.height;
+		}
+		if (typeof sheet.orientation !== "undefined") {
+			this.orientation = sheet.orientation;
+		}
+
+		return sheet.toString();
+	}
+
+	/**
+	 * Inserts a CSS string into the document inside a &lt;style> tag.
+	 * @param {string} text - The CSS to insert.
+	 * @returns {HTMLStyleElement} - The created style element.
+	 */
+	insert(text) {
+		let head = document.querySelector("head");
+		let style = document.createElement("style");
+		style.setAttribute("data-pagedjs-inserted-styles", "true");
+		style.appendChild(document.createTextNode(text));
+		head.appendChild(style);
+		this.inserted.push(style);
+		return style;
+	}
+
+	/**
+	 * Cleans up all inserted styles and resets the polisher.
+	 */
+	destroy() {
+		this.styleEl.remove();
+		this.inserted.forEach((s) => {
+			s.remove();
+		});
+		this.sheets = [];
+	}
+}
+
+export default Polisher;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="a%2520js%2520object%2520that%2520defines%2520the%2520default%2520files%2520size%2520from%2520__%2520https___www.w3.org_TR_css3-page__module_page-size-prop.html">page-size-prop</a></li><li><a href="module-the%2520default%2520css%2520for%2520pagedjs.html">the default css for pagedjs</a></li><li><a href="tests_chunker.test.module_js.html">tests/chunker.test.js</a></li></ul><h3>Classes</h3><ul><li><a href="AtPage.html">AtPage</a></li><li><a href="BreakToken.html">BreakToken</a></li><li><a href="Breaks.html">Breaks</a></li><li><a href="Chunker.html">Chunker</a></li><li><a href="CommentsFilter.html">CommentsFilter</a></li><li><a href="ContentParser.html">ContentParser</a></li><li><a href="Counters.html">Counters</a></li><li><a href="Following.html">Following</a></li><li><a href="Footnotes.html">Footnotes</a></li><li><a href="Handlers.html">Handlers</a></li><li><a href="Hook.html">Hook</a></li><li><a href="Layout.html">Layout</a></li><li><a href="Lists.html">Lists</a></li><li><a href="NthOfType.html">NthOfType</a></li><li><a href="Overflow.html">Overflow</a></li><li><a href="OverflowContentError.html">OverflowContentError</a></li><li><a href="Page.html">Page</a></li><li><a href="PageCounterIncrement.html">PageCounterIncrement</a></li><li><a href="Polisher.html">Polisher</a></li><li><a href="PositionFixed.html">PositionFixed</a></li><li><a href="Previewer.html">Previewer</a></li><li><a href="PrintMedia.html">PrintMedia</a></li><li><a href="Queue.html">Queue</a></li><li><a href="RenderResult.html">RenderResult</a></li><li><a href="RunningHeaders.html">RunningHeaders</a></li><li><a href="ScriptsFilter.html">ScriptsFilter</a></li><li><a href="Sheet.html">Sheet</a></li><li><a href="Splits.html">Splits</a></li><li><a href="StringSets.html">StringSets</a></li><li><a href="TargetCounters.html">TargetCounters</a></li><li><a href="UndisplayedFilter.html">UndisplayedFilter</a></li><li><a href="WhiteSpaceFilter.html">WhiteSpaceFilter</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CSSValueToString">CSSValueToString</a></li><li><a href="global.html#Paged">Paged</a></li><li><a href="global.html#UUID">UUID</a></li><li><a href="global.html#attr">attr</a></li><li><a href="global.html#breakInsideAvoidParentNode">breakInsideAvoidParentNode</a></li><li><a href="global.html#child">child</a></li><li><a href="global.html#cleanPseudoContent">cleanPseudoContent</a></li><li><a href="global.html#cleanSelector">cleanSelector</a></li><li><a href="global.html#cloneNode">cloneNode</a></li><li><a href="global.html#cloneNodeAncestor">cloneNodeAncestor</a></li><li><a href="global.html#config">config</a></li><li><a href="global.html#copyWidth">copyWidth</a></li><li><a href="global.html#defer">defer</a></li><li><a href="global.html#displayedElementAfter">displayedElementAfter</a></li><li><a href="global.html#displayedElementBefore">displayedElementBefore</a></li><li><a href="global.html#elementAfter">elementAfter</a></li><li><a href="global.html#elementBefore">elementBefore</a></li><li><a href="global.html#filterTree">filterTree</a></li><li><a href="global.html#findCssSelector">findCssSelector</a></li><li><a href="global.html#findElement">findElement</a></li><li><a href="global.html#findRef">findRef</a></li><li><a href="global.html#getBoundingClientRect">getBoundingClientRect</a></li><li><a href="global.html#getClientRects">getClientRects</a></li><li><a href="global.html#getNodeWithNamedPage">getNodeWithNamedPage</a></li><li><a href="global.html#hasContent">hasContent</a></li><li><a href="global.html#hasTextContent">hasTextContent</a></li><li><a href="global.html#inIndexOfRefs">inIndexOfRefs</a></li><li><a href="global.html#indexOf">indexOf</a></li><li><a href="global.html#indexOfTextNode">indexOfTextNode</a></li><li><a href="global.html#initializeHandlers">initializeHandlers</a></li><li><a href="global.html#isAllWhitespace">isAllWhitespace</a></li><li><a href="global.html#isContainer">isContainer</a></li><li><a href="global.html#isElement">isElement</a></li><li><a href="global.html#isIgnorable">isIgnorable</a></li><li><a href="global.html#isText">isText</a></li><li><a href="global.html#isVisible">isVisible</a></li><li><a href="global.html#letters">letters</a></li><li><a href="global.html#needsBreakAfter">needsBreakAfter</a></li><li><a href="global.html#needsBreakBefore">needsBreakBefore</a></li><li><a href="global.html#needsPageBreak">needsPageBreak</a></li><li><a href="global.html#needsPreviousBreakAfter">needsPreviousBreakAfter</a></li><li><a href="global.html#nextSignificantNode">nextSignificantNode</a></li><li><a href="global.html#nextValidNode">nextValidNode</a></li><li><a href="global.html#nodeAfter">nodeAfter</a></li><li><a href="global.html#nodeBefore">nodeBefore</a></li><li><a href="global.html#parentOf">parentOf</a></li><li><a href="global.html#positionInNodeList">positionInNodeList</a></li><li><a href="global.html#prevValidNode">prevValidNode</a></li><li><a href="global.html#previewer">previewer</a></li><li><a href="global.html#previousSignificantNode">previousSignificantNode</a></li><li><a href="global.html#querySelectorEscape">querySelectorEscape</a></li><li><a href="global.html#ready">ready</a></li><li><a href="global.html#rebuildAncestors">rebuildAncestors</a></li><li><a href="global.html#rebuildTableRow">rebuildTableRow</a></li><li><a href="global.html#rebuildTree">rebuildTree</a></li><li><a href="global.html#registerHandlers">registerHandlers</a></li><li><a href="global.html#registeredHandlers">registeredHandlers</a></li><li><a href="global.html#replaceOrAppendElement">replaceOrAppendElement</a></li><li><a href="global.html#requestIdleCallback">requestIdleCallback</a></li><li><a href="global.html#setSplit">setSplit</a></li><li><a href="global.html#stackChildren">stackChildren</a></li><li><a href="global.html#validNode">validNode</a></li><li><a href="global.html#walk">walk</a></li><li><a href="global.html#words">words</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Fri Oct 17 2025 11:16:57 GMT+0200 (Central European Summer Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

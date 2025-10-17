@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: utils/queue.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: utils/queue.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import {defer} from "./utils.js";
+
+/**
+ * Queue for handling tasks one at a time
+ * @class
+ * @param {scope} context what this will resolve to in the tasks
+ */
+class Queue {
+	constructor(context){
+		this._q = [];
+		this.context = context;
+		this.tick = requestAnimationFrame;
+		this.running = false;
+		this.paused = false;
+	}
+
+	/**
+	 * Add an item to the queue
+	 * @return {Promise} enqueued
+	 */
+	enqueue() {
+		var deferred, promise;
+		var queued;
+		var task = [].shift.call(arguments);
+		var args = arguments;
+
+		// Handle single args without context
+		// if(args &amp;&amp; !Array.isArray(args)) {
+		//   args = [args];
+		// }
+		if(!task) {
+			throw new Error("No Task Provided");
+		}
+
+		if(typeof task === "function"){
+
+			deferred = new defer();
+			promise = deferred.promise;
+
+			queued = {
+				"task" : task,
+				"args"     : args,
+				//"context"  : context,
+				"deferred" : deferred,
+				"promise" : promise
+			};
+
+		} else {
+			// Task is a promise
+			queued = {
+				"promise" : task
+			};
+
+		}
+
+		this._q.push(queued);
+
+		// Wait to start queue flush
+		if (this.paused == false &amp;&amp; !this.running) {
+			this.run();
+		}
+
+		return queued.promise;
+	}
+
+	/**
+	 * Run one item
+	 * @return {Promise} dequeued
+	 */
+	dequeue(){
+		var inwait, task, result;
+
+		if(this._q.length &amp;&amp; !this.paused) {
+			inwait = this._q.shift();
+			task = inwait.task;
+			if(task){
+				// console.log(task)
+
+				result = task.apply(this.context, inwait.args);
+
+				if(result &amp;&amp; typeof result["then"] === "function") {
+					// Task is a function that returns a promise
+					return result.then(function(){
+						inwait.deferred.resolve.apply(this.context, arguments);
+					}.bind(this), function() {
+						inwait.deferred.reject.apply(this.context, arguments);
+					}.bind(this));
+				} else {
+					// Task resolves immediately
+					inwait.deferred.resolve.apply(this.context, result);
+					return inwait.promise;
+				}
+
+
+
+			} else if(inwait.promise) {
+				// Task is a promise
+				return inwait.promise;
+			}
+
+		} else {
+			inwait = new defer();
+			inwait.deferred.resolve();
+			return inwait.promise;
+		}
+
+	}
+
+	// Run All Immediately
+	dump(){
+		while(this._q.length) {
+			this.dequeue();
+		}
+	}
+
+	/**
+	 * Run all tasks sequentially, at convince
+	 * @return {Promise} all run
+	 */
+	run(){
+
+		if(!this.running){
+			this.running = true;
+			this.defered = new defer();
+		}
+
+		this.tick.call(window, () => {
+
+			if(this._q.length) {
+
+				this.dequeue()
+					.then(function(){
+						this.run();
+					}.bind(this));
+
+			} else {
+				this.defered.resolve();
+				this.running = undefined;
+			}
+
+		});
+
+		// Unpause
+		if(this.paused == true) {
+			this.paused = false;
+		}
+
+		return this.defered.promise;
+	}
+
+	/**
+	 * Flush all, as quickly as possible
+	 * @return {Promise} ran
+	 */
+	flush(){
+
+		if(this.running){
+			return this.running;
+		}
+
+		if(this._q.length) {
+			this.running = this.dequeue()
+				.then(function(){
+					this.running = undefined;
+					return this.flush();
+				}.bind(this));
+
+			return this.running;
+		}
+
+	}
+
+	/**
+	 * Clear all items in wait
+	 * @return {void}
+	 */
+	clear(){
+		this._q = [];
+	}
+
+	/**
+	 * Get the number of tasks in the queue
+	 * @return {number} tasks
+	 */
+	length(){
+		return this._q.length;
+	}
+
+	/**
+	 * Pause a running queue
+	 * @return {void}
+	 */
+	pause(){
+		this.paused = true;
+	}
+
+	/**
+	 * End the queue
+	 * @return {void}
+	 */
+	stop(){
+		this._q = [];
+		this.running = false;
+		this.paused = true;
+	}
+}
+
+
+/**
+ * Create a new task from a callback
+ * @class
+ * @private
+ * @param {function} task task to complete
+ * @param {array} args arguments for the task
+ * @param {scope} context scope of the task
+ * @return {function} task
+ */
+class Task {
+	constructor(task, args, context){
+
+		return function(){
+			var toApply = arguments || [];
+
+			return new Promise( (resolve, reject) => {
+				var callback = function(value, err){
+					if (!value &amp;&amp; err) {
+						reject(err);
+					} else {
+						resolve(value);
+					}
+				};
+				// Add the callback to the arguments list
+				toApply.push(callback);
+
+				// Apply all arguments to the functions
+				task.apply(context || this, toApply);
+
+			});
+
+		};
+
+	}
+}
+
+
+export default Queue;
+export { Task };
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="a%2520js%2520object%2520that%2520defines%2520the%2520default%2520files%2520size%2520from%2520__%2520https___www.w3.org_TR_css3-page__module_page-size-prop.html">page-size-prop</a></li><li><a href="module-the%2520default%2520css%2520for%2520pagedjs.html">the default css for pagedjs</a></li><li><a href="tests_chunker.test.module_js.html">tests/chunker.test.js</a></li></ul><h3>Classes</h3><ul><li><a href="AtPage.html">AtPage</a></li><li><a href="BreakToken.html">BreakToken</a></li><li><a href="Breaks.html">Breaks</a></li><li><a href="Chunker.html">Chunker</a></li><li><a href="CommentsFilter.html">CommentsFilter</a></li><li><a href="ContentParser.html">ContentParser</a></li><li><a href="Counters.html">Counters</a></li><li><a href="Following.html">Following</a></li><li><a href="Footnotes.html">Footnotes</a></li><li><a href="Handlers.html">Handlers</a></li><li><a href="Hook.html">Hook</a></li><li><a href="Layout.html">Layout</a></li><li><a href="Lists.html">Lists</a></li><li><a href="NthOfType.html">NthOfType</a></li><li><a href="Overflow.html">Overflow</a></li><li><a href="OverflowContentError.html">OverflowContentError</a></li><li><a href="Page.html">Page</a></li><li><a href="PageCounterIncrement.html">PageCounterIncrement</a></li><li><a href="Polisher.html">Polisher</a></li><li><a href="PositionFixed.html">PositionFixed</a></li><li><a href="Previewer.html">Previewer</a></li><li><a href="PrintMedia.html">PrintMedia</a></li><li><a href="Queue.html">Queue</a></li><li><a href="RenderResult.html">RenderResult</a></li><li><a href="RunningHeaders.html">RunningHeaders</a></li><li><a href="ScriptsFilter.html">ScriptsFilter</a></li><li><a href="Sheet.html">Sheet</a></li><li><a href="Splits.html">Splits</a></li><li><a href="StringSets.html">StringSets</a></li><li><a href="TargetCounters.html">TargetCounters</a></li><li><a href="UndisplayedFilter.html">UndisplayedFilter</a></li><li><a href="WhiteSpaceFilter.html">WhiteSpaceFilter</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CSSValueToString">CSSValueToString</a></li><li><a href="global.html#Paged">Paged</a></li><li><a href="global.html#UUID">UUID</a></li><li><a href="global.html#attr">attr</a></li><li><a href="global.html#breakInsideAvoidParentNode">breakInsideAvoidParentNode</a></li><li><a href="global.html#child">child</a></li><li><a href="global.html#cleanPseudoContent">cleanPseudoContent</a></li><li><a href="global.html#cleanSelector">cleanSelector</a></li><li><a href="global.html#cloneNode">cloneNode</a></li><li><a href="global.html#cloneNodeAncestor">cloneNodeAncestor</a></li><li><a href="global.html#config">config</a></li><li><a href="global.html#copyWidth">copyWidth</a></li><li><a href="global.html#defer">defer</a></li><li><a href="global.html#displayedElementAfter">displayedElementAfter</a></li><li><a href="global.html#displayedElementBefore">displayedElementBefore</a></li><li><a href="global.html#elementAfter">elementAfter</a></li><li><a href="global.html#elementBefore">elementBefore</a></li><li><a href="global.html#filterTree">filterTree</a></li><li><a href="global.html#findCssSelector">findCssSelector</a></li><li><a href="global.html#findElement">findElement</a></li><li><a href="global.html#findRef">findRef</a></li><li><a href="global.html#getBoundingClientRect">getBoundingClientRect</a></li><li><a href="global.html#getClientRects">getClientRects</a></li><li><a href="global.html#getNodeWithNamedPage">getNodeWithNamedPage</a></li><li><a href="global.html#hasContent">hasContent</a></li><li><a href="global.html#hasTextContent">hasTextContent</a></li><li><a href="global.html#inIndexOfRefs">inIndexOfRefs</a></li><li><a href="global.html#indexOf">indexOf</a></li><li><a href="global.html#indexOfTextNode">indexOfTextNode</a></li><li><a href="global.html#initializeHandlers">initializeHandlers</a></li><li><a href="global.html#isAllWhitespace">isAllWhitespace</a></li><li><a href="global.html#isContainer">isContainer</a></li><li><a href="global.html#isElement">isElement</a></li><li><a href="global.html#isIgnorable">isIgnorable</a></li><li><a href="global.html#isText">isText</a></li><li><a href="global.html#isVisible">isVisible</a></li><li><a href="global.html#letters">letters</a></li><li><a href="global.html#needsBreakAfter">needsBreakAfter</a></li><li><a href="global.html#needsBreakBefore">needsBreakBefore</a></li><li><a href="global.html#needsPageBreak">needsPageBreak</a></li><li><a href="global.html#needsPreviousBreakAfter">needsPreviousBreakAfter</a></li><li><a href="global.html#nextSignificantNode">nextSignificantNode</a></li><li><a href="global.html#nextValidNode">nextValidNode</a></li><li><a href="global.html#nodeAfter">nodeAfter</a></li><li><a href="global.html#nodeBefore">nodeBefore</a></li><li><a href="global.html#parentOf">parentOf</a></li><li><a href="global.html#positionInNodeList">positionInNodeList</a></li><li><a href="global.html#prevValidNode">prevValidNode</a></li><li><a href="global.html#previewer">previewer</a></li><li><a href="global.html#previousSignificantNode">previousSignificantNode</a></li><li><a href="global.html#querySelectorEscape">querySelectorEscape</a></li><li><a href="global.html#ready">ready</a></li><li><a href="global.html#rebuildAncestors">rebuildAncestors</a></li><li><a href="global.html#rebuildTableRow">rebuildTableRow</a></li><li><a href="global.html#rebuildTree">rebuildTree</a></li><li><a href="global.html#registerHandlers">registerHandlers</a></li><li><a href="global.html#registeredHandlers">registeredHandlers</a></li><li><a href="global.html#replaceOrAppendElement">replaceOrAppendElement</a></li><li><a href="global.html#requestIdleCallback">requestIdleCallback</a></li><li><a href="global.html#setSplit">setSplit</a></li><li><a href="global.html#stackChildren">stackChildren</a></li><li><a href="global.html#validNode">validNode</a></li><li><a href="global.html#walk">walk</a></li><li><a href="global.html#words">words</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Fri Oct 17 2025 11:16:57 GMT+0200 (Central European Summer Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Class: Polisher</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Class: Polisher</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2><span class="attribs"><span class="type-signature"></span></span>Polisher<span class="signature">(setup<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h2>
+        
+            <div class="class-description"><p>The Polisher class handles the parsing and insertion of CSS stylesheets,
+including remote resources and special hooks for processing CSS content.</p></div>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+    
+    <h2>Constructor</h2>
+    
+
+    
+    <h4 class="name" id="Polisher"><span class="type-signature"></span>new Polisher<span class="signature">(setup<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    
+
+    
+    <p class="summary">Creates a new Polisher instance.</p>
+    
+
+
+
+<div class="description">
+    <p>Creates a new Polisher instance.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>setup</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+
+            <td class="description last"><p>Whether to immediately run setup.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="polisher_polisher.js.html">polisher/polisher.js</a>, <a href="polisher_polisher.js.html#line10">line 10</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id="hooks"><span class="type-signature"></span>hooks<span class="type-signature"> :Object.&lt;string, <a href="Hook.html">Hook</a>></span></h4>
+
+
+
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object.&lt;string, <a href="Hook.html">Hook</a>></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="polisher_polisher.js.html">polisher/polisher.js</a>, <a href="polisher_polisher.js.html#line23">line 23</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="inserted"><span class="type-signature"></span>inserted<span class="type-signature"> :Array.&lt;HTMLStyleElement></span></h4>
+
+
+
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Array.&lt;HTMLStyleElement></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="polisher_polisher.js.html">polisher/polisher.js</a>, <a href="polisher_polisher.js.html#line20">line 20</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="sheets"><span class="type-signature"></span>sheets<span class="type-signature"> :Array.&lt;<a href="Sheet.html">Sheet</a>></span></h4>
+
+
+
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Array.&lt;<a href="Sheet.html">Sheet</a>></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="polisher_polisher.js.html">polisher/polisher.js</a>, <a href="polisher_polisher.js.html#line17">line 17</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="add"><span class="type-signature">(async) </span>add<span class="signature">(&hellip;sources)</span><span class="type-signature"> &rarr; {Promise.&lt;string>}</span></h4>
+    
+
+    
+    <p class="summary">Adds and processes one or more CSS sources (URLs or inline CSS).</p>
+    
+
+
+
+<div class="description">
+    <p>Adds and processes one or more CSS sources (URLs or inline CSS).</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>sources</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">Object.&lt;string, string></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                    &lt;repeatable><br>
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>URLs or object maps of URLs to CSS strings.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="polisher_polisher.js.html">polisher/polisher.js</a>, <a href="polisher_polisher.js.html#line59">line 59</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <ul>
+<li>The final processed CSS text.</li>
+</ul>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;string></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="convertViaSheet"><span class="type-signature">(async) </span>convertViaSheet<span class="signature">(cssStr, href)</span><span class="type-signature"> &rarr; {Promise.&lt;string>}</span></h4>
+    
+
+    
+    <p class="summary"><p>Converts raw CSS into a Sheet object, parses it, handles imports,
+and returns the processed CSS string.</p></p>
+    
+
+
+
+<div class="description">
+    <p>Converts raw CSS into a Sheet object, parses it, handles imports,
+and returns the processed CSS string.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>cssStr</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The raw CSS string.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>href</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The source URL for the CSS.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="polisher_polisher.js.html">polisher/polisher.js</a>, <a href="polisher_polisher.js.html#line97">line 97</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <ul>
+<li>The processed CSS text.</li>
+</ul>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;string></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="destroy"><span class="type-signature"></span>destroy<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+    <p class="summary">Cleans up all inserted styles and resets the polisher.</p>
+    
+
+
+
+<div class="description">
+    <p>Cleans up all inserted styles and resets the polisher.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="polisher_polisher.js.html">polisher/polisher.js</a>, <a href="polisher_polisher.js.html#line141">line 141</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="insert"><span class="type-signature"></span>insert<span class="signature">(text)</span><span class="type-signature"> &rarr; {HTMLStyleElement}</span></h4>
+    
+
+    
+    <p class="summary">Inserts a CSS string into the document inside a <style> tag.</style></p>
+    
+
+
+
+<div class="description">
+    <p>Inserts a CSS string into the document inside a <style> tag.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>text</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The CSS to insert.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="polisher_polisher.js.html">polisher/polisher.js</a>, <a href="polisher_polisher.js.html#line128">line 128</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <ul>
+<li>The created style element.</li>
+</ul>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">HTMLStyleElement</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="setup"><span class="type-signature"></span>setup<span class="signature">()</span><span class="type-signature"> &rarr; {CSSStyleSheet}</span></h4>
+    
+
+    
+    <p class="summary">Sets up the base stylesheet and injects a <style> element into the document head.</style></p>
+    
+
+
+
+<div class="description">
+    <p>Sets up the base stylesheet and injects a <style> element into the document head.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="polisher_polisher.js.html">polisher/polisher.js</a>, <a href="polisher_polisher.js.html#line46">line 46</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <ul>
+<li>The created stylesheet object.</li>
+</ul>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">CSSStyleSheet</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="a%2520js%2520object%2520that%2520defines%2520the%2520default%2520files%2520size%2520from%2520__%2520https___www.w3.org_TR_css3-page__module_page-size-prop.html">page-size-prop</a></li><li><a href="module-the%2520default%2520css%2520for%2520pagedjs.html">the default css for pagedjs</a></li><li><a href="tests_chunker.test.module_js.html">tests/chunker.test.js</a></li></ul><h3>Classes</h3><ul><li><a href="AtPage.html">AtPage</a></li><li><a href="BreakToken.html">BreakToken</a></li><li><a href="Breaks.html">Breaks</a></li><li><a href="Chunker.html">Chunker</a></li><li><a href="CommentsFilter.html">CommentsFilter</a></li><li><a href="ContentParser.html">ContentParser</a></li><li><a href="Counters.html">Counters</a></li><li><a href="Following.html">Following</a></li><li><a href="Footnotes.html">Footnotes</a></li><li><a href="Handlers.html">Handlers</a></li><li><a href="Hook.html">Hook</a></li><li><a href="Layout.html">Layout</a></li><li><a href="Lists.html">Lists</a></li><li><a href="NthOfType.html">NthOfType</a></li><li><a href="Overflow.html">Overflow</a></li><li><a href="OverflowContentError.html">OverflowContentError</a></li><li><a href="Page.html">Page</a></li><li><a href="PageCounterIncrement.html">PageCounterIncrement</a></li><li><a href="Polisher.html">Polisher</a></li><li><a href="PositionFixed.html">PositionFixed</a></li><li><a href="Previewer.html">Previewer</a></li><li><a href="PrintMedia.html">PrintMedia</a></li><li><a href="Queue.html">Queue</a></li><li><a href="RenderResult.html">RenderResult</a></li><li><a href="RunningHeaders.html">RunningHeaders</a></li><li><a href="ScriptsFilter.html">ScriptsFilter</a></li><li><a href="Sheet.html">Sheet</a></li><li><a href="Splits.html">Splits</a></li><li><a href="StringSets.html">StringSets</a></li><li><a href="TargetCounters.html">TargetCounters</a></li><li><a href="UndisplayedFilter.html">UndisplayedFilter</a></li><li><a href="WhiteSpaceFilter.html">WhiteSpaceFilter</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CSSValueToString">CSSValueToString</a></li><li><a href="global.html#Paged">Paged</a></li><li><a href="global.html#UUID">UUID</a></li><li><a href="global.html#attr">attr</a></li><li><a href="global.html#breakInsideAvoidParentNode">breakInsideAvoidParentNode</a></li><li><a href="global.html#child">child</a></li><li><a href="global.html#cleanPseudoContent">cleanPseudoContent</a></li><li><a href="global.html#cleanSelector">cleanSelector</a></li><li><a href="global.html#cloneNode">cloneNode</a></li><li><a href="global.html#cloneNodeAncestor">cloneNodeAncestor</a></li><li><a href="global.html#config">config</a></li><li><a href="global.html#copyWidth">copyWidth</a></li><li><a href="global.html#defer">defer</a></li><li><a href="global.html#displayedElementAfter">displayedElementAfter</a></li><li><a href="global.html#displayedElementBefore">displayedElementBefore</a></li><li><a href="global.html#elementAfter">elementAfter</a></li><li><a href="global.html#elementBefore">elementBefore</a></li><li><a href="global.html#filterTree">filterTree</a></li><li><a href="global.html#findCssSelector">findCssSelector</a></li><li><a href="global.html#findElement">findElement</a></li><li><a href="global.html#findRef">findRef</a></li><li><a href="global.html#getBoundingClientRect">getBoundingClientRect</a></li><li><a href="global.html#getClientRects">getClientRects</a></li><li><a href="global.html#getNodeWithNamedPage">getNodeWithNamedPage</a></li><li><a href="global.html#hasContent">hasContent</a></li><li><a href="global.html#hasTextContent">hasTextContent</a></li><li><a href="global.html#inIndexOfRefs">inIndexOfRefs</a></li><li><a href="global.html#indexOf">indexOf</a></li><li><a href="global.html#indexOfTextNode">indexOfTextNode</a></li><li><a href="global.html#initializeHandlers">initializeHandlers</a></li><li><a href="global.html#isAllWhitespace">isAllWhitespace</a></li><li><a href="global.html#isContainer">isContainer</a></li><li><a href="global.html#isElement">isElement</a></li><li><a href="global.html#isIgnorable">isIgnorable</a></li><li><a href="global.html#isText">isText</a></li><li><a href="global.html#isVisible">isVisible</a></li><li><a href="global.html#letters">letters</a></li><li><a href="global.html#needsBreakAfter">needsBreakAfter</a></li><li><a href="global.html#needsBreakBefore">needsBreakBefore</a></li><li><a href="global.html#needsPageBreak">needsPageBreak</a></li><li><a href="global.html#needsPreviousBreakAfter">needsPreviousBreakAfter</a></li><li><a href="global.html#nextSignificantNode">nextSignificantNode</a></li><li><a href="global.html#nextValidNode">nextValidNode</a></li><li><a href="global.html#nodeAfter">nodeAfter</a></li><li><a href="global.html#nodeBefore">nodeBefore</a></li><li><a href="global.html#parentOf">parentOf</a></li><li><a href="global.html#positionInNodeList">positionInNodeList</a></li><li><a href="global.html#prevValidNode">prevValidNode</a></li><li><a href="global.html#previewer">previewer</a></li><li><a href="global.html#previousSignificantNode">previousSignificantNode</a></li><li><a href="global.html#querySelectorEscape">querySelectorEscape</a></li><li><a href="global.html#ready">ready</a></li><li><a href="global.html#rebuildAncestors">rebuildAncestors</a></li><li><a href="global.html#rebuildTableRow">rebuildTableRow</a></li><li><a href="global.html#rebuildTree">rebuildTree</a></li><li><a href="global.html#registerHandlers">registerHandlers</a></li><li><a href="global.html#registeredHandlers">registeredHandlers</a></li><li><a href="global.html#replaceOrAppendElement">replaceOrAppendElement</a></li><li><a href="global.html#requestIdleCallback">requestIdleCallback</a></li><li><a href="global.html#setSplit">setSplit</a></li><li><a href="global.html#stackChildren">stackChildren</a></li><li><a href="global.html#validNode">validNode</a></li><li><a href="global.html#walk">walk</a></li><li><a href="global.html#words">words</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Fri Oct 17 2025 11:16:57 GMT+0200 (Central European Summer Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
