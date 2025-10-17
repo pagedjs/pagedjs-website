@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: modules/generated-content/string-sets.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: modules/generated-content/string-sets.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import Handler from "../handler.js";
+import csstree from "css-tree";
+import { cleanPseudoContent } from "../../utils/css.js";
+
+/**
+ * Handles CSS string-set properties to create and manage CSS custom properties
+ * for first, last, start, and first-except string values on paged content.
+ *
+ * Parses the `string-set` CSS declaration, transforms `string()` function content,
+ * and updates CSS variables on each page after layout.
+ *
+ * @class
+ * @extends Handler
+ */
+class StringSets extends Handler {
+	/**
+	 * Creates an instance of StringSets.
+	 *
+	 * @param {Object} chunker - Chunker instance to manage content chunking.
+	 * @param {Object} polisher - Polisher instance for post-processing.
+	 * @param {Object} caller - Calling controller instance.
+	 */
+	constructor(chunker, polisher, caller) {
+		super(chunker, polisher, caller);
+
+		/**
+		 * Stores selectors and related string-set info keyed by identifier.
+		 * @type {Object&lt;string, {identifier: string, func: string, value: string, selector: string}>}
+		 */
+		this.stringSetSelectors = {};
+
+		/**
+		 * Holds the type of string currently processed (e.g. "first", "last").
+		 * @type {string|undefined}
+		 */
+		this.type;
+
+		/**
+		 * Keeps track of the last string value per identifier on the previous page.
+		 * @type {Object&lt;string, string>|undefined}
+		 */
+		this.pageLastString;
+	}
+
+	/**
+	 * Handles CSS declarations, looking specifically for `string-set` declarations.
+	 * Parses identifiers and functions, storing them with selectors.
+	 *
+	 * @param {Object} declaration - The CSS declaration node.
+	 * @param {Object} dItem - Declaration item (unused here).
+	 * @param {Object} dList - Declaration list (unused here).
+	 * @param {Object} rule - The CSS rule node containing the declaration.
+	 */
+	onDeclaration(declaration, dItem, dList, rule) {
+		if (declaration.property === "string-set") {
+			let selector = csstree.generate(rule.ruleNode.prelude);
+
+			let identifiers = [];
+			let functions = [];
+			let values = [];
+
+			declaration.value.children.forEach((child) => {
+				if (child.type === "Identifier") {
+					identifiers.push(child.name);
+				}
+				if (child.type === "Function") {
+					functions.push(child.name);
+					child.children.forEach((subchild) => {
+						if (subchild.type === "Identifier") {
+							values.push(subchild.name);
+						}
+					});
+				}
+			});
+
+			identifiers.forEach((identifier, index) => {
+				let func = functions[index];
+				let value = values[index];
+				this.stringSetSelectors[identifier] = {
+					identifier,
+					func,
+					value,
+					selector,
+				};
+			});
+		}
+	}
+
+	/**
+	 * Processes `string()` CSS function nodes within content declarations,
+	 * transforming them into CSS variables referencing pagedjs-generated custom properties.
+	 *
+	 * @param {Object} funcNode - The function node representing `string()`.
+	 * @param {Object} fItem - Function item node (unused here).
+	 * @param {Object} fList - Function list node (unused here).
+	 * @param {Object} declaration - The CSS declaration node.
+	 * @param {Object} rule - The CSS rule node.
+	 */
+	onContent(funcNode, fItem, fList, declaration, rule) {
+		if (funcNode.name === "string") {
+			let identifier = funcNode.children &amp;&amp; funcNode.children.first().name;
+			this.type = funcNode.children.last().name;
+			funcNode.name = "var";
+			funcNode.children = new csstree.List();
+
+			if (
+				this.type === "first" ||
+				this.type === "last" ||
+				this.type === "start" ||
+				this.type === "first-except"
+			) {
+				funcNode.children.append(
+					funcNode.children.createItem({
+						type: "Identifier",
+						loc: null,
+						name: `--pagedjs-string-${this.type}-${identifier}`,
+					}),
+				);
+			} else {
+				funcNode.children.append(
+					funcNode.children.createItem({
+						type: "Identifier",
+						loc: null,
+						name: `--pagedjs-string-first-${identifier}`,
+					}),
+				);
+			}
+		}
+	}
+
+	/**
+	 * Called after page layout to update CSS custom properties for string-set variables.
+	 * Computes first, last, start, and first-except string values and sets them as CSS variables.
+	 *
+	 * @param {DocumentFragment} fragment - The DOM fragment for the current page.
+	 */
+	afterPageLayout(fragment) {
+		if (this.pageLastString === undefined) {
+			this.pageLastString = {};
+		}
+
+		for (let name of Object.keys(this.stringSetSelectors)) {
+			let set = this.stringSetSelectors[name];
+			let value = set.value;
+			let func = set.func;
+			let selected = fragment.querySelectorAll(set.selector);
+
+			// Previous page's last string value for this identifier
+			let stringPrevPage =
+				name in this.pageLastString ? this.pageLastString[name] : "";
+
+			let varFirst, varLast, varStart, varFirstExcept;
+
+			if (selected.length === 0) {
+				// No matches on this page; carry forward previous value
+				varFirst = stringPrevPage;
+				varLast = stringPrevPage;
+				varStart = stringPrevPage;
+				varFirstExcept = stringPrevPage;
+			} else {
+				selected.forEach((sel) => {
+					if (func === "content") {
+						this.pageLastString[name] =
+							selected[selected.length - 1].textContent;
+					} else if (func === "attr") {
+						this.pageLastString[name] =
+							selected[selected.length - 1].getAttribute(value) || "";
+					}
+				});
+
+				// FIRST
+				if (func === "content") {
+					varFirst = selected[0].textContent;
+				} else if (func === "attr") {
+					varFirst = selected[0].getAttribute(value) || "";
+				}
+
+				// LAST
+				if (func === "content") {
+					varLast = selected[selected.length - 1].textContent;
+				} else if (func === "attr") {
+					varLast = selected[selected.length - 1].getAttribute(value) || "";
+				}
+
+				// START — heuristic: element at the top of page content
+				let selTop = selected[0].getBoundingClientRect().top;
+				let pageContent = selected[0].closest(".pagedjs_page_content");
+				let pageContentTop = pageContent.getBoundingClientRect().top;
+
+				if (selTop === pageContentTop) {
+					varStart = varFirst;
+				} else {
+					varStart = stringPrevPage;
+				}
+
+				// FIRST EXCEPT — currently empty string, can be implemented as needed
+				varFirstExcept = "";
+			}
+
+			fragment.style.setProperty(
+				`--pagedjs-string-first-${name}`,
+				`"${cleanPseudoContent(varFirst)}"`,
+			);
+			fragment.style.setProperty(
+				`--pagedjs-string-last-${name}`,
+				`"${cleanPseudoContent(varLast)}"`,
+			);
+			fragment.style.setProperty(
+				`--pagedjs-string-start-${name}`,
+				`"${cleanPseudoContent(varStart)}"`,
+			);
+			fragment.style.setProperty(
+				`--pagedjs-string-first-except-${name}`,
+				`"${cleanPseudoContent(varFirstExcept)}"`,
+			);
+		}
+	}
+}
+
+export default StringSets;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="a%2520js%2520object%2520that%2520defines%2520the%2520default%2520files%2520size%2520from%2520__%2520https___www.w3.org_TR_css3-page__module_page-size-prop.html">page-size-prop</a></li><li><a href="module-the%2520default%2520css%2520for%2520pagedjs.html">the default css for pagedjs</a></li><li><a href="tests_chunker.test.module_js.html">tests/chunker.test.js</a></li></ul><h3>Classes</h3><ul><li><a href="AtPage.html">AtPage</a></li><li><a href="BreakToken.html">BreakToken</a></li><li><a href="Breaks.html">Breaks</a></li><li><a href="Chunker.html">Chunker</a></li><li><a href="CommentsFilter.html">CommentsFilter</a></li><li><a href="ContentParser.html">ContentParser</a></li><li><a href="Counters.html">Counters</a></li><li><a href="Following.html">Following</a></li><li><a href="Footnotes.html">Footnotes</a></li><li><a href="Handlers.html">Handlers</a></li><li><a href="Hook.html">Hook</a></li><li><a href="Layout.html">Layout</a></li><li><a href="Lists.html">Lists</a></li><li><a href="NthOfType.html">NthOfType</a></li><li><a href="Overflow.html">Overflow</a></li><li><a href="OverflowContentError.html">OverflowContentError</a></li><li><a href="Page.html">Page</a></li><li><a href="PageCounterIncrement.html">PageCounterIncrement</a></li><li><a href="Polisher.html">Polisher</a></li><li><a href="PositionFixed.html">PositionFixed</a></li><li><a href="Previewer.html">Previewer</a></li><li><a href="PrintMedia.html">PrintMedia</a></li><li><a href="Queue.html">Queue</a></li><li><a href="RenderResult.html">RenderResult</a></li><li><a href="RunningHeaders.html">RunningHeaders</a></li><li><a href="ScriptsFilter.html">ScriptsFilter</a></li><li><a href="Sheet.html">Sheet</a></li><li><a href="Splits.html">Splits</a></li><li><a href="StringSets.html">StringSets</a></li><li><a href="TargetCounters.html">TargetCounters</a></li><li><a href="UndisplayedFilter.html">UndisplayedFilter</a></li><li><a href="WhiteSpaceFilter.html">WhiteSpaceFilter</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CSSValueToString">CSSValueToString</a></li><li><a href="global.html#Paged">Paged</a></li><li><a href="global.html#UUID">UUID</a></li><li><a href="global.html#attr">attr</a></li><li><a href="global.html#breakInsideAvoidParentNode">breakInsideAvoidParentNode</a></li><li><a href="global.html#child">child</a></li><li><a href="global.html#cleanPseudoContent">cleanPseudoContent</a></li><li><a href="global.html#cleanSelector">cleanSelector</a></li><li><a href="global.html#cloneNode">cloneNode</a></li><li><a href="global.html#cloneNodeAncestor">cloneNodeAncestor</a></li><li><a href="global.html#config">config</a></li><li><a href="global.html#copyWidth">copyWidth</a></li><li><a href="global.html#defer">defer</a></li><li><a href="global.html#displayedElementAfter">displayedElementAfter</a></li><li><a href="global.html#displayedElementBefore">displayedElementBefore</a></li><li><a href="global.html#elementAfter">elementAfter</a></li><li><a href="global.html#elementBefore">elementBefore</a></li><li><a href="global.html#filterTree">filterTree</a></li><li><a href="global.html#findCssSelector">findCssSelector</a></li><li><a href="global.html#findElement">findElement</a></li><li><a href="global.html#findRef">findRef</a></li><li><a href="global.html#getBoundingClientRect">getBoundingClientRect</a></li><li><a href="global.html#getClientRects">getClientRects</a></li><li><a href="global.html#getNodeWithNamedPage">getNodeWithNamedPage</a></li><li><a href="global.html#hasContent">hasContent</a></li><li><a href="global.html#hasTextContent">hasTextContent</a></li><li><a href="global.html#inIndexOfRefs">inIndexOfRefs</a></li><li><a href="global.html#indexOf">indexOf</a></li><li><a href="global.html#indexOfTextNode">indexOfTextNode</a></li><li><a href="global.html#initializeHandlers">initializeHandlers</a></li><li><a href="global.html#isAllWhitespace">isAllWhitespace</a></li><li><a href="global.html#isContainer">isContainer</a></li><li><a href="global.html#isElement">isElement</a></li><li><a href="global.html#isIgnorable">isIgnorable</a></li><li><a href="global.html#isText">isText</a></li><li><a href="global.html#isVisible">isVisible</a></li><li><a href="global.html#letters">letters</a></li><li><a href="global.html#needsBreakAfter">needsBreakAfter</a></li><li><a href="global.html#needsBreakBefore">needsBreakBefore</a></li><li><a href="global.html#needsPageBreak">needsPageBreak</a></li><li><a href="global.html#needsPreviousBreakAfter">needsPreviousBreakAfter</a></li><li><a href="global.html#nextSignificantNode">nextSignificantNode</a></li><li><a href="global.html#nextValidNode">nextValidNode</a></li><li><a href="global.html#nodeAfter">nodeAfter</a></li><li><a href="global.html#nodeBefore">nodeBefore</a></li><li><a href="global.html#parentOf">parentOf</a></li><li><a href="global.html#positionInNodeList">positionInNodeList</a></li><li><a href="global.html#prevValidNode">prevValidNode</a></li><li><a href="global.html#previewer">previewer</a></li><li><a href="global.html#previousSignificantNode">previousSignificantNode</a></li><li><a href="global.html#querySelectorEscape">querySelectorEscape</a></li><li><a href="global.html#ready">ready</a></li><li><a href="global.html#rebuildAncestors">rebuildAncestors</a></li><li><a href="global.html#rebuildTableRow">rebuildTableRow</a></li><li><a href="global.html#rebuildTree">rebuildTree</a></li><li><a href="global.html#registerHandlers">registerHandlers</a></li><li><a href="global.html#registeredHandlers">registeredHandlers</a></li><li><a href="global.html#replaceOrAppendElement">replaceOrAppendElement</a></li><li><a href="global.html#requestIdleCallback">requestIdleCallback</a></li><li><a href="global.html#setSplit">setSplit</a></li><li><a href="global.html#stackChildren">stackChildren</a></li><li><a href="global.html#validNode">validNode</a></li><li><a href="global.html#walk">walk</a></li><li><a href="global.html#words">words</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Fri Oct 17 2025 11:16:57 GMT+0200 (Central European Summer Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

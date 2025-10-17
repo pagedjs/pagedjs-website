@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: chunker/page.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: chunker/page.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import Layout from "./layout.js";
+import EventEmitter from "event-emitter";
+
+/**
+ * Represents a single page in a paginated document.
+ * Handles rendering, layout, overflow detection, and DOM interactions.
+ *
+ * @class
+ */
+class Page {
+	/**
+	 * Creates an instance of Page.
+	 *
+	 * @param {HTMLElement} pagesArea - The container element for all pages.
+	 * @param {HTMLTemplateElement} pageTemplate - Template for creating new pages.
+	 * @param {boolean} blank - Indicates if this is a blank page.
+	 * @param {Object} hooks - Hook functions for custom behavior.
+	 * @param {Object} options - Additional layout or rendering options.
+	 */
+	constructor(pagesArea, pageTemplate, blank, hooks, options) {
+		this.pagesArea = pagesArea;
+		this.pageTemplate = pageTemplate;
+		this.blank = blank;
+
+		this.width = undefined;
+		this.height = undefined;
+
+		this.hooks = hooks;
+		this.settings = options || {};
+	}
+
+	/**
+	 * Creates a new page element from the template and inserts it into the DOM.
+	 *
+	 * @param {HTMLTemplateElement} template - The template to use for page creation.
+	 * @param {HTMLElement} [after] - Optional reference element to insert after.
+	 * @returns {HTMLElement} The newly created page element.
+	 */
+	create(template, after) {
+		let clone = document.importNode(this.pageTemplate.content, true);
+
+		let page, index;
+		if (after) {
+			this.pagesArea.insertBefore(clone, after.nextElementSibling);
+			index = Array.prototype.indexOf.call(
+				this.pagesArea.children,
+				after.nextElementSibling,
+			);
+			page = this.pagesArea.children[index];
+		} else {
+			this.pagesArea.appendChild(clone);
+			page = this.pagesArea.lastChild;
+		}
+
+		let pagebox = page.querySelector(".pagedjs_pagebox");
+		let area = page.querySelector(".pagedjs_page_content");
+		let footnotesArea = page.querySelector(".pagedjs_footnote_area");
+
+		let size = area.getBoundingClientRect();
+
+		area.style.columnWidth = Math.round(size.width) + "px";
+		area.style.columnGap =
+			"calc(var(--pagedjs-margin-right) + var(--pagedjs-margin-left) + var(--pagedjs-bleed-right) + var(--pagedjs-bleed-left) + var(--pagedjs-column-gap-offset))";
+
+		this.width = Math.round(size.width);
+		this.height = Math.round(size.height);
+
+		this.element = page;
+		this.pagebox = pagebox;
+		this.area = area;
+		this.footnotesArea = footnotesArea;
+
+		return page;
+	}
+
+	/**
+	 * Creates a wrapper element inside the page's content area.
+	 *
+	 * @returns {HTMLElement} The wrapper element.
+	 */
+	createWrapper() {
+		let wrapper = document.createElement("div");
+		this.area.appendChild(wrapper);
+		this.wrapper = wrapper;
+		return wrapper;
+	}
+
+	/**
+	 * Sets the page index and updates relevant attributes and classes.
+	 *
+	 * @param {number} pgnum - The page index number (0-based).
+	 */
+	index(pgnum) {
+		this.position = pgnum;
+
+		let page = this.element;
+		let index = pgnum + 1;
+		let id = `page-${index}`;
+
+		this.id = id;
+		page.dataset.pageNumber = index;
+		page.setAttribute("id", id);
+
+		if (this.name) {
+			page.classList.add("pagedjs_" + this.name + "_page");
+		}
+
+		if (this.blank) {
+			page.classList.add("pagedjs_blank_page");
+		}
+
+		if (pgnum === 0) {
+			page.classList.add("pagedjs_first_page");
+		}
+
+		if (pgnum % 2 !== 1) {
+			page.classList.remove("pagedjs_left_page");
+			page.classList.add("pagedjs_right_page");
+		} else {
+			page.classList.remove("pagedjs_right_page");
+			page.classList.add("pagedjs_left_page");
+		}
+	}
+
+	/**
+	 * Performs layout rendering of content within the page.
+	 *
+	 * @async
+	 * @param {DocumentFragment} contents - The contents to render.
+	 * @param {Object} breakToken - The token where content rendering should resume.
+	 * @param {Page} [prevPage] - The previous page, used for continuity.
+	 * @returns {Promise&lt;Object|undefined>} A new breakToken if content overflowed, or undefined.
+	 */
+	async layout(contents, breakToken, prevPage) {
+		this.clear();
+
+		this.startToken = breakToken;
+
+		this.layoutMethod = new Layout(this.area, this.hooks, this.settings);
+
+		let renderResult = await this.layoutMethod.renderTo(
+			this.wrapper,
+			contents,
+			breakToken,
+			prevPage,
+		);
+		let newBreakToken = renderResult.breakToken;
+
+		if (breakToken &amp;&amp; newBreakToken &amp;&amp; breakToken.equals(newBreakToken)) {
+			return;
+		}
+
+		this.addListeners(contents);
+
+		this.endToken = newBreakToken;
+
+		return newBreakToken;
+	}
+
+	/**
+	 * Appends content to the existing layout using the current layout method.
+	 *
+	 * @async
+	 * @param {DocumentFragment} contents - The contents to append.
+	 * @param {Object} breakToken - The token to continue rendering from.
+	 * @returns {Promise&lt;Object>} A new breakToken after rendering.
+	 */
+	async append(contents, breakToken) {
+		if (!this.layoutMethod) {
+			return this.layout(contents, breakToken);
+		}
+
+		let renderResult = await this.layoutMethod.renderTo(
+			this.wrapper,
+			contents,
+			breakToken,
+		);
+		let newBreakToken = renderResult.breakToken;
+
+		this.endToken = newBreakToken;
+
+		return newBreakToken;
+	}
+
+	/**
+	 * Finds a DOM element by its `data-ref` attribute in a list of elements.
+	 *
+	 * @param {string} ref - The reference string to look for.
+	 * @param {HTMLElement[]} entries - A list of elements to search.
+	 * @returns {HTMLElement|undefined} The matching element, if found.
+	 */
+	getByParent(ref, entries) {
+		for (let i = 0; i &lt; entries.length; i++) {
+			if (entries[i].dataset.ref === ref) {
+				return entries[i];
+			}
+		}
+	}
+
+	/**
+	 * Registers a callback to run when content overflows the page.
+	 *
+	 * @param {Function} func - The overflow callback function.
+	 */
+	onOverflow(func) {
+		this._onOverflow = func;
+	}
+
+	/**
+	 * Registers a callback to run when content underflows the page.
+	 *
+	 * @param {Function} func - The underflow callback function.
+	 */
+	onUnderflow(func) {
+		this._onUnderflow = func;
+	}
+
+	/**
+	 * Clears the wrapper and listeners, resetting the layout state.
+	 */
+	clear() {
+		this.removeListeners();
+		this.wrapper &amp;&amp; this.wrapper.remove();
+		this.createWrapper();
+	}
+
+	/**
+	 * Adds event listeners for scroll and resize to monitor overflows.
+	 *
+	 * @param {DocumentFragment} contents - The content being rendered (used in resize checks).
+	 * @returns {boolean} True if listeners were added.
+	 */
+	addListeners(contents) {
+		if (typeof ResizeObserver !== "undefined") {
+			this.addResizeObserver(contents);
+		} else {
+			this._checkOverflowAfterResize = this.checkOverflowAfterResize.bind(
+				this,
+				contents,
+			);
+			this.element.addEventListener(
+				"overflow",
+				this._checkOverflowAfterResize,
+				false,
+			);
+			this.element.addEventListener(
+				"underflow",
+				this._checkOverflowAfterResize,
+				false,
+			);
+		}
+
+		this._onScroll = () => {
+			if (this.listening) {
+				this.element.scrollLeft = 0;
+			}
+		};
+
+		this.element.addEventListener("scroll", this._onScroll);
+		this.listening = true;
+
+		return true;
+	}
+
+	/**
+	 * Removes event listeners related to overflow and resizing.
+	 */
+	removeListeners() {
+		this.listening = false;
+
+		if (typeof ResizeObserver !== "undefined" &amp;&amp; this.ro) {
+			this.ro.disconnect();
+		} else if (this.element) {
+			this.element.removeEventListener(
+				"overflow",
+				this._checkOverflowAfterResize,
+				false,
+			);
+			this.element.removeEventListener(
+				"underflow",
+				this._checkOverflowAfterResize,
+				false,
+			);
+		}
+
+		this.element &amp;&amp; this.element.removeEventListener("scroll", this._onScroll);
+	}
+
+	/**
+	 * Adds a ResizeObserver to monitor wrapper size changes.
+	 *
+	 * @param {DocumentFragment} contents - The contents being observed for overflow changes.
+	 */
+	addResizeObserver(contents) {
+		let wrapper = this.wrapper;
+		let prevHeight = wrapper.getBoundingClientRect().height;
+
+		this.ro = new ResizeObserver((entries) => {
+			if (!this.listening) return;
+
+			requestAnimationFrame(() => {
+				for (let entry of entries) {
+					const cr = entry.contentRect;
+
+					if (cr.height > prevHeight) {
+						this.checkOverflowAfterResize(contents);
+						prevHeight = wrapper.getBoundingClientRect().height;
+					} else if (cr.height &lt; prevHeight) {
+						this.checkUnderflowAfterResize(contents);
+						prevHeight = cr.height;
+					}
+				}
+			});
+		});
+
+		this.ro.observe(wrapper);
+	}
+
+	/**
+	 * Checks if the page content has overflowed after a resize.
+	 *
+	 * @param {DocumentFragment} contents - The content being checked.
+	 */
+	checkOverflowAfterResize(contents) {
+		if (!this.listening || !this.layoutMethod) return;
+
+		let newBreakToken = this.layoutMethod.findBreakToken(
+			this.wrapper,
+			contents,
+			undefined,
+			this.startToken,
+		);
+
+		if (newBreakToken) {
+			this.endToken = newBreakToken;
+			this._onOverflow &amp;&amp; this._onOverflow(newBreakToken);
+		}
+	}
+
+	/**
+	 * Checks if the page content has underflowed (e.g., content was removed).
+	 *
+	 * @param {DocumentFragment} contents - The content being checked.
+	 */
+	checkUnderflowAfterResize(contents) {
+		if (!this.listening || !this.layoutMethod) return;
+
+		let endToken = this.layoutMethod.findEndToken(this.wrapper, contents);
+
+		if (endToken) {
+			this._onUnderflow &amp;&amp; this._onUnderflow(endToken);
+		}
+	}
+
+	/**
+	 * Cleans up the page, removing all DOM elements and listeners.
+	 */
+	destroy() {
+		this.removeListeners();
+
+		this.element.remove();
+
+		this.element = undefined;
+		this.wrapper = undefined;
+	}
+}
+
+// Add event emitter capabilities
+EventEmitter(Page.prototype);
+
+export default Page;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="a%2520js%2520object%2520that%2520defines%2520the%2520default%2520files%2520size%2520from%2520__%2520https___www.w3.org_TR_css3-page__module_page-size-prop.html">page-size-prop</a></li><li><a href="module-the%2520default%2520css%2520for%2520pagedjs.html">the default css for pagedjs</a></li><li><a href="tests_chunker.test.module_js.html">tests/chunker.test.js</a></li></ul><h3>Classes</h3><ul><li><a href="AtPage.html">AtPage</a></li><li><a href="BreakToken.html">BreakToken</a></li><li><a href="Breaks.html">Breaks</a></li><li><a href="Chunker.html">Chunker</a></li><li><a href="CommentsFilter.html">CommentsFilter</a></li><li><a href="ContentParser.html">ContentParser</a></li><li><a href="Counters.html">Counters</a></li><li><a href="Following.html">Following</a></li><li><a href="Footnotes.html">Footnotes</a></li><li><a href="Handlers.html">Handlers</a></li><li><a href="Hook.html">Hook</a></li><li><a href="Layout.html">Layout</a></li><li><a href="Lists.html">Lists</a></li><li><a href="NthOfType.html">NthOfType</a></li><li><a href="Overflow.html">Overflow</a></li><li><a href="OverflowContentError.html">OverflowContentError</a></li><li><a href="Page.html">Page</a></li><li><a href="PageCounterIncrement.html">PageCounterIncrement</a></li><li><a href="Polisher.html">Polisher</a></li><li><a href="PositionFixed.html">PositionFixed</a></li><li><a href="Previewer.html">Previewer</a></li><li><a href="PrintMedia.html">PrintMedia</a></li><li><a href="Queue.html">Queue</a></li><li><a href="RenderResult.html">RenderResult</a></li><li><a href="RunningHeaders.html">RunningHeaders</a></li><li><a href="ScriptsFilter.html">ScriptsFilter</a></li><li><a href="Sheet.html">Sheet</a></li><li><a href="Splits.html">Splits</a></li><li><a href="StringSets.html">StringSets</a></li><li><a href="TargetCounters.html">TargetCounters</a></li><li><a href="UndisplayedFilter.html">UndisplayedFilter</a></li><li><a href="WhiteSpaceFilter.html">WhiteSpaceFilter</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CSSValueToString">CSSValueToString</a></li><li><a href="global.html#Paged">Paged</a></li><li><a href="global.html#UUID">UUID</a></li><li><a href="global.html#attr">attr</a></li><li><a href="global.html#breakInsideAvoidParentNode">breakInsideAvoidParentNode</a></li><li><a href="global.html#child">child</a></li><li><a href="global.html#cleanPseudoContent">cleanPseudoContent</a></li><li><a href="global.html#cleanSelector">cleanSelector</a></li><li><a href="global.html#cloneNode">cloneNode</a></li><li><a href="global.html#cloneNodeAncestor">cloneNodeAncestor</a></li><li><a href="global.html#config">config</a></li><li><a href="global.html#copyWidth">copyWidth</a></li><li><a href="global.html#defer">defer</a></li><li><a href="global.html#displayedElementAfter">displayedElementAfter</a></li><li><a href="global.html#displayedElementBefore">displayedElementBefore</a></li><li><a href="global.html#elementAfter">elementAfter</a></li><li><a href="global.html#elementBefore">elementBefore</a></li><li><a href="global.html#filterTree">filterTree</a></li><li><a href="global.html#findCssSelector">findCssSelector</a></li><li><a href="global.html#findElement">findElement</a></li><li><a href="global.html#findRef">findRef</a></li><li><a href="global.html#getBoundingClientRect">getBoundingClientRect</a></li><li><a href="global.html#getClientRects">getClientRects</a></li><li><a href="global.html#getNodeWithNamedPage">getNodeWithNamedPage</a></li><li><a href="global.html#hasContent">hasContent</a></li><li><a href="global.html#hasTextContent">hasTextContent</a></li><li><a href="global.html#inIndexOfRefs">inIndexOfRefs</a></li><li><a href="global.html#indexOf">indexOf</a></li><li><a href="global.html#indexOfTextNode">indexOfTextNode</a></li><li><a href="global.html#initializeHandlers">initializeHandlers</a></li><li><a href="global.html#isAllWhitespace">isAllWhitespace</a></li><li><a href="global.html#isContainer">isContainer</a></li><li><a href="global.html#isElement">isElement</a></li><li><a href="global.html#isIgnorable">isIgnorable</a></li><li><a href="global.html#isText">isText</a></li><li><a href="global.html#isVisible">isVisible</a></li><li><a href="global.html#letters">letters</a></li><li><a href="global.html#needsBreakAfter">needsBreakAfter</a></li><li><a href="global.html#needsBreakBefore">needsBreakBefore</a></li><li><a href="global.html#needsPageBreak">needsPageBreak</a></li><li><a href="global.html#needsPreviousBreakAfter">needsPreviousBreakAfter</a></li><li><a href="global.html#nextSignificantNode">nextSignificantNode</a></li><li><a href="global.html#nextValidNode">nextValidNode</a></li><li><a href="global.html#nodeAfter">nodeAfter</a></li><li><a href="global.html#nodeBefore">nodeBefore</a></li><li><a href="global.html#parentOf">parentOf</a></li><li><a href="global.html#positionInNodeList">positionInNodeList</a></li><li><a href="global.html#prevValidNode">prevValidNode</a></li><li><a href="global.html#previewer">previewer</a></li><li><a href="global.html#previousSignificantNode">previousSignificantNode</a></li><li><a href="global.html#querySelectorEscape">querySelectorEscape</a></li><li><a href="global.html#ready">ready</a></li><li><a href="global.html#rebuildAncestors">rebuildAncestors</a></li><li><a href="global.html#rebuildTableRow">rebuildTableRow</a></li><li><a href="global.html#rebuildTree">rebuildTree</a></li><li><a href="global.html#registerHandlers">registerHandlers</a></li><li><a href="global.html#registeredHandlers">registeredHandlers</a></li><li><a href="global.html#replaceOrAppendElement">replaceOrAppendElement</a></li><li><a href="global.html#requestIdleCallback">requestIdleCallback</a></li><li><a href="global.html#setSplit">setSplit</a></li><li><a href="global.html#stackChildren">stackChildren</a></li><li><a href="global.html#validNode">validNode</a></li><li><a href="global.html#walk">walk</a></li><li><a href="global.html#words">words</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Fri Oct 17 2025 11:16:57 GMT+0200 (Central European Summer Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
