@@ -76,7 +76,7 @@ Here is some information about some hooks, the documentation remains to be compl
 | `afterPreview(pages)`              |  After PagedJS finished running (check afterRendered(pages)   | `pages` → array that contains all page nodes |
 |                                    |                                                               |                                              |
 
-#### Chuncker
+#### Chunker
 
 | Hook                                             |                                      Hooks order                                      |                                                                                                                                                        Attributes |
 | ------------------------------------------------ | :-----------------------------------------------------------------------------------: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------: |
@@ -140,10 +140,7 @@ class linkCleaning extends Paged.Handler {
       let printableUrl = content.replace(/\/\//g, "//\u003Cwbr\u003E");
       printableUrl = printableUrl.replace(/\,/g, ",\u003Cwbr\u003E");
       // put a <wbr> element around to define where to break the line.
-      printableUrl = printableUrl.replace(
-        /(\/|\~|\-|\.|\,|\_|\?|\#|\%)/g,
-        "\u003Cwbr\u003E$1"
-      );
+      printableUrl = printableUrl.replace(/(\/|\~|\-|\.|\,|\_|\?|\#|\%)/g, "\u003Cwbr\u003E$1");
       // turn hyphen in non breaking hyphen
       printableUrl = printableUrl.replace(/\-/g, "\u003Cwbr\u003E&#x2011;");
       // add a data-print-url to keep track of the previous link
@@ -233,4 +230,3 @@ class imageRatio extends Paged.Handler {
 
 Paged.registerHandlers(imageRatio);
 ```
-
