@@ -21,7 +21,7 @@ Welcome around :)
 
 ## Colophon
 
-Paged.js was founded by [Adam Hyde](https://www.adamhyde.net) and is currently developed by [julientaq](julientaq.fr), [Fred Chasen](http://fchasen.com/) and [Gijs de Heij](https://de-heij.com/)).
+Paged.js was founded by [Adam Hyde](https://www.adamhyde.net) and is currently developed by [julientaq](https://julientaq.fr), [Fred Chasen](http://fchasen.com/) and [Gijs de Heij](https://de-heij.com/)).
 
 The Paged.js logo was designed by the lovely [Anton Moglia](http://moglia.fr/) and our own awesome [Julie Blanc](http://julie-blanc.fr) during a train ourney returning from the 60-year-old type design event called [Les Rencontres de Lure](http://delure.org).
 

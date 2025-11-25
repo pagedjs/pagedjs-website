@@ -24,7 +24,7 @@ Bienvenue :)
 
 ## Colophon
 
-Paged.js a été fondé par [Adam Hyde](https://www.adamhyde.net) et l’équipe de développement comprend [julientaq](julientaq.fr), [Fred Chasen](http://fchasen.com/) & [Gijs de Heij](https://de-heij.com/)).
+Paged.js a été fondé par [Adam Hyde](https://www.adamhyde.net) et l’équipe de développement comprend [julientaq](https://julientaq.fr), [Fred Chasen](http://fchasen.com/) & [Gijs de Heij](https://de-heij.com/)).
 
 Le logo de paged.js est le résultat d’un retour en train communn des [Rencontres de Lure](https://delure.org) entre [Anton Moglia](https://anton.moglia.fr/) et [Julie Blanc](https://julie-blanc.fr), 
 
