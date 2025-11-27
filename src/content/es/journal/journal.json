@@ -1,0 +1,7 @@
+{
+  "layout": "journal/journal-single.njk",
+  "permalink": "/posts/{{lang}}/{{title | slug}}/",
+  "addIntro": true,
+  "addTags": true,
+  "translate": "yes"
+}
