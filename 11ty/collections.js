@@ -12,6 +12,16 @@ export default async function (eleventyConfig) {
     return [...collection.getFilteredByTag("chapter")];
   });
 
+  eleventyConfig.addCollection("menuItems", (collection) => {
+    const menu = [];
+    collection.getAll().forEach((item) => {
+      if (item.data.menu) {
+        menu.push(item);
+      }
+    });
+    return menu;
+  });
+
   // create examples
   eleventyConfig.addCollection("examples", (collectionApi) => {
     return collectionApi

@@ -10,31 +10,12 @@
     <button class="menu-call">MENU</button>
     <nav class="menu hide" role="main">
         <ul>
-            {% for item in collections.sortedByOrder %}
-                {% if item.data.menu.length %}
-                    {# montre les pages de la langue #}
-                    {% if item.data.lang == lang %}
-                        <li class="{% if item.url == page.url %}active{% endif %}">
-                            <a href="{{ item.url | locale_url }}">{{ item.data.menu }}</a>
-                        </li>
-                        {# si la page n’existe n’a pas la langue#}
-                    {% else %}
-                        {# montre tout #}
-                        {% set show = true %}
-                        {# sauf s’il existe une lang comme la page#}
-                        {% for itemlang in item.url | locale_links %}
-                            {% if lang == itemlang.lang %}
-                                {% set show = false %}
-                            {% endif %}
-                        {% endfor %}
-                        {% if show == true %}
-                            <li class="{% if item.url == page.url %}active{% endif %} english-only">
-                                {# {% include "./gb-flag.njk" %} #}
-                                <a href="{{ item.url }}">{{ item.data.menu }} <sup>{{ item.page.lang }}</sup></a>
-                            </li>
-                        {% endif %}
-                    {% endif %}
-                {% endif %}
+            {% for contentitem in collections.sortedByOrder | findmenu | orderedMenu(sitemenu, lang) %}
+                <li class="{% if contentitem.url == page.url %}active{% endif %}                         {% if contentitem.data.lang=="en" and lang !="en" %}englishOnly{% endif %} ">
+                    <a href="{{ contentitem.url }}">{{ contentitem.data.menu }}
+                        {% if contentitem.data.lang=="en" and lang !="en" %}<sup>en</sup>{% endif %}
+                    </a>
+                </li>
             {% endfor %}
             <li>
                 <a class=github-link"

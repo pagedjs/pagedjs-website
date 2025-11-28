@@ -2,5 +2,6 @@
   "layout": "documentation/documentation-single.njk",
   "permalink": "{{lang}}/documentation/{{part}}-{{title | slug}}/",
   "addIntro": true,
-  "addTags": false
+  "addTags": false,
+  "menu": false
 }
