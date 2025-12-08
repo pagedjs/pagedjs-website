@@ -5,7 +5,6 @@ draft: false
 author: "@julientaq"
 class:
 intro: "The work of chunking paged.js into part is underway, and today we got a lot of things to discuss, and it involves web-components" 
-# id: webcomponent01
 ---
 
 > Well, you know November has come
@@ -16,7 +15,7 @@ Sorry for the silence, november came and with it, all the slowness of winter, wh
 
 ## The benefits of a cssPrint preview
 
-As far as i remember, i always used the browser to generate books using CSSPrint. I never got the hard experience of generating a pdf through the command line, to check the result and tweak the content, to do it again, and again. 
+As far as i remember, i always used the browser to generate books using CSSPrint. I never got the hard experience of generating a PDF through the command line, to check the result and tweak the content, to do it again, and again. 
 I got the luxury of getting into cssPrint using book.js, a project founded by Adam Hyde (like paged.js) that was using CSS Regions to generate page. You made a change on page 2, and all the book was rebuilding from there. And we could quickly try things using the inspector and everything was visible on screen. But CSS Regions were drop by the Chromium team and what was amazing just disappeared. So we didn’t update Chrome for quite a while. And WebKit followed, and everything about CSS regions disappeared. 
 
 I ended up using a very precise Chromium under a very special Ubuntu version under a virtual machine for a long time (and we didn’t have SSD then, everything was so long). And i wasn’t the only one strugglin, even the folks at Open Source Publishing ended up making [their own fork on webkit to support their design work](blog.osp.kitchen/residency/from-webkit-to-ospkit.html). We, designers, love to experiment with our tools, and the browser is one of the most accessible setup for that. We need to make a poster? We’re gonna build our own system for previewing on screen what our HTML and CSS will render. And to do so, we spend quite a long time to figure out the HTML and CSS that will allows us to see what we’re gonna print.
@@ -68,7 +67,7 @@ Pretty easy, right? I hope you’re gonna enjoy this, we’re really excited wit
 
 Conceptually, in the word of web to print, the sheet of paper doesn’t impact the layout of its content (outside of what the @page can  do): in short, you can’t define how the content of the page look depending on the type of page it’s on.
 
-A simple example: let say that your design needs to have the text on the thirteenth page in another color and you don’t know before hand what would be on this page, you would asssume that you could use the following code:
+A simple example: let say that your design needs to have the text on the thirteenth page in another color and you don’t know before hand what would be on this page, you would asssume that you could use the following code:css
 
 ```css
 @page:nth(13) {
@@ -186,38 +185,16 @@ In that HTML, we have a page, that contains the margins, and the rest of the con
 
 We hope you gonna love playing with it, we’re already pretty much excited to put that into paged.js!
 
-> wanna test it quickly? Include that script to your html and start making things!
+> wanna test it quickly? Include that script to your HTML and start making things!
 `<script src="https://app.unpkg.com/@pagedjs/paged-page@0.1.0/files/dist/PagedPreview.js"`
 
 
 
+---
 
+On a side note, we got an issue for some translation of the documentation, and spanish may be the next language for paged.js documentation!
 
-
-
-
-
-
-
-
-If you want to style the children of an element, you can use the cascade and the web component will be transparent 
-
-<!-- I don’t want to get too deep into the complexity of how the web-component works and the magic of the shadow DOM, but suffice to say that, using `::part` you can actually change the style of specific block from within the component. so `::part(page-area)` will allow you to add css to the `page-area` block of the page.  -->
-
-
-But you may want to affect one block of the web-component. To do so, we can use a pseudo-element called `::part` that give you access to some bits of the component.
-
-
-
-
-
-
-
-
-
-
-
-
+*¡Vale!*
 
 
 
