@@ -307,6 +307,14 @@
     ]},
 
     {
+    "src": "./src/content/en/journal/2025-11-7-succesfully-published-@paged-page.md",
+    "link": "/posts/en/successfully-published-@pagedjspaged-page/",
+    "unit": "Successfully published @pagedjs/paged-page",
+    "langs": [{ "fr": true },
+    {"en": true}
+    ]},
+
+    {
     "src": "./src/content/en/examples/cetf.md",
     
     "unit": "C & F Éditions",

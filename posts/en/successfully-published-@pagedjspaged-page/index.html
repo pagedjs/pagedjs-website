@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+
+<html lang=" dir="ltr class="no-js">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Paged.js — Successfully published @pagedjs/paged-page</title>
+        <script type="module">
+        document.documentElement.classList.remove('no-js'); 
+        document.documentElement.classList.add('js'); 
+        </script>
+        <meta name="description" content="">
+        <meta property="og:title" content="Successfully published @pagedjs/paged-page — ">
+        <meta property="og:description" content="">
+        <meta property="og:image" content="">
+        <meta property="og:image:alt" content="Image description">
+        <meta property="og:locale" content="en">
+        <meta property="og:type" content="website">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta property="og:url" content="site.url">
+        <link rel="canonical" href="https://www.mywebsite.com/page">
+        <link rel="icon" href="/favicon.ico">
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+        <link rel="manifest" href="/my.webmanifest">
+        <meta name="theme-color" content="NaN">
+        
+        <meta name="twitter:dnt" content="on">
+        
+        <link rel="stylesheet" href="/css/main.css">
+        <link href="https://unpkg.com/prismjs@1.20.0/themes/prism.css"
+              rel="stylesheet">
+        <script>
+        // if there is a dark mode in the storage, use that
+        if (localStorage.getItem('Nightmode') == "true") {
+        document
+        .documentElement
+        .classList
+        .add('nightmode')
+        }
+        </script>
+        
+            <script>
+
+  if (window.location.href.includes("?night")) {
+    document.documentElement.classList.add("nightmode");
+  }
+
+function start() {
+
+    document.querySelectorAll("a").forEach((a) => {
+      if (a.href.includes(`?day`)) {
+        // add the infor mation in the url of each link
+        a.href = `${a.href.replace("?day", "?night")}`;
+      } else if (a.href.includes("#")) {
+        a.href = a.href.replace("#", "index.html?night#");
+      } else {
+        a.href = `${a.href}?night`;
+      }
+    });
+};
+
+start()
+</script>
+        
+    </head>
+    <body class=" "
+          style="">
+        <div class="crop-marks">
+    <div class="crop-mark vertical"></div>
+    <div class="crop-mark horizontal"></div>
+    <div class="paper"></div>
+</div>
+        
+        
+            
+<div class="running-head">
+    
+        
+            <a class="back-home" href="/">
+    <svg id="paged-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 213 52" fill="none" id="paged-logo"><path fill="var(--color-body)" d="M69.1 34.7c0 1.3-.5 2.7-1.6 2.7s-1.6-1.1-1.6-4.6v-7.1c0-7.3-1.5-13.5-12.1-13.5-6.5.0-13.4 2.2-13.4 8.4.0 4.7 6.9 6.1 9.9 2.6-1-1.3-1.7-3-1.7-4.5.0-2.9 2.2-3.5 4.4-3.5 2.4.0 3.9 1.4 3.9 8.6v1.3l-4.1 1.1c-7.9 2.2-12.9 4.9-12.9 9.1.0 3.9 2.2 6 7.1 6 4.6.0 8.7-2.4 11-7.7h.5c.9 5 2.4 7.7 6.8 7.7 3.1.0 6.6-1.5 6.1-6.7h-2.3v.1zm-17.8 1.8c-1.7.0-2.6-.9-2.6-2.1.0-3.2 2.3-4.7 8.2-6.5.1 4-2.5 8.6-5.6 8.6zM24.8 12.3c-3.6.0-9.6 1.2-10.6 9.1h-.9v-9.1L.9 15.2v2.4h6v31l-5.4.4v2.4h20.2V49l-6.2-.5V37.3c1.3 1.9 4 4.2 8.7 4.2 5.1.0 12.3-4.4 12.3-14.2.0-9.2-5.1-15-11.7-15zm-2.4 25.2c-2.8.0-5.3-1.5-6.5-5.7v-8.9c.1-1.3 1.5-5.4 5-5.4 4.4.0 7 5.1 7 10.5-.1 4.7-2 9.5-5.5 9.5zm155-21.6h5.8v32c0 3.4-4.3.4-5.1-3.1H177c-1.3 3.5-.2 6.9 3.1 6.9 3.2.0 7.4-1.7 7.4-8.9l.1-30.6-10.2 1.4v2.3zm-6 17.9c-2.4.0-3.7 1.3-3.7 3.7.0 2.4 1.3 3.7 3.7 3.7 2.4.0 3.7-1.3 3.7-3.7.0-2.4-1.4-3.7-3.7-3.7zM95.8 37.4c-4.9-1.1-12.3-1.1-15.9-1.6l1.2-2.4c1.4.4 3.1.6 5 .6 8.6.0 13.3-4.9 13.3-11.3.0-4.4-3-8-7.8-9.6l.2-.6c1.9.4 3.9.7 5.4.7 2.3.0 4-.8 4-3.4.0-1.8-1.3-4.1-3.3-6.2-3.3 3.6-6.2 7.3-10.7 8.7-.2-.1-.4-.1-.6-.1-8.6.0-13 4.8-13 11.3.0 4 1.8 7.4 5.7 9.2l-5.5 4.6c.4.8 1.7 2.9 6.5 4.4v.7c-4.4.6-7 1.9-7 3.7.0 3.8 7 5.7 12.3 5.7 9.1.0 16.6-2.3 16.9-7.9.0-3.6-1.6-5.4-6.7-6.5zm-10-22.2c3.3.0 4.8 2.4 4.8 7.4.0 5.7-1.1 8.5-4 8.5-3.4.0-4.8-2.9-4.8-8.4.1-5.3 1.2-7.5 4-7.5zm5.1 32.5c-6.2.0-10.5-1.5-10.5-3.2.0-.6.6-1.3 1.8-2.2l.9.2c9.4 1.8 14.8 1.3 14.8 3 .1 1.4-2.5 2.2-7 2.2zM199 21.5c-2.3-1.4-3.3-2.6-3.3-4 0-1.6 1.1-3.3 4-3.3 4.3.0 8.1 3.6 10.6 8.9h1.1v-8.4c-3-1.6-6.4-2.4-9.5-2.4-5.3.0-9.8 2.4-9.8 7.3.0 3.9 3.1 6.7 6.2 8.4 5.8 3.2 11 4.4 11 7.8.0 2.3-2.2 3.6-4.7 3.6-5.2.0-8.9-2.7-10.9-10.2h-1.1v9.4c2.7 1.8 6.5 2.8 10.1 2.8 5.4.0 10.2-2.2 10.2-7.7.1-6.5-7.5-8.3-13.9-12.2zM185.7 1.8c-2 0-2.9 1.1-2.9 2.9.0 1.9 1 2.9 2.9 2.9 1.8.0 2.9-1 2.9-2.9s-1.1-2.9-2.9-2.9zM126.1 29.1c.1.4.1.7.1 1.1.0 3.9-2.8 6.1-6.8 6.1-3.9.0-6.7-2.8-7.7-8.5l17.2-4.3c-.2-7.7-4.7-11.3-12.9-11.3-6.2.0-13 4.5-13 14.4.0 7.5 4.9 14.6 13.9 14.6 8 0 12.3-5.3 12.3-11.2.0-.5-.1-1-.1-1.5l-3 .6zm-14.7-5.8c0-5.2 2.2-8 5.3-8 2.9.0 3.8 3.2 3.8 5.6.0 1.5-1.9 1.8-5.1 2.9l-4 1.3v-1.8zM147 4.7l6.2.5v10.6c-1.5-2.1-4-3.6-8.4-3.6-5.1.0-12.3 4.4-12.3 14.2.0 9.1 5.1 14.9 11.7 14.9 3.6.0 9.6-1.2 10.6-9.1h1l1.9 8.3h4V.8l-14.8 1.5v2.4h.1zm6.2 26c-.1 1.2-1.1 5.4-5.9 5.4-4 0-6-4.9-6-10.5.0-4.7 1.9-9.5 5.4-9.5 2.8.0 5.3 1.5 6.5 5.7v8.9z"></path></svg>    
+</a>
+        
+    
+    <button class="menu-call">MENU</button>
+    <nav class="menu hide" role="main">
+        <ul>
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                    
+                    
+                        <li class="">
+                            <a href="/en/about/">about</a>
+                        </li>
+                        
+                    
+                
+            
+                
+                    
+                    
+                        <li class="">
+                            <a href="/en/faq/">FAQ</a>
+                        </li>
+                        
+                    
+                
+            
+                
+                    
+                    
+                        
+                        
+                        
+                        
+                            
+                                
+                            
+                        
+                        
+                    
+                
+            
+                
+            
+                
+                    
+                    
+                        <li class="">
+                            <a href="/en/documentation/">documentation</a>
+                        </li>
+                        
+                    
+                
+            
+                
+                    
+                    
+                        <li class="">
+                            <a href="/en/examples/">examples</a>
+                        </li>
+                        
+                    
+                
+            
+                
+            
+                
+            
+                
+                    
+                    
+                        <li class="">
+                            <a href="/en/journal/">Journal</a>
+                        </li>
+                        
+                    
+                
+            
+                
+                    
+                    
+                        
+                        
+                        
+                        
+                            
+                                
+                            
+                        
+                        
+                    
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+            <li>
+                <a class=github-link"
+                href="https://github.com/pagedjs/pagedjs/">github</a>
+            </li>
+            <li>
+                <a class="rsslink" href="https://pagedjs.org/feed.xml">RSS</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+        
+        
+    
+
+        
+    
+    <header>
+        <h1 id="title">
+            
+            Successfully published @pagedjs/paged-page
+        </h1>
+        
+            <p class="meta">
+                written
+                by <span class="author">@julientaq</span>
+                on <time class="date">11/7/2025</time>
+            </p>
+        
+        
+    <a class="alternative-lang"
+       href="/posts/fr/lesspaged-pagegreater-la-preview-des-pages-avec-ou-sans-paged.js/"
+       lang="fr"
+       title="Français"
+       hreflang="fr">Lisez en   Français</a>
+
+
+    </header>
+    <article>
+        
+        
+        
+
+
+
+        
+        
+            <p class="intro">
+                
+                
+                    
+                
+            
+            <blockquote>
+<p>Well, you know November has come<br>
+When it's gone away</p>
+</blockquote>
+<ul>
+<li>Gorillaz, <em>November has come</em></li>
+</ul>
+<p>Sorry for the silence, november came and with it, all the slowness of winter, which, this year, got the form of a quite strong covid. The good thing is that it’s now away, and i’m back up and running, and it’s the perfect moment to announce one of the great wins for paged.js rebuilding session we’re hard working for.</p>
+<h2 id="the-benefits-of-a-cssprint-preview" tabindex="-1">The benefits of a cssPrint preview</h2>
+<p>As far as i remember, i always used the browser to generate books using CSSPrint. I never got the hard experience of generating a pdf through the command line, to check the result and tweak the content, to do it again, and again.<br>
+I got the luxury of getting into cssPrint using book.js, a project founded by Adam Hyde (like paged.js) that was using CSS Regions to generate page. You made a change on page 2, and all the book was rebuilding from there. And we could quickly try things using the inspector and everything was visible on screen. But CSS Regions were drop by the Chromium team and what was amazing just disappeared. So we didn’t update Chrome for quite a while. And WebKit followed, and everything about CSS regions disappeared.</p>
+<p>I ended up using a very precise Chromium under a very special Ubuntu version under a virtual machine for a long time (and we didn’t have SSD then, everything was so long). And i wasn’t the only one strugglin, even the folks at Open Source Publishing ended up making <a href="blog.osp.kitchen/residency/from-webkit-to-ospkit.html">their own fork on webkit to support their design work</a>. We, designers, love to experiment with our tools, and the browser is one of the most accessible setup for that. We need to make a poster? We’re gonna build our own system for previewing on screen what our HTML and CSS will render. And to do so, we spend quite a long time to figure out the HTML and CSS that will allows us to see what we’re gonna print.</p>
+<p>But most of the time, this html and this css is litterally a simplest version of what paged.js generate to look at it on a screen. We have a <code>&lt;div&gt;</code> that will be the page, and that will have a CSS to handle the preview of the screen: setting the size of the <code>&lt;div&gt;</code> to be equal to what you’ll set in the <code>@page</code>, make sure to set the overflow accordingly, and, if you really want to reuse the system, you’re setting up a precise CSS grid, with margins, space for running head, etc.</p>
+<p>And by the game of copy/pasting, we’re rebuilding the same thing every time we need, and it’s not fun, because we always forget a line, or get into a new bug, because copy and pasting is far from free of errors.</p>
+<p>That’s why, when we decided to update paged.js, we decided that any bit of the library that could be reused outside will be made available as such. Today, we’re releasing the first block of this, the <code>&lt;paged-page&gt;</code> component.</p>
+<h2 id="but-hey%2C-what-is-a-web-component%3F" tabindex="-1">But hey, what is a web-component?</h2>
+<p>HTML is made of standard tags that we all share from one web page to another. <code>&lt;h1&gt;</code> is a level one title, <code>&lt;p&gt;</code> is a paragraph and <code>&lt;figure&gt;</code> an element that will be understood by readers and computers, as a <code>figure</code>. Those tags come with attributes (like <code>id</code> or <code>class</code> for the most well known ones), and a behavior that has been defined by the W3C, and implemented in a similar way in all the browsers. A good example? an <code>&lt;img&gt;</code> tag has a <code>alt</code> attribute. This attribute give an opportunity to the author to add a description of the image that will be picked up by a screen reader and read aloud to, for example, a person with visibility issues. This behavior is described in the specs, and give some rules on how an element will work.</p>
+<p>A web-component is a set of techonologies allowing author to write their own component.</p>
+<p>Using javascript, a web-component will include the HTML structure (the template), the CSS (the default styles), and their own behavior (how the element will react to a user). And to use it, you’ll only need the javascript file that define all those, and then you can simply add the component where you need in your webpage.</p>
+<p>One of my favorite web-component is a preview of a keybaord called <a href="https://onedeadkey.github.io/x-keyboard/">x-keyboard</a> (and its <a href="https://github.com/OneDeadKey/x-keyboard">source</a>). It’s the perfect tool to show a keybaord layout on the screen, and it will even be able to pick up what the visitor will type to and react accordingly.</p>
+<p>So <code>paged-page</code> is a web-component to show the preview of a printed page on the screen, following the W3C instructions used for printing.</p>
+<p>You want to print a page with a huge text in the middle of your page?</p>
+<p>This is the HTML you’ll write:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>paged-page</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>The store will be closed for Christmas. See you in January!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>paged-page</span><span class="token punctuation">></span></span></code></pre>
+<p>All the CSS for the preview, and for the print, comes with the component. This is already a win.</p>
+<p>And we’ve been a bit further, and added attributes to handle all the needed CSS directly from the HTML element: bleed, marks, margin, width and height are added as attributes and transfered to the CSS and the HTML.</p>
+<p>A good thing with a web-component, is that it can be transformed with CSS quite easily: you only need to do what you would do with a classic HTML tag, like this:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">paged-page#id</span> <span class="token punctuation">{</span><br>    <span class="token property">padding</span><span class="token punctuation">:</span> 3em<span class="token punctuation">;</span><br>    <span class="token property">background</span><span class="token punctuation">:</span> green<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>…and you’re done, your page has now a padding of 3mm and a green background.</p>
+<p>Pretty easy, right? I hope you’re gonna enjoy this, we’re really excited with the possibility this will offer.</p>
+<h2 id="cascading-pages-or-how-i-learned-to-style-the-content-inside-the-page" tabindex="-1">Cascading pages or how I learned to style the content inside the page</h2>
+<p>Conceptually, in the word of web to print, the sheet of paper doesn’t impact the layout of its content (outside of what the @page can  do): in short, you can’t define how the content of the page look depending on the type of page it’s on.</p>
+<p>A simple example: let say that your design needs to have the text on the thirteenth page in another color and you don’t know before hand what would be on this page, you would asssume that you could use the following code:</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@page</span><span class="token punctuation">:</span><span class="token function">nth</span><span class="token punctuation">(</span>13<span class="token punctuation">)</span></span> <span class="token punctuation">{</span><br>  <span class="token selector">.funny-text</span> <span class="token punctuation">{</span><br>    <span class="token property">color</span><span class="token punctuation">:</span> green<span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<p>Well, you can’t. Because the specs does not allow anything not page related on the <code>@page</code>. You can have margins, bleeds, marks and set the geometry of the page with the size property, but that’s it.</p>
+<p>Because this would create a cascade issue: what if somewhere else in your CSS, you write this</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">.funny-text</span> <span class="token punctuation">{</span><span class="token property">color</span><span class="token punctuation">:</span>yellow<span class="token punctuation">}</span>`</code></pre>
+<p>What color would be your text?</p>
+<p>And then, think of all the weird thing you could do with text-size: if the text needs to be huge on page 10, but making it huge push it to page 11, what should you have on the page 10 then?</p>
+<p>Well, paged.js has a weird answer to that issue, because of the transformation it makes on the css stylesheet. You see, any <code>@page:nth(13)</code> selector is transformed into a class: <code>@page</code> become <code>div.paged_page.paged_nth_13</code> which totally accepts nested CSS, and therefore, will have no trouble with styles for the children of that page, and the specificity rules will be quite clear.</p>
+<p>I’m calling this the quantum cascade: it is and it is not, until it’s appearing on the page you’ll print in the end.</p>
+<p>But it’s a bit of a lucky game, because sometimes, you don’t want that to happen, and your stuck with this <em>not-a-bug-a-feature</em> that paged.js offers. Thankfully, in the world of web component, it’s a bit different. Picture this HTML</p>
+<pre class="language-html"><code class="language-html">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>paged-page</span><br>      <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>page-12<span class="token punctuation">"</span></span><br>      <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>id-of-the-page2<span class="token punctuation">"</span></span><br>      <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>100mm<span class="token punctuation">"</span></span><br>      <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>100mm<span class="token punctuation">"</span></span><br>      <span class="token attr-name">bleed</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>5mm<span class="token punctuation">"</span></span><br>      <span class="token attr-name">margin</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>8mm 14mm<span class="token punctuation">"</span></span><br>      <span class="token attr-name">marks</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>cross crop<span class="token punctuation">"</span></span><br>    <span class="token punctuation">></span></span><br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">></span></span>This is a regularly sized page.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">></span></span><br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span> there will be some content here.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>paged-page</span><span class="token punctuation">></span></span><br></code></pre>
+<p>If I want to change the color of the text, and add this CSS:</p>
+<pre class="language-css"><code class="language-css">  <span class="token selector">#page-12</span> <span class="token punctuation">{</span><br>    <span class="token property">background</span><span class="token punctuation">:</span> green<span class="token punctuation">;</span><br>      <span class="token selector">h2</span> <span class="token punctuation">{</span><br>          <span class="token property">color</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span><br>      <span class="token punctuation">}</span><br>  <span class="token punctuation">}</span></code></pre>
+<p>As you can see the component is almost invisible, and you can easily change the content following the classic cascade.</p>
+<p>But maybe i want to change the style of the page-area, then we need to make the component visible. That’s what the <code>::part</code> pseudo elements is for.</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">#page-12::part(page-area)</span> <span class="token punctuation">{</span><br>        <span class="token property">background</span><span class="token punctuation">:</span> yellow<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>This could seem not that useful, because right now, we’re only talking about <code>paged-area</code>, but as soon as you get margins in, it becomes extremely powerful because you can target very deep css with a simple shortcut:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">#page-12:part(bottom-center)</span> <span class="token punctuation">{</span> <span class="token property">text-transformation</span><span class="token punctuation">:</span> uppercase<span class="token punctuation">;</span> <span class="token property">font-size</span><span class="token punctuation">:</span> .8em<span class="token punctuation">}</span><br><span class="token selector">#page-12:part(bottom-right)::after</span> <span class="token punctuation">{</span><span class="token property">content</span><span class="token punctuation">:</span> <span class="token function">counter</span><span class="token punctuation">(</span>page<span class="token punctuation">)</span><span class="token punctuation">}</span></code></pre>
+<h2 id="a-recap" tabindex="-1">A recap</h2>
+<p><code>&lt;paged-page&gt;</code> is a component that is waiting for those attributes:</p>
+<ul>
+<li><code>width</code>: the width of the page (without bleed)</li>
+<li><code>height</code>: the height of the page (without bleed)</li>
+<li><code>bleed</code>: the amount of bleed. (right now, you can’t have custom bleeds per side, but we’re thinking about it)</li>
+<li><code>margin</code>: the margins of the page, written down exactly as their css counterpart.</li>
+<li><code>marks</code>: the crop marks and cross marks you can add to the page</li>
+</ul>
+<p>And since it’s HTML, you can add any property you’d need for your own code. For example, paged.js will add <code>data-paged-ref</code> to support the page break system.</p>
+<p>The component itself is made of three elements:</p>
+<ul>
+<li>the page-marks: for bleed and marks.</li>
+<li>the paged-margins: allowing for quick access to margin-boxes using the <code>paged-margins</code> webcomponent.</li>
+<li>the page-area: where the content of the component will appear.</li>
+</ul>
+<p>If you happen to have multiple page with multiple page size, save as PDF will create a PDF with different page size.</p>
+<h2 id="about-margins" tabindex="-1">About margins</h2>
+<p>Since we were quite happy with the paged-margins, we got into exploring margin-boxes as web-components. As you may know, in the land of CSSPrint, the page has a limited of places where you can add things in the margins. THe specifications say that there are 17 margin-boxes, following this diagram:</p>
+<figure> <img src="/images/margin-boxes.png"  /></figure>
+<p>As you can see, the place you can add content is quite limited, and the geometry will be dependant on what you’ll have in there. It’s one of the thing we never make when we do HTML+CSS for printing, without using pagedjs or other things. We just don’t bother adding them, and we end up adding some content with a position absolute on each page, because more is too much.</p>
+<p>But if the preview of your page can have those margins, you may consider using them, and if they are needed for paged.js we added them, and it’s pretty easy to bring them up:</p>
+<pre class="language-html"><code class="language-html"><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>paged-page</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>paged-margins</span> <span class="token attr-name">slot</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>page-margins<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>paged-margin-content</span> <span class="token attr-name">slot</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>top-left<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Does this appear?<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>paged-margin-content</span><span class="token punctuation">></span></span><br>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>paged-margin-content</span> <span class="token attr-name">slot</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>top-right<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Should have<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>paged-margin-content</span><span class="token punctuation">></span></span><br>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>paged-margin-content</span> <span class="token attr-name">slot</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>left-top<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>T<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>paged-margin-content</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>paged-margins</span><span class="token punctuation">></span></span><br><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">></span></span>there are margin everywhere !<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>paged-page</span><span class="token punctuation">></span></span></code></pre>
+<p>In that HTML, we have a page, that contains the margins, and the rest of the content will fill up the page-area.</p>
+<p>We hope you gonna love playing with it, we’re already pretty much excited to put that into paged.js!</p>
+<blockquote>
+<p>wanna test it quickly? Include that script to your html and start making things!<br>
+<code>&lt;script src=&quot;https://app.unpkg.com/@pagedjs/paged-page@0.1.0/files/dist/PagedPreview.js&quot;</code></p>
+</blockquote>
+<p>If you want to style the children of an element, you can use the cascade and the web component will be transparent</p>
+<!-- I don’t want to get too deep into the complexity of how the web-component works and the magic of the shadow DOM, but suffice to say that, using `::part` you can actually change the style of specific block from within the component. so `::part(page-area)` will allow you to add css to the `page-area` block of the page.  -->
+<p>But you may want to affect one block of the web-component. To do so, we can use a pseudo-element called <code>::part</code> that give you access to some bits of the component.</p>
+
+        </article>
+    
+    <aside class="paginator-back">
+        <a href="/en/journal/" lang="en" hreflang="en">Back to the journal</a>
+    </aside>
+
+        
+            <footer>
+    <p class="foot-content"></p>
+</footer>
+
+        
+        
+        
+        <script>
+        if (document.querySelector('.toc .title')) {
+        document.querySelector('.toc .title').addEventListener("click", function() {
+        document.querySelector('.toc').classList.toggle("show");
+        })
+        }
+
+        document.querySelector(".menu-call").addEventListener("click", function() {document.querySelector(".menu").classList.toggle("hide")});
+
+        </script>
+    </body>
+</html>
