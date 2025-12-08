@@ -213,7 +213,7 @@ Nous espérons que vous allez adorer jouer avec ça ! (et qu’on puisse très v
 
 Oh un truc qui n’a rien avoir, mais AntonioJesusBlanco s’est proposé pour traduire la documentation existante en espagnol, et la branche `git` est prête. https://github.com/pagedjs/pagedjs/issues/310
 
-venez participez si vous le souhaitez!
+venez participer si vous le souhaitez!
 
 À très vite.
 
