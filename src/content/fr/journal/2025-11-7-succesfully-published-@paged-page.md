@@ -206,7 +206,10 @@ Nous espérons que vous allez adorer jouer avec ça ! (et qu’on puisse très v
 > Vous voulez tester rapidement ? Ajoutez simplement ce script à votre HTML et allez commencer à tester des trucs, et n’oubliez pas de venir nous dire comment ça s’est passé pour vous!
 
 ```html
-<script src="https://app.unpkg.com/@pagedjs/paged-page@0.1.0/files/dist/PagedPreview.js">
+    <script
+      type="module"
+      src="https://unpkg.com/@pagedjs/paged-page@0.1.0/dist/PagedPreview.js"
+    ></script>
 ```
 
 ---

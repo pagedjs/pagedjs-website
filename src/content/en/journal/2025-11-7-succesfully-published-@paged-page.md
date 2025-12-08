@@ -186,7 +186,13 @@ In that HTML, we have a page, that contains the margins, and the rest of the con
 We hope you gonna love playing with it, we’re already pretty much excited to put that into paged.js!
 
 > wanna test it quickly? Include that script to your HTML and start making things!
-`<script src="https://app.unpkg.com/@pagedjs/paged-page@0.1.0/files/dist/PagedPreview.js"`
+
+```html
+<script
+      type="module"
+      src="https://unpkg.com/@pagedjs/paged-page@0.1.0/dist/PagedPreview.js"></script>
+```
+
 
 
 
