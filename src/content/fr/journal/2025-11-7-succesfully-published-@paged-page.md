@@ -40,23 +40,23 @@ Quand on a décidé de mettre à jour paged.js, il était évident que chaque mo
 
 HTML est fait de balises standards que l’on partage tous d’une page web à l’autre, comme un langage commun. `<h1>` est un titre de niveau 1, `<p>` un paragraphe, et `<figure>` un élément qui sera compris par les lecteurs d’écran comme une figure. Ces balises ont des attributs (par exemple `id` ou `class`, les plus connus) et un comportement défini par le W3C et implémenté de façon similaire dans les navigateurs. Par exemple : une balise `<img>` possède un attribut `alt`. Cet attribut permet à l’auteur de fournir une description de l’image, qui sera lue par un lecteur d’écran à une personne malvoyante. Ce comportement est décrit dans les spécifications, avec des règles sur la manière dont l’élément doit fonctionner.
 
-Un web-component est un ensemble de technologies permettant aux auteurs d’écrire leurs propres composants.
+Un web-component est un ensemble de technologies permettant aux auteurs d’écrire leurs propres element HTML.
 
-Avec un simple fichier JavaScript, un web-component regroupe sa structure HTML (le template), son CSS (les styles par défaut) et son comportement (comment il réagit à l’utilisateur). Et pour l’utiliser, il suffit d’inclure ce fichier JavaScript avant d’insérer le composant dans la page.
+En utilisant un simple fichier `.js`, un web-component regroupe sa structure HTML (le template), son CSS (les styles par défaut) et son comportement (s’il a des intéractions, ce qu’il doit rajouter au html ou tout autre idée encapsulable dans un élément HTML). Et pour l’utiliser, on inclut ce fichier dans une balise script dans notre HTML et voilà, on peut utiliser le web-component.
 
 L’un de mes web-components préférés est une prévisualisation de clavier:  [x-keyboard](https://onedeadkey.github.io/x-keyboard/) ([source](https://github.com/OneDeadKey/x-keyboard)). C’est l’outil parfait pour afficher une disposition de clavier à l’écran, et il peut même réagir aux touches réellement tapées par le visiteur. 
 
 `paged-page` est donc un web-component destiné à afficher la prévisualisation d’une page imprimée à l’écran, en suivant les instructions W3C utilisées pour l’impression.
 
-Vous voulez imprimer une page avec un énorme texte au milieu ? Voici le HTML à écrire, je vous laisse le plaisir de choisir le CSS pour centre le texte, il y a trop de solutions possibles.
+Vous voulez imprimer une page avec un énorme texte au milieu ? Voici le HTML à écrire (je vous laisse le plaisir de choisir le CSS pour centre le texte, il y a trop de solutions possibles, on n’est plus en 2002).
 
 ```html
 <paged-page><h1>Le magasin sera fermé pour Noël. À l’année prochaine !</h1></paged-page>
 ```
 
-Tout le CSS nécessaire à la prévisualisation et à l’impression est inclus dans le composant. C’est déjà une belle victoire.
+Tout le CSS nécessaire à la prévisualisation et à l’impression est inclus dans le composant. Plus besoin de passer trop de temps à retrouver la dernière bonne version.
 
-Et nous sommes allés un peu plus loin : nous avons ajouté des attributs pour gérer directement depuis le HTML tout le CSS nécessaire : bleed, marques, marges, largeur et hauteur sont ajoutées en attributs puis transmises au CSS et au HTML.
+Et nous sommes allés un peu plus loin en ajoutant des attributs pour gérer directement depuis le HTML tout le CSS nécessaire (que l’on trouverait normalement dans un `@page`) : bleed, marques, marges, largeur et hauteur sont ajoutées en attributs puis transmises au CSS et au HTML.
 
 L’un des avantages d’un web-component, c’est qu’il peut être stylé très facilement : il suffit de faire ce que vous feriez avec une balise HTML classique :
 
@@ -171,15 +171,18 @@ la `page-area` : où apparaît le contenu du composant.
 
 Si vous avez plusieurs pages avec plusieurs tailles, l’enregistrement en PDF créera un PDF multi-format.
 
+Notez que dans ce cadre, il n’est plus nécessaire d’ajouter le `@page` au css, puisque tout est fabriqué par le composant HTML.
+
+
 ## À propos des marges
 
-Comme nous étions très satisfaits de paged-margins, nous avons exploré les margin-boxes sous forme de web-components. Comme vous le savez peut-être, dans CSSPrint, la page possède un nombre limité d’emplacements où placer du contenu dans les marges. Les specs définissent 17 margin-boxes, comme dans ce diagramme :
+Et tant qu’à avoir la page, on s’est dit, pourquoi pas ajouter les marges, et en faire des web-componants. Comme vous le savez peut-être, dans CSSPrint, il existe 17 emplacements pour intégrer des contenus dans les marges sur une page:
 
 <figure><img src="/images/margin-boxes.png" /></figure>
 
-Comme vous le voyez, les emplacements possibles sont limités, et leur géométrie dépend de ce que vous y mettez. C’est quelque chose que nous ne faisons presque jamais en HTML+CSS pour l’impression sans paged.js ou autre : on ne prend pas le temps de les ajouter. On finit par utiliser du position: absolute sur chaque page, parce que tout le reste est trop contraignant.
+Les trois quarts du temps, quand on n’utilise pas paged.js, on ne prend pas le temps d’ ajouter les *margins-boxes*. On finit par utiliser du `position: absolute` dans notre CSS, sur chaque page, pour aller au plus vite.
 
-Mais si la prévisualisation de votre page inclut ces marges, vous pourriez commencer à les utiliser. Et s’il le faut pour paged.js, nous les avons ajoutées : et il est très facile de les afficher :
+Mais si la prévisualisation de votre page inclut les marges par défaut, alors il devient facile de les utiliser. Et comme elles sont nécessaires pour paged.js, on les a ajouter au composants (ou plus exactement, on a fabriqué d’autres composants).
 
 ```html
 <paged-page>
@@ -196,10 +199,21 @@ Mais si la prévisualisation de votre page inclut ces marges, vous pourriez comm
 
 Ici, nous avons une page contenant des marges, et le reste du contenu remplit la page-area.
 
-Nous espérons que vous allez adorer jouer avec ça — nous sommes déjà très enthousiastes à l’idée de l’intégrer dans paged.js !
+Comme souvent c’est le genre d’outil qui s’apprend en essayant. (dans les semaines qui viennent on va faire pas mal d’exemples, mais tout est là pour que vous puissiez commencer à essayer).
 
-> Vous voulez tester rapidement ? Ajoutez simplement ce script à votre HTML :
+Nous espérons que vous allez adorer jouer avec ça ! (et qu’on puisse très vite intégrer tout ce boulot à paged.js)
+
+> Vous voulez tester rapidement ? Ajoutez simplement ce script à votre HTML et allez commencer à tester des trucs, et n’oubliez pas de venir nous dire comment ça s’est passé pour vous!
 
 ```html
 <script src="https://app.unpkg.com/@pagedjs/paged-page@0.1.0/files/dist/PagedPreview.js">
 ```
+
+---
+
+Oh un truc qui n’a rien avoir, mais AntonioJesusBlanco s’est proposé pour traduire la documentation existante en espagnol, et la branche `git` est prête. https://github.com/pagedjs/pagedjs/issues/310
+
+venez participez si vous le souhaitez!
+
+À très vite.
+
