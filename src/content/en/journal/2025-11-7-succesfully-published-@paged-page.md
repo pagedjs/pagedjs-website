@@ -1,10 +1,11 @@
 ---
 title: "Successfully published @pagedjs/paged-page"
 date: 2025-11-07
-draft: true
+draft: false
 author: "@julientaq"
 class:
 intro: "The work of chunking paged.js into part is underway, and today we got a lot of things to discuss, and it involves web-components" 
+# id: webcomponent01
 ---
 
 > Well, you know November has come
@@ -42,7 +43,7 @@ You want to print a page with a huge text in the middle of your page?
 
 This is the HTML you’ll write:
 
-```
+```html
 <paged-page><h1>The store will be closed for Christmas. See you in January!</h1></paged-page>
 ```
 
@@ -69,7 +70,7 @@ Conceptually, in the word of web to print, the sheet of paper doesn’t impact t
 
 A simple example: let say that your design needs to have the text on the thirteenth page in another color and you don’t know before hand what would be on this page, you would asssume that you could use the following code:
 
-```
+```css
 @page:nth(13) {
   .funny-text {
     color: green;
@@ -81,7 +82,7 @@ Well, you can’t. Because the specs does not allow anything not page related on
 
 Because this would create a cascade issue: what if somewhere else in your CSS, you write this 
 
-```
+```css
 .funny-text {color:yellow}`
 ```
 
