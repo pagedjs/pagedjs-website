@@ -1,72 +1,96 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>JSDoc: Home</title>
 
-    <script src="scripts/prettify/prettify.js"> </script>
-    <script src="scripts/prettify/lang-css.js"> </script>
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
-    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
-</head>
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="styles/prettify-tomorrow.css"
+    />
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css" />
+  </head>
 
-<body>
+  <body>
+    <div id="main">
+      <h1 class="page-title">Home</h1>
 
-<div id="main">
+      <h3></h3>
 
-    <h1 class="page-title">Home</h1>
-
-    
-
-
-
-    
-
-
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-    <section>
-        <article><img style="display: block; margin: 5em 0 auto;" src="assets/pagedjs.png" alt="Paged.js logo - pagination in the browser"/>
-<h1>Paged.js - Paged Media Tools</h1>
-<p>Paged.js is an open-source library to display paginated content in the browser and to generate print books using web technology.</p>
-<p>It contains a set of handlers for CSS transformations and fragmented layout which polyfill the <a href="https://www.w3.org/TR/css-page-3/">Paged Media</a> and <a href="https://www.w3.org/TR/css-gcpm-3/">Generated Content</a> CSS modules, along with hooks to create new handlers for custom properties.</p>
-<p>The currently supported properties can be found on <a href="https://pagedjs.org/documentation/cheatsheet/">the pagedjs website</a>.</p>
-<p>A quick overview to getting started with Paged Media CSS and Paged.js is available on <a href="https://pagedjs.org/documentation/">pagedjs.org/documentation</a>.</p>
-<h2>NPM Module</h2>
-<pre class="prettyprint source lang-sh"><code>$ npm install pagedjs
+      <section>
+        <article>
+          <img
+            style="display: block; margin: 5em 0 auto"
+            src="assets/pagedjs.png"
+            alt="Paged.js logo - pagination in the browser"
+          />
+          <h1>Paged.js - Paged Media Tools</h1>
+          <p>
+            Paged.js is an open-source library to display paginated content in
+            the browser and to generate print books using web technology.
+          </p>
+          <p>
+            It contains a set of handlers for CSS transformations and fragmented
+            layout which polyfill the
+            <a href="https://www.w3.org/TR/css-page-3/">Paged Media</a> and
+            <a href="https://www.w3.org/TR/css-gcpm-3/">Generated Content</a>
+            CSS modules, along with hooks to create new handlers for custom
+            properties.
+          </p>
+          <p>
+            The currently supported properties can be found on
+            <a href="https://pagedjs.org/documentation/cheatsheet/"
+              >the pagedjs website</a
+            >.
+          </p>
+          <p>
+            A quick overview to getting started with Paged Media CSS and
+            Paged.js is available on
+            <a href="https://pagedjs.org/documentation/"
+              >pagedjs.org/documentation</a
+            >.
+          </p>
+          <h2>NPM Module</h2>
+          <pre class="prettyprint source lang-sh"><code>$ npm install pagedjs
 </code></pre>
-<pre class="prettyprint source lang-js"><code>import { Previewer } from 'pagedjs';
+          <pre
+            class="prettyprint source lang-js"
+          ><code>import { Previewer } from 'pagedjs';
 
 let paged = new Previewer();
 let flow = paged.preview(DOMContent, [&quot;path/to/css/file.css&quot;], document.body).then((flow) => {
 	console.log(&quot;Rendered&quot;, flow.total, &quot;pages.&quot;);
 })
 </code></pre>
-<h2>Polyfill</h2>
-<p>Add the the <code>paged.polyfill.js</code> script to replace all <code>@page</code> css and render the html page with the Paged Media styles applied:</p>
-<pre class="prettyprint source lang-html"><code>&lt;script src=&quot;https://unpkg.com/pagedjs/dist/paged.polyfill.js&quot;>&lt;/script>
+          <h2>Polyfill</h2>
+          <p>
+            Add the the <code>paged.polyfill.js</code> script to replace all
+            <code>@page</code> css and render the html page with the Paged Media
+            styles applied:
+          </p>
+          <pre
+            class="prettyprint source lang-html"
+          ><code>&lt;script src=&quot;https://unpkg.com/pagedjs/dist/paged.polyfill.js&quot;>&lt;/script>
 </code></pre>
-<p>Try the <a href="https://s3.amazonaws.com/pagedmedia/pagedjs/examples/polyfill.html">polyfill with Aurorae</a>.</p>
-<p>By default the polyfill will run automatically as soon as the DOM is ready.
-However, you can add an async <code>before</code> function or return a Promise to delay the polyfill starting.</p>
-<pre class="prettyprint source lang-html"><code>&lt;script>
+          <p>
+            Try the
+            <a
+              href="https://s3.amazonaws.com/pagedmedia/pagedjs/examples/polyfill.html"
+              >polyfill with Aurorae</a
+            >.
+          </p>
+          <p>
+            By default the polyfill will run automatically as soon as the DOM is
+            ready. However, you can add an async <code>before</code> function or
+            return a Promise to delay the polyfill starting.
+          </p>
+          <pre class="prettyprint source lang-html"><code>&lt;script>
 	window.PagedConfig = {
 		before: () => {
 			return new Promise((resolve, reject) => {
@@ -77,9 +101,12 @@ However, you can add an async <code>before</code> function or return a Promise t
 	};
 &lt;/script>
 </code></pre>
-<p>Otherwise you can disable <code>auto</code> running the previewer and call <code>window.PagedPolyfill.preview();</code>
-whenever you want to start.</p>
-<pre class="prettyprint source lang-html"><code>&lt;script>
+          <p>
+            Otherwise you can disable <code>auto</code> running the previewer
+            and call <code>window.PagedPolyfill.preview();</code> whenever you
+            want to start.
+          </p>
+          <pre class="prettyprint source lang-html"><code>&lt;script>
 	window.PagedConfig = {
 		auto: false,
 		after: (flow) => { console.log(&quot;after&quot;, flow) },
@@ -90,25 +117,64 @@ whenever you want to start.</p>
 	}, 1000);
 &lt;/script>
 </code></pre>
-<h2>Chunker</h2>
-<p>Chunks up a document into paged media flows and applies print classes.</p>
-<p>Examples:</p>
-<ul>
-<li>Process the <a href="https://s3.amazonaws.com/pagedmedia/pagedjs/examples/index.html">first 50 pages of Moby Dick</a>.</li>
-<li>Upload and <a href="https://s3.amazonaws.com/pagedmedia/pagedjs/examples/epub.html">chunk an Epub using Epub.js</a>.</li>
-</ul>
-<h2>Polisher</h2>
-<p>Converts <code>@page</code> css to classes, and applies counters and content.</p>
-<p>Examples:</p>
-<ul>
-<li>Test <a href="https://s3.amazonaws.com/pagedmedia/pagedjs/examples/polisher.html">styles for print</a>.</li>
-</ul>
-<h3>CLI</h3>
-<p>Command line interface to render out PDFs of HTML files using Puppeteer: <a href="https://gitlab.pagedmedia.org/tools/pagedjs-cli">https://gitlab.pagedmedia.org/tools/pagedjs-cli</a>.</p>
-<h2>Modules</h2>
-<p>Modules are groups of handlers for that apply the layout and styles of a CSS module, such as Generated Content.</p>
-<p>New handlers can be registered from <code>import { registerHandlers } from 'pagedjs'</code> or by calling <code>Paged.registerHandlers</code> on an html page.</p>
-<pre class="prettyprint source lang-html"><code>&lt;script src=&quot;https://unpkg.com/pagedjs/dist/paged.polyfill.js&quot;>&lt;/script>
+          <h2>Chunker</h2>
+          <p>
+            Chunks up a document into paged media flows and applies print
+            classes.
+          </p>
+          <p>Examples:</p>
+          <ul>
+            <li>
+              Process the
+              <a
+                href="https://s3.amazonaws.com/pagedmedia/pagedjs/examples/index.html"
+                >first 50 pages of Moby Dick</a
+              >.
+            </li>
+            <li>
+              Upload and
+              <a
+                href="https://s3.amazonaws.com/pagedmedia/pagedjs/examples/epub.html"
+                >chunk an Epub using Epub.js</a
+              >.
+            </li>
+          </ul>
+          <h2>Polisher</h2>
+          <p>
+            Converts <code>@page</code> css to classes, and applies counters and
+            content.
+          </p>
+          <p>Examples:</p>
+          <ul>
+            <li>
+              Test
+              <a
+                href="https://s3.amazonaws.com/pagedmedia/pagedjs/examples/polisher.html"
+                >styles for print</a
+              >.
+            </li>
+          </ul>
+          <h3>CLI</h3>
+          <p>
+            Command line interface to render out PDFs of HTML files using
+            Puppeteer:
+            <a href="https://github.com/pagedjs/pagedjs-cli"
+              >https://github.com/pagedjs/pagedjs-cli</a
+            >.
+          </p>
+          <h2>Modules</h2>
+          <p>
+            Modules are groups of handlers for that apply the layout and styles
+            of a CSS module, such as Generated Content.
+          </p>
+          <p>
+            New handlers can be registered from
+            <code>import { registerHandlers } from 'pagedjs'</code> or by
+            calling <code>Paged.registerHandlers</code> on an html page.
+          </p>
+          <pre
+            class="prettyprint source lang-html"
+          ><code>&lt;script src=&quot;https://unpkg.com/pagedjs/dist/paged.polyfill.js&quot;>&lt;/script>
 &lt;script>
 	class MyHandler extends Paged.Handler {
 		constructor(chunker, polisher, caller) {
@@ -122,8 +188,14 @@ whenever you want to start.</p>
 	Paged.registerHandlers(MyHandler);
 &lt;/script>
 </code></pre>
-<p>Handlers have methods that correspond to the hooks for the parsing, layout and rendering of the Chunker and Polisher. Returning a promise or <code>async</code> function from a method in a handler will complete that task before continuing with the other registered methods for that hook.</p>
-<pre class="prettyprint source lang-js"><code>// Previewer
+          <p>
+            Handlers have methods that correspond to the hooks for the parsing,
+            layout and rendering of the Chunker and Polisher. Returning a
+            promise or <code>async</code> function from a method in a handler
+            will complete that task before continuing with the other registered
+            methods for that hook.
+          </p>
+          <pre class="prettyprint source lang-js"><code>// Previewer
 beforePreview(content, renderTo)
 afterPreview(pages)
 
@@ -155,93 +227,311 @@ onBreakToken(breakToken, overflow, rendered)
 afterOverflowRemoved(removed, rendered)
 beforeRenderResult(breakToken, pageWrapper)
 </code></pre>
-<h2>Setup</h2>
-<p>Install dependencies</p>
-<pre class="prettyprint source lang-sh"><code>$ npm install
+          <h2>Setup</h2>
+          <p>Install dependencies</p>
+          <pre class="prettyprint source lang-sh"><code>$ npm install
 </code></pre>
-<h2>Development</h2>
-<p>Run the local dev-server with livereload and autocompile on <a href="http://localhost:9090/">http://localhost:9090/</a></p>
-<pre class="prettyprint source lang-sh"><code>$ npm start
+          <h2>Development</h2>
+          <p>
+            Run the local dev-server with livereload and autocompile on
+            <a href="http://localhost:9090/">http://localhost:9090/</a>
+          </p>
+          <pre class="prettyprint source lang-sh"><code>$ npm start
 </code></pre>
-<h2>Deployment</h2>
-<p>Build the <code>dist</code> output</p>
-<pre class="prettyprint source lang-sh"><code>$ npm run build
+          <h2>Deployment</h2>
+          <p>Build the <code>dist</code> output</p>
+          <pre class="prettyprint source lang-sh"><code>$ npm run build
 </code></pre>
-<p>Compile the <code>lib</code> output</p>
-<pre class="prettyprint source lang-sh"><code>$ npm run compile
+          <p>Compile the <code>lib</code> output</p>
+          <pre class="prettyprint source lang-sh"><code>$ npm run compile
 </code></pre>
-<p>Generate legacy builds with polyfills included</p>
-<pre class="prettyprint source lang-sh"><code>$ npm run legacy
+          <p>Generate legacy builds with polyfills included</p>
+          <pre class="prettyprint source lang-sh"><code>$ npm run legacy
 </code></pre>
-<h2>Testing</h2>
-<p>Testing for Paged.js uses <a href="https://facebook.github.io/jest/en/">Jest</a> but is split into Tests and Specs.</p>
-<h3>Tests</h3>
-<p>Unit tests for Chunker and Polisher methods are run in node using JSDOM.</p>
-<pre class="prettyprint source lang-bash"><code>npm test
+          <h2>Testing</h2>
+          <p>
+            Testing for Paged.js uses
+            <a href="https://facebook.github.io/jest/en/">Jest</a> but is split
+            into Tests and Specs.
+          </p>
+          <h3>Tests</h3>
+          <p>
+            Unit tests for Chunker and Polisher methods are run in node using
+            JSDOM.
+          </p>
+          <pre class="prettyprint source lang-bash"><code>npm test
 </code></pre>
-<h3>Specs</h3>
-<p>Specs run a html file in Chrome (using puppeteer) to test against CSS specifications.</p>
-<p>They can also output a pdf and compare pages (one at a time) in that PDF with samples PDFs (saved as images).</p>
-<p>The PDF comparison tests depend on the <code>ghostscript</code> and the <code>ghostscript4js</code> package.</p>
-<p>It is recomend to run these in the Docker container below via:</p>
-<pre class="prettyprint source lang-bash"><code>npm run docker-specs
+          <h3>Specs</h3>
+          <p>
+            Specs run a html file in Chrome (using puppeteer) to test against
+            CSS specifications.
+          </p>
+          <p>
+            They can also output a pdf and compare pages (one at a time) in that
+            PDF with samples PDFs (saved as images).
+          </p>
+          <p>
+            The PDF comparison tests depend on the <code>ghostscript</code> and
+            the <code>ghostscript4js</code> package.
+          </p>
+          <p>It is recomend to run these in the Docker container below via:</p>
+          <pre class="prettyprint source lang-bash"><code>npm run docker-specs
 </code></pre>
-<p>However if you'd like to run the specs outside of Docker, you'll need to install a local version of Ghostscript for your system according to https://www.npmjs.com/package/ghostscript4js#prerequisites</p>
-<p>For Mac you can install it with</p>
-<pre class="prettyprint source lang-bash"><code>brew install ghostscript
+          <p>
+            However if you'd like to run the specs outside of Docker, you'll
+            need to install a local version of Ghostscript for your system
+            according to
+            https://www.npmjs.com/package/ghostscript4js#prerequisites
+          </p>
+          <p>For Mac you can install it with</p>
+          <pre
+            class="prettyprint source lang-bash"
+          ><code>brew install ghostscript
 </code></pre>
-<p>For Debian you can install it with</p>
-<pre class="prettyprint source lang-bash"><code>sudo apt-get install ghostscript
+          <p>For Debian you can install it with</p>
+          <pre
+            class="prettyprint source lang-bash"
+          ><code>sudo apt-get install ghostscript
 sudo apt-get install libgs-dev
 </code></pre>
-<p>Now you can install the <code>ghostscript4js</code> library. For Linux you can optionally pass the location ghostscript was installed to in <code>GS4JS_HOME</code>.</p>
-<pre class="prettyprint source lang-bash"><code>GS4JS_HOME=&quot;/usr/lib/$(gcc -dumpmachine)&quot; npm install ghostscript4js
+          <p>
+            Now you can install the <code>ghostscript4js</code> library. For
+            Linux you can optionally pass the location ghostscript was installed
+            to in <code>GS4JS_HOME</code>.
+          </p>
+          <pre
+            class="prettyprint source lang-bash"
+          ><code>GS4JS_HOME=&quot;/usr/lib/$(gcc -dumpmachine)&quot; npm install ghostscript4js
 </code></pre>
-<p>To test the pdf output of specs, you'll need to build the library locally.</p>
-<pre class="prettyprint source lang-bash"><code>npm run build
+          <p>
+            To test the pdf output of specs, you'll need to build the library
+            locally.
+          </p>
+          <pre class="prettyprint source lang-bash"><code>npm run build
 </code></pre>
-<p>Then run the jest tests in puppeteer.</p>
-<pre class="prettyprint source lang-bash"><code>npm run specs
+          <p>Then run the jest tests in puppeteer.</p>
+          <pre class="prettyprint source lang-bash"><code>npm run specs
 </code></pre>
-<p>To debug the results of a test in a browser you can add <code>NODE_ENV=debug</code></p>
-<pre class="prettyprint source lang-bash"><code>NODE_ENV=debug npm run specs
+          <p>
+            To debug the results of a test in a browser you can add
+            <code>NODE_ENV=debug</code>
+          </p>
+          <pre
+            class="prettyprint source lang-bash"
+          ><code>NODE_ENV=debug npm run specs
 </code></pre>
-<p>To update the stored pdf images you can run</p>
-<pre class="prettyprint source lang-bash"><code>npm run specs -- --updateSnapshot
+          <p>To update the stored pdf images you can run</p>
+          <pre
+            class="prettyprint source lang-bash"
+          ><code>npm run specs -- --updateSnapshot
 </code></pre>
-<h3>Docker</h3>
-<p>A <code>pagedmedia/pagedjs</code> docker image contains all the dependencies needed to run the <code>pagedjs</code> development server, as well as the pdf comparison tests.</p>
-<p>To build the image run</p>
-<pre class="prettyprint source lang-bash"><code>docker build -t pagedmedia/pagedjs .
+          <h3>Docker</h3>
+          <p>
+            A <code>pagedmedia/pagedjs</code> docker image contains all the
+            dependencies needed to run the <code>pagedjs</code> development
+            server, as well as the pdf comparison tests.
+          </p>
+          <p>To build the image run</p>
+          <pre
+            class="prettyprint source lang-bash"
+          ><code>docker build -t pagedmedia/pagedjs .
 </code></pre>
-<p>By default the container will run the development server with <code>npm start</code></p>
-<pre class="prettyprint source lang-bash"><code>docker run -it -p 9090:9090 pagedmedia/pagedjs
+          <p>
+            By default the container will run the development server with
+            <code>npm start</code>
+          </p>
+          <pre
+            class="prettyprint source lang-bash"
+          ><code>docker run -it -p 9090:9090 pagedmedia/pagedjs
 </code></pre>
-<p>The tests and specs can be run within the container by passing a <code>seccomp</code> file for Chrome and running <code>npm test</code></p>
-<pre class="prettyprint source lang-bash"><code>docker run -it --security-opt 'seccomp=seccomp.json' pagedmedia/pagedjs npm test && npm run specs
+          <p>
+            The tests and specs can be run within the container by passing a
+            <code>seccomp</code> file for Chrome and running
+            <code>npm test</code>
+          </p>
+          <pre
+            class="prettyprint source lang-bash"
+          ><code>docker run -it --security-opt 'seccomp=seccomp.json' pagedmedia/pagedjs npm test && npm run specs
 </code></pre>
-<h2>Licence</h2>
-<p>MIT License (MIT), which you can read <a href="https://gitlab.pagedmedia.org/tools/pagedjs/blob/master/LICENSE.md">here</a></p></article>
-    </section>
+          <h2>Licence</h2>
+          <p>
+            MIT License (MIT), which you can read
+            <a
+              href="https://gitlab.pagedmedia.org/tools/pagedjs/blob/master/LICENSE.md"
+              >here</a
+            >
+          </p>
+        </article>
+      </section>
+    </div>
 
+    <nav>
+      <h2><a href="index.html">Home</a></h2>
+      <h3>Modules</h3>
+      <ul>
+        <li>
+          <a
+            href="a%2520js%2520object%2520that%2520defines%2520the%2520default%2520files%2520size%2520from%2520__%2520https___www.w3.org_TR_css3-page__module_page-size-prop.html"
+            >page-size-prop</a
+          >
+        </li>
+        <li>
+          <a href="module-the%2520default%2520css%2520for%2520pagedjs.html"
+            >the default css for pagedjs</a
+          >
+        </li>
+        <li>
+          <a href="tests_chunker.test.module_js.html">tests/chunker.test.js</a>
+        </li>
+      </ul>
+      <h3>Classes</h3>
+      <ul>
+        <li><a href="AtPage.html">AtPage</a></li>
+        <li><a href="BreakToken.html">BreakToken</a></li>
+        <li><a href="Breaks.html">Breaks</a></li>
+        <li><a href="Chunker.html">Chunker</a></li>
+        <li><a href="CommentsFilter.html">CommentsFilter</a></li>
+        <li><a href="ContentParser.html">ContentParser</a></li>
+        <li><a href="Counters.html">Counters</a></li>
+        <li><a href="Following.html">Following</a></li>
+        <li><a href="Footnotes.html">Footnotes</a></li>
+        <li><a href="Handlers.html">Handlers</a></li>
+        <li><a href="Hook.html">Hook</a></li>
+        <li><a href="Layout.html">Layout</a></li>
+        <li><a href="Lists.html">Lists</a></li>
+        <li><a href="NthOfType.html">NthOfType</a></li>
+        <li><a href="Overflow.html">Overflow</a></li>
+        <li><a href="OverflowContentError.html">OverflowContentError</a></li>
+        <li><a href="Page.html">Page</a></li>
+        <li><a href="PageCounterIncrement.html">PageCounterIncrement</a></li>
+        <li><a href="Polisher.html">Polisher</a></li>
+        <li><a href="PositionFixed.html">PositionFixed</a></li>
+        <li><a href="Previewer.html">Previewer</a></li>
+        <li><a href="PrintMedia.html">PrintMedia</a></li>
+        <li><a href="Queue.html">Queue</a></li>
+        <li><a href="RenderResult.html">RenderResult</a></li>
+        <li><a href="RunningHeaders.html">RunningHeaders</a></li>
+        <li><a href="ScriptsFilter.html">ScriptsFilter</a></li>
+        <li><a href="Sheet.html">Sheet</a></li>
+        <li><a href="Splits.html">Splits</a></li>
+        <li><a href="StringSets.html">StringSets</a></li>
+        <li><a href="TargetCounters.html">TargetCounters</a></li>
+        <li><a href="UndisplayedFilter.html">UndisplayedFilter</a></li>
+        <li><a href="WhiteSpaceFilter.html">WhiteSpaceFilter</a></li>
+      </ul>
+      <h3>Global</h3>
+      <ul>
+        <li><a href="global.html#CSSValueToString">CSSValueToString</a></li>
+        <li><a href="global.html#Paged">Paged</a></li>
+        <li><a href="global.html#UUID">UUID</a></li>
+        <li><a href="global.html#attr">attr</a></li>
+        <li>
+          <a href="global.html#breakInsideAvoidParentNode"
+            >breakInsideAvoidParentNode</a
+          >
+        </li>
+        <li><a href="global.html#child">child</a></li>
+        <li><a href="global.html#cleanPseudoContent">cleanPseudoContent</a></li>
+        <li><a href="global.html#cleanSelector">cleanSelector</a></li>
+        <li><a href="global.html#cloneNode">cloneNode</a></li>
+        <li><a href="global.html#cloneNodeAncestor">cloneNodeAncestor</a></li>
+        <li><a href="global.html#config">config</a></li>
+        <li><a href="global.html#copyWidth">copyWidth</a></li>
+        <li><a href="global.html#defer">defer</a></li>
+        <li>
+          <a href="global.html#displayedElementAfter">displayedElementAfter</a>
+        </li>
+        <li>
+          <a href="global.html#displayedElementBefore"
+            >displayedElementBefore</a
+          >
+        </li>
+        <li><a href="global.html#elementAfter">elementAfter</a></li>
+        <li><a href="global.html#elementBefore">elementBefore</a></li>
+        <li><a href="global.html#filterTree">filterTree</a></li>
+        <li><a href="global.html#findCssSelector">findCssSelector</a></li>
+        <li><a href="global.html#findElement">findElement</a></li>
+        <li><a href="global.html#findRef">findRef</a></li>
+        <li>
+          <a href="global.html#getBoundingClientRect">getBoundingClientRect</a>
+        </li>
+        <li><a href="global.html#getClientRects">getClientRects</a></li>
+        <li>
+          <a href="global.html#getNodeWithNamedPage">getNodeWithNamedPage</a>
+        </li>
+        <li><a href="global.html#hasContent">hasContent</a></li>
+        <li><a href="global.html#hasTextContent">hasTextContent</a></li>
+        <li><a href="global.html#inIndexOfRefs">inIndexOfRefs</a></li>
+        <li><a href="global.html#indexOf">indexOf</a></li>
+        <li><a href="global.html#indexOfTextNode">indexOfTextNode</a></li>
+        <li><a href="global.html#initializeHandlers">initializeHandlers</a></li>
+        <li><a href="global.html#isAllWhitespace">isAllWhitespace</a></li>
+        <li><a href="global.html#isContainer">isContainer</a></li>
+        <li><a href="global.html#isElement">isElement</a></li>
+        <li><a href="global.html#isIgnorable">isIgnorable</a></li>
+        <li><a href="global.html#isText">isText</a></li>
+        <li><a href="global.html#isVisible">isVisible</a></li>
+        <li><a href="global.html#letters">letters</a></li>
+        <li><a href="global.html#needsBreakAfter">needsBreakAfter</a></li>
+        <li><a href="global.html#needsBreakBefore">needsBreakBefore</a></li>
+        <li><a href="global.html#needsPageBreak">needsPageBreak</a></li>
+        <li>
+          <a href="global.html#needsPreviousBreakAfter"
+            >needsPreviousBreakAfter</a
+          >
+        </li>
+        <li>
+          <a href="global.html#nextSignificantNode">nextSignificantNode</a>
+        </li>
+        <li><a href="global.html#nextValidNode">nextValidNode</a></li>
+        <li><a href="global.html#nodeAfter">nodeAfter</a></li>
+        <li><a href="global.html#nodeBefore">nodeBefore</a></li>
+        <li><a href="global.html#parentOf">parentOf</a></li>
+        <li><a href="global.html#positionInNodeList">positionInNodeList</a></li>
+        <li><a href="global.html#prevValidNode">prevValidNode</a></li>
+        <li><a href="global.html#previewer">previewer</a></li>
+        <li>
+          <a href="global.html#previousSignificantNode"
+            >previousSignificantNode</a
+          >
+        </li>
+        <li>
+          <a href="global.html#querySelectorEscape">querySelectorEscape</a>
+        </li>
+        <li><a href="global.html#ready">ready</a></li>
+        <li><a href="global.html#rebuildAncestors">rebuildAncestors</a></li>
+        <li><a href="global.html#rebuildTableRow">rebuildTableRow</a></li>
+        <li><a href="global.html#rebuildTree">rebuildTree</a></li>
+        <li><a href="global.html#registerHandlers">registerHandlers</a></li>
+        <li><a href="global.html#registeredHandlers">registeredHandlers</a></li>
+        <li>
+          <a href="global.html#replaceOrAppendElement"
+            >replaceOrAppendElement</a
+          >
+        </li>
+        <li>
+          <a href="global.html#requestIdleCallback">requestIdleCallback</a>
+        </li>
+        <li><a href="global.html#setSplit">setSplit</a></li>
+        <li><a href="global.html#stackChildren">stackChildren</a></li>
+        <li><a href="global.html#validNode">validNode</a></li>
+        <li><a href="global.html#walk">walk</a></li>
+        <li><a href="global.html#words">words</a></li>
+      </ul>
+    </nav>
 
+    <br class="clear" />
 
+    <footer>
+      Documentation generated by
+      <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Fri Oct 17
+      2025 11:44:34 GMT+0200 (Central European Summer Time)
+    </footer>
 
-
-
-</div>
-
-<nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="a%2520js%2520object%2520that%2520defines%2520the%2520default%2520files%2520size%2520from%2520__%2520https___www.w3.org_TR_css3-page__module_page-size-prop.html">page-size-prop</a></li><li><a href="module-the%2520default%2520css%2520for%2520pagedjs.html">the default css for pagedjs</a></li><li><a href="tests_chunker.test.module_js.html">tests/chunker.test.js</a></li></ul><h3>Classes</h3><ul><li><a href="AtPage.html">AtPage</a></li><li><a href="BreakToken.html">BreakToken</a></li><li><a href="Breaks.html">Breaks</a></li><li><a href="Chunker.html">Chunker</a></li><li><a href="CommentsFilter.html">CommentsFilter</a></li><li><a href="ContentParser.html">ContentParser</a></li><li><a href="Counters.html">Counters</a></li><li><a href="Following.html">Following</a></li><li><a href="Footnotes.html">Footnotes</a></li><li><a href="Handlers.html">Handlers</a></li><li><a href="Hook.html">Hook</a></li><li><a href="Layout.html">Layout</a></li><li><a href="Lists.html">Lists</a></li><li><a href="NthOfType.html">NthOfType</a></li><li><a href="Overflow.html">Overflow</a></li><li><a href="OverflowContentError.html">OverflowContentError</a></li><li><a href="Page.html">Page</a></li><li><a href="PageCounterIncrement.html">PageCounterIncrement</a></li><li><a href="Polisher.html">Polisher</a></li><li><a href="PositionFixed.html">PositionFixed</a></li><li><a href="Previewer.html">Previewer</a></li><li><a href="PrintMedia.html">PrintMedia</a></li><li><a href="Queue.html">Queue</a></li><li><a href="RenderResult.html">RenderResult</a></li><li><a href="RunningHeaders.html">RunningHeaders</a></li><li><a href="ScriptsFilter.html">ScriptsFilter</a></li><li><a href="Sheet.html">Sheet</a></li><li><a href="Splits.html">Splits</a></li><li><a href="StringSets.html">StringSets</a></li><li><a href="TargetCounters.html">TargetCounters</a></li><li><a href="UndisplayedFilter.html">UndisplayedFilter</a></li><li><a href="WhiteSpaceFilter.html">WhiteSpaceFilter</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CSSValueToString">CSSValueToString</a></li><li><a href="global.html#Paged">Paged</a></li><li><a href="global.html#UUID">UUID</a></li><li><a href="global.html#attr">attr</a></li><li><a href="global.html#breakInsideAvoidParentNode">breakInsideAvoidParentNode</a></li><li><a href="global.html#child">child</a></li><li><a href="global.html#cleanPseudoContent">cleanPseudoContent</a></li><li><a href="global.html#cleanSelector">cleanSelector</a></li><li><a href="global.html#cloneNode">cloneNode</a></li><li><a href="global.html#cloneNodeAncestor">cloneNodeAncestor</a></li><li><a href="global.html#config">config</a></li><li><a href="global.html#copyWidth">copyWidth</a></li><li><a href="global.html#defer">defer</a></li><li><a href="global.html#displayedElementAfter">displayedElementAfter</a></li><li><a href="global.html#displayedElementBefore">displayedElementBefore</a></li><li><a href="global.html#elementAfter">elementAfter</a></li><li><a href="global.html#elementBefore">elementBefore</a></li><li><a href="global.html#filterTree">filterTree</a></li><li><a href="global.html#findCssSelector">findCssSelector</a></li><li><a href="global.html#findElement">findElement</a></li><li><a href="global.html#findRef">findRef</a></li><li><a href="global.html#getBoundingClientRect">getBoundingClientRect</a></li><li><a href="global.html#getClientRects">getClientRects</a></li><li><a href="global.html#getNodeWithNamedPage">getNodeWithNamedPage</a></li><li><a href="global.html#hasContent">hasContent</a></li><li><a href="global.html#hasTextContent">hasTextContent</a></li><li><a href="global.html#inIndexOfRefs">inIndexOfRefs</a></li><li><a href="global.html#indexOf">indexOf</a></li><li><a href="global.html#indexOfTextNode">indexOfTextNode</a></li><li><a href="global.html#initializeHandlers">initializeHandlers</a></li><li><a href="global.html#isAllWhitespace">isAllWhitespace</a></li><li><a href="global.html#isContainer">isContainer</a></li><li><a href="global.html#isElement">isElement</a></li><li><a href="global.html#isIgnorable">isIgnorable</a></li><li><a href="global.html#isText">isText</a></li><li><a href="global.html#isVisible">isVisible</a></li><li><a href="global.html#letters">letters</a></li><li><a href="global.html#needsBreakAfter">needsBreakAfter</a></li><li><a href="global.html#needsBreakBefore">needsBreakBefore</a></li><li><a href="global.html#needsPageBreak">needsPageBreak</a></li><li><a href="global.html#needsPreviousBreakAfter">needsPreviousBreakAfter</a></li><li><a href="global.html#nextSignificantNode">nextSignificantNode</a></li><li><a href="global.html#nextValidNode">nextValidNode</a></li><li><a href="global.html#nodeAfter">nodeAfter</a></li><li><a href="global.html#nodeBefore">nodeBefore</a></li><li><a href="global.html#parentOf">parentOf</a></li><li><a href="global.html#positionInNodeList">positionInNodeList</a></li><li><a href="global.html#prevValidNode">prevValidNode</a></li><li><a href="global.html#previewer">previewer</a></li><li><a href="global.html#previousSignificantNode">previousSignificantNode</a></li><li><a href="global.html#querySelectorEscape">querySelectorEscape</a></li><li><a href="global.html#ready">ready</a></li><li><a href="global.html#rebuildAncestors">rebuildAncestors</a></li><li><a href="global.html#rebuildTableRow">rebuildTableRow</a></li><li><a href="global.html#rebuildTree">rebuildTree</a></li><li><a href="global.html#registerHandlers">registerHandlers</a></li><li><a href="global.html#registeredHandlers">registeredHandlers</a></li><li><a href="global.html#replaceOrAppendElement">replaceOrAppendElement</a></li><li><a href="global.html#requestIdleCallback">requestIdleCallback</a></li><li><a href="global.html#setSplit">setSplit</a></li><li><a href="global.html#stackChildren">stackChildren</a></li><li><a href="global.html#validNode">validNode</a></li><li><a href="global.html#walk">walk</a></li><li><a href="global.html#words">words</a></li></ul>
-</nav>
-
-<br class="clear">
-
-<footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Fri Oct 17 2025 11:44:34 GMT+0200 (Central European Summer Time)
-</footer>
-
-<script> prettyPrint(); </script>
-<script src="scripts/linenumber.js"> </script>
-</body>
+    <script>
+      prettyPrint();
+    </script>
+    <script src="scripts/linenumber.js"></script>
+  </body>
 </html>
+
