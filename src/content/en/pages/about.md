@@ -15,7 +15,7 @@ Paged.js follows the Paged Media standards published by the W3C (ie the Paged Me
 
 We’ll follow the standards of the W3C. Standards are in the DNA of what we’re doing. If we want to add some feature, we’ll write down the specifications and discuss with all the members of the W3C to see how it would make sense for them and we are open to anyone who want to share their thoughts. This project will be over when we are happy with the browsers’ implementation of the W3C specification for print.
 
-Paged.js is a community driven project, we’ll make sure that anyone feels just like at home, newcomers and old friends alike. We’ll always put the community needs first: we have a [Mattermost](https://mattermost.coko.foundation) that we use to discuss everything and the development is hosted on [github](https://github.com/pagedjs/). All the issues are read and answered as fast as possible.
+Paged.js is a community driven project, we’ll make sure that anyone feels just like at home, newcomers and old friends alike. We’ll always put the community needs first: we have a [Matrix chat](https://matrix.to/#/#pagedjs:matrix.org) that we use to discuss everything and the development is hosted on [github](https://github.com/pagedjs/). All the issues are read and answered as fast as possible, and contributions are more than welcome.
 
 Welcome around :)
 
