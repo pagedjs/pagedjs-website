@@ -12,7 +12,7 @@ symbolText: "The Musical Symbols block covers characters used by basic Western m
 
 ## Starting Paged.js
 
-Paged.js comes in two flavours: a polyfill that will automatically run when you starts the browser, a npm module that you can run or a command line that uses a headless browser. All can be adapted to your need pretty easily, but feel free to use what’s the more convenient for you.
+Paged.js comes in two flavours: a polyfill that will automatically run when you start the browser, a npm module that you can run or a command line that uses a headless browser. All can be adapted to your needs pretty easily, but feel free to use what’s the more convenient for you.
 
 ### Using Paged.js as a polyfill in web browsers
 
@@ -21,7 +21,7 @@ To be able to run Paged.js on your document, you will need the following:
 - The html and css files you want to transform into a book;
 - Paged.js script (either locally, or using our CDN link);
 - A web server to let the polyfill access your CSS file;
-- a web browser to see the magic in the screen.
+- A web browser to see the magic in the screen.
 
 #### Getting the script
 
