@@ -21,7 +21,7 @@ To be able to run Paged.js on your document, you will need the following:
 - The html and css files you want to transform into a book;
 - Paged.js script (either locally, or using our CDN link);
 - A web server to let the polyfill access your CSS file;
-- a web browser to see the magic in the screen.
+- A web browser to see the magic in the screen.
 
 #### Getting the script
 
