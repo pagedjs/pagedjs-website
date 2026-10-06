@@ -89,7 +89,14 @@ Paged.js will use that fragmentainers library to define the content of each page
 
 ### The paged-page web-component
 
-I’ve already talked about it in length in previous post, but let’s say that paged.js has now make it the barebones of any page made. 
+I’ve already talked about it in length in previous post, but let’s say that paged.js has now make it the barebones of any page generated. 
+
+## So now,
+
+We’re looking for beta testers.
+
+
+
 
 
 

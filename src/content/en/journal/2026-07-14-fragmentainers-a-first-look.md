@@ -1,5 +1,5 @@
 ---
-title: "Successfully published @pagedjs/paged-page"
+title: "Introducing Fragmentainers"
 date: 2026-07-14
 draft: true
 author: "@julientaq"
@@ -7,7 +7,13 @@ class:
 intro: "fragmentainers is the great wording Fred Chasen found to talk about those containers made of fragments. But let’s try to find out what he meant by that, and how they work" 
 ---
 
-This specific blog post has been started on the 17th of july, so i’ll try to resume it as good as i can, with all the possible updates we go in between. 
+Hi folks.
+
+been a while. 
+
+Before we jump into where we are on the dev front, i’d like to apologize for the silence. I don’t want to dig to more into it, because it’s still in motions, but i’d like to address the lack of audio from us. Life has been making our life (a specialy julien’s one) a “bit” more complicated that what we would have wanted for the last year, which much more hospitals and doctors that should have been acceptable. Meaning that most of the time that was supposed to go into paged.js got swallowed by whatever life decided to throw at us, and the time we got to work on paged.js has been about shipping what we promised ourselve to ship instead of communicating about what we were doing.
+
+
 
 But none of us like that, we’re pretty much happy working with the people instead of shipping things when they’re ready, so we’ll try to be a bit more open about this. 
 
