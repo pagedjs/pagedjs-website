@@ -41,7 +41,7 @@ If you’re running a previous book through a new version of paged.js you’ll g
 
 In terms of update, repos, where the things are and what changes are coming up.
 
-Right now, the development of the new Paged.js is on a branch called LayoutNG. This will soon get merged into the main branch. Paged.js beta will be moved to its own branch (called 0.5) from where only maintenance and merge request from the contributors will be done.  
+Right now, the development of the new Paged.js is on a branch called `pagedNG`. This will soon get merged into the main branch. Paged.js beta will be moved to its own branch (called 0.5) from where only maintenance and merge request from the contributors will be done.  
 
 The release will still be NPM releases, and you’ll still be able to work with all the versions of paged.js, unpkg.com will still gives you the version you need.
 
