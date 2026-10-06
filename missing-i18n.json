@@ -315,6 +315,22 @@
     ]},
 
     {
+    "src": "./src/content/en/journal/2026-07-14-fragmentainers-a-first-look.md",
+    "link": "/posts/en/introducing-fragmentainers/",
+    "unit": "Introducing Fragmentainers",
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
+    "src": "./src/content/en/journal/2026-10-05-breaking-pages.md",
+    "link": "/posts/en/undefined/",
+    
+    "langs": [
+    {"en": true}
+    ]},
+
+    {
     "src": "./src/content/en/examples/cetf.md",
     
     "unit": "C & F Éditions",

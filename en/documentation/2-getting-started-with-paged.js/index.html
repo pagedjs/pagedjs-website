@@ -223,6 +223,12 @@ start()
                 
             
                 
+            
+                
+            
+                
+            
+                
                     
                     
                         <li class="">
@@ -398,7 +404,7 @@ start()
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://unpkg.com/pagedjs/dist/paged.polyfill.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
 <p>As soon as your browser has loaded everything your HTML needs to be shown on screen (including images, font files, etc.), the script will start paginating the content and pages will appear on your screen.</p>
 <h4 id="preview-your-work-(interface)" tabindex="-1">Preview your work (interface)</h4>
-<p>Paged.js will manipulate the DOM so the browser can understand the css rules you wrote. On screen, pages will be shown from top to bottom on the left side of the page. To have a better understanding of what’s happening on the page, we made a small CSS file call interface that defines the layout to show your book on screen. Since we’re using <code>@media screen</code>, page borders and shadow won’t appear on paper when printed. To download the file of the interface go to the <a href="https://gitlab.coko.foundation/pagedjs/interface-polyfill">repo on gitlab</a>, download the <code>interface.css</code> file and link it to your document in the <code>&lt;head&gt;</code>. Please check the file, as it already offers options to show facing pages, recto/verso, baseline, etc.</p>
+<p>Paged.js will manipulate the DOM so the browser can understand the css rules you wrote. On screen, pages will be shown from top to bottom on the left side of the page. To have a better understanding of what’s happening on the page, we made a small CSS file call interface that defines the layout to show your book on screen. Since we’re using <code>@media screen</code>, page borders and shadow won’t appear on paper when printed. Download the file <code>interface.css</code> from <a href="https://github.com/pagedjs/pagedjs/blob/main/css/interface.css">GitHub</a> and link it to your document in the <code>&lt;head&gt;</code>. Please check the file, as it already offers options to show facing pages, recto/verso, baseline, etc.</p>
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>path/to/file/interface.css<span class="token punctuation">"</span></span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text/css<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></code></pre>
 <h4 id="generate-your-first-pdf-from-the-browser" tabindex="-1">Generate your first PDF from the browser</h4>
 <p>Once Paged.js has done its work, you can generate the PDF using the Save as PDF function your browser is using.</p>

@@ -4,13 +4,13 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
-        <title>Paged.js — Juan-les-Pins</title>
+        <title>Paged.js — Introducing Fragmentainers</title>
         <script type="module">
         document.documentElement.classList.remove('no-js'); 
         document.documentElement.classList.add('js'); 
         </script>
         <meta name="description" content="">
-        <meta property="og:title" content="Juan-les-Pins — ">
+        <meta property="og:title" content="Introducing Fragmentainers — ">
         <meta property="og:description" content="">
         <meta property="og:image" content="">
         <meta property="og:image:alt" content="Image description">
@@ -349,46 +349,102 @@ start()
 
         
         
+    
+
+        
+    
+    <header>
+        <h1 id="title">
             
+            Introducing Fragmentainers
+        </h1>
+        
+            <p class="meta">
+                written
+                by <span class="author">@julientaq</span>
+                on <time class="date">7/14/2026</time>
+            </p>
         
         
-  <article>
 
-  <header>
-  <h1 id="title">Juan-les-Pins</h1>
-  <p class="author"> A template designed by Julien Taquet (Coko)</p> 
-  </header>
+    </header>
+    <article>
+        
+        
+        
 
-
-  
-  <!-- <p class="collection"></p>  -->
-
-  <section class="description">
-  <img class="template-cover" src="/assets/templates/juan-les-pins/cover.png" alt="">
-
-  <p>Juan-les-pins is a small shore on the north bit of the Mediterrannean sea.</p>
-<p>It’s 1964, Ella Fitzgerald is singin’ with her band at the Jazz à Juan festival, where she just can’t finish her song because the hot weather was turning the cicada in the <em>pinède</em> completely off.</p>
-<p>So she waits a bit, and at some point, she starts to sing a song with the music of the night. History will remember it as the crickets song, but french folks know better, it should have been called the Cicada tune :)</p>
-<p><a href="https://www.youtube.com/watch?v=l42f-pvX5dY">https://www.youtube.com/watch?v=l42f-pvX5dY</a></p>
-<p>Juan-les-Pins is a template ready for Open Education Networks specifications.</p>
- 
-
-  
-    <p>See the preview <a href="/assets/templates/juan-les-pins/preview.pdf" >here</a></p>
-  
-  
-  
-    <p> See the sources: <a href="https://gitlab.coko.foundation/pagedjs/pagedjs-templates/juan-les-pins">https://gitlab.coko.foundation/pagedjs/pagedjs-templates/juan-les-pins</a></p>
-  
+    
+        <p class="help-wanted">
+            This page is only available in English. If you want to help us translate, you can open an issue on <a href="https://github.com/pagedjs/pagedjs-website/issues/">Github</a> and we’ll guide you through the process. Thank you!
+        </p>
+    
 
 
-  <p>Download the template <a href="/assets/templates/juan-les-pins/juan-les-pins.zip" >here</a>.</p>
+        
+        
+            <p class="intro">
+                
+                
+                    
+                
+            
+            <p>Hi folks.</p>
+<p>been a while.</p>
+<p>Before we jump into where we are on the dev front, i’d like to apologize for the silence. I don’t want to dig to more into it, because it’s still in motions, but i’d like to address the lack of audio from us. Life has been making our life (a specialy julien’s one) a “bit” more complicated that what we would have wanted for the last year, which much more hospitals and doctors that should have been acceptable. Meaning that most of the time that was supposed to go into paged.js got swallowed by whatever life decided to throw at us, and the time we got to work on paged.js has been about shipping what we promised ourselve to ship instead of communicating about what we were doing.</p>
+<p>But none of us like that, we’re pretty much happy working with the people instead of shipping things when they’re ready, so we’ll try to be a bit more open about this.</p>
+<p>This small sidenote being said, let’s dive in today’s talk, and why cssRegions are not that far from being back.</p>
+<h2 id="from-a-fragment-to-a-page" tabindex="-1">From a fragment to a page</h2>
+<p>Once upon a time there was an amazing set of specifications for the web called the CSS regions. Their idea was simple, you could write some HTML to define boxes, and you would write the CSS that would allow the content to flow into those boxes. The goal was to provide a system to generate magazine looking layout. When I started to make books with HTML and CSS, we used that project called book.js that use those specifications as a foundation to make books.</p>
+<p>Chrome and webkit did some implementations of it, and it was working quite nicely.</p>
+<p>And then Chrome left webkit to get into Blink, their own HTML/CSS rendering engine, and they discussed with the community how to remove this bit from the engine. There is a long conversation about the removal of those features from blink, and a long article on A list apart about why CSS regions were a bad idea (from the perspective of the author, which is quite not my own, and i wasn’t alone)</p>
+<p>The whole conversation is an amazing view on how specs are political considerations as much as technical ones, and why you should get involved into making them tailored to your needs.</p>
+<p><a href="https://groups.google.com/a/chromium.org/g/blink-dev/c/kTktlHPJn4Q/m/ex6GfHAq3WQJ">https://groups.google.com/a/chromium.org/g/blink-dev/c/kTktlHPJn4Q/m/ex6GfHAq3WQJ</a></p>
+<p>Anyway, this ended up being removed, and I had to run a custom weird chrome under a custom weird linux virtual machine on my 2012 laptop without a SSD. And it worked for a good couple of years. That’s also why the folks at Open Source Publishing in Brussels had to make their own engine to keep using the browser as a printed book publishing machine.</p>
+<p>(More readings on the subject if you want to know the story, and why we want those back: <a href="https://blog.osp.kitchen/residency/from-webkit-to-ospkit.html">https://blog.osp.kitchen/residency/from-webkit-to-ospkit.html</a>)</p>
+<p>So regions CSS were removed because they were full of problem that would have needed work that the browsers were not ready to make. Especially one that could allow for content to move around on a page, based on what was around.</p>
+<p>But then, the Grid CSS came up. And with it the possibility of creating rooms and a way to put content into it. Think of it as a custom Battleship grid, where, instead of throwing missile of boat, you can set the position of the content. Put the image in A3, the title on B1 to B6 and use the rest of the grid for the actual text, and you have the missing system for the css regions.</p>
+<p>The only missing bit, is how the overflow should behave. And the good thing is that’s what we’ve working on for almost a decade with paged.js. So we now can have a system to bring the CSS region back. We still need to spend some time to figure out how to make a readable CSS, and look into what other folks have made in the W3C toward those questions (we know it’s still in conversations here and there). But since we need something for the overflowing of the pages in paged.js we need a fragmenter engine.</p>
+<p>Because Paged.js has been for a long time a thing that would divide a content into pages. And the boundaries of that pages would say how much content would go into them. The funny thing is that we’re faking the page on the screen, by creating a box (a <code>&lt;div&gt;</code>), and we give to that box the dimensions of the page, and we push the content into it, until we find out that there is no space left, and we do it again until the book is made.</p>
+<p>So we have <code>divs</code> and those <code>divs</code> are simulated pages. What if those <code>div</code> were not pages, but really boxes you could write content into? Wouldn’t these be regions?</p>
+<h2 id="fragmentainers-is-the-new-chunker" tabindex="-1">Fragmentainers is the new Chunker</h2>
+<p>The fragmentainers is the implementation of the <a href="https://www.w3.org/TR/css-break-3/#fragmentation-model">css-break-3 specification</a>, which explains how a content should be divided into portions (fragment) to fill up the boxes (fragmentainers). Those specs also give the vocabulary to arbitrariloy define the breaks (when we need to create a new page for example, or when we want a chapter to start on the right page, etc. — all the break-inside, break-before or break-after properties we’ve been using before) and also those nice small features still not part of paged.js: the behavior of the decoration from one page to another: should my div have a border-top if it’s the middle of a new page? It’s also using the CSS <a href="https://www.w3.org/TR/css-page-3/">Paged Media specs</a> especially the page property which imply page breaks.</p>
+<p>In the previous versions of paged.js we use to walk the HTML tree, put it on the existing div, and do some math to find out which was part of the page, which wasn’t and when an element overflow, we would check its type, and use some different algorhythm to find where the break should appear, and we’d wait for the next page, and the next, <em>ad libitum</em>. And eventually it would stop (probably because there was nothing left, but maybe because there was a bug).</p>
+<p>With the fragmentainer library, things change a little:</p>
+<p>The fragmentation  is a 3 phases process:</p>
+<ol>
+<li>
+<p>the layout phase: we create a custom element called <code>&lt;content-measure&gt;</code> offscreen (to avoid browser painting process to optimize fragmentation). It will get the content and the CSS and will do the calculation to find the possible breakpoints. The result is a list of all the existing fragments, ready to be placed.</p>
+</li>
+<li>
+<p>The fragmentation phase: we walk each fragment created by the layout phase, and clone the DOM element into visible ones, inside custom <code>&lt;fragment-container&gt;</code> elements. There is a bunch of method to keep track of the relation between the unfragmented source and the output elements.</p>
+</li>
+<li>
+<p>The resolver pattern is what manage the behavior depending on what we’re working for. Right now, we have two existing resolvers: one for the page, when you’re making a book, and one for a region, for when you want chained blocks.</p>
+</li>
+</ol>
+<hr>
+<p>So let’s try to use this and see where it goes</p>
+<p>question:</p>
+<ul>
+<li>why do the fragment container has a 8px margin on the scope? we need to remove it i think. i’m not sure why there is this.</li>
+<li>found a moment where the constraints are not working, let’s find out.</li>
+<li></li>
+</ul>
+<!-- So, in terms of a book, a *fragmentainer* is a page: a box that contains a portion (a *fragment*) of the complete content.  The book itself is called the fragmentation context (as it contains all the fragmentainer),  -->
+<!-- That’s pretty much all the vocabulary we need to keep digging. -->
+<p>Fragmentainers is a HTML/CSS implementation of the CSS fragmentation module 3 (also known as CSS-break-3) which describes how a content should be fragmented if there is not enough room for it.</p>
+<p>The fragmentainer is the fragmentation container: a box taht contains a least a portion of a fragmented flow.</p>
+<ol>
+<li>what is a fragment</li>
+<li>How does it work</li>
+<li>paged.js implementaion</li>
+</ol>
 
-  </section>
-
-
-
-  </article>
+        </article>
+    
+    <aside class="paginator-back">
+        <a href="/en/journal/" lang="en" hreflang="en">Back to the journal</a>
+    </aside>
 
         
             <footer>

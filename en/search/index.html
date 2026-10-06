@@ -223,6 +223,12 @@ start()
                 
             
                 
+            
+                
+            
+                
+            
+                
                     
                     
                         <li class="">
@@ -418,7 +424,7 @@ The library fragments the content, reads your CSS print declarations and present
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://unpkg.com/pagedjs/dist/paged.polyfill.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
 <p>As soon as your browser has loaded everything your HTML needs to be shown on screen (including images, font files, etc.), the script will start paginating the content and pages will appear on your screen.</p>
 <h4 id="preview-your-work-(interface)" tabindex="-1">Preview your work (interface)</h4>
-<p>Paged.js will manipulate the DOM so the browser can understand the css rules you wrote. On screen, pages will be shown from top to bottom on the left side of the page. To have a better understanding of what’s happening on the page, we made a small CSS file call interface that defines the layout to show your book on screen. Since we’re using <code>@media screen</code>, page borders and shadow won’t appear on paper when printed. To download the file of the interface go to the <a href="https://gitlab.coko.foundation/pagedjs/interface-polyfill">repo on gitlab</a>, download the <code>interface.css</code> file and link it to your document in the <code>&lt;head&gt;</code>. Please check the file, as it already offers options to show facing pages, recto/verso, baseline, etc.</p>
+<p>Paged.js will manipulate the DOM so the browser can understand the css rules you wrote. On screen, pages will be shown from top to bottom on the left side of the page. To have a better understanding of what’s happening on the page, we made a small CSS file call interface that defines the layout to show your book on screen. Since we’re using <code>@media screen</code>, page borders and shadow won’t appear on paper when printed. Download the file <code>interface.css</code> from <a href="https://github.com/pagedjs/pagedjs/blob/main/css/interface.css">GitHub</a> and link it to your document in the <code>&lt;head&gt;</code>. Please check the file, as it already offers options to show facing pages, recto/verso, baseline, etc.</p>
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>path/to/file/interface.css<span class="token punctuation">"</span></span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text/css<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></code></pre>
 <h4 id="generate-your-first-pdf-from-the-browser" tabindex="-1">Generate your first PDF from the browser</h4>
 <p>Once Paged.js has done its work, you can generate the PDF using the Save as PDF function your browser is using.</p>
@@ -2148,6 +2154,27 @@ When it's gone away</p>
 
       </section>
       
+      <section class="data" id="a-pagedjs">
+        <h1></h1>
+        <p>Chunker =&gt; trouve les coupes<br>
+Polisher =&gt; nettoye les feuilles de styles</p>
+<p>The hook system</p>
+<p>Hook</p>
+<p>Hook.register =&gt; allow you to register the hook =&gt; it will be rendered<br>
+Hook.trigger =&gt; run the script<br>
+Hook.triggerSycn =&gt; run all function synchronously<br>
+Hook.list =&gt; retrun the hooks<br>
+Hook.clear =&gt; empty hooks</p>
+<hr>
+<p>handler =&gt; hook? not really?</p>
+<p>Paged.handler = pagedjs.handler</p>
+<p>=&gt; can only register the handler (which comes with chunker, polisher and caller)</p>
+<p>Pagedjs main function is the previewer that will call all the childern function</p>
+<p>the constructor will get the settings, and then it will create a new polisher, a new chunker.</p>
+<p>introduce Q couple of hooks before and after</p>
+
+      </section>
+      
       <section class="data" id="kickstarting-the-next-iteration-of-paged.js">
         <h1></h1>
         <p>Last week, the paged.js core team kickstarted the work on the next version of paged.js.</p>
@@ -3478,6 +3505,69 @@ float: snap-block(2em near)<br>
 <pre class="language-css"><code class="language-css"><span class="token comment">/* set the style for the list numbering to none */</span><br><span class="token selector">#list-toc-generated</span> <span class="token punctuation">{</span><br>  <span class="token property">list-style</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">#list-toc-generated .toc-element</span> <span class="token punctuation">{</span><br>  <span class="token property">break-inside</span><span class="token punctuation">:</span> avoid<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">#list-toc-generated .toc-element a::after</span> <span class="token punctuation">{</span><br>  <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">" p. "</span> <span class="token function">target-counter</span><span class="token punctuation">(</span><span class="token function">attr</span><span class="token punctuation">(</span>href<span class="token punctuation">)</span><span class="token punctuation">,</span> page<span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token property">float</span><span class="token punctuation">:</span> right<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">#list-toc-generated .toc-element-level-1</span> <span class="token punctuation">{</span><br>  <span class="token property">margin-top</span><span class="token punctuation">:</span> 25px<span class="token punctuation">;</span><br>  <span class="token property">font-weight</span><span class="token punctuation">:</span> bold<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">#list-toc-generated .toc-element-level-2</span> <span class="token punctuation">{</span><br>  <span class="token property">margin-left</span><span class="token punctuation">:</span> 25px<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token comment">/* counters */</span><br><br><span class="token selector">#list-toc-generated</span> <span class="token punctuation">{</span><br>  <span class="token property">counter-reset</span><span class="token punctuation">:</span> counterTocLevel1<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">#list-toc-generated .toc-element-level-1</span> <span class="token punctuation">{</span><br>  <span class="token property">counter-increment</span><span class="token punctuation">:</span> counterTocLevel1<span class="token punctuation">;</span><br>  <span class="token property">counter-reset</span><span class="token punctuation">:</span> counterTocLevel2<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">#list-toc-generated .toc-element-level-1::before</span> <span class="token punctuation">{</span><br>  <span class="token property">content</span><span class="token punctuation">:</span> <span class="token function">counter</span><span class="token punctuation">(</span>counterTocLevel1<span class="token punctuation">)</span> <span class="token string">". "</span><span class="token punctuation">;</span><br>  <span class="token property">padding-right</span><span class="token punctuation">:</span> 5px<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">#list-toc-generated .toc-element-level-2</span> <span class="token punctuation">{</span><br>  <span class="token property">counter-increment</span><span class="token punctuation">:</span> counterTocLevel2<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">#list-toc-generated .toc-element-level-2::before</span> <span class="token punctuation">{</span><br>  <span class="token property">content</span><span class="token punctuation">:</span> <span class="token function">counter</span><span class="token punctuation">(</span>counterTocLevel1<span class="token punctuation">)</span> <span class="token string">". "</span> <span class="token function">counter</span><span class="token punctuation">(</span>counterTocLevel2<span class="token punctuation">)</span> <span class="token string">". "</span><span class="token punctuation">;</span><br>  <span class="token property">padding-right</span><span class="token punctuation">:</span> 5px<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token comment">/* hack for leaders */</span><br><br><span class="token selector">#list-toc-generated</span> <span class="token punctuation">{</span><br>  <span class="token property">overflow-x</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token comment">/* fake leading */</span><br><span class="token selector">#list-toc-generated .toc-element::after</span> <span class="token punctuation">{</span><br>  <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">".............................................."</span><br>    <span class="token string">".............................................."</span><br>    <span class="token string">".............................................."</span> <span class="token string">"........"</span><span class="token punctuation">;</span><br>  <span class="token property">float</span><span class="token punctuation">:</span> left<span class="token punctuation">;</span><br>  <span class="token property">width</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span><br>  <span class="token property">padding-left</span><span class="token punctuation">:</span> 5px<span class="token punctuation">;</span><br>  <span class="token property">letter-spacing</span><span class="token punctuation">:</span> 2px<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">#list-toc-generated .toc-element</span> <span class="token punctuation">{</span><br>  <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">#list-toc-generated .toc-element a::after</span> <span class="token punctuation">{</span><br>  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span><br>  <span class="token property">right</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span><br>  <span class="token property">background-color</span><span class="token punctuation">:</span> white<span class="token punctuation">;</span><br>  <span class="token property">padding-left</span><span class="token punctuation">:</span> 6px<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">#list-toc-generated .toc-element a</span> <span class="token punctuation">{</span><br>  <span class="token property">right</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
 <p>And <em>voilà</em>!<br>
 All the files (scripts, CSS, HTML exemples) to create a table of contents are available on gitlab: <a href="https://gitlab.coko.foundation/pagedjs/experiments/tree/master/table-of-content">https://gitlab.coko.foundation/pagedjs/experiments/tree/master/table-of-content</a>.</p>
+
+      </section>
+      
+      <section class="data" id="undefined">
+        <h1></h1>
+        <hr>
+<h2 id="title%3A-%22breaking-pages%22date%3A-2026-10-05draft%3A-trueauthor%3A-%22%40julientaq%22class%3Aintro%3A-%22ready-set-go%22" tabindex="-1">title: &quot;Breaking Pages&quot;<br>
+date: 2026-10-05<br>
+draft: true<br>
+author: &quot;@julientaq&quot;<br>
+class:<br>
+intro: &quot;Ready Set Go&quot;</h2>
+<p>Hi folks.</p>
+<p>First, very quickly, before we get to the good news, we’d like to offer our apologies for the silence. Life has been quite complicated for us for a while, with much more doctors and hospitals involved than what we would have preferred. The results of all that is a reduction of the time we could spend on paged.js. Thus, we decided to spend as much of it as possible on paged.js more than we spent communicating about it.</p>
+<p>This is a good moment to try and change that equation, so let’s have a look to what’s in store, and about to be release as alpha.</p>
+<h2 id="alpha%2C-beta%2C-1.0%2C-legacy%2C-where-are-things-gonna-be%3F" tabindex="-1">alpha, beta, 1.0, legacy, where are things gonna be?</h2>
+<p>Paged.js 0.4.3 has been the main library for most of the users around. Most of the work you can find made with paged.js was part of this.</p>
+<p>The main branch on the gitlab repo is the sources for Paged.js 0.5beta2, which came with a couple of breaking changes that we never really manage to work out to make the beta the new main. We really didn’t want to put you all in a world of weirdness, so we manage those two branches, even though the beta was supposed to become the new main version. So it stalled for a while, and since we used npm releases, beta was only accessible if you wanted to test it, and main was the mostly used one.</p>
+<p>That’s where we are right now: 2 versions of paged.js, each of ’em doing some things better and other doing some things less well, and somehow, this was ok because of the decision Fred made years ago, when he thought that a library like this one would need to let folks manipulate the code without having to rewrite everything, what we ended up calling hooks, or handlers.</p>
+<p>This allows for pagedjs manipulation and custom scripts, and more of the amazing projects you can find out there are the results of people making their own hooks, either for making things move visually pleasing, or to be more accurate in terms of microtypography.</p>
+<p>That was fine of a while, but if we want to push cssPrint forward, making it a system instead of a process at the edge of publishing, we need more: we need a way to do much more than what the specs allow us to do. With the friendly folks of <a href="http://weasyprint.com">weasyprint</a>, we started to think of a way to incubate more options, more tools, and it’s time paged.js get to that point.</p>
+<p>So here we are, at the edge of what could be the next set of tools to design for print, inside browsers.</p>
+<h2 id="a-game-of-changes" tabindex="-1">A game of changes</h2>
+<p>Before jumping in, there are a couple of important things to say.</p>
+<p>Paged.js update will be transparent for people who simply used the polyfill, <em>ie</em> not making complex custom hooks and scripts to render pages differently. If you used the default, keep doing it, it should be fine.</p>
+<p>If you’re running a previous book through a new version of paged.js you’ll get differences. Not only because paged.js changed, but also because Operating systems, browsers, even fonts and graphics libraries change once in a while. One of the problem with web2print, is that the pdf is not THE final form of a content but a picture at a very precise moment. So if you want to use a specific version of each of your dependencies, make sure you keep the right version for any of them in your source code.</p>
+<p>In terms of update, repos, where the things are and what changes are coming up.</p>
+<p>Right now, the development of the new Paged.js is on a branch called LayoutNG. This will soon get merged into the main branch. Paged.js beta will be moved to its own branch (called 0.5) from where only maintenance and merge request from the contributors will be done.</p>
+<p>The release will still be NPM releases, and you’ll still be able to work with all the versions of paged.js, <a href="http://unpkg.com">unpkg.com</a> will still gives you the version you need.</p>
+<p>Now, if you made your own hooks, we’ll need you to show us what you were doing and how to find out how to make it work better with the new set of methods, and hooks and moments. please send a mail to <a href="">contact@pagedjs.org</a> and let’s discuss how we can help you get have a better system.</p>
+<p>In the meantime, let’s go through what’s gonna change.</p>
+<h2 id="chan-chan-chan-chan-changes" tabindex="-1">Chan chan chan chan changes</h2>
+<p>Until the upcoming version, paged.js was doing those three things in one giant script:</p>
+<ol>
+<li>polyfill the css properties that browsers don’t how what to do with</li>
+<li>find where and how to break the content between pages</li>
+<li>render the output as a paginated preview in the browser ready to be printed</li>
+</ol>
+<p>Now, we decided to divide those in three differents modules, that you can run as part of paged.js or in your own system. Let’s go through them quickly (we have other posts explaining how they work and what you can do with it coming up)</p>
+<h3 id="css-transformers" tabindex="-1">CSS transformers</h3>
+<p>One of the most magical thing a developper can feel when working for the web, or for a browser is how resilient that thing is. A CSS stylesheet will always be read by the browser, and it will always try to get the better out of what it can read. You made a mistake in your code? Something not expected? don’t worry, we’ll simply ignore that line, and keep working with the rest of the code. I would be quite surprise if the majority of the CSS files on the web wasn’t coming with a bunch of typos.</p>
+<p>To be able to do that, the stylesheet go through some kind of validation system. If the CSS property is unknown, it gets removed. If the value of a property doesn’t match the implemented specs, it’s simply removed. It’s brilliant.</p>
+<p>Until you want to use CSS that browser doesn’t allow yet. Like <code>@footnotes</code>. If you try to have a <code>@page</code> with footnotes inside, the <code>@page</code> will be removed from your stylesheet with everything in it. Since a couple of years, we got the luxury of having access to custom properties, that we often badly called CSS variable. They are much more than that, as they can be used as variables, but also as custom CSS properties the browser will accept in the codebase.</p>
+<p><code>CSS Transformer</code> is a library that can read any CSS, and replace parts of it based on a series of method: change class names, rename properties, values, generate custom properties and so on.</p>
+<hr>
+<h3 id="fragmentainers" tabindex="-1">Fragmentainers</h3>
+<p>Web2print has been something inside browsers for a very long time, way before paged.js was a thing. I remember my first experments were catalog for homecooking lessons and scarfs, all made in CMS, with a very simple setup of div to fake pages on screen.</p>
+<p>The only moment paged.js was needed, was when i needed to have content flowing on more than a single page, and for which you’d need to have page break in the middle of a sentence or a paragraph.</p>
+<p>I’ve worked on a couple of custom hooks for paged.js to allow what i called parallel-flows (it really needs a better name though). A good example is a book with different languages on the same page: 1 column for English, 1 for French, each of them being repeated on pages till the end. The only way to do that is to use paged.js to run the English content, then the French one, and then move everything back to the pages they’re supposed to be. It ends up working fine, but this is quite a certain amount of lost energy over a sinuated path, while this should be simple.</p>
+<p>So we decided to move things around, and instead of creating page break, to create chained blocks, that would allow content to flow from one to another, without them being pages by default. Think of it as CSS regions without the complexity of having complex html and impossible to remember css properties.</p>
+<p>We still need to think about what would be good specifications for this, but at least we can try things out.</p>
+<p>Paged.js will use that fragmentainers library to define the content of each pages.</p>
+<h3 id="the-paged-page-web-component" tabindex="-1">The paged-page web-component</h3>
+<p>I’ve already talked about it in length in previous post, but let’s say that paged.js has now make it the barebones of any page generated.</p>
+<h2 id="so-now%2C" tabindex="-1">So now,</h2>
+<p>We’re looking for beta testers.</p>
+<p>that line will not be read but all the rest will be perfectly ok.</p>
+<ul>
+<li>CSS transfomrers make css changes easier</li>
+<li>allowing for break between blocks even if they’re not pages</li>
+<li>having a web component for previewing stuff.</li>
+</ul>
+<h2 id="framgentainers" tabindex="-1">framgentainers</h2>
 
       </section>
       
