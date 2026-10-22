@@ -390,56 +390,57 @@ author: &quot;@julientaq&quot;<br>
 class:<br>
 intro: &quot;Ready Set Go&quot;</h2>
 <p>Hi folks.</p>
-<p>First, very quickly, before we get to the good news, we’d like to offer our apologies for the silence. Life has been quite complicated for us for a while, with much more doctors and hospitals involved than what we would have preferred. The results of all that is a reduction of the time we could spend on paged.js. Thus, we decided to spend as much of it as possible on paged.js more than we spent communicating about it.</p>
+<p>First, very quickly, before we get to the good news, we’d like to offer our apologies for the silence. Life has been quite complicated for us for a while (especially for me with much more doctors and hospitals involved than what we would have preferred). The results of all that is less time to work on paged.js. Thus, we decided to spend as much of it on paged.js, leaving the communication about it a bit low.</p>
 <p>This is a good moment to try and change that equation, so let’s have a look to what’s in store, and about to be release as alpha.</p>
-<h2 id="alpha%2C-beta%2C-1.0%2C-legacy%2C-where-are-things-gonna-be%3F" tabindex="-1">alpha, beta, 1.0, legacy, where are things gonna be?</h2>
-<p>Paged.js 0.4.3 has been the main library for most of the users around. Most of the work you can find made with paged.js was part of this.</p>
-<p>The main branch on the gitlab repo is the sources for Paged.js 0.5beta2, which came with a couple of breaking changes that we never really manage to work out to make the beta the new main. We really didn’t want to put you all in a world of weirdness, so we manage those two branches, even though the beta was supposed to become the new main version. So it stalled for a while, and since we used npm releases, beta was only accessible if you wanted to test it, and main was the mostly used one.</p>
-<p>That’s where we are right now: 2 versions of paged.js, each of ’em doing some things better and other doing some things less well, and somehow, this was ok because of the decision Fred made years ago, when he thought that a library like this one would need to let folks manipulate the code without having to rewrite everything, what we ended up calling hooks, or handlers.</p>
-<p>This allows for pagedjs manipulation and custom scripts, and more of the amazing projects you can find out there are the results of people making their own hooks, either for making things move visually pleasing, or to be more accurate in terms of microtypography.</p>
-<p>That was fine of a while, but if we want to push cssPrint forward, making it a system instead of a process at the edge of publishing, we need more: we need a way to do much more than what the specs allow us to do. With the friendly folks of <a href="http://weasyprint.com">weasyprint</a>, we started to think of a way to incubate more options, more tools, and it’s time paged.js get to that point.</p>
+<h2 id="alpha%2C-beta%2C-1.0%2C-legacy%2C-where-the-wilds-things-are" tabindex="-1">alpha, beta, 1.0, legacy, where the wilds things are</h2>
+<p>If some folks decided to put the bravery up and jump on the 0.5beta, but most of the work you see around are made with the latest version available on npm with a simple <code>npm install</code>, the 0.4.3.</p>
+<p>But the <code>main</code> branch on the github repo is the sources for Paged.js 0.5beta2, which come with a couple of breaking changes. Most of those came from a huge commit from @NigelCunningham, with the goal of better support for tables, and, by doing so, the possibility to have a better system for multiple break points. After testing it a bit we decided to make it the beta, and we made a mistake, we put the beta as the new <code>main</code> branch, making it quite hard to update paged.js 0.4.3. So we keep working on this beta, without really ever making it the new standard published version.</p>
+<p>That’s this weird state we are in right now: 2 versions of paged.js, each of ’em doing some things better and other doing some things less well, and somehow, this was ok, thanks to the handlers or the hooks, this decision that Fred made years ago, when he thought that a library like this one should allow arbitrary code, without having to rewrite everything.</p>
+<p>All the amazing projects you can find out there using paged.js are the results of people making their own hooks, their own way of editing code, either for making things more visually pleasing, or to be more accurate in terms of microtypography.</p>
+<p>But this situation of multiple versions of paged.js can’t last long. If we want to push #CSSPrint forward, making it a system instead of a process at the edge of publishing, we need more: we need a way to do much more than what the specs allow us to do.</p>
+<p>With the friendly folks of <a href="http://weasyprint.com">weasyprint</a>, we started to think of a way to incubate more options, more tools, and it’s time paged.js get to that point.</p>
 <p>So here we are, at the edge of what could be the next set of tools to design for print, inside browsers.</p>
 <h2 id="a-game-of-changes" tabindex="-1">A game of changes</h2>
 <p>Before jumping in, there are a couple of important things to say.</p>
-<p>Paged.js update will be transparent for people who simply used the polyfill, <em>ie</em> not making complex custom hooks and scripts to render pages differently. If you used the default, keep doing it, it should be fine.</p>
-<p>If you’re running a previous book through a new version of paged.js you’ll get differences. Not only because paged.js changed, but also because Operating systems, browsers, even fonts and graphics libraries change once in a while. One of the problem with web2print, is that the pdf is not THE final form of a content but a picture at a very precise moment. So if you want to use a specific version of each of your dependencies, make sure you keep the right version for any of them in your source code.</p>
-<p>In terms of update, repos, where the things are and what changes are coming up.</p>
+<p>Paged.js update will be transparent for people who simply used the polyfill, <em>ie</em> people not making complex custom hooks and scripts to render pages how they need. If you only used CSS to make your layout, you should be fine.</p>
+<p>If you’re running a previous book through a new version of paged.js you’ll get differences. Not only because paged.js changed, but also because Operating Systems, browsers, even fonts and graphics libraries may have changed too. One of the problem with web2print, is that the PDF is not the final form of a content but a picture at a very precise moment, made with very specific set of tools and environment. So if you want to use a specific version of paged.js and other dependencies, make sure you keep the right version for any of them in your source code.</p>
+<h2 id="about-paged.js" tabindex="-1">About paged.js</h2>
 <p>Right now, the development of the new Paged.js is on a branch called <code>pagedNG</code>. This will soon get merged into the main branch. Paged.js beta will be moved to its own branch (called 0.5) from where only maintenance and merge request from the contributors will be done.</p>
-<p>The release will still be NPM releases, and you’ll still be able to work with all the versions of paged.js, <a href="http://unpkg.com">unpkg.com</a> will still gives you the version you need.</p>
-<p>Now, if you made your own hooks, we’ll need you to show us what you were doing and how to find out how to make it work better with the new set of methods, and hooks and moments. please send a mail to <a href="">contact@pagedjs.org</a> and let’s discuss how we can help you get have a better system.</p>
-<p>In the meantime, let’s go through what’s gonna change.</p>
+<p>Releases will still be NPM releases, and you’ll still be able to work with all the versions of paged.js, <a href="http://unpkg.com">unpkg.com</a> will still give you the version you need.</p>
+<p>Now, if you made your own hooks, we’ll need you to show us what you were doing and how to find out how to make it work better with the new set of methods, and hooks and moments.</p>
+<p>Please send a mail to <a href="mailto:contact@pagedjs.org">contact@pagedjs.org</a> and let’s discuss how we can help you get an understanding of this new system.</p>
+<p>In the meantime, let’s have a look at those updates</p>
 <h2 id="chan-chan-chan-chan-changes" tabindex="-1">Chan chan chan chan changes</h2>
 <p>Until the upcoming version, paged.js was doing those three things in one giant script:</p>
 <ol>
-<li>polyfill the css properties that browsers don’t how what to do with</li>
-<li>find where and how to break the content between pages</li>
-<li>render the output as a paginated preview in the browser ready to be printed</li>
+<li>polyfill the CSS properties that browsers doesn’t know what to do with;</li>
+<li>find where and how to break the content between pages;</li>
+<li>render the output as a paginated preview in the browser, ready for print.</li>
 </ol>
-<p>Now, we decided to divide those in three differents modules, that you can run as part of paged.js or in your own system. Let’s go through them quickly (we have other posts explaining how they work and what you can do with it coming up)</p>
+<p>Now, we decided to divide those in three different modules, that you can run as part of paged.js or in your own system:</p>
 <h3 id="css-transformers" tabindex="-1">CSS transformers</h3>
-<p>One of the most magical thing a developper can feel when working for the web, or for a browser is how resilient that thing is. A CSS stylesheet will always be read by the browser, and it will always try to get the better out of what it can read. You made a mistake in your code? Something not expected? don’t worry, we’ll simply ignore that line, and keep working with the rest of the code. I would be quite surprise if the majority of the CSS files on the web wasn’t coming with a bunch of typos.</p>
-<p>To be able to do that, the stylesheet go through some kind of validation system. If the CSS property is unknown, it gets removed. If the value of a property doesn’t match the implemented specs, it’s simply removed. It’s brilliant.</p>
-<p>Until you want to use CSS that browser doesn’t allow yet. Like <code>@footnotes</code>. If you try to have a <code>@page</code> with footnotes inside, the <code>@page</code> will be removed from your stylesheet with everything in it. Since a couple of years, we got the luxury of having access to custom properties, that we often badly called CSS variable. They are much more than that, as they can be used as variables, but also as custom CSS properties the browser will accept in the codebase.</p>
+<p>One of the most magical thing a developer can feel when working for the web, or for a browser, is how resilient that thing is. A CSS stylesheet will always be read by the browser, and it will always try to get the better out of what it finds. You made a mistake in your code? Something not expected? Don’t worry, it will simply ignore that line, and keep working with the rest of the code. I would be quite surprise if the majority of the CSS files on the web wasn’t coming with a bunch of typos.</p>
+<p>To be able to do that, the browser runs the stylesheet through some kind of validation system. If the CSS property is unknown, it gets removed. If the value of a property doesn’t match the implemented specs, it’s removed. It keeps only what it understand, it’s brilliant</p>
+<p>Until you want to use CSS that browser doesn’t allow yet.</p>
+<p>Like <code>@footnotes</code>. If you try to have a <code>@page</code> with footnotes inside, the <code>@page</code> will be removed from your stylesheet along everything in it. Since a couple of years, we got the luxury of having access to custom properties, that we often badly called CSS variable. They are much more than that, as they can be used as variables, but also as custom CSS properties the browser will accept in the codebase.</p>
 <p><code>CSS Transformer</code> is a library that can read any CSS, and replace parts of it based on a series of method: change class names, rename properties, values, generate custom properties and so on.</p>
+<p>We’re making it available as it’s own system. That’s the last place where CSSTree will be used in page.js, as we’re working now with the Stylesheets objects from the browser.</p>
+<p>Check the code here: <a href="">https://github.com/pagedjs/css-transformer</a></p>
 <hr>
 <h3 id="fragmentainers" tabindex="-1">Fragmentainers</h3>
-<p>Web2print has been something inside browsers for a very long time, way before paged.js was a thing. I remember my first experments were catalog for homecooking lessons and scarfs, all made in CMS, with a very simple setup of div to fake pages on screen.</p>
+<p>Web2print has been something inside browsers for a very long time, way before paged.js was a thing. I remember my first experiments were catalogs for home cooking lessons, and some sale catalogs for (beautiful) scarves, all made in CMS, with a very simple setup of <code>div</code> to fake pages on screen.</p>
 <p>The only moment paged.js was needed, was when i needed to have content flowing on more than a single page, and for which you’d need to have page break in the middle of a sentence or a paragraph.</p>
 <p>I’ve worked on a couple of custom hooks for paged.js to allow what i called parallel-flows (it really needs a better name though). A good example is a book with different languages on the same page: 1 column for English, 1 for French, each of them being repeated on pages till the end. The only way to do that is to use paged.js to run the English content, then the French one, and then move everything back to the pages they’re supposed to be. It ends up working fine, but this is quite a certain amount of lost energy over a sinuated path, while this should be simple.</p>
-<p>So we decided to move things around, and instead of creating page break, to create chained blocks, that would allow content to flow from one to another, without them being pages by default. Think of it as CSS regions without the complexity of having complex html and impossible to remember css properties.</p>
-<p>We still need to think about what would be good specifications for this, but at least we can try things out.</p>
+<p>So we decided to move things around, and instead of creating page break, to create chained blocks, that would allow content to flow from one to another, without them being pages by default. Think of it as an update of what the CSS regions could have been. This is now the library paged.js uses in the background, where each block is a page. But this can be quite more: we need to think of a way to provide options for this in CSS. We really need to think about how we could made specifications for this.</p>
 <p>Paged.js will use that fragmentainers library to define the content of each pages.</p>
+<p>Check the code here: <a href=""> https://github.com/pagedjs/fragmentainers</a></p>
 <h3 id="the-paged-page-web-component" tabindex="-1">The paged-page web-component</h3>
-<p>I’ve already talked about it in length in previous post, but let’s say that paged.js has now make it the barebones of any page generated.</p>
+<p>We already talked about it in length <a href="/posts/en/successfully-published-@pagedjspaged-page/">in the previous post</a>, but let’s say that paged.js has now made it the barebone of any page generated.</p>
+<p>You can check the code here: <a href="">https://github.com/pagedjs/css-transformer</a></p>
 <h2 id="so-now%2C" tabindex="-1">So now,</h2>
 <p>We’re looking for beta testers.</p>
-<p>that line will not be read but all the rest will be perfectly ok.</p>
-<ul>
-<li>CSS transfomrers make css changes easier</li>
-<li>allowing for break between blocks even if they’re not pages</li>
-<li>having a web component for previewing stuff.</li>
-</ul>
-<h2 id="framgentainers" tabindex="-1">framgentainers</h2>
+<p>If you wanna join, get on the train by sending <a href="contact@pagedjs.org">an email</a> or join the matrix [<a href="https://matrix.to/#/!MXyruBjIrFRrfsyMDV:matrix.org?via=matrix.org">https://matrix.to/#/!MXyruBjIrFRrfsyMDV:matrix.org?via=matrix.org</a>]</p>
+<p>Let’s get started (again)</p>
 
         </article>
     
